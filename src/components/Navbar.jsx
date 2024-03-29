@@ -277,12 +277,12 @@ export default function Navbar(props) {
                 component={Link}
                 to='/'
                 sx={{ textDecoration: 'none', color: 'text.primary', py: 1 }}>
-                <Image cdn='files/logo/2023/files-text.png' sx={{ height: '50px' }} />
+                <Image cdn='projects/logo/2023/projects-text.png' sx={{ height: '50px' }} />
                 <Typography
                     color='text.secondary'
                     variant='body2'
                     fontWeight='bold'
-                    sx={{ position: 'absolute', bottom: 2, left: '37%' }}>
+                    sx={{ position: 'absolute', bottom: 2, left: '27%' }}>
                     Beta
                 </Typography>
             </Box>
