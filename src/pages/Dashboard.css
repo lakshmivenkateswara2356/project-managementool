@@ -1,0 +1,17 @@
+/* Sidebar item hover and active state styling */
+.MuiListItem-button:hover {
+    background-color: #444 !important;
+}
+
+.active-item {
+    background-color: #1E90FF !important;
+    border-left: 5px solid #1E90FF; /* Highlighted border for active item */
+    height: 32px;
+    width: 192px;
+    border-radius: 9px !important;
+}
+
+/* Active text color change */
+.active-item .MuiListItemText-root span {
+    background-color: #1E90FF !important;
+}
