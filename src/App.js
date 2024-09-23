@@ -1,18 +1,12 @@
 import React from 'react';
-import { Route, Routes } from 'react-router-dom';
-import './utilities/axios';
+import Home from './pages/Home'; // Example import
 
-import Header from './components/Header';
-import Home from './pages/Home';
-
-const App = () => {
-    return (
-        <Header>
-            <Routes>
-                <Route path='/' element={<Home />} />
-            </Routes>
-        </Header>
-    );
-};
+function App() {
+  return (
+    <div className="App">
+      <Home />  {/* Ensure your main page is rendered */}
+    </div>
+  );
+}
 
 export default App;
