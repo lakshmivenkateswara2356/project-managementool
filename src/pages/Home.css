@@ -1,3 +1,28 @@
 .imagedashboard {
     margin-left: 152px;
 }
+
+.dividingline {
+    height: 1px;
+    width: 156px;
+    background-color: rgb(142, 138, 138);
+}
+
+.yourworj {
+    color: #A5A5A5;
+    font-family: Dm sans;
+}
+
+.buttonelement{
+    width: 175px;
+height: 35px;
+border-width: 1px;
+
+
+border-radius:11px;
+
+background-color: #3767B1;
+color: white
+
+;
+}

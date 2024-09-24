@@ -1,6 +1,8 @@
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import React from 'react';
+import clikklepro from '../Assets/clikkleproj.png'
+import './ActionIcon.css';
 import Image from './Image';
 
 export default function ActionIcon(props) {
@@ -13,7 +15,7 @@ export default function ActionIcon(props) {
                     icon
                 ) : (
                     <Image
-                        src={src}
+                        src={clikklepro}
                         sx={{
                             maxHeight: '30px',
                             ...imageSx,
@@ -21,6 +23,7 @@ export default function ActionIcon(props) {
                         {...rest}
                     />
                 )}
+               <p>clikkl</p>
             </IconButton>
         </Tooltip>
     );

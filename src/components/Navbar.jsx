@@ -1,7 +1,19 @@
 import React, { useCallback, useEffect, useState } from 'react';
 
-import { Link, NavLink, useLocation } from 'react-router-dom';
 
+import { Link, NavLink, useLocation } from 'react-router-dom';
+import Home from '../pages/Home'
+import clikklecamp from '../Assets/clikklecampan.png'
+import clikklehost from '../Assets/clikklehost.png';
+import clikklesign from '../Assets/clikkleesign.png';
+import clikklefavic from '../Assets/clikklefaviic.png';
+import clikklelaunch from '../Assets/clikklelaunch.png';
+import clikklepitch from '../Assets/clikklepitch.png';
+import clikkleproj from '../Assets/clikkleproj.png';
+import clikklerocket from '../Assets/clikklerocket.png';
+import clikklemail from '../Assets/cliklemail.png';
+import clikkleiconimage from './images/hr-text.png'
+import './Navbar.css'
 //mui component
 import {
     AppBar,
@@ -269,6 +281,7 @@ export default function Navbar(props) {
 
     const drawer = (
         <Box minHeight='100dvh' color='text.secondary' display='flex' flexDirection='column'>
+            
             <Box
                 display='flex'
                 alignItems='center'
@@ -340,6 +353,7 @@ export default function Navbar(props) {
                                                 minWidth: '35px',
                                                 color: 'text.secondary',
                                             }}>
+                                                
                                             {link.icon}
                                         </ListItemIcon>
                                         <ListItemText primary={link.name} />
@@ -347,6 +361,7 @@ export default function Navbar(props) {
                                 </ListItem>
                             )}
                         </NavLink>
+                        
                     ))}
                 </List>
             </Box>
@@ -505,12 +520,14 @@ export default function Navbar(props) {
 
     console.log({ drawerHover });
     return (
-        <Box
-            sx={{
+        <div>
+            
+            <Box  sx={{
                 bgcolor: 'background.default',
                 px: { xs: 0.5, xm: 0 },
-                height: '100dvh',
-                position: 'relative',
+                height: '10dvh',
+                
+               
             }}>
             <AppBar
                 elevation={0}
@@ -537,7 +554,7 @@ export default function Navbar(props) {
                     color: 'text.primary',
                     transition: 'ease-in-out 225ms, background-color 0s',
                 }}>
-                <Toolbar
+                     <Toolbar
                     sx={{
                         flexDirection: 'column',
                         justifyContent: 'center',
@@ -547,8 +564,10 @@ export default function Navbar(props) {
                             px: 1,
                         },
                     }}>
-                    <Grid container alignItems='center' columnSpacing={1}>
-                        <Grid item>
+                        <Grid container alignItems='center' columnSpacing={1}>
+                        <img src={clikkleproj} alt="hrimg" className='companyclikkle'/>
+                        <h1 className='clikklename'>Clikkle<span className='projectsnam'> Projects</span></h1>
+            <Grid item>
                             <IconButton
                                 onClick={matches ? handleDrawerOpen : handleDrawerToggle}
                                 edge='start'
@@ -559,7 +578,7 @@ export default function Navbar(props) {
                                 <MenuIcon sx={{ fontSize: '30px' }} />
                             </IconButton>
                         </Grid>
-
+                       
                         <Grid item xs md={5} alignItems='start'>
                             <SearchBar />
                         </Grid>
@@ -672,7 +691,9 @@ export default function Navbar(props) {
                                 </Menu>
                             </Stack>
                         </Grid>
-                        <Grid item>
+
+                        <Grid Item>
+                        
                             <IconButton
                                 onClick={openProfileMenu}
                                 sx={{
@@ -687,9 +708,7 @@ export default function Navbar(props) {
                                     sx={{ width: 30, height: 30 }}
                                 />
                             </IconButton>
-
-                            <Menu
-                                anchorEl={anchorElProfile}
+                            <Menu  anchorEl={anchorElProfile}
                                 open={Boolean(anchorElProfile)}
                                 onClose={closeProfileMenu}
                                 sx={{
@@ -703,37 +722,66 @@ export default function Navbar(props) {
                                         pt: 1.5,
                                     },
                                 }}>
-                                <Grid container spacing={2} alignItems='center' flexWrap='nowrap'>
-                                    <Grid item>
+<Grid container spacing={2} alignItems='center' flexWrap='nowrap'>
+<Grid item>
                                         <Avatar
                                             alt='Remy Sharp'
                                             src='https://shorturl.at/fjqz9'
                                             sx={{ width: 100, height: 100 }}
                                         />
                                     </Grid>
-                                    <Grid item xs={8}>
-                                        <Typography
-                                            variant='substitle1'
-                                            component='div'
-                                            fontWeight={600}
-                                            sx={{
-                                                whiteSpace: 'nowrap',
-                                                overflow: 'hidden',
-                                                textOverflow: 'ellipsis',
-                                            }}>
-                                            {platformUser.firstName + ' ' + platformUser.lastName}
-                                        </Typography>
-                                        <Typography
-                                            variant='caption'
-                                            component='div'
-                                            sx={{
-                                                overflow: 'hidden',
-                                                textOverflow: 'ellipsis',
-                                                whiteSpace: 'nowrap',
-                                            }}>
-                                            {platformUser.email}
-                                        </Typography>
-                                        <Typography
+                                    
+
+</Grid>
+{platformUser ? (
+    <Typography
+        variant='subtitle1' // Corrected from 'substitle1' to 'subtitle1'
+        component='div'
+        fontWeight={600}
+        sx={{
+            whiteSpace: 'nowrap',
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
+        }}>
+        {platformUser.firstName + ' ' + platformUser.lastName}
+    </Typography>
+) : (
+    <Typography
+        variant='subtitle1' // You can provide a default state or loading message
+        component='div'
+        fontWeight={600}
+        sx={{
+            whiteSpace: 'nowrap',
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
+        }}>
+        Loading...
+    </Typography>
+)}
+{platformUser ? (
+    <Typography
+        variant='caption'
+        component='div'
+        sx={{
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
+            whiteSpace: 'nowrap',
+        }}>
+        {platformUser.email}
+    </Typography>
+) : (
+    <Typography
+        variant='caption'
+        component='div'
+        sx={{
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
+            whiteSpace: 'nowrap',
+        }}>
+        No email available {/* Provide a fallback message */}
+    </Typography>
+)}
+<Typography
                                             variant='caption'
                                             component='a'
                                             href={env('MY_ACCOUNT')}
@@ -749,9 +797,7 @@ export default function Navbar(props) {
                                             display='block'>
                                             My Profile
                                         </Typography>
-                                    </Grid>
-                                </Grid>
-                                <Stack direction='row' mt={2}>
+                                        <Stack direction='row' mt={2}>
                                     <Button variant='text' fullWidth>
                                         Add account
                                     </Button>
@@ -760,29 +806,33 @@ export default function Navbar(props) {
                                     </Button>
                                 </Stack>
                             </Menu>
+                            
                         </Grid>
                     </Grid>
-                </Toolbar>
-
-                <Box
-                    sx={{
-                        width: appsWidth,
-                        display: { xs: 'none', xm: 'block' },
-                        backgroundColor: 'background.default',
-                        zIndex: '1200',
-                        position: 'absolute',
-                        right: 0,
-                        top: 65,
-                    }}>
-                    <Stack
+            </Toolbar>
+          
+                        <Box 
+                        sx={{
+                            width: appsWidth,
+                            display: { xs: 'none', xm: 'block' },
+                            backgroundColor: 'background.default',
+                            zIndex: '1200',
+                            position: 'absolute',
+                            right: 0,
+                            top: 65,
+                        }}>
+                             <Stack
                         direction='column'
                         justifyContent='center'
                         alignItems='center'
                         spacing={1}
                         overflow='hidden'
                         px={0.8}>
-                        <DragDropContext onDragEnd={onDragEnd}>
-                            <Droppable droppableId='apps' isDropDisabled={!editable}>
+
+
+
+<DragDropContext onDragEnd={onDragEnd}>
+<Droppable droppableId='apps' isDropDisabled={!editable}>
                                 {provided => (
                                     <div ref={provided.innerRef} {...provided.droppableProps}>
                                         {sidebarApps ? (
@@ -836,9 +886,9 @@ export default function Navbar(props) {
                                     </div>
                                 )}
                             </Droppable>
-                        </DragDropContext>
-                        <Divider variant='middle' sx={{ my: 2, width: '80%' }} />
-                        {editable ? (
+</DragDropContext>
+<Divider variant='middle' sx={{ my: 2, width: '80%' }} />
+{editable ? (
                             <ActionIcon
                                 title='Save'
                                 icon={<DoneIcon fontSize='small' />}
@@ -854,19 +904,19 @@ export default function Navbar(props) {
                                 onClick={() => setEditable(true)}
                             />
                         )}
-                    </Stack>
-                </Box>
-            </AppBar>
+                        </Stack>
 
-            <Box
+                        </Box>
+
+                        </AppBar>
+                        <Box
                 component='nav'
                 sx={{
                     width: { xm: drawerWidth },
                     flexShrink: { sm: 0 },
                     bgcolor: 'custom.menu',
                 }}>
-                {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
-                <MuiDrawer
+                     <MuiDrawer
                     variant='temporary'
                     open={mobileOpen}
                     onClose={handleDrawerToggle}
@@ -910,9 +960,8 @@ export default function Navbar(props) {
                     }}>
                     {collapseDrawer ? drawer : miniDrawer}
                 </Drawer>
-            </Box>
-
-            <Box
+                </Box>
+                <Box
                 component='main'
                 sx={{
                     width: {
@@ -935,7 +984,6 @@ export default function Navbar(props) {
                 }}>
                 {children}
             </Box>
-
             <Modal
                 open={feedbackState}
                 onClose={closeFeedback}
@@ -948,6 +996,8 @@ export default function Navbar(props) {
                     <Feedback closeModal={closeFeedback} />
                 </>
             </Modal>
-        </Box>
+            </Box>
+        </div>
     );
 }
+

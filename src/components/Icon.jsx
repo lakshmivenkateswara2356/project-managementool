@@ -1,6 +1,22 @@
 import Box from '@mui/material/Box';
 import React from 'react';
 
+import clikklecamp from '../Assets/clikklecampan.png'
+import clikklehost from '../Assets/clikklehost.png';
+import clikklesign from '../Assets/clikkleesign.png';
+import clikklefavic from '../Assets/clikklefaviic.png';
+import clikklelaunch from '../Assets/clikklelaunch.png';
+import clikklepitch from '../Assets/clikklepitch.png';
+import clikkleproj from '../Assets/clikkleproj.png';
+import clikklerocket from '../Assets/clikklerocket.png';
+import clikklemail from '../Assets/cliklemail.png';
+import clikkleiconimage from './images/hr-text.png'
+
+
+
+
+
+
 const Icon = props => {
     const { name, src, sx, ...rest } = props;
 
@@ -8,6 +24,7 @@ const Icon = props => {
 
     return (
         <>
+        
             <Box
                 component='img'
                 src={src ? link : `${process.env.PUBLIC_URL}/images/icons/${name}`}
@@ -15,6 +32,20 @@ const Icon = props => {
                 sx={{ maxWidth: '100%', ...sx }}
                 {...rest}
             />
+
+<div className='Clikkleiconselign'>
+            <div className='iconAlignmrnt'>
+            <img src={clikklecamp} alt="img" className='clikkleicons'/>
+            <img src={clikklefavic} alt="img" className='clikkleicons'/>
+            <img src={clikklehost} alt="img" className='clikkleicons'/>
+            <img src={clikklelaunch} alt="img" className='clikkleicons'/>
+            <img src={clikklemail} alt="img" className='clikkleicons'/>
+            <img src={clikklepitch} alt="img" className='clikkleicons'/>
+            <img src={clikkleproj} alt="img" className='clikkleicons'/>
+            <img src={clikklerocket} alt="img" className='clikkleicons'/>
+            <img src={clikklesign} alt="img" className='clikkleicons'/>
+            </div>
+            </div>
         </>
     );
 };

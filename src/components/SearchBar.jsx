@@ -1,3 +1,4 @@
+// SearchBar.js
 import {
     Card,
     FormControl,
@@ -21,7 +22,7 @@ const SearchWrapper = styled('div')(({ theme }) => ({
     maxWidth: '720px',
     display: 'flex',
     alignItems: 'center',
-    backgroundColor: theme.palette.custom.search.main,
+    backgroundColor: theme.palette.custom?.search?.main || '#f1f1f1', // Fallback to default color
     border: 'none',
     borderRadius: '20px',
 }));
@@ -53,15 +54,11 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     width: '100%',
     '& .MuiInputBase-input': {
         padding: theme.spacing(1, 1, 1, 0),
-        [theme.breakpoints.up('sm')]: {
-            padding: theme.spacing(1.5, 1, 1.5),
-            paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-        },
         paddingLeft: `calc(1em + ${theme.spacing(4)})`,
         transition: theme.transitions.create('width'),
         width: '100%',
         '&:focus': {
-            backgroundColor: theme.palette.custom.search.focus,
+            backgroundColor: theme.palette.custom?.search?.focus || '#ffffff', // Fallback to focus color
             boxShadow: 'rgba(0, 0, 0, 0.24) 0px 1px 3px',
             borderRadius: '20px',
         },
@@ -69,7 +66,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 const SearchBar = () => {
-    const { anchorEl: anchorElFilter, openMenu: opneFilter, closeMenu: closeFilter } = useMenu();
+    const { anchorEl: anchorElFilter, openMenu: openFilter, closeMenu: closeFilter } = useMenu();
 
     return (
         <React.Fragment>
@@ -88,7 +85,7 @@ const SearchBar = () => {
                 <IconWrapperRight>
                     <IconButton
                         sx={{ display: { xs: 'none', md: 'inline-flex' } }}
-                        onClick={opneFilter}>
+                        onClick={openFilter}>
                         <TuneIcon />
                     </IconButton>
                 </IconWrapperRight>

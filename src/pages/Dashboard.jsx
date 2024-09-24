@@ -3,6 +3,7 @@ import { Box, Typography, Grid, Paper, IconButton, Button, List, ListItem, ListI
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import WorkIcon from '@mui/icons-material/Work';
 import GroupIcon from '@mui/icons-material/Group';
+import Navbar from '../components/Navbar';
 import AssignmentTurnedInIcon from '@mui/icons-material/AssignmentTurnedIn';
 import PendingActionsIcon from '@mui/icons-material/PendingActions';
 import ReportProblemIcon from '@mui/icons-material/ReportProblem';
@@ -31,6 +32,8 @@ const Dashboard = () => {
                         onClick={() => handleSectionClick('dashboard')}
                         className={activeSection === 'dashboard' ? 'active-item' : ''}
                     >
+
+
                         <ListItemIcon>
                             <DashboardIcon sx={{ color: '#fff' }} />
                         </ListItemIcon>

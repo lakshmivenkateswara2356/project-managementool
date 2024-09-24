@@ -7,7 +7,11 @@ import GroupIcon from '@mui/icons-material/Group';
 import AddIcon from '@mui/icons-material/Add';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import React, { useState } from 'react';
+import Navbar from '../components/Navbar'
 import image from './dahboardimg.png';
+import ActionIcon from '../components/ActionIcon';
+import Icon from '../components/Icon';
+
 import './Home.css'
 
 const Home = () => {
@@ -29,12 +33,17 @@ const Home = () => {
     };
 
     return (
+       <div>
+        
+        <Navbar/>
+        
+        <div className='dashboardarrange'>
         <Box
             p={2}
             sx={{
-                backgroundColor: '#000000', // Black background
+                backgroundColor: '#ffffff', // Black background
                 height: '100vh',
-                color: '#ffffff',
+                color: '#000000',
             }}
         >
             {/* Sidebar */}
@@ -45,11 +54,12 @@ const Home = () => {
                     left: 0,
                     width: '250px',
                     height: '100vh',
-                    backgroundColor: '#1a1a1a',
+                    color: '#1a1a1a',
+                    backgroundColor: '#FFFFFF',
                     padding: '20px',
                 }}
             >
-                <Typography variant="h6" color="text.primary" sx={{ color: '#fff' }}>
+                <Typography variant="h6" color="text.primary" sx={{ color: '#1a1a1a' }}>
                     Clikkle Projects
                 </Typography>
 
@@ -67,18 +77,30 @@ const Home = () => {
                         </Typography>
                     </Box>
                     <Box display="flex" alignItems="center">
+                        
                         <AccountBalanceWalletIcon sx={{ color: '#bbb', marginRight: 1 }} />
                         <Typography variant="body1" sx={{ color: '#bbb' }}>
                             Your Work
                         </Typography>
                     </Box>
+                    <div className='dividingline'></div>
+                    <p1 className="yourworj">Your work</p1>
                     <Box display="flex" alignItems="center">
                         <GroupIcon sx={{ color: '#bbb', marginRight: 1 }} />
                         <Typography variant="body1" sx={{ color: '#bbb' }}>
                             Team
                         </Typography>
                     </Box>
+
+                    
                 </Stack>
+                <IconButton sx={{ color: '#fff' }}>
+                            <AddIcon />
+                        </IconButton>
+                        <IconButton sx={{ color: '#fff' }}>
+                            <MoreVertIcon />
+                        </IconButton>
+                    
 
                 <Box sx={{ position: 'absolute', bottom: 20, width: '100%' }}>
                     <Typography variant="body2" sx={{ color: '#bbb' }}>
@@ -87,6 +109,7 @@ const Home = () => {
                     <Typography variant="caption" sx={{ color: '#888' }}>
                         1 GB used of 5 GB
                     </Typography>
+                    <button className='buttonelement'>Upgrade Storege</button>
                 </Box>
             </Box>
 
@@ -100,7 +123,8 @@ const Home = () => {
                     alignItems: 'center',
                     justifyContent: 'center',
                     height: '100%',
-                    backgroundColor: '#000',
+                   
+                    backgroundColor: '#FFFFFF',
                 }}
             >
                 {/* Top-right corner with Dashboard text and icons */}
@@ -152,16 +176,18 @@ const Home = () => {
                     right: 0,
                     width: '60px',
                     height: '100vh',
-                    backgroundColor: '#333',
+                    backgroundColor: '#FFFFFF',
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
                     paddingTop: '10px',
                 }}
             >
+               
                 <IconButton>
                     <InfoIcon sx={{ color: '#fff' }} />
                 </IconButton>
+                <Icon/>
             </Box>
 
             {/* Dialog for adding new item */}
@@ -187,6 +213,11 @@ const Home = () => {
                 </DialogActions>
             </Dialog>
         </Box>
+        
+
+        </div>
+       </div>
+       
     );
 };
 
