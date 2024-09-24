@@ -2,6 +2,7 @@ import { Box, Button, Select as MuiSelect, Stack } from '@mui/material';
 import React, { useState } from 'react';
 import Close from '@mui/icons-material/Close';
 import Done from '@mui/icons-material/Done';
+import './Select.css';
 
 const Select = props => {
     const { children, filter, clear, sx, ...rest } = props;
@@ -12,7 +13,7 @@ const Select = props => {
 
     return (
         <Box sx={{ position: 'relative', p: 0, m: 0 }}>
-            <MuiSelect
+            <MuiSelect className='muktiselectsiz'
                 open={select}
                 onClose={closeSelect}
                 onOpen={e => {

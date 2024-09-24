@@ -21,7 +21,7 @@ const App = () => {
 
         
         <div>
-             <Home/>
+             <Dashboard/>
         </div>
     );
 };

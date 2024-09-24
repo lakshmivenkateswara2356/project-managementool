@@ -566,7 +566,10 @@ export default function Navbar(props) {
                     }}>
                         <Grid container alignItems='center' columnSpacing={1}>
                         <img src={clikkleproj} alt="hrimg" className='companyclikkle'/>
+                        <div>
                         <h1 className='clikklename'>Clikkle<span className='projectsnam'> Projects</span></h1>
+                        <h1 className='clikklebeta'>Beta</h1>
+                        </div>
             <Grid item>
                             <IconButton
                                 onClick={matches ? handleDrawerOpen : handleDrawerToggle}

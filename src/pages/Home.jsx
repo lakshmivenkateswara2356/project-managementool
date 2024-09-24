@@ -1,4 +1,4 @@
-import { Box, IconButton, Typography, Stack, Avatar, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField, Button } from '@mui/material';
+import { Box, IconButton, Typography, Stack, Avatar, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField, Button, Select } from '@mui/material';
 import InfoIcon from '@mui/icons-material/InfoOutlined';
 import HomeIcon from '@mui/icons-material/Home';
 import AssignmentIcon from '@mui/icons-material/Assignment';
@@ -8,6 +8,7 @@ import AddIcon from '@mui/icons-material/Add';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import React, { useState } from 'react';
 import Navbar from '../components/Navbar'
+import clikklereport from '../Assets/clikklerepair.png'
 import image from './dahboardimg.png';
 import ActionIcon from '../components/ActionIcon';
 import Icon from '../components/Icon';
@@ -66,11 +67,16 @@ const Home = () => {
                 }}
             >
                 <Typography variant="h6" color="text.primary" sx={{ color: '#1a1a1a' }}>
-                    Clikkle Projects
+                    Clikkle Project
                 </Typography>
 
 
                 <Stack mt={2} spacing={2}>
+                    <div className='alighite'>
+                    <img src={clikklereport} alt="clikklerep" className='cikklerepair'/>
+                    <h1 className='clikkletechnologies'>Clikkle Technologies</h1>
+                    
+                    </div>
                     <Box className="addingsomestyles" display="flex"
                                 alignItems="center"
                                 sx={{
@@ -80,8 +86,8 @@ const Home = () => {
                                 }}
                                 onClick={() => handleSectionClick('Dashboard')}
                             >
-                        <HomeIcon sx={{ color: '#666665', marginRight: 1 }} />
-                        <Typography variant="body1" sx={{ color: '#666665' }}>
+                        <HomeIcon sx={{  marginRight: 1 }} />
+                        <Typography variant="body1" >
                             Dashboard
                         </Typography>
                     </Box>
@@ -212,7 +218,7 @@ const Home = () => {
                         src={image}
                         sx={{ width: 150, height: 150, marginBottom: 2 }}
                     />
-                    <Typography variant="h5" color="text.primary" sx={{ color: '#000000' }}>
+                    <Typography className='correctiong' variant="h5" color="text.primary" sx={{ color: '#000000' }}>
                     No current activity!
                     </Typography>
                     <Typography variant="body2" color="text.secondary" sx={{ color: '#bbb' }}>

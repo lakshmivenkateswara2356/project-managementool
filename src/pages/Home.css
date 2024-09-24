@@ -51,6 +51,17 @@ text-align: left;
     ;
 }
 
+.cikklerepair {
+    height: 18px;
+    width: 18px;
+    margin-top: 17px;
+    margin-right: 8px;
+}
+.alighite {
+    display: flex;
+    flex-direction: row;
+}
+
 .underliner {
     height: 1px;
     width: 80vw;
@@ -86,9 +97,21 @@ text-align: left;
     height: 32px;
     width: 192px;
     color: white !important;
+    margin-top: px !important;
     border-radius: 4px !important;
 }
 
+.clikkletechnologies {
+    margin-bottom: -23px !important;
+    margin-top: 18px !important;
+    font-size: 15px;
+    color: #7a7a7a;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.correctiong {
+    margin-left: -123px !important;
+}
 .storagetracj {
     height: 4px;
     border-radius: 12px;
