@@ -523,7 +523,7 @@ export default function Navbar(props) {
         <div>
             
             <Box  sx={{
-                bgcolor: 'background.default',
+                bgcolor: '#f7f9fc',
                 px: { xs: 0.5, xm: 0 },
                 height: '10dvh',
                 

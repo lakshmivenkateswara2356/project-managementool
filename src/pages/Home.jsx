@@ -21,6 +21,10 @@ const Home = () => {
     const handleClickOpen = () => {
         setOpenDialog(true);
     };
+    const [selectedSection, setSelectedSection] = useState('Dashboard');
+    const handleSectionClick = (section) => {
+        setSelectedSection(section);
+    };
 
     const handleClose = () => {
         setOpenDialog(false);
@@ -39,13 +43,15 @@ const Home = () => {
         
         <div className='dashboardarrange'>
         <Box
+
             p={2}
             sx={{
-                backgroundColor: '#ffffff', // Black background
+                backgroundColor: '#f7f9fc', // Black background
                 height: '100vh',
                 color: '#000000',
             }}
         >
+            
             {/* Sidebar */}
             <Box
                 sx={{
@@ -55,7 +61,7 @@ const Home = () => {
                     width: '250px',
                     height: '100vh',
                     color: '#1a1a1a',
-                    backgroundColor: '#FFFFFF',
+                    backgroundColor: '#f7f9fc',
                     padding: '20px',
                 }}
             >
@@ -63,31 +69,55 @@ const Home = () => {
                     Clikkle Projects
                 </Typography>
 
+
                 <Stack mt={2} spacing={2}>
-                    <Box display="flex" alignItems="center">
-                        <HomeIcon sx={{ color: '#bbb', marginRight: 1 }} />
-                        <Typography variant="body1" sx={{ color: '#bbb' }}>
+                    <Box className="addingsomestyles" display="flex"
+                                alignItems="center"
+                                sx={{
+                                    backgroundColor: selectedSection === 'Dashboard' ? '#3b84d9' : 'transparent',
+                                    borderRadius: '5px',
+                                    cursor: 'pointer',
+                                }}
+                                onClick={() => handleSectionClick('Dashboard')}
+                            >
+                        <HomeIcon sx={{ color: '#666665', marginRight: 1 }} />
+                        <Typography variant="body1" sx={{ color: '#666665' }}>
                             Dashboard
                         </Typography>
                     </Box>
-                    <Box display="flex" alignItems="center">
-                        <AssignmentIcon sx={{ color: '#bbb', marginRight: 1 }} />
-                        <Typography variant="body1" sx={{ color: '#bbb' }}>
+                    <Box display="flex"
+                                alignItems="center"
+                                sx={{
+                                    backgroundColor: selectedSection === 'Projects' ? '#3b84d9' : 'transparent',
+                                    borderRadius: '5px',
+                                    cursor: 'pointer',
+                                }}
+                                onClick={() => handleSectionClick('Projects')}>
+                        <AssignmentIcon sx={{ color: '#666665', marginRight: 1 }} />
+                        <Typography variant="body1" sx={{ color: '#666665' }}>
                             Projects
                         </Typography>
                     </Box>
-                    <Box display="flex" alignItems="center">
+                    <Box  display="flex"
+                                alignItems="center"
+                                sx={{
+                                    backgroundColor: selectedSection === 'Your Work' ? '#3b84d9' : 'transparent',
+                                    borderRadius: '5px',
+                                    
+                                    cursor: 'pointer',
+                                }}
+                                onClick={() => handleSectionClick('Your Work')}>
                         
-                        <AccountBalanceWalletIcon sx={{ color: '#bbb', marginRight: 1 }} />
-                        <Typography variant="body1" sx={{ color: '#bbb' }}>
+                        <AccountBalanceWalletIcon sx={{ color: '#666665', marginRight: 1 }} />
+                        <Typography variant="body1" sx={{ color: '#666665' }}>
                             Your Work
                         </Typography>
                     </Box>
                     <div className='dividingline'></div>
                     <p1 className="yourworj">Your work</p1>
                     <Box display="flex" alignItems="center">
-                        <GroupIcon sx={{ color: '#bbb', marginRight: 1 }} />
-                        <Typography variant="body1" sx={{ color: '#bbb' }}>
+                        <GroupIcon sx={{ color: '#666665', marginRight: 1 }} />
+                        <Typography variant="body1" sx={{ color: '#666665' }}>
                             Team
                         </Typography>
                     </Box>
@@ -95,7 +125,8 @@ const Home = () => {
                     
                 </Stack>
                 <IconButton sx={{ color: '#fff' }}>
-                            <AddIcon />
+                           
+                          
                         </IconButton>
                         <IconButton sx={{ color: '#fff' }}>
                             <MoreVertIcon />
@@ -103,10 +134,12 @@ const Home = () => {
                     
 
                 <Box sx={{ position: 'absolute', bottom: 20, width: '100%' }}>
-                    <Typography variant="body2" sx={{ color: '#bbb' }}>
+                <div className='sectionseperation'></div>
+                    <Typography className='marginbottom' variant="body2" sx={{ color: '#000000' }}>
                         Storage
                     </Typography>
-                    <Typography variant="caption" sx={{ color: '#888' }}>
+                    <div className='storagetracj'></div>
+                    <Typography variant="caption" sx={{ color: '#3d83d5' }}>
                         1 GB used of 5 GB
                     </Typography>
                     <button className='buttonelement'>Upgrade Storege</button>
@@ -127,7 +160,27 @@ const Home = () => {
                     backgroundColor: '#FFFFFF',
                 }}
             >
-                {/* Top-right corner with Dashboard text and icons */}
+               
+<div className='flexingitems'>
+    
+    <h1 className='normal'>Dashboard</h1>
+
+    <Box sx={{ display: 'flex',direction: 'row', alignItems: 'start',mr: '5px' }}>
+                        <IconButton sx={{ color: '#000000' }}>
+                        <button className='buttonelementee'>  <AddIcon className='iconsize'/>Create new Project</button>
+                        </IconButton>
+                        <IconButton sx={{ color: '#000000' }}>
+                            <MoreVertIcon />
+                        </IconButton>
+                    </Box>
+                    
+</div>
+<div>
+                    <div className='underliner'></div>
+                    </div>
+
+
+
                 <Box
                     sx={{
                         position: 'absolute',
@@ -140,7 +193,7 @@ const Home = () => {
                     <Typography variant="h5" color="text.primary" sx={{ color: '#fff', marginRight: 2 }}>
                         Dashboard
                     </Typography>
-
+                    
                     <IconButton onClick={handleClickOpen}>
                         <AddIcon sx={{ color: '#0000FF' }} />
                     </IconButton>
@@ -151,6 +204,7 @@ const Home = () => {
                 </Box>
 
                 {/* Center content */}
+                
                 <Box textAlign="center">
                     <Avatar
                         alt="No activity"
@@ -158,8 +212,8 @@ const Home = () => {
                         src={image}
                         sx={{ width: 150, height: 150, marginBottom: 2 }}
                     />
-                    <Typography variant="h5" color="text.primary" sx={{ color: '#fff' }}>
-                        No current activity!
+                    <Typography variant="h5" color="text.primary" sx={{ color: '#000000' }}>
+                    No current activity!
                     </Typography>
                     <Typography variant="body2" color="text.secondary" sx={{ color: '#bbb' }}>
                         When you create projects or projects are assigned to you, all progress

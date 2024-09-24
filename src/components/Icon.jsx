@@ -27,6 +27,7 @@ const Icon = props => {
         
             <Box
                 component='img'
+                bgcolor='#f7f9fc'
                 src={src ? link : `${process.env.PUBLIC_URL}/images/icons/${name}`}
                 alt='icon'
                 sx={{ maxWidth: '100%', ...sx }}
