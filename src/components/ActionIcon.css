@@ -2,3 +2,50 @@
     height: 133px;
     width: 33px;
 }
+
+.clikklebeta {
+    font-size: 17px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: -11px;
+    color: #3b3b3b;
+    margin-left: -164px !important;
+    font-weight: 400;
+}
+.projectIcon{
+    height: 73px;
+    width: 70px;
+}
+
+.size {
+    height: 12px;
+}
+
+
+  /* Styling for medium devices */
+  @media (max-width: 1199px) and (min-width: 768px) {
+
+.clikklename {
+    display: none !important;
+}
+.projectIcon {
+    display: none !important;
+}
+
+
+  
+
+  }
+  
+  /* Styling for small devices */
+  @media (max-width: 767px) {
+  
+
+    .projectIcon {
+        display: none !important;
+    }
+    
+    .hideinmobile {
+        display: none !important;
+    }
+  }
+  

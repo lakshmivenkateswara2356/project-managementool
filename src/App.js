@@ -12,17 +12,22 @@ import SearchBar from './components/SearchBar';
 import Navbar from './components/Navbar';
 import Image from './components/Image';
 import Icon from './components/Icon';
+import ThemeContextProvider from './style/theme'
+import Testing from './pages/Testing'
+import Sidebare from './services/sidebarLinks'
 
 import MicrophoneIcon from './components/MicrophoneIcon';
 import Dashboard from './pages/Dashboard';
+import CircularProgressWithLabel from './components/CircularProgressWithLabel';
 
 const App = () => {
     return (
 
         
-        <div>
-             <Dashboard/>
-        </div>
+<ThemeContextProvider>
+   <Dashboard/>
+</ThemeContextProvider>
+ 
     );
 };
 

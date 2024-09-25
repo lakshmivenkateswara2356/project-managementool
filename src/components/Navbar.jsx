@@ -4,6 +4,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import Home from '../pages/Home'
 import clikklecamp from '../Assets/clikklecampan.png'
+
 import clikklehost from '../Assets/clikklehost.png';
 import clikklesign from '../Assets/clikkleesign.png';
 import clikklefavic from '../Assets/clikklefaviic.png';
@@ -138,6 +139,8 @@ export default function Navbar(props) {
     const platformUser = useUser();
     const matches = useMediaQuery('(min-width:1024px)', { noSsr: true });
 
+ 
+
     const { toggleTheme, mode } = useTheme();
     const theme = useMuiTheme();
 
@@ -155,9 +158,11 @@ export default function Navbar(props) {
         openMenu: openSettingsMenu,
         closeMenu: closeSettingsMenu,
     } = useMenu();
+    const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
 
     const handleDrawerToggle = () => {
-        setMobileOpen(!mobileOpen);
+        setMobileOpen(!isDrawerOpen);
     };
 
     const handleDrawerOpen = () => {
@@ -523,7 +528,7 @@ export default function Navbar(props) {
         <div>
             
             <Box  sx={{
-                bgcolor: '#f7f9fc',
+               
                 px: { xs: 0.5, xm: 0 },
                 height: '10dvh',
                 
@@ -547,7 +552,7 @@ export default function Navbar(props) {
                                 ? `${drawerWidth}px`
                                 : `${miniDrawerWidth}px`,
                     },
-                    backgroundColor: 'background.default',
+                    backgroundColor: '#f7f9fc',
 
                     borderBottom: '1px solid custom.border',
                     // borderBottomColor: 'custom.border',
@@ -556,6 +561,7 @@ export default function Navbar(props) {
                 }}>
                      <Toolbar
                     sx={{
+                        backgroundColor:'background.default',
                         flexDirection: 'column',
                         justifyContent: 'center',
                         position: 'relative',
@@ -565,21 +571,22 @@ export default function Navbar(props) {
                         },
                     }}>
                         <Grid container alignItems='center' columnSpacing={1}>
-                        <img src={clikkleproj} alt="hrimg" className='companyclikkle'/>
-                        <div>
-                        <h1 className='clikklename'>Clikkle<span className='projectsnam'> Projects</span></h1>
-                        <h1 className='clikklebeta'>Beta</h1>
-                        </div>
-            <Grid item>
-                            <IconButton
-                                onClick={matches ? handleDrawerOpen : handleDrawerToggle}
-                                edge='start'
-                                sx={{
-                                    ml: 0.2,
-                                    mr: 1,
-                                }}>
-                                <MenuIcon sx={{ fontSize: '30px' }} />
-                            </IconButton>
+                      
+                        
+            <Grid item sx={({
+                backgroundColor:'background.default',
+            })}>
+            <IconButton
+                onClick={handleDrawerToggle} // Toggle sidebar on click
+                edge='start'
+                sx={{
+                    backgroundColor:'background.default',
+                    ml: 0.2,
+                    mr: 1,
+                }}
+            >
+                <MenuIcon sx={{ fontSize: '30px' }} />
+            </IconButton>
                         </Grid>
                        
                         <Grid item xs md={5} alignItems='start'>
@@ -711,104 +718,125 @@ export default function Navbar(props) {
                                     sx={{ width: 30, height: 30 }}
                                 />
                             </IconButton>
-                            <Menu  anchorEl={anchorElProfile}
-                                open={Boolean(anchorElProfile)}
-                                onClose={closeProfileMenu}
-                                sx={{
-                                    '.MuiPaper-root.MuiMenu-paper.MuiPopover-paper': {
-                                        width: 'min(100%, 320px)',
-                                        boxShadow:
-                                            'rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px',
-                                        border: '1px solid #00000017',
-                                        bgcolor: 'custom.menu',
-                                        px: 0.5,
-                                        pt: 1.5,
-                                    },
-                                }}>
-<Grid container spacing={2} alignItems='center' flexWrap='nowrap'>
-<Grid item>
-                                        <Avatar
-                                            alt='Remy Sharp'
-                                            src='https://shorturl.at/fjqz9'
-                                            sx={{ width: 100, height: 100 }}
-                                        />
-                                    </Grid>
-                                    
+                            <Menu
+            anchorEl={anchorElProfile}
+            open={Boolean(anchorElProfile)}
+            onClose={closeProfileMenu}
+            sx={{
+                '.MuiPaper-root.MuiMenu-paper.MuiPopover-paper': {
+                    width: 'min(100%, 320px)',
+                    boxShadow:
+                        'rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px',
+                    border: '1px solid #00000017',
+                    bgcolor: 'custom.menu',
+                    px: 0.5,
+                    pt: 1.5,
+                },
+            }}
+        >
+            <Grid container spacing={2} alignItems='center' flexWrap='nowrap'>
+                <Grid item>
+                    <Avatar
+                        alt='User Avatar'
+                        src='https://shorturl.at/fjqz9'
+                        sx={{ width: 100, height: 100 }}
+                    />
+                </Grid>
+                <Grid item>
+                    {platformUser ? (
+                        <Typography
+                            variant='subtitle1'
+                            component='div'
+                            fontWeight={600}
+                            sx={{
+                                whiteSpace: 'nowrap',
+                                overflow: 'hidden',
+                                textOverflow: 'ellipsis',
+                            }}
+                        >
+                            {platformUser.firstName + ' ' + platformUser.lastName}
+                        </Typography>
+                    ) : (
+                        <Typography
+                            variant='subtitle1'
+                            component='div'
+                            fontWeight={600}
+                            sx={{
+                                whiteSpace: 'nowrap',
+                                overflow: 'hidden',
+                                textOverflow: 'ellipsis',
+                            }}
+                        >
+                           Smith
+                        </Typography>
+                    )}
 
-</Grid>
-{platformUser ? (
-    <Typography
-        variant='subtitle1' // Corrected from 'substitle1' to 'subtitle1'
-        component='div'
-        fontWeight={600}
-        sx={{
-            whiteSpace: 'nowrap',
-            overflow: 'hidden',
-            textOverflow: 'ellipsis',
-        }}>
-        {platformUser.firstName + ' ' + platformUser.lastName}
-    </Typography>
-) : (
-    <Typography
-        variant='subtitle1' // You can provide a default state or loading message
-        component='div'
-        fontWeight={600}
-        sx={{
-            whiteSpace: 'nowrap',
-            overflow: 'hidden',
-            textOverflow: 'ellipsis',
-        }}>
-        Loading...
-    </Typography>
-)}
-{platformUser ? (
-    <Typography
-        variant='caption'
-        component='div'
-        sx={{
-            overflow: 'hidden',
-            textOverflow: 'ellipsis',
-            whiteSpace: 'nowrap',
-        }}>
-        {platformUser.email}
-    </Typography>
-) : (
-    <Typography
-        variant='caption'
-        component='div'
-        sx={{
-            overflow: 'hidden',
-            textOverflow: 'ellipsis',
-            whiteSpace: 'nowrap',
-        }}>
-        No email available {/* Provide a fallback message */}
-    </Typography>
-)}
+                    {platformUser ? (
+                        <Typography
+                            variant='caption'
+                            component='div'
+                            sx={{
+                                overflow: 'hidden',
+                                textOverflow: 'ellipsis',
+                                whiteSpace: 'nowrap',
+                            }}
+                        >
+                            {platformUser.email}
+                        </Typography>
+                    ) : (
+                        <Typography
+                            variant='caption'
+                            component='div'
+                            sx={{
+                                overflow: 'hidden',
+                                textOverflow: 'ellipsis',
+                                whiteSpace: 'nowrap',
+                            }}
+                        >
+                            examplesmith@clikkle.com
+                        </Typography>
+                    )}
+
 <Typography
-                                            variant='caption'
-                                            component='a'
-                                            href={env('MY_ACCOUNT')}
-                                            color='primary.main'
-                                            display='block'>
-                                            My Clikkle account
-                                        </Typography>
-                                        <Typography
-                                            variant='caption'
-                                            component='a'
-                                            href='#'
-                                            color='primary.main'
-                                            display='block'>
-                                            My Profile
-                                        </Typography>
-                                        <Stack direction='row' mt={2}>
-                                    <Button variant='text' fullWidth>
-                                        Add account
-                                    </Button>
-                                    <Button variant='text' onClick={signOut} fullWidth>
-                                        Sign out
-                                    </Button>
-                                </Stack>
-                            </Menu>
+                    variant='caption'
+                    component='a'
+                    href='#' // Replace with the actual link to "My Clikkle account"
+                    color='primary.main'
+                    display='block'
+                    sx={{ marginTop: '8px',
+                        textDecoration:'none',
+                     }}
+                >
+                    My Clikkle account
+                </Typography>
+
+                <Typography
+                    variant='caption'
+                    component='a'
+                    href='#' // Replace with the actual link to "My Profile"
+                    color='primary.main'
+                    display='block'
+                    sx={{ 
+                        textDecoration:'none',
+                     }}
+                >
+                    My Profile
+                </Typography>
+                </Grid>
+            </Grid>
+
+
+
+
+            <Stack direction='row' mt={2} spacing={1}>
+                <Button variant='text' fullWidth>
+                    Add account
+                </Button>
+                <Button variant='text' onClick={signOut} fullWidth>
+                    Sign out
+                </Button>
+            </Stack>
+        </Menu>
                             
                         </Grid>
                     </Grid>

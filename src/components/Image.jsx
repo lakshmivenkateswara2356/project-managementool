@@ -1,6 +1,8 @@
 import Box from '@mui/material/Box';
 import React from 'react';
 
+
+
 // Rename the component to avoid conflict with the global 'Image' constructor
 const CustomImage = (props) => {
     const { name, cdn, src, sx, ...rest } = props;

@@ -1,0 +1,16 @@
+
+
+.settingtop {
+    margin-top: -223px !important;
+    margin-left: 18px !important;
+}
+
+
+
+
+@media (max-width: 767px) {
+    .responsiveview{
+        display: none !important;
+    }
+  }
+  

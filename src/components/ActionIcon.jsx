@@ -14,17 +14,19 @@ export default function ActionIcon(props) {
                 {icon ? (
                     icon
                 ) : (
-                    <Image
+                    <Image className="projectIcon"
                         src={clikklepro}
                         sx={{
-                            maxHeight: '30px',
+                            maxHeight: '75px',
                             ...imageSx,
                         }}
                         {...rest}
                     />
                 )}
-               <p>clikkl</p>
+                 
+                       
             </IconButton>
+           
         </Tooltip>
     );
 }

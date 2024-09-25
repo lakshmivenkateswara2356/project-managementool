@@ -4,9 +4,16 @@ import DashboardIcon from '@mui/icons-material/Dashboard';
 import WorkIcon from '@mui/icons-material/Work';
 import GroupIcon from '@mui/icons-material/Group';
 import Navbar from '../components/Navbar';
-import profileclikk from '../Assets/profileclikk.jpeg'
+import profileclikk from '../Assets/profileclikk.jpeg';
+import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
+import GradeOutlinedIcon from '@mui/icons-material/GradeOutlined';
+import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import InfoIcon from '@mui/icons-material/Info';
+import PeopleIcon from '@mui/icons-material/People';
+import PersonIcon from '@mui/icons-material/Person';
+import FolderOutlinedIcon from '@mui/icons-material/FolderOutlined';
+
 import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
 import {
         Avatar, AppBar, Toolbar, InputBase,
@@ -36,6 +43,11 @@ const Dashboard = () => {
     const handleSectionClick = (section) => {
         setActiveSection(section);
     };
+    const [activeButton, setActiveButton] = useState('Dashboard'); // Set 'Dashboard' as the default active button
+
+    const handleButtonClick = (button) => {
+        setActiveButton(button); // Update the active button when a button is clicked
+    };
 
     return (
         
@@ -44,7 +56,7 @@ const Dashboard = () => {
 <Box sx={{ display: 'flex', height: '100vh', backgroundColor: '#fff', color: '#1a1a1a' }}>
             {/* Sidebar */}
             
-            <Box sx={{ width: '250px', backgroundColor: '#f7f9fc', color:'#333', padding: '20px' }}>
+            <Box className="dispalyresponsive" sx={{ width: '250px', backgroundColor: '#f7f9fc', color:'#333', padding: '20px' }}>
             <div className='alighite'>
                     <img src={clikklereport} alt="clikklerep" className='cikklerepair'/>
                     <h1 className='clikkletechnologies'>Clikkle Technologies</h1>
@@ -53,55 +65,64 @@ const Dashboard = () => {
                 <List component="nav">
                     {/* Dashboard Sidebar Item */}
                     
-                    <Box className="addingsomestyles" display="flex"
-                                alignItems="center"
-                                sx={{
-                                    backgroundColor: selectedSection === 'Dashboard' ? '#3b84d9' : 'transparent',
-                                    borderRadius: '5px',
-                                    cursor: 'pointer',
-                                }}
-                                onClick={() => handleSectionClick('Dashboard')}
-                            >
-                        <HomeIcon sx={{  marginRight: 1 }} />
-                        <Typography variant="body1" >
-                            Dashboard
-                        </Typography>
-                    </Box>
-                    
-                    
+                    <Box sx={{ padding: '10px', width: '200px', backgroundColor: '#f7f9fc' }}>
+            {/* Dashboard Sidebar Item */}
+            <Box sx={{ padding: '10px', width: '200px', backgroundColor: '#f7f9fc' }}>
+            {/* Dashboard Sidebar Button */}
+            <Box
+                display="flex"
+                alignItems="center"
+                sx={{
+                    backgroundColor: activeButton === 'Dashboard' ? '#3b84d9' : 'transparent',
+                    color: activeButton === 'Dashboard' ? '#fff' : '#666665',
+                    borderRadius: '5px',
+                    padding: '10px',
+                    cursor: 'pointer',
+                    '&:hover': { backgroundColor: '#3b84d9', color: '#fff' },
+                }}
+                onClick={() => handleButtonClick('Dashboard')}
+            >
+                <HomeIcon sx={{ marginRight: 1 }} />
+                <Typography variant="body1">Dashboard</Typography>
+            </Box>
 
-                    {/* Projects Sidebar Item */}
-                    <Box display="flex"
-                                alignItems="center"
-                                sx={{
-                                    backgroundColor: selectedSection === 'Projects' ? '#3b84d9' : 'transparent',
-                                    borderRadius: '5px',
-                                    cursor: 'pointer',
-                                }}
-                                onClick={() => handleSectionClick('Projects')}>
-                        <AssignmentIcon sx={{ color: '#666665', marginRight: 1 }} />
-                        <Typography variant="body1" sx={{ color: '#666665' }}>
-                            Projects
-                        </Typography>
-                    </Box>
+            {/* Projects Sidebar Button */}
+            <Box
+                display="flex"
+                alignItems="center"
+                sx={{
+                    backgroundColor: activeButton === 'Projects' ? '#3b84d9' : 'transparent',
+                    color: activeButton === 'Projects' ? '#fff' : '#666665',
+                    borderRadius: '5px',
+                    padding: '10px',
+                    cursor: 'pointer',
+                    '&:hover': { backgroundColor: '#3b84d9', color: '#fff' },
+                }}
+                onClick={() => handleButtonClick('Projects')}
+            >
+                <AssignmentIcon sx={{ marginRight: 1 }} />
+                <Typography variant="body1">Projects</Typography>
+            </Box>
 
-                    {/* Team Sidebar Item */}
-                    
-                    <Box  display="flex"
-                                alignItems="center"
-                                sx={{
-                                    backgroundColor: selectedSection === 'Your Work' ? '#3b84d9' : 'transparent',
-                                    borderRadius: '5px',
-                                    
-                                    cursor: 'pointer',
-                                }}
-                                onClick={() => handleSectionClick('Your Work')}>
-                        
-                        <AccountBalanceWalletIcon sx={{ color: '#666665', marginRight: 1 }} />
-                        <Typography variant="body1" sx={{ color: '#666665' }}>
-                            Your Work
-                        </Typography>
-                    </Box>
+            {/* Your Work Sidebar Button */}
+            <Box
+                display="flex"
+                alignItems="center"
+                sx={{
+                    backgroundColor: activeButton === 'Your Work' ? '#3b84d9' : 'transparent',
+                    color: activeButton === 'Your Work' ? '#fff' : '#666665',
+                    borderRadius: '5px',
+                    padding: '10px',
+                    cursor: 'pointer',
+                    '&:hover': { backgroundColor: '#3b84d9', color: '#fff' },
+                }}
+                onClick={() => handleButtonClick('Your Work')}
+            >
+                <AccountBalanceWalletIcon sx={{ marginRight: 1 }} />
+                <Typography variant="body1">Your Work</Typography>
+            </Box>
+        </Box>
+        </Box>
                 </List>
                 <Box sx={{ position: 'absolute', bottom: 20, width: '100%' }}>
                 <div className='sectionseperatione'></div>
@@ -121,7 +142,7 @@ const Dashboard = () => {
 
 
             {/* Main Dashboard Content */}
-            <Box sx={{ flexGrow: 1, padding: '20px' }}>
+            <Box sx={{ flexGrow: 1,width:'70vw',backgroundColor:'background.default', padding: '20px' }}>
                 <Box
                     sx={{
                         display: 'flex',
@@ -130,28 +151,32 @@ const Dashboard = () => {
                         paddingBottom: '20px',
                     }}
                 >
-                    <Typography variant="h4" component="div" sx={{ color: '#333' }}>
+                  
+                    <Typography variant="h6" component="div" sx={{ color: '#333' }}>
                         {activeSection.charAt(0).toUpperCase() + activeSection.slice(1)}
                     </Typography>
 
                     <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                        <IconButton sx={{ color: '#333' }}>
-                            <AddIcon />
+                    <IconButton sx={{ color: '#000000' }}>
+                    <AddIcon className='iconsizee'/>
+                        <button className='buttonelementee'>  <AddIcon className='iconsize'/>Create new Project</button>
                         </IconButton>
                         <IconButton sx={{ color: '#333' }}>
                             <MoreVertIcon />
                         </IconButton>
                     </Box>
+                    
+
                 </Box>
 
-
+                <h1 className='seperationline'></h1>
                 {/* The rest of your content remains the same, like task overview and issues updates */}
-                <Grid container spacing={2}>
+                <Grid className='heero' container spacing={2}>
                     {/* To Do */}
                     <Grid item xs={12} sm={6} md={3}>
                         <Paper
                             sx={{
-                                backgroundColor: '#fff',
+                                backgroundColor: 'background.default',
                                 padding: '20px',
                                 borderRadius: '8px',
                                 color:  '#333' ,
@@ -166,7 +191,7 @@ const Dashboard = () => {
                                     0
                                 </Typography>
                             </Box>
-                            <WorkIcon sx={{ fontSize: 40, color: '#FF6347' }} />
+                            <FolderOutlinedIcon sx={{ fontSize: 40, color: '#FF6347' }} />
                         </Paper>
                     </Grid>
 
@@ -174,7 +199,7 @@ const Dashboard = () => {
                     <Grid item xs={12} sm={6} md={3}>
                         <Paper
                             sx={{
-                                backgroundColor: '#fff',
+                                backgroundColor: 'background.default',
                                 padding: '20px',
                                 borderRadius: '8px',
                                 color:  '#333',
@@ -189,7 +214,7 @@ const Dashboard = () => {
                                     0
                                 </Typography>
                             </Box>
-                            <PendingActionsIcon sx={{ fontSize: 40, color: '#1E90FF' }} />
+                            <AccessTimeOutlinedIcon sx={{ fontSize: 40, color: '#1E90FF' }} />
                         </Paper>
                     </Grid>
 
@@ -197,7 +222,7 @@ const Dashboard = () => {
                     <Grid item xs={12} sm={6} md={3}>
                         <Paper
                             sx={{
-                                backgroundColor: '#fff',
+                                backgroundColor: 'background.default',
                                 padding: '20px',
                                 borderRadius: '8px',
                                 color: '#333' ,
@@ -212,7 +237,7 @@ const Dashboard = () => {
                                     0
                                 </Typography>
                             </Box>
-                            <InfoIcon sx={{ fontSize: 40, color: '#FFD700' }} />
+                            <GradeOutlinedIcon sx={{ fontSize: 40, color: '#FFD700' }} />
                         </Paper>
                     </Grid>
                     
@@ -221,7 +246,7 @@ const Dashboard = () => {
                     <Grid item xs={12} sm={6} md={3}>
                         <Paper
                             sx={{
-                                backgroundColor:'#fff',
+                                backgroundColor:'background.default',
                                 padding: '20px',
                                 borderRadius: '8px',
                                 color: '#333',
@@ -236,118 +261,191 @@ const Dashboard = () => {
                                     2
                                 </Typography>
                             </Box>
-                            <CheckCircleIcon sx={{ fontSize: 40, color: '#32CD32' }} />
+                            <DeleteOutlinedIcon sx={{ fontSize: 40, color: '#32CD32' }} />
                         </Paper>
                     </Grid>
                 </Grid>
 
                 {/* Issues Updates Section */}
-                <Box sx={{ display: 'flex',  padding: 2, gap: 2 }}>
+                <Box className="dashboardesettingocn" sx={{ display: 'flex',flexDirection:'row',justifyContent:'space-between',  padding: 2, gap: 2 }}>
           {/* Activity Section */}
-          <Paper
+          <Paper className='totalissues'
+      sx={{
+        backgroundColor: 'backgroud.default', // Dark background
+        padding: 2,
+        color: '#fff',
+        borderRadius: '10px',
+        width:'40vw'
+      }}
+    >
+      {/* Header Section */}
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          mb: 2,
+        }}
+      >
+        <Typography variant="h6" sx={{ color: '#bbb' }}>
+          Activity
+        </Typography>
+        <Button
+          sx={{
+            color: '#0A84FF',
+            textTransform: 'none',
+          }}
+        >
+          View All
+        </Button>
+      </Box>
+
+      {/* Divider */}
+      <Divider sx={{ backgroundColor: '#333' }} />
+
+      {/* Activity List */}
+      <Box sx={{ paddingY: 2 }}>
+        {[...Array(5)].map((_, index) => (
+          <Box
+            key={index}
             sx={{
-              flex: 2,
-              backgroundColor: '#fff',
-              padding: 2,
               display: 'flex',
-              color: '#333',
-              flexDirection: 'column',
+              alignItems: 'center',
+              mb: 2,
             }}
           >
-            <Box sx={{ display: 'flex',backgroundColor: '#fff', justifyContent: 'space-between', alignItems: 'center' }}>
-              <Typography variant="h6" sx={{ color: '#fff' }}>
-                Activity
+            {/* Avatar */}
+            <Avatar
+              src={profileclikk}
+              alt="Daniel Thompson"
+              sx={{ width: 40, height: 40, marginRight: 2 }}
+            />
+
+            {/* Activity Details */}
+            <Box className="adjustingtexr" sx={{ flex: 1 }}>
+              <Typography
+                variant="body1"
+                sx={{ color: '#fff', fontWeight: 500, mb: 0.5 }}
+                noWrap
+              >
+                {index === 2
+                  ? 'New Add list permission on the member list issue'
+                  : index < 2
+                  ? 'Add list permission on the member list issue'
+                  : 'Work progress % calculation issue'}
               </Typography>
-              <Button sx={{ color: '#0A84FF' }}>View All</Button>
+              <Typography
+                variant="body2"
+                sx={{ color: '#bbb' }}
+              >
+                Daniel Thompson • {index * 2 + 38} minutes ago
+              </Typography>
             </Box>
-            <Divider sx={{ backgroundColor: '#333' }} />
-            <Box sx={{ paddingY: 2 }}>
-              {[...Array(5)].map((_, index) => (
-                <Box key={index} sx={{ display: 'flex', marginBottom: 2 }}>
-                  <Avatar sx={{ marginRight: 2 }} src={profileclikk} />
-                  <Box>
-                    <Typography variant="body1" sx={{ color: '#333' }}>
-                      Add list permission on the member list issue
-                    </Typography>
-                    <Typography variant="body2" sx={{ color: '#bbb' }}>
-                      Daniel Thompson • {index + 5} minutes ago
-                    </Typography>
-                  </Box>
-                  <Button
-                    size="small"
-                    variant="outlined"
-                    sx={{ 
-                        backgroundColor: '#fff',
-                      color: '#333',
-                      borderColor: '#0A84FF',
-                      marginLeft: 'auto',
-                    }}
-                  >
-                    Issue
-                  </Button>
-                </Box>
-              ))}
-            </Box>
-          </Paper>
+
+            {/* Issue Button */}
+            <Button
+              variant="outlined"
+              size="small"
+              sx={{
+                color: '#00C853', // Light green text color for the button
+                borderColor: '#00C853', // Light green border
+                textTransform: 'none',
+                padding: '2px 8px',
+                fontSize: '12px',
+                marginLeft: 'auto',
+                backgroundColor: 'rgba(0, 200, 83, 0.1)', // Transparent light green background
+              }}
+            >
+              Issue
+            </Button>
+          </Box>
+        ))}
+      </Box>
+    </Paper>
 
           {/* Issues Section */}
-          <Paper
-            sx={{
-              flex: 1,
-              backgroundColor: '#fff',
+          <Paper className='issuessection'
+  sx={{
+    backgroundColor: 'background.default', // Matches dark background
+    width: '30vw',
+    color: '#bbb', // White text color
+    padding: 2,
+    display: 'flex',
+    flexDirection: 'column',
+    borderRadius: '12px', // Rounded corners
+  }}
+>
+  <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 2 }}>
+    <Typography variant="h6" sx={{ color: '#bbb', fontWeight: 600 }}>
+      Issues
+    </Typography>
+    <Button
+      variant="contained"
+      sx={{
+        backgroundColor: '#0A84FF', 
+        color: '#fff',
+        borderRadius: '8px', 
+        padding: '5px 15px',
+        textTransform: 'none', // Prevents text capitalization
+        '&:hover': { backgroundColor: '#007AFF' } // Hover effect
+      }}
+    >
+      View All
+    </Button>
+  </Box>
 
-              color:'#333',
-              padding: 2,
-              display: 'flex',
-              flexDirection: 'column',
+  <Tabs value={3} textColor="inherit" indicatorColor="primary" sx={{ marginBottom: 1 }}>
+    <Tab label="Today Issues" sx={{ minWidth: 'auto', color: '#bbb', fontSize: '14px' }} />
+    <Tab label="Pending Issues" sx={{ minWidth: 'auto', color: '#bbb', fontSize: '14px' }} />
+    <Tab label="Review Issues" sx={{ minWidth: 'auto', color: '#bbb', fontSize: '14px' }} />
+    <Tab label="Completed Issues" sx={{ minWidth: 'auto', color: '#bbb', fontSize: '14px' }} />
+  </Tabs>
+  <Divider sx={{ backgroundColor: '#333' }} />
+
+  <Box sx={{ paddingY: 2 }}>
+    {[{ label: 'Show employee attendance record in attendance view page', done: true },
+      { label: 'There should be show file successfully uploaded instead of...', done: true }].map(
+      (issue, index) => (
+        <Box key={index} sx={{ display: 'flex', marginBottom: 2, alignItems: 'center' }}>
+          <Box sx={{ 
+            width: '20px', 
+            height: '20px', 
+            backgroundColor: issue.done ? '#0A84FF' : '#FF453A', 
+            borderRadius: '50%', 
+            marginRight: 2 
+          }} />
+          <Box sx={{ flexGrow: 1 }}>
+            <Typography variant="body1" sx={{ color: '#fff', fontWeight: 500 }}>
+              {issue.label}
+            </Typography>
+            <Typography variant="body2" sx={{ color: '#bbb' }}>
+              {index === 0 ? 'CHR-17 • Clikkle HR' : 'ES-18 • Clikkle E-sign'}
+            </Typography>
+          </Box>
+          <Button
+            size="small"
+            variant="outlined"
+            sx={{
+              color: issue.done ? '#0A84FF' : '#FF453A',
+              borderColor: issue.done ? '#0A84FF' : '#FF453A',
+              borderRadius: '12px',
+              textTransform: 'none',
             }}
           >
-            <Box sx={{ display: 'flex', justifyContent: 'space-between', color:'#333', backgroundColor:'#fff', alignItems: 'center' }}>
-              <Typography variant="h6" sx={{ color: '#fff' }}>
-                Issues
-              </Typography>
-              <Button sx={{ color: '#0A84FF' }}>View All</Button>
-            </Box>
-            <Tabs value={0} textColor="secondary" indicatorColor="primary">
-              <Tab label="Today Issues" />
-              <Tab label="Pending Issues" />
-              <Tab label="Review Issues" />
-              <Tab label="Completed Issues" />
-            </Tabs>
-            <Divider sx={{ backgroundColor: '#333' }} />
-            <Box sx={{ paddingY: 2 }}>
-              {[{ label: 'Show employee attendance record', done: true }, { label: 'Show file upload success message', done: true }].map(
-                (issue, index) => (
-                  <Box key={index} sx={{ display: 'flex', marginBottom: 2, alignItems: 'center' }}>
-                    <CheckCircleIcon sx={{ color: '#0A84FF', marginRight: 2 }} />
-                    <Box>
-                      <Typography variant="body1" sx={{ color: '#fff' }}>
-                        {issue.label}
-                      </Typography>
-                      <Typography variant="body2" sx={{ color: '#bbb' }}>
-                        CHR-17 • Clikkle HR
-                      </Typography>
-                    </Box>
-                    <Button
-                      size="small"
-                      variant="outlined"
-                      sx={{
-                        color: issue.done ? '#0A84FF' : '#FF453A',
-                        borderColor: issue.done ? '#0A84FF' : '#FF453A',
-                        marginLeft: 'auto',
-                      }}
-                    >
-                      {issue.done ? 'Done' : 'Pending'}
-                    </Button>
-                  </Box>
-                )
-              )}
-            </Box>
-          </Paper>
+            {issue.done ? 'Done' : 'Pending'}
+          </Button>
+        </Box>
+      )
+    )}
+  </Box>
+</Paper>
+
+
+
         </Box>
                
             </Box>
-            <Icon/>
+           
         </Box>
 
 

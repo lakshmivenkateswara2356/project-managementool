@@ -1,4 +1,4 @@
-import { Box, IconButton, Typography, Stack, Avatar, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField, Button, Select } from '@mui/material';
+import { Box, IconButton, Typography, Stack, Avatar, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField, Button, MenuItem, List, ListItem, ListItemText } from '@mui/material';
 import InfoIcon from '@mui/icons-material/InfoOutlined';
 import HomeIcon from '@mui/icons-material/Home';
 import AssignmentIcon from '@mui/icons-material/Assignment';
@@ -9,11 +9,33 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import React, { useState } from 'react';
 import Navbar from '../components/Navbar'
 import clikklereport from '../Assets/clikklerepair.png'
+import Card from '@mui/material/Card';
+import Scrum from '../Assets/scrum.png'
+import CardContent from '@mui/material/CardContent';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos'; // For navigation arrow
+
+
 import image from './dahboardimg.png';
 import ActionIcon from '../components/ActionIcon';
 import Icon from '../components/Icon';
 
+
 import './Home.css'
+import { Feedback } from '@mui/icons-material';
+
+
+
+const projectTemplates = [
+    { title: 'Software Development', description: 'Manage software development life cycles and tasks.' },
+    { title: 'Service Management', description: 'Oversee and manage service operations effectively.' },
+    { title: 'Work Management', description: 'Track and organize work-related tasks and projects.' },
+    { title: 'Product Management', description: 'Plan and manage product development cycles.' },
+    { title: 'Marketing', description: 'Coordinate marketing campaigns and initiatives.' },
+    { title: 'Human Resources', description: 'Oversee HR processes such as recruiting and payroll.' },
+    { title: 'Finance', description: 'Manage financial tasks, reports, and accounts.' },
+    { title: 'Design', description: 'Organize and track design projects and tasks.' },
+  ];
+
 
 const Home = () => {
     const [openDialog, setOpenDialog] = useState(false);
@@ -27,6 +49,19 @@ const Home = () => {
         setSelectedSection(section);
     };
 
+    const [activeButton, setActiveButton] = useState('Dashboard'); // Set 'Dashboard' as the default active button
+
+    const handleButtonClick = (button) => {
+        setActiveButton(button); // Update the active button when a button is clicked
+    };
+
+    const [selectedTemplate, setSelectedTemplate] = useState(null);
+
+const handleTemplateSelect = (template) => {
+  setSelectedTemplate(template.title);
+  setTemplateInfo(template.description); // Update the template info dynamically
+};
+const [templateInfo, setTemplateInfo] = useState('');
     const handleClose = () => {
         setOpenDialog(false);
     };
@@ -38,7 +73,7 @@ const Home = () => {
     };
 
     return (
-       <div>
+       <div >
         
         <Navbar/>
         
@@ -54,7 +89,7 @@ const Home = () => {
         >
             
             {/* Sidebar */}
-            <Box
+            <Box className="sidebarrespo"
                 sx={{
                     position: 'absolute',
                     top: 0,
@@ -77,14 +112,17 @@ const Home = () => {
                     <h1 className='clikkletechnologies'>Clikkle Technologies</h1>
                     
                     </div>
-                    <Box className="addingsomestyles" display="flex"
-                                alignItems="center"
-                                sx={{
-                                    backgroundColor: selectedSection === 'Dashboard' ? '#3b84d9' : 'transparent',
-                                    borderRadius: '5px',
-                                    cursor: 'pointer',
-                                }}
-                                onClick={() => handleSectionClick('Dashboard')}
+                    <Box display="flex"
+                alignItems="center"
+                sx={{
+                    backgroundColor: activeButton === 'Dashboard' ? '#3b84d9' : 'transparent',
+                    color: activeButton === 'Dashboard' ? '#fff' : '#666665',
+                    borderRadius: '5px',
+                    padding: '10px',
+                    cursor: 'pointer',
+                    '&:hover': { backgroundColor: '#3b84d9', color: '#fff' },
+                }}
+                onClick={() => handleButtonClick('Dashboard')}
                             >
                         <HomeIcon sx={{  marginRight: 1 }} />
                         <Typography variant="body1" >
@@ -92,27 +130,32 @@ const Home = () => {
                         </Typography>
                     </Box>
                     <Box display="flex"
-                                alignItems="center"
-                                sx={{
-                                    backgroundColor: selectedSection === 'Projects' ? '#3b84d9' : 'transparent',
-                                    borderRadius: '5px',
-                                    cursor: 'pointer',
-                                }}
-                                onClick={() => handleSectionClick('Projects')}>
+                alignItems="center"
+                sx={{
+                    backgroundColor: activeButton === 'Projects' ? '#3b84d9' : 'transparent',
+                    color: activeButton === 'Projects' ? '#fff' : '#666665',
+                    borderRadius: '5px',
+                    padding: '10px',
+                    cursor: 'pointer',
+                    '&:hover': { backgroundColor: '#3b84d9', color: '#fff' },
+                }}
+                onClick={() => handleButtonClick('Projects')}>
                         <AssignmentIcon sx={{ color: '#666665', marginRight: 1 }} />
                         <Typography variant="body1" sx={{ color: '#666665' }}>
                             Projects
                         </Typography>
                     </Box>
-                    <Box  display="flex"
-                                alignItems="center"
-                                sx={{
-                                    backgroundColor: selectedSection === 'Your Work' ? '#3b84d9' : 'transparent',
-                                    borderRadius: '5px',
-                                    
-                                    cursor: 'pointer',
-                                }}
-                                onClick={() => handleSectionClick('Your Work')}>
+                    <Box   display="flex"
+                alignItems="center"
+                sx={{
+                    backgroundColor: activeButton === 'Your Work' ? '#3b84d9' : 'transparent',
+                    color: activeButton === 'Your Work' ? '#fff' : '#666665',
+                    borderRadius: '5px',
+                    padding: '10px',
+                    cursor: 'pointer',
+                    '&:hover': { backgroundColor: '#3b84d9', color: '#fff' },
+                }}
+                onClick={() => handleButtonClick('Your Work')}>
                         
                         <AccountBalanceWalletIcon sx={{ color: '#666665', marginRight: 1 }} />
                         <Typography variant="body1" sx={{ color: '#666665' }}>
@@ -149,41 +192,274 @@ const Home = () => {
                         1 GB used of 5 GB
                     </Typography>
                     <button className='buttonelement'>Upgrade Storege</button>
+                    <div>
+                    <a className='anchoreele' href="/Feedback.jsx">Give feedback</a>
+                    <Feedback/>
+            </div>
                 </Box>
+                
             </Box>
+            
 
             {/* Main content area */}
-            <Box
-                ml="250px"
-                sx={{
-                    padding: '20px',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    height: '100%',
-                   
-                    backgroundColor: '#FFFFFF',
-                }}
+            <Box  className="responsive"
+               sx={{
+                backgroundColor:'background.default',
+               }}
+               
             >
                
 <div className='flexingitems'>
     
     <h1 className='normal'>Dashboard</h1>
 
-    <Box sx={{ display: 'flex',direction: 'row', alignItems: 'start',mr: '5px' }}>
-                        <IconButton sx={{ color: '#000000' }}>
+    <Box className="dashboardele" sx={{ display: 'flex',direction: 'row',  alignItems: 'start',mr: '5px' }}>
+                        <IconButton onClick={handleClickOpen} sx={{ color: '#000000' }}>
+                        <AddIcon className='iconsizee'/>
                         <button className='buttonelementee'>  <AddIcon className='iconsize'/>Create new Project</button>
                         </IconButton>
                         <IconButton sx={{ color: '#000000' }}>
                             <MoreVertIcon />
                         </IconButton>
+                        
                     </Box>
                     
+                    <Dialog className='dialogboxopening' open={openDialog} onClose={handleClose} maxWidth="l" fullWidth>
+  <DialogTitle>
+    <Typography variant="h5" sx={{ color: '#1a1a1a', fontWeight: 'bold', textAlign: 'center' }}>
+      Software development
+    </Typography>
+    <Typography variant="subtitle1" sx={{ textAlign: 'center', color: '#666665', fontSize: '1rem', marginTop: '8px' }}>
+      Organize, track, and launch great software. Quickly get started with templates that fit your team's style of work.
+    </Typography>
+  </DialogTitle>
+
+  <DialogContent sx={{ display: 'flex', padding: '20px' }}>
+    {/* Left side: List of templates */}
+    <Box sx={{ width: '20%', borderRight: '1px solid #ccc', paddingRight: '16px' }}>
+      <Typography variant="h6" sx={{ marginBottom: '16px', fontWeight: 'bold' }}>Project templates</Typography>
+      <List>
+        {projectTemplates.map((template) => (
+          <ListItem 
+            button 
+            key={template.title} 
+            onClick={() => handleTemplateSelect(template)} 
+            sx={{
+              padding: '10px', 
+              borderRadius: '8px', 
+              backgroundColor: selectedTemplate === template.title ? '#3767b1' : 'transparent',
+              transition: 'background-color 0.2s ease-in-out',
+              '&:hover': {
+                backgroundColor: '#3767b1',
+                color:'white',
+              },
+            }}
+          >
+            <ListItemText primary={template.title} />
+          </ListItem>
+        ))}
+      </List>
+    
+    </Box>
+
+    {/* Right side: Display information */}
+    <Box className="assaigning" sx={{ width: '80%', overflow:'scroll', paddingLeft: '24px', backgroundColor: '#f4f4f4', borderRadius: '8px' }}>
+      {selectedTemplate ? (
+        <>
+          <Typography variant="h6" sx={{ fontWeight: 'bold', color: '#1a1a1a' }}>{selectedTemplate}</Typography>
+          {selectedTemplate === 'Software Development' && (
+            <Box sx={{ display: 'flex', flexDirection:'column', gap: '20px', marginTop: '16px' }}>
+              {/* Card for Kanban */}
+              <Card sx={{ display: 'flex', alignItems: 'center', backgroundColor: '#fff', borderRadius: '12px', padding: '16px', color: 'black', height: '160px', boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)', width: '100%' }}>
+      
+      {/* Image Section */}
+      <Box sx={{ width: '110px', height: '60px', marginRight: '86px',marginLeft:'-40px',marginTop:'-95px' }}>
+        <img src={Scrum} alt="Scrum" style={{ width: '230px', height: '150px', borderRadius: '8px' }} />
+      </Box>
+
+      {/* Text Content */}
+      <CardContent sx={{ flex: '1', padding: '0' }}>
+        <Typography variant="h6" sx={{ fontWeight: 'bold', marginBottom: '4px' }}>Kanban</Typography>
+        <Typography variant="body2" sx={{ color: 'black', marginBottom: '8px' }}>Clikkle Projects</Typography>
+        <Typography variant="body2" sx={{ color: 'black' }}>
+          An agile framework for delivering projects incrementally.
+        </Typography>
+      </CardContent>
+
+      {/* Navigation Arrow */}
+      <IconButton sx={{ color: 'black' }} onClick={() => console.log('Navigate to Scrum details')}>
+        <ArrowForwardIosIcon />
+      </IconButton>
+    </Card>
+
+              {/* Card for Scrum */}
+              <Card sx={{ display: 'flex', alignItems: 'center', backgroundColor: '#fff', borderRadius: '12px', padding: '16px', color: 'black', height: '160px', boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)', width: '100%' }}>
+      
+      {/* Image Section */}
+      <Box sx={{ width: '110px', height: '60px', marginRight: '86px',marginLeft:'-40px',marginTop:'-95px' }}>
+        <img src={Scrum} alt="Scrum" style={{ width: '230px', height: '150px', borderRadius: '8px' }} />
+      </Box>
+
+      {/* Text Content */}
+      <CardContent sx={{ flex: '1', padding: '0' }}>
+        <Typography variant="h6" sx={{ fontWeight: 'bold', marginBottom: '4px' }}>Scrum</Typography>
+        <Typography variant="body2" sx={{ color: 'black', marginBottom: '8px' }}>Clikkle Projects</Typography>
+        <Typography variant="body2" sx={{ color: 'black' }}>
+          An agile framework for delivering projects incrementally.
+        </Typography>
+      </CardContent>
+
+      {/* Navigation Arrow */}
+      <IconButton sx={{ color: 'black' }} onClick={() => console.log('Navigate to Scrum details')}>
+        <ArrowForwardIosIcon />
+      </IconButton>
+    </Card>
+
+              {/* Card for Top-Level Planning */}
+              <Card sx={{ display: 'flex', alignItems: 'center', backgroundColor: '#fff', borderRadius: '12px', padding: '16px', color: 'black', height: '160px', boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)', width: '100%' }}>
+      
+      {/* Image Section */}
+      <Box sx={{ width: '110px', height: '60px', marginRight: '86px',marginLeft:'-40px',marginTop:'-95px' }}>
+        <img src={Scrum} alt="Scrum" style={{ width: '230px', height: '150px', borderRadius: '8px' }} />
+      </Box>
+
+      {/* Text Content */}
+      <CardContent sx={{ flex: '1', padding: '0' }}>
+        <Typography variant="h6" sx={{ fontWeight: 'bold', marginBottom: '4px' }}>Scrum</Typography>
+        <Typography variant="body2" sx={{ color: 'black', marginBottom: '8px' }}>Clikkle Projects</Typography>
+        <Typography variant="body2" sx={{ color: 'black' }}>
+          An agile framework for delivering projects incrementally.
+        </Typography>
+      </CardContent>
+
+      {/* Navigation Arrow */}
+      <IconButton sx={{ color: 'black' }} onClick={() => console.log('Navigate to Scrum details')}>
+        <ArrowForwardIosIcon />
+      </IconButton>
+    </Card>
+
+ {/* Card for Top-Level Planning */}
+ <Card sx={{ display: 'flex', alignItems: 'center', backgroundColor: '#fff', borderRadius: '12px', padding: '16px', color: 'black', height: '160px', boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)', width: '100%' }}>
+      
+      {/* Image Section */}
+      <Box sx={{ width: '110px', height: '60px', marginRight: '86px',marginLeft:'-40px',marginTop:'-95px' }}>
+        <img src={Scrum} alt="Scrum" style={{ width: '230px', height: '150px', borderRadius: '8px' }} />
+      </Box>
+
+      {/* Text Content */}
+      <CardContent sx={{ flex: '1', padding: '0' }}>
+        <Typography variant="h6" sx={{ fontWeight: 'bold', marginBottom: '4px' }}>Scrum</Typography>
+        <Typography variant="body2" sx={{ color: 'black', marginBottom: '8px' }}>Clikkle Projects</Typography>
+        <Typography variant="body2" sx={{ color: 'black' }}>
+          An agile framework for delivering projects incrementally.
+        </Typography>
+      </CardContent>
+
+      {/* Navigation Arrow */}
+      <IconButton sx={{ color: 'black' }} onClick={() => console.log('Navigate to Scrum details')}>
+        <ArrowForwardIosIcon />
+      </IconButton>
+    </Card>
+
+               {/* Card for Top-Level Planning */}
+               <Card sx={{ display: 'flex', alignItems: 'center', backgroundColor: '#fff', borderRadius: '12px', padding: '16px', color: 'black', height: '160px', boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)', width: '100%' }}>
+      
+      {/* Image Section */}
+      <Box sx={{ width: '110px', height: '60px', marginRight: '86px',marginLeft:'-40px',marginTop:'-95px' }}>
+        <img src={Scrum} alt="Scrum" style={{ width: '230px', height: '150px', borderRadius: '8px' }} />
+      </Box>
+
+      {/* Text Content */}
+      <CardContent sx={{ flex: '1', padding: '0' }}>
+        <Typography variant="h6" sx={{ fontWeight: 'bold', marginBottom: '4px' }}>Scrum</Typography>
+        <Typography variant="body2" sx={{ color: 'black', marginBottom: '8px' }}>Clikkle Projects</Typography>
+        <Typography variant="body2" sx={{ color: 'black' }}>
+          An agile framework for delivering projects incrementally.
+        </Typography>
+      </CardContent>
+
+      {/* Navigation Arrow */}
+      <IconButton sx={{ color: 'black' }} onClick={() => console.log('Navigate to Scrum details')}>
+        <ArrowForwardIosIcon />
+      </IconButton>
+    </Card>
+
+               {/* Card for Top-Level Planning */}
+               <Card sx={{ display: 'flex', alignItems: 'center', backgroundColor: '#fff', borderRadius: '12px', padding: '16px', color: 'black', height: '160px', boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)', width: '100%' }}>
+      
+      {/* Image Section */}
+      <Box sx={{ width: '110px', height: '60px', marginRight: '86px',marginLeft:'-40px',marginTop:'-95px' }}>
+        <img src={Scrum} alt="Scrum" style={{ width: '230px', height: '150px', borderRadius: '8px' }} />
+      </Box>
+
+      {/* Text Content */}
+      <CardContent sx={{ flex: '1', padding: '0' }}>
+        <Typography variant="h6" sx={{ fontWeight: 'bold', marginBottom: '4px' }}>Scrum</Typography>
+        <Typography variant="body2" sx={{ color: 'black', marginBottom: '8px' }}>Clikkle Projects</Typography>
+        <Typography variant="body2" sx={{ color: 'black' }}>
+          An agile framework for delivering projects incrementally.
+        </Typography>
+      </CardContent>
+
+      {/* Navigation Arrow */}
+      <IconButton sx={{ color: 'black' }} onClick={() => console.log('Navigate to Scrum details')}>
+        <ArrowForwardIosIcon />
+      </IconButton>
+    </Card>
+
+               {/* Card for Top-Level Planning */}
+               <Card sx={{ display: 'flex', alignItems: 'center', backgroundColor: '#fff', borderRadius: '12px', padding: '16px', color: 'black', height: '160px', boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)', width: '100%' }}>
+      
+      {/* Image Section */}
+      <Box sx={{ width: '110px', height: '60px', marginRight: '86px',marginLeft:'-40px',marginTop:'-95px' }}>
+        <img src={Scrum} alt="Scrum" style={{ width: '230px', height: '150px', borderRadius: '8px' }} />
+      </Box>
+
+      {/* Text Content */}
+      <CardContent sx={{ flex: '1', padding: '0' }}>
+        <Typography variant="h6" sx={{ fontWeight: 'bold', marginBottom: '4px' }}>Scrum</Typography>
+        <Typography variant="body2" sx={{ color: 'black', marginBottom: '8px' }}>Clikkle Projects</Typography>
+        <Typography variant="body2" sx={{ color: 'black' }}>
+          An agile framework for delivering projects incrementally.
+        </Typography>
+      </CardContent>
+
+      {/* Navigation Arrow */}
+      <IconButton sx={{ color: 'black' }} onClick={() => console.log('Navigate to Scrum details')}>
+        <ArrowForwardIosIcon />
+      </IconButton>
+    </Card>
+
+              
+              
+            </Box>
+          )}
+
+          <Typography variant="body1" sx={{ marginTop: '16px', color: '#666665' }}>
+            {templateInfo}
+          </Typography>
+        </>
+      ) : (
+        <Typography variant="body1" sx={{ color: '#666665' }}>
+          Select a project template to see details.
+        </Typography>
+      )}
+    </Box>
+  </DialogContent>
+
+  <DialogActions sx={{ justifyContent: 'center', paddingBottom: '16px' }}>
+    <Button onClick={handleClose} variant="contained" sx={{ backgroundColor: '#d3d3d3', color: '#000', marginRight: '8px' }}>
+      Cancel
+    </Button>
+    <Button onClick={handleClose} variant="contained" color="primary" disabled={!selectedTemplate}>
+      Create Project
+    </Button>
+  </DialogActions>
+</Dialog>
+
+
 </div>
-<div>
-                    <div className='underliner'></div>
-                    </div>
+
 
 
 
@@ -196,7 +472,7 @@ const Home = () => {
                         alignItems: 'center',
                     }}
                 >
-                    <Typography variant="h5" color="text.primary" sx={{ color: '#fff', marginRight: 2 }}>
+                    <Typography className='dashboardalignment' variant="h5" color="text.primary" sx={{ color: '#bbb', marginRight: 2,backgroundColor:'background.default' }}>
                         Dashboard
                     </Typography>
                     
@@ -208,35 +484,39 @@ const Home = () => {
                         <MoreVertIcon sx={{ color: '#fff' }} />
                     </IconButton>
                 </Box>
-
+                <h1 className='margintoplev'></h1>
                 {/* Center content */}
                 
-                <Box textAlign="center">
+                <Box className="dahresponsi"  textAlign="center"
+                sx={{
+                    backgroundColor:'background.default'
+                }}>
                     <Avatar
                         alt="No activity"
                         className='imagedashboard'
                         src={image}
                         sx={{ width: 150, height: 150, marginBottom: 2 }}
                     />
-                    <Typography className='correctiong' variant="h5" color="text.primary" sx={{ color: '#000000' }}>
+                    
+                    <Typography className='correctiong' variant="h5" sx={{ backgroundColor:'background.default',color: '#bbb' }}>
                     No current activity!
                     </Typography>
-                    <Typography variant="body2" color="text.secondary" sx={{ color: '#bbb' }}>
+                    <Typography className='projectpara' variant="body2" color="text.secondary" sx={{textAlign:'center', color: '#bbb' }}>
                         When you create projects or projects are assigned to you, all progress
                         updates will be seen here.
                     </Typography>
                 </Box>
             </Box>
-
+            
             {/* Right toolbar */}
-            <Box
+            <Box className="righttoolbarres"
                 sx={{
                     position: 'absolute',
                     top: 0,
                     right: 0,
                     width: '60px',
                     height: '100vh',
-                    backgroundColor: '#FFFFFF',
+                    backgroundColor: 'background.default',
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
@@ -249,29 +529,9 @@ const Home = () => {
                 </IconButton>
                 <Icon/>
             </Box>
-
+            
             {/* Dialog for adding new item */}
-            <Dialog open={openDialog} onClose={handleClose}>
-                <DialogTitle>Add New Item</DialogTitle>
-                <DialogContent>
-                    <DialogContentText>
-                        Enter the details of the new item you want to add.
-                    </DialogContentText>
-                    <TextField
-                        autoFocus
-                        margin="dense"
-                        label="New Item"
-                        fullWidth
-                        variant="standard"
-                        value={newItem}
-                        onChange={(e) => setNewItem(e.target.value)}
-                    />
-                </DialogContent>
-                <DialogActions>
-                    <Button onClick={handleClose}>Cancel</Button>
-                    <Button onClick={handleSave}>Add</Button>
-                </DialogActions>
-            </Dialog>
+            
         </Box>
         
 
