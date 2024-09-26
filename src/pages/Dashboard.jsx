@@ -37,7 +37,7 @@ const Dashboard = () => {
 
     const [selectedSection, setSelectedSection] = useState('Dashboard');
   
-
+    const [active, setActive] = useState('home');
 
     // Function to handle section click
     const handleSectionClick = (section) => {
@@ -48,6 +48,8 @@ const Dashboard = () => {
     const handleButtonClick = (button) => {
         setActiveButton(button); // Update the active button when a button is clicked
     };
+
+    
 
     return (
         
@@ -142,7 +144,7 @@ const Dashboard = () => {
 
 
             {/* Main Dashboard Content */}
-            <Box sx={{ flexGrow: 1,width:'70vw',backgroundColor:'background.default', padding: '20px' }}>
+            <Box sx={{ flexGrow: 1,height:'100vh',overflow:'scroll',width:'70vw',backgroundColor:'background.default', padding: '20px' }}>
                 <Box
                     sx={{
                         display: 'flex',
@@ -158,8 +160,8 @@ const Dashboard = () => {
 
                     <Box sx={{ display: 'flex', alignItems: 'center' }}>
                     <IconButton sx={{ color: '#000000' }}>
-                    <AddIcon className='iconsizee'/>
-                        <button className='buttonelementee'>  <AddIcon className='iconsize'/>Create new Project</button>
+                    <AddIcon className='iconsize'/>
+                        
                         </IconButton>
                         <IconButton sx={{ color: '#333' }}>
                             <MoreVertIcon />
@@ -318,7 +320,7 @@ const Dashboard = () => {
             <Avatar
               src={profileclikk}
               alt="Daniel Thompson"
-              sx={{ width: 40, height: 40, marginRight: 2 }}
+              sx={{ width: 40,borderRadius:'8px', height: 40, marginRight: 2 }}
             />
 
             {/* Activity Details */}
@@ -402,7 +404,7 @@ const Dashboard = () => {
   </Tabs>
   <Divider sx={{ backgroundColor: '#333' }} />
 
-  <Box sx={{ paddingY: 2 }}>
+  <Box className="textnskn" sx={{ paddingY: 2,color:'black' }}>
     {[{ label: 'Show employee attendance record in attendance view page', done: true },
       { label: 'There should be show file successfully uploaded instead of...', done: true }].map(
       (issue, index) => (
@@ -415,7 +417,7 @@ const Dashboard = () => {
             marginRight: 2 
           }} />
           <Box sx={{ flexGrow: 1 }}>
-            <Typography variant="body1" sx={{ color: '#fff', fontWeight: 500 }}>
+            <Typography variant="body1" sx={{ color: '#bbb', fontWeight: 500 }}>
               {issue.label}
             </Typography>
             <Typography variant="body2" sx={{ color: '#bbb' }}>
@@ -441,15 +443,50 @@ const Dashboard = () => {
 </Paper>
 
 
-
         </Box>
+
+     
                
             </Box>
-           
+
         </Box>
 
+        <div className='structured-icons'>
+            <div 
+                className={`menu-item ${active === 'home' ? 'active' : ''}`} 
+                onClick={() => setActive('home')}>
+                <HomeIcon className='icon'/>
+                <h1 className='menu-text'>Home</h1>
+            </div>
 
-       </div>
+            <div 
+                className={`menu-item ${active === 'projects' ? 'active' : ''}`} 
+                onClick={() => setActive('projects')}>
+                <AssignmentIcon className='icon'/>
+                <h1 className='menu-text'>Projects</h1>
+            </div>
+
+            <div 
+                className={`menu-item ${active === 'dashboard' ? 'active' : ''}`} 
+                onClick={() => setActive('dashboard')}>
+                <DashboardIcon className='icon'/>
+                <h1 className='menu-text'>Dashboard</h1>
+            </div>
+
+            <div 
+                className={`menu-item ${active === 'work' ? 'active' : ''}`} 
+                onClick={() => setActive('work')}>
+                <WorkIcon className='icon'/>
+                <h1 className='menu-text'>Your Work</h1>
+            </div>
+
+            <div 
+                className={`menu-item ${active === 'team' ? 'active' : ''}`} 
+                onClick={() => setActive('team')}>
+                <GroupIcon className='icon'/>
+                <h1 className='menu-text'>Team</h1>
+            </div>
+        </div>       </div>
     );
 };
 

@@ -123,7 +123,62 @@ const Drawer = styled(MuiDrawer, {
 export default function Navbar(props) {
     const { children } = props;
     const [mobileOpen, setMobileOpen] = useState(false);
-    const [sidebarApps, setSidebarApps] = useState(null);
+    const [sidebarApps, setSidebarApps] = useState([
+    {
+      name: 'Clikkle Host',
+      url: 'https://clikklehost.com',
+      logo: clikklehost,
+      order: 1,
+    },
+    {
+      name: 'Clikkle Sign',
+      url: 'https://clikklesign.com',
+      logo: clikklesign,
+      order: 2,
+    },
+    {
+      name: 'Clikkle Favicon',
+      url: 'https://clikklefavic.com',
+      logo: clikklefavic,
+      order: 3,
+    },
+    {
+      name: 'Clikkle Launch',
+      url: 'https://clikklelaunch.com',
+      logo: clikklelaunch,
+      order: 4,
+    },
+    {
+      name: 'Clikkle Pitch',
+      url: 'https://clikklepitch.com',
+      logo: clikklepitch,
+      order: 5,
+    },
+    {
+      name: 'Clikkle Proj',
+      url: 'https://clikkleproj.com',
+      logo: clikkleproj,
+      order: 6,
+    },
+    {
+      name: 'Clikkle Rocket',
+      url: 'https://clikklerocket.com',
+      logo: clikklerocket,
+      order: 7,
+    },
+    {
+      name: 'Clikkle Mail',
+      url: 'https://clikklemail.com',
+      logo: clikklemail,
+      order: 8,
+    },
+    {
+      name: 'Clikkle HR',
+      url: 'https://clikklehr.com',
+      logo: clikkleiconimage,
+      order: 9,
+    },
+  ]);
     const [isOrderChanged, setIsOrderChanged] = useState(false);
     const [editable, setEditable] = useState(false);
     const [user, setUser] = useState(null);

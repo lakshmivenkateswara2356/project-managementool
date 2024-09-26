@@ -25,7 +25,7 @@ const App = () => {
 
         
 <ThemeContextProvider>
-   <Dashboard/>
+   <Home/>
 </ThemeContextProvider>
  
     );

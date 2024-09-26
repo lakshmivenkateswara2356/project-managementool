@@ -51,8 +51,8 @@
     display: block;
 }
 
-.iconsizee {
-    display: none !important;
+.iconsize {
+    color: blue !important;
 }
 .alignitemvert{
     display: flex;
@@ -111,6 +111,106 @@
  .heero{
     width: 95vw !important;
  }
+
+ .structeredicons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  background-color: #2e2d2d;
+  align-items: center;
+  position: relative;
+  height: 82px;
+  position: fixed;  /* Fixes the menu to the bottom */
+  bottom: 0;        /* Position at the bottom of the viewport */
+  left: 0;          /* Make sure it stretches across the page */
+  width: 100%;      /* Full width at the bottom */
+  z-index: 1000;   
+    
+  }
+
+  .homemenubb {
+    font-size: 13px;
+    font-weight: lighter;
+    color: rgb(183, 182, 182);
+    margin-left: -10px;
+  }
+
+  .structured-icons {
+    display: flex;
+    justify-content: space-around;
+    background-color: #181818;  /* Dark background */
+    padding: 20px;
+    border-radius: 8px;
+    
+}
+
+.menu-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    color: #8c8c8c;  /* Default grey for inactive icons */
+}
+
+.menu-item.active {
+    background-color: #2a2a2a; /* Slightly darker background for active state */
+    border-radius: 10px;
+    padding: 10px;
+    color: #fff; /* Active color */
+}
+
+.icon {
+    font-size: 40px;  /* Larger icon size */
+    margin-bottom: 5px;
+}
+
+.menu-text {
+    font-size: 14px;
+    color: inherit; /* Inherit text color from parent */
+}
+
+/* Active state styling for the Home icon */
+.menu-item.active .menu-text {
+    color: #1976d2;  /* Blue color for active text */
+}
+
+.menu-item.active .icon {
+    color: #1976d2;  /* Blue color for active icon */
+}
+
+/* Add hover effect */
+.menu-item:hover {
+    color: #ffffff;  /* White color on hover */
+}
+
+
+  .hometextcenter {
+    align-items: center !important;
+    text-align: center !important;
+    
+  }
+
+  .textnskn {
+    color: black !important;
+  }
+
+  .alignallmenuitems {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .menubuttions {
+    display: flex;
+    flex-direction: column;
+    
+    
+    align-items: center;
+  }
+
+  .homemeni {
+    background-color: black !important;
+  }
 
  .issuessection{
     width: 95vw !important;

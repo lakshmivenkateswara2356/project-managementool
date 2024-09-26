@@ -1,23 +1,35 @@
-import { Box, IconButton, Typography, Stack, Avatar, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField, Button, MenuItem, List, ListItem, ListItemText } from '@mui/material';
-import InfoIcon from '@mui/icons-material/InfoOutlined';
-import HomeIcon from '@mui/icons-material/Home';
-import AssignmentIcon from '@mui/icons-material/Assignment';
-import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
-import GroupIcon from '@mui/icons-material/Group';
-import AddIcon from '@mui/icons-material/Add';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
 import React, { useState } from 'react';
-import Navbar from '../components/Navbar'
+import { Box, Typography, Grid, Paper, IconButton, Button, List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
+import DashboardIcon from '@mui/icons-material/Dashboard';
+import WorkIcon from '@mui/icons-material/Work';
+import GroupIcon from '@mui/icons-material/Group';
+import Navbar from '../components/Navbar';
+import profileclikk from '../Assets/profileclikk.jpeg';
+import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
+import GradeOutlinedIcon from '@mui/icons-material/GradeOutlined';
+import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
+import AssignmentIcon from '@mui/icons-material/Assignment';
+import InfoIcon from '@mui/icons-material/Info';
+import PeopleIcon from '@mui/icons-material/People';
+import PersonIcon from '@mui/icons-material/Person';
+import FolderOutlinedIcon from '@mui/icons-material/FolderOutlined';
+
+import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
+import {
+        Avatar, AppBar, Toolbar, InputBase,
+    Card, CardContent, Tabs, Tab,  Divider
+  } from '@mui/material';
+
+import AssignmentTurnedInIcon from '@mui/icons-material/AssignmentTurnedIn';
+import PendingActionsIcon from '@mui/icons-material/PendingActions';
+import ReportProblemIcon from '@mui/icons-material/ReportProblem';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import AddIcon from '@mui/icons-material/Add';
+import HomeIcon from '@mui/icons-material/Home';
+
 import clikklereport from '../Assets/clikklerepair.png'
-import Card from '@mui/material/Card';
-import Scrum from '../Assets/scrum.png'
-import CardContent from '@mui/material/CardContent';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos'; // For navigation arrow
-
-
-import image from './dahboardimg.png';
-import ActionIcon from '../components/ActionIcon';
-import Icon from '../components/Icon';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
+import Icon from '../components/Icon'
 
 
 import './Testing.css'
@@ -79,31 +91,27 @@ const [templateInfo, setTemplateInfo] = useState('');
     return(
 
        <div>
-          <Box className="alignitemse"
-                    sx={{
-                        position: 'absolute',
-                        top: 20,
-                        right: 20,
-                        display: 'flex',
-                        flexDirection:'row',
-                        justifyContent:'space-between',
-                        alignItems: 'spacebetween',
-                    }}
-                >
-                    <Typography className='dashboardalignment' variant="h5" color="text.primary" sx={{ color: '#bbb', marginRight: 2,backgroundColor:'background.default' }}>
-                        Dashboard
-                    </Typography>
-                    
-                    <IconButton onClick={handleClickOpen}>
-                        <AddIcon className='plusicon' sx={{ color: '#0000FF' }} />
-                    </IconButton>
+         <HomeIcon/>
+         <WorkIcon/>
+         <AssignmentIcon/>
+         <MoreVertIcon/>
+         <DashboardIcon/>
+         <GroupIcon/>
+         <AccessTimeOutlinedIcon/>
+         <GradeOutlinedIcon/>
+         <DeleteOutlinedIcon/>
+         <InfoIcon/>
+         <FolderOutlinedIcon/>
+         <AccountBalanceWalletIcon/>
+         <InputBase/>
+         <AssignmentTurnedInIcon/>
+         <PendingActionsIcon/>
+         <ReportProblemIcon/>
+         <AddIcon/>
 
-                    <IconButton>
-                        <MoreVertIcon sx={{ color: '#fff' }} />
-                    </IconButton>
-                </Box>
 
-                <h1 className='margintoplev'></h1>
+         <div className='structeredicons'><HomeIcon/><AssignmentIcon/><DashboardIcon/><WorkIcon/><GroupIcon/></div>
+        
        </div>
     )
 }

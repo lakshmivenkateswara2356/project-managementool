@@ -18,6 +18,7 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos'; // For na
 import image from './dahboardimg.png';
 import ActionIcon from '../components/ActionIcon';
 import Icon from '../components/Icon';
+import CloseIcon from '@mui/icons-material/Close';
 
 
 import './Home.css'
@@ -44,6 +45,27 @@ const Home = () => {
     const handleClickOpen = () => {
         setOpenDialog(true);
     };
+    const [isExpanded, setIsExpanded] = useState(false);
+
+    const handleExpand = () => {
+      setIsExpanded(true);
+    };
+    
+      const [isKanbanExpanded, setIsKanbanExpanded] = useState(false); // Manage Kanban expansion
+    
+    
+      const handleExpandKanban = () => {
+        setIsKanbanExpanded(true);
+      };
+    
+      const handleCollapseKanban = () => {
+        setIsKanbanExpanded(false);
+      };
+  
+    const handleCollapse = () => {
+      setIsExpanded(false);
+    };
+     
     const [selectedSection, setSelectedSection] = useState('Dashboard');
     const handleSectionClick = (section) => {
         setSelectedSection(section);
@@ -216,7 +238,7 @@ const [templateInfo, setTemplateInfo] = useState('');
     <Box className="dashboardele" sx={{ display: 'flex',direction: 'row',  alignItems: 'start',mr: '5px' }}>
                         <IconButton onClick={handleClickOpen} sx={{ color: '#000000' }}>
                         <AddIcon className='iconsizee'/>
-                        <button className='buttonelementee'>  <AddIcon className='iconsize'/>Create new Project</button>
+                        <AddIcon className='iconsize'/>
                         </IconButton>
                         <IconButton sx={{ color: '#000000' }}>
                             <MoreVertIcon />
@@ -226,10 +248,10 @@ const [templateInfo, setTemplateInfo] = useState('');
                     
                     <Dialog className='dialogboxopening' open={openDialog} onClose={handleClose} maxWidth="l" fullWidth>
   <DialogTitle>
-    <Typography variant="h5" sx={{ color: '#1a1a1a', fontWeight: 'bold', textAlign: 'center' }}>
+    <Typography variant="h5" sx={{  fontWeight: 'bold', textAlign: 'center' }}>
       Software development
     </Typography>
-    <Typography variant="subtitle1" sx={{ textAlign: 'center', color: '#666665', fontSize: '1rem', marginTop: '8px' }}>
+    <Typography variant="subtitle1" sx={{ textAlign: 'center',  fontSize: '1rem', marginTop: '8px' }}>
       Organize, track, and launch great software. Quickly get started with templates that fit your team's style of work.
     </Typography>
   </DialogTitle>
@@ -263,37 +285,161 @@ const [templateInfo, setTemplateInfo] = useState('');
     </Box>
 
     {/* Right side: Display information */}
-    <Box className="assaigning" sx={{ width: '80%', overflow:'scroll', paddingLeft: '24px', backgroundColor: '#f4f4f4', borderRadius: '8px' }}>
+    <Box className="assaigning" sx={{ width: '80%', overflow:'scroll', paddingLeft: '24px', backgroundColor: 'background.default', borderRadius: '8px' }}>
       {selectedTemplate ? (
         <>
-          <Typography variant="h6" sx={{ fontWeight: 'bold', color: '#1a1a1a' }}>{selectedTemplate}</Typography>
+          <Typography variant="h6" sx={{ fontWeight: 'bold',  }}>{selectedTemplate}</Typography>
           {selectedTemplate === 'Software Development' && (
             <Box sx={{ display: 'flex', flexDirection:'column', gap: '20px', marginTop: '16px' }}>
               {/* Card for Kanban */}
-              <Card sx={{ display: 'flex', alignItems: 'center', backgroundColor: '#fff', borderRadius: '12px', padding: '16px', color: 'black', height: '160px', boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)', width: '100%' }}>
-      
-      {/* Image Section */}
-      <Box sx={{ width: '110px', height: '60px', marginRight: '86px',marginLeft:'-40px',marginTop:'-95px' }}>
-        <img src={Scrum} alt="Scrum" style={{ width: '230px', height: '150px', borderRadius: '8px' }} />
-      </Box>
+              <Box
+      className="assigning"
+      sx={{
+        width: '80%',
+        overflow: 'scroll',
+        paddingLeft: '24px',
+        backgroundColor: 'background.default',
+        borderRadius: '8px',
+        display: 'flex',
+        flexDirection: 'row',
+      }}
+    >
+      {selectedTemplate ? (
+        <>
+          <Box sx={{ flex: isKanbanExpanded ? 0.6 : 1 }}>
+            <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
+              {selectedTemplate}
+            </Typography>
 
-      {/* Text Content */}
-      <CardContent sx={{ flex: '1', padding: '0' }}>
-        <Typography variant="h6" sx={{ fontWeight: 'bold', marginBottom: '4px' }}>Kanban</Typography>
-        <Typography variant="body2" sx={{ color: 'black', marginBottom: '8px' }}>Clikkle Projects</Typography>
-        <Typography variant="body2" sx={{ color: 'black' }}>
-          An agile framework for delivering projects incrementally.
+            {selectedTemplate === 'Software Development' && (
+              <Box sx={{ display: 'flex', flexDirection: 'column', gap: '20px', marginTop: '16px' }}>
+                {/* Card for Kanban */}
+                <Card
+                  sx={{
+                    display: 'flex',
+                    flexDirection: isKanbanExpanded ? 'column' : 'row',
+                    alignItems: isKanbanExpanded ? 'start' : 'center',
+                    backgroundColor: 'background.default',
+                    borderRadius: '12px',
+                    padding: isKanbanExpanded ? '24px' : '16px',
+                    height: isKanbanExpanded ? 'auto' : '160px',
+                    boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)',
+                    width: '100%',
+                    transition: 'all 0.3s ease',
+                  }}
+                >
+                  {/* Image Section */}
+                  <Box
+                    sx={{
+                      width: '110px',
+                      height: '60px',
+                      marginRight: '86px',
+                      marginLeft: isKanbanExpanded ? '0' : '-40px',
+                      marginTop: isKanbanExpanded ? '0' : '-95px',
+                    }}
+                  >
+                    <img
+                      src={Scrum}
+                      alt="Scrum"
+                      style={{
+                        width: isKanbanExpanded ? '100%' : '230px',
+                        height: isKanbanExpanded ? 'auto' : '150px',
+                        borderRadius: '8px',
+                      }}
+                    />
+                  </Box>
+
+                  {/* Text Content */}
+                  <CardContent sx={{ flex: '1', padding: '0' }}>
+                    <Typography variant="h6" sx={{ fontWeight: 'bold', marginBottom: '4px' }}>
+                      Kanban
+                    </Typography>
+                    <Typography variant="body2" sx={{ marginBottom: '8px' }}>
+                      Clikkle Projects
+                    </Typography>
+                    <Typography variant="body2">
+                      {isKanbanExpanded
+                        ? 'Kanban is an agile framework that visualizes tasks, limits work in progress, and helps teams boost efficiency. It assists teams in making planning more flexible, avoiding delays, and improving project management.'
+                        : 'An agile framework for delivering projects incrementally.'}
+                    </Typography>
+                    {isKanbanExpanded && (
+                      <>
+                        <Typography variant="body2" sx={{ marginTop: '12px' }}>
+                          Track work using a simple board, where each step of the project process is visualized clearly.
+                        </Typography>
+                        <Typography variant="body2" sx={{ marginTop: '8px' }}>
+                          Recommended for teams managing tasks from a backlog or linking DevOps work across multiple tools.
+                        </Typography>
+                      </>
+                    )}
+                  </CardContent>
+
+                  {/* Navigation Arrow / Close Button */}
+                  <IconButton onClick={isKanbanExpanded ? handleCollapseKanban : handleExpandKanban}>
+                    {isKanbanExpanded ? <CloseIcon /> : <ArrowForwardIosIcon />}
+                  </IconButton>
+                </Card>
+              </Box>
+            )}
+          </Box>
+
+          {/* Right Side Content (when Kanban is expanded) */}
+          {isKanbanExpanded && (
+            <Box
+              sx={{
+                flex: 0.4,
+                backgroundColor: 'background.default',
+                padding: '16px',
+                marginLeft: '20px',
+                borderRadius: '8px',
+                boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)',
+              }}
+            >
+              <Typography className='Kanheddingbacground' variant="h6">Kanban Details</Typography>
+               <CardContent sx={{ flex: '1', padding: '0' }}>
+                    <Typography variant="h6" sx={{ fontWeight: 'bold', marginBottom: '4px' }}>
+                      Kanban
+                    </Typography>
+                    <Typography variant="body2" sx={{ marginBottom: '8px' }}>
+                      Clikkle Projects
+                    </Typography>
+                    <Typography variant="body2">
+                      {isKanbanExpanded
+                        ? 'Kanban is an agile framework that visualizes tasks, limits work in progress, and helps teams boost efficiency. It assists teams in making planning more flexible, avoiding delays, and improving project management.'
+                        : 'An agile framework for delivering projects incrementally.'}
+                    </Typography>
+                    {isKanbanExpanded && (
+                      <>
+                        <Typography variant="body2" sx={{ marginTop: '12px' }}>
+                          Track work using a simple board, where each step of the project process is visualized clearly.
+                        </Typography>
+                        <Typography variant="body2" sx={{ marginTop: '8px' }}>
+                          Recommended for teams managing tasks from a backlog or linking DevOps work across multiple tools.
+                        </Typography>
+                      </>
+                    )}
+                  </CardContent>
+              <Typography variant="body1" sx={{ marginTop: '12px' }}>
+                Issue Types:
+              </Typography>
+              <ul>
+                <li>Epic</li>
+                <li>Story</li>
+                <li>Bug</li>
+                <li>Task</li>
+                <li>Sub-task</li>
+              </ul>
+            </Box>
+          )}
+        </>
+      ) : (
+        <Typography variant="body1" sx={{ color: '#666665' }}>
+          Select a project template to see details.
         </Typography>
-      </CardContent>
-
-      {/* Navigation Arrow */}
-      <IconButton sx={{ color: 'black' }} onClick={() => console.log('Navigate to Scrum details')}>
-        <ArrowForwardIosIcon />
-      </IconButton>
-    </Card>
-
+      )}
+    </Box>
               {/* Card for Scrum */}
-              <Card sx={{ display: 'flex', alignItems: 'center', backgroundColor: '#fff', borderRadius: '12px', padding: '16px', color: 'black', height: '160px', boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)', width: '100%' }}>
+              <Card sx={{ display: 'flex', alignItems: 'center', backgroundColor: 'background.default', borderRadius: '12px', padding: '16px', height: '160px', boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)', width: '100%' }}>
       
       {/* Image Section */}
       <Box sx={{ width: '110px', height: '60px', marginRight: '86px',marginLeft:'-40px',marginTop:'-95px' }}>
@@ -303,8 +449,8 @@ const [templateInfo, setTemplateInfo] = useState('');
       {/* Text Content */}
       <CardContent sx={{ flex: '1', padding: '0' }}>
         <Typography variant="h6" sx={{ fontWeight: 'bold', marginBottom: '4px' }}>Scrum</Typography>
-        <Typography variant="body2" sx={{ color: 'black', marginBottom: '8px' }}>Clikkle Projects</Typography>
-        <Typography variant="body2" sx={{ color: 'black' }}>
+        <Typography variant="body2" sx={{  marginBottom: '8px' }}>Clikkle Projects</Typography>
+        <Typography variant="body2" sx={{}}>
           An agile framework for delivering projects incrementally.
         </Typography>
       </CardContent>
@@ -316,7 +462,7 @@ const [templateInfo, setTemplateInfo] = useState('');
     </Card>
 
               {/* Card for Top-Level Planning */}
-              <Card sx={{ display: 'flex', alignItems: 'center', backgroundColor: '#fff', borderRadius: '12px', padding: '16px', color: 'black', height: '160px', boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)', width: '100%' }}>
+              <Card sx={{ display: 'flex', alignItems: 'center', backgroundColor: 'background.default', borderRadius: '12px', padding: '16px', height: '160px', boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)', width: '100%' }}>
       
       {/* Image Section */}
       <Box sx={{ width: '110px', height: '60px', marginRight: '86px',marginLeft:'-40px',marginTop:'-95px' }}>
@@ -326,8 +472,8 @@ const [templateInfo, setTemplateInfo] = useState('');
       {/* Text Content */}
       <CardContent sx={{ flex: '1', padding: '0' }}>
         <Typography variant="h6" sx={{ fontWeight: 'bold', marginBottom: '4px' }}>Scrum</Typography>
-        <Typography variant="body2" sx={{ color: 'black', marginBottom: '8px' }}>Clikkle Projects</Typography>
-        <Typography variant="body2" sx={{ color: 'black' }}>
+        <Typography variant="body2" sx={{  marginBottom: '8px' }}>Clikkle Projects</Typography>
+        <Typography variant="body2" sx={{ }}>
           An agile framework for delivering projects incrementally.
         </Typography>
       </CardContent>
@@ -339,7 +485,7 @@ const [templateInfo, setTemplateInfo] = useState('');
     </Card>
 
  {/* Card for Top-Level Planning */}
- <Card sx={{ display: 'flex', alignItems: 'center', backgroundColor: '#fff', borderRadius: '12px', padding: '16px', color: 'black', height: '160px', boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)', width: '100%' }}>
+ <Card sx={{ display: 'flex', alignItems: 'center', backgroundColor: 'background.default', borderRadius: '12px', padding: '16px', height: '160px', boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)', width: '100%' }}>
       
       {/* Image Section */}
       <Box sx={{ width: '110px', height: '60px', marginRight: '86px',marginLeft:'-40px',marginTop:'-95px' }}>
