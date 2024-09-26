@@ -190,6 +190,29 @@ text-align: left;
   height: 102px;
   
 }
+.kanbanfhg{
+  margin-top: 22px !important;
+  margin-left: 12px !important;
+  font-size: 28px !important;
+}
+
+.closex{
+  color: black !important;
+}
+
+.templatename {
+  background-color: black !important;
+}
+
+.kanbanaligment{
+  background-color: #1E90FF;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 90px;
+}
+
+ 
 
 .responsive {
     margin-top: -30px;

@@ -644,7 +644,7 @@ export default function Navbar(props) {
             </IconButton>
                         </Grid>
                        
-                        <Grid item xs md={5} alignItems='start'>
+                        <Grid className='searchbasdj' item xs md={5} alignItems='start'>
                             <SearchBar />
                         </Grid>
                         <Grid item xs display={{ xs: 'none', sm: 'block' }}>

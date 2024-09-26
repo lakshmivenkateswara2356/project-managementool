@@ -327,7 +327,7 @@ const Dashboard = () => {
             <Box className="adjustingtexr" sx={{ flex: 1 }}>
               <Typography
                 variant="body1"
-                sx={{ color: '#fff', fontWeight: 500, mb: 0.5 }}
+                sx={{ color: '#fff',width:'192px', fontWeight: 500, mb: 0.5 }}
                 noWrap
               >
                 {index === 2

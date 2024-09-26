@@ -98,6 +98,11 @@ color:#848484;
     .projectpara {
       font-size: 0.8rem;
     }
+
+    .searchbasdj {
+      margin-left: -5px !important;
+      margin-right: 14px !important;
+    }
   
     .sectionseperation {
       height: 1px;

@@ -14,6 +14,7 @@ import React from 'react';
 import TuneIcon from '@mui/icons-material/Tune';
 import { useMenu } from './../hooks/useMenu';
 import { styled } from '@mui/material/styles';
+import './SearchBar.css';
 
 const SearchWrapper = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -113,7 +114,7 @@ export default SearchBar;
 
 const FilterBox = () => {
     return (
-        <Card sx={{ p: 2.5, minWidth: '669px', backgroundColor: 'background.default' }}>
+        <Card sx={{ p: 2.5,textAlign:'center', minWidth: '669px', backgroundColor: 'background.default' }}>
             <Grid container spacing={3} alignItems='center'>
                 <Grid item xs={2}>
                     <Typography variant='subtitle2' fontWeight={600}>
