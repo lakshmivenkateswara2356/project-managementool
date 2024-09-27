@@ -37,11 +37,11 @@ const sharedFile = [
         icon: <PeopleIcon fontSize='small' />,
         to: '/shared-with-me',
     },
-   // {
-   //     name: 'Shared by me',
-     //   icon: <PersonIcon fontSize='small' />,
-     //   to: '/shared-by-me',
-  //  },
+    {
+       name: 'Shared by me',
+       icon: <PersonIcon fontSize='small' />,
+       to: '/shared-by-me',
+    },
 ];
 
 export { fileManager, sharedFile };
