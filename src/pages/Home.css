@@ -134,6 +134,15 @@ text-align: left;
   display: flex !important;
   flex-direction: row !important;
   justify-content: center !important;
+  align-items: center !important;
+  margin-left: 44px;
+  
+}
+
+.parraek {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: center !important;
 }
 
 .seperationvertical {
@@ -174,10 +183,7 @@ text-align: left;
     margin-bottom: 12px !important;
 }
 
-.projectpara {
-  text-align: center !important;
-  margin-right: 430px !important;
-}
+
 
 .sectionseperation {
     height: 1px;

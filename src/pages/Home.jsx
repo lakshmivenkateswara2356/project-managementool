@@ -1,5 +1,6 @@
 import { Box, Grid, IconButton, Typography,Avatar } from '@mui/material';
 import image from './dahboardimg.png';
+import './Home.css'
 
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import AddIcon from '@mui/icons-material/Add';
@@ -37,12 +38,12 @@ const Home = () => {
                     
                     alignItems:'center',
                 }}>
-                  <div >
-                    <img className='elignment'
+                  <div className='elignment' >
+                    <Avatar 
                         alt="No activity"
                         
                         src={image}
-                        sx={{ width: 150, height: 150,  marginBottom: 2,alignItems:'center', }}
+                        sx={{ width: 150, height: 150,  marginBottom: 2,alignItems:'center',marginTop:'105px' }}
                     />
 
 </div>
@@ -50,10 +51,12 @@ const Home = () => {
                     <Typography variant="h5" sx={{ color: '#bbb' }}>
                     No current activity!
                     </Typography>
-                    <Typography className='projectpara' variant="body2" color="text.secondary" sx={{textAlign:'center', color: '#bbb' }}>
+                    <div className='parraek'>
+                    <p1 className='projectpara'>
                         When you create projects or projects are assigned to you, all progress
                         updates will be seen here.
-                    </Typography>
+                    </p1>
+                    </div>
                 </Box>
         </Box>
     );
