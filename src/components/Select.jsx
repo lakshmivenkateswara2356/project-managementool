@@ -47,7 +47,7 @@ const Select = props => {
                         borderRadius: '8px',
                         // alignItems: 'stretch',
                     }}>
-                    <Button
+                    <Button className='filterMobile'
                         startIcon={<Done />}
                         onClick={openSelect}
                         sx={{

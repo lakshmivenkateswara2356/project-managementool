@@ -54,7 +54,7 @@ const Dashboard = () => {
     return (
         
        <div>
-<Navbar/>
+
 <Box sx={{ display: 'flex', height: '100vh', backgroundColor: '#fff', color: '#1a1a1a' }}>
             {/* Sidebar */}
             

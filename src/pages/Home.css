@@ -185,7 +185,7 @@ text-align: left;
 
 .diveder {
   height: 1px;
-  width: 100vw;
+  width: 100%;
   background-color: #747474;
 }
 
@@ -540,7 +540,7 @@ margin:12px;
 }
 
 .projectpara{
-  width: 400px;
+  width: 400vw;
 }
  
 
@@ -628,6 +628,7 @@ margin:12px;
   
     .projectpara {
       font-size: 0.9rem;
+      
     }
   }
   
@@ -714,7 +715,7 @@ margin:12px;
       font-size: 0.8rem;
       margin-right: 12px !important;
       text-align: center;
-      width: 100px;
+      width: 400px;
     }
   
     .sectionseperation {
