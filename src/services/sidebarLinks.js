@@ -3,25 +3,27 @@ import GradeOutlinedIcon from '@mui/icons-material/GradeOutlined';
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 import PeopleIcon from '@mui/icons-material/People';
 import PersonIcon from '@mui/icons-material/Person';
-import { SlHome } from "react-icons/sl";
-import { LiaClipboardListSolid } from "react-icons/lia";
-import { MdOutlineWorkOutline } from "react-icons/md";
+import FolderOutlinedIcon from '@mui/icons-material/FolderOutlined';
+
+
+
+
 
 
 const fileManager = [
     {
         name: 'Dashboard',
-        icon: <SlHome fontSize='small' />,
+        icon: <FolderOutlinedIcon fontSize='small' />,
         to: '/',
     },
     {
         name: 'Projects',
-        icon: <LiaClipboardListSolid  fontSize='small' />,
+        icon: <AccessTimeOutlinedIcon fontSize='small' />,
         to: '/Projects',
     },
     {
         name: 'Your work',
-        icon: <MdOutlineWorkOutline  fontSize='small' />,
+        icon: <GradeOutlinedIcon  fontSize='small' />,
         to: '/yourwork',
     },
     {
