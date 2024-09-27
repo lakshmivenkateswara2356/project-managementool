@@ -130,6 +130,12 @@ text-align: left;
     font-family: Arial, Helvetica, sans-serif;
 }
 
+.elignment {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: center !important;
+}
+
 .seperationvertical {
     height: 200vw;
     width: 2px;

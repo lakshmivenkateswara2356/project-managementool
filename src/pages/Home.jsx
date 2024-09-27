@@ -37,12 +37,15 @@ const Home = () => {
                     
                     alignItems:'center',
                 }}>
-                    <Avatar
+                  <div >
+                    <Avatar className='elignment'
                         alt="No activity"
                         
                         src={image}
-                        sx={{ width: 150, height: 150, marginLeft:'500px',alignItems:'center', marginBottom: 2 }}
+                        sx={{ width: 150, height: 150,  marginBottom: 2,alignItems:'center',marginLeft:'600px' }}
                     />
+
+</div>
                     
                     <Typography variant="h5" sx={{ color: '#bbb' }}>
                     No current activity!

@@ -1,8 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import clikkleproj from '../Assets/clikkleproj.png';
 
 import { Link, NavLink, useLocation } from 'react-router-dom';
-import './Navbar.css'
 
 //mui component
 import {
@@ -280,17 +278,12 @@ export default function Navbar(props) {
                 component={Link}
                 to='/'
                 sx={{ textDecoration: 'none', color: 'text.primary', py: 1 }}>
-               <div className='alighite'>
-                    <img src={clikkleproj} alt="clikklerep" className='cikklerepair'/>
-                    <h1 className='clikkletechnologies'><span className='clikkle'>Clikkle</span>Projects</h1>
-                    
-                    </div>
-                <Typography className='bets'
+                <Image cdn='projects/logo/2023/projects-text.png' sx={{ height: '50px' }} />
+                <Typography
                     color='text.secondary'
                     variant='body2'
                     fontWeight='bold'
-                    sx={{ position: 'absolute',
-                    marginTop:'-33px', bottom: 2, left: '37%' }}>
+                    sx={{ position: 'absolute', bottom: 2, left: '37%' }}>
                     Beta
                 </Typography>
             </Box>
@@ -442,7 +435,7 @@ export default function Navbar(props) {
                 mb={1.5}
                 to='/'
                 sx={{ textDecoration: 'none', color: 'text.primary', py: 1 }}>
-                <Image src={clikkleproj}sx={{ height: '50px' }} />
+                <Image cdn='projects/logo/projects.png' sx={{ height: '50px' }} />
             </Box>
 
             <Box
