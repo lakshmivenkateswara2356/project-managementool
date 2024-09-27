@@ -290,7 +290,7 @@ export default function Navbar(props) {
 
             <Box sx={{ overflowY: 'auto', height: 'calc(100dvh - 90px)', flexGrow: 1 }}>
                 <Typography variant='body2' pl={3} mt={1.5} fontSize='14px' fontWeight={500}>
-                    File Manager
+                    Project Manager
                 </Typography>
                 <List sx={{ px: 3 }}>
                     {fileManager.map(link => (
