@@ -283,7 +283,7 @@ export default function Navbar(props) {
                     color='text.secondary'
                     variant='body2'
                     fontWeight='bold'
-                    sx={{ position: 'absolute', bottom: 2, left: '37%' }}>
+                    sx={{ position: 'absolute', bottom: 2, left: '27%' }}>
                     Beta
                 </Typography>
             </Box>
