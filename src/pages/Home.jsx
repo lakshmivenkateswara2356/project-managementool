@@ -34,7 +34,7 @@ const Home = () => {
 
             <Box   textAlign="center"
                 sx={{
-                    backgroundColor:'background.default',
+                    
                     alignItems:'center',
                 }}>
                     <Avatar
@@ -44,7 +44,7 @@ const Home = () => {
                         sx={{ width: 150, height: 150, marginLeft:'500px',alignItems:'center', marginBottom: 2 }}
                     />
                     
-                    <Typography variant="h5" sx={{ backgroundColor:'background.default',color: '#bbb' }}>
+                    <Typography variant="h5" sx={{ color: '#bbb' }}>
                     No current activity!
                     </Typography>
                     <Typography className='projectpara' variant="body2" color="text.secondary" sx={{textAlign:'center', color: '#bbb' }}>
