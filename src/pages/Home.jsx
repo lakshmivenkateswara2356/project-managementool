@@ -38,11 +38,11 @@ const Home = () => {
                     alignItems:'center',
                 }}>
                   <div >
-                    <Avatar className='elignment'
+                    <img className='elignment'
                         alt="No activity"
                         
                         src={image}
-                        sx={{ width: 150, height: 150,  marginBottom: 2,alignItems:'center',marginLeft:'600px' }}
+                        sx={{ width: 150, height: 150,  marginBottom: 2,alignItems:'center', }}
                     />
 
 </div>
