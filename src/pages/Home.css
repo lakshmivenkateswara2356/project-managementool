@@ -539,6 +539,9 @@ margin:12px;
   height: 90px;
 }
 
+.projectpara{
+  width: 400px;
+}
  
 
 .responsive {
@@ -711,6 +714,7 @@ margin:12px;
       font-size: 0.8rem;
       margin-right: 12px !important;
       text-align: center;
+      width: 100px;
     }
   
     .sectionseperation {

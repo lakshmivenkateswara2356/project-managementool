@@ -3,23 +3,26 @@ import GradeOutlinedIcon from '@mui/icons-material/GradeOutlined';
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 import PeopleIcon from '@mui/icons-material/People';
 import PersonIcon from '@mui/icons-material/Person';
-import FolderOutlinedIcon from '@mui/icons-material/FolderOutlined';
+import { SlHome } from "react-icons/sl";
+import { LiaClipboardListSolid } from "react-icons/lia";
+import { MdOutlineWorkOutline } from "react-icons/md";
+
 
 const fileManager = [
     {
-        name: 'My Files',
-        icon: <FolderOutlinedIcon fontSize='small' />,
+        name: 'Dashboard',
+        icon: <SlHome fontSize='small' />,
         to: '/',
     },
     {
-        name: 'Recent',
-        icon: <AccessTimeOutlinedIcon fontSize='small' />,
-        to: '/recent',
+        name: 'Projects',
+        icon: <LiaClipboardListSolid  fontSize='small' />,
+        to: '/Projects',
     },
     {
-        name: 'Favorite',
-        icon: <GradeOutlinedIcon fontSize='small' />,
-        to: '/favorite',
+        name: 'Your work',
+        icon: <MdOutlineWorkOutline  fontSize='small' />,
+        to: '/yourwork',
     },
     {
         name: 'Trash',
@@ -30,15 +33,15 @@ const fileManager = [
 
 const sharedFile = [
     {
-        name: 'Shared with me',
+        name: 'Team',
         icon: <PeopleIcon fontSize='small' />,
         to: '/shared-with-me',
     },
-    {
-        name: 'Shared by me',
-        icon: <PersonIcon fontSize='small' />,
-        to: '/shared-by-me',
-    },
+   // {
+   //     name: 'Shared by me',
+     //   icon: <PersonIcon fontSize='small' />,
+     //   to: '/shared-by-me',
+  //  },
 ];
 
 export { fileManager, sharedFile };

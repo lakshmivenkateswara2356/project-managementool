@@ -321,7 +321,7 @@ export default function Navbar(props) {
                 </List>
                 <Divider variant='middle' />
                 <Typography variant='body2' pl={3} mt={1.5} fontSize='14px' fontWeight={500}>
-                    Shared File
+                    Your work
                 </Typography>
                 <List sx={{ px: 3 }}>
                     {sharedFile.map(link => (
