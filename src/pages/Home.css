@@ -183,8 +183,15 @@ text-align: left;
     margin-bottom: 12px !important;
 }
 
+.diveder {
+  height: 1px;
+  width: 100vw;
+  background-color: #747474;
+}
 
-
+.nocurrent {
+  font-size: 22px;
+}
 .sectionseperation {
     height: 1px;
     width: 210px;

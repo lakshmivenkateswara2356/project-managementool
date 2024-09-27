@@ -17,7 +17,7 @@ const Home = () => {
                 </Grid>
                 <Grid item>
                     <IconButton sx={{ display: { xs: 'none', sm: 'block' } }}>
-                    <IconButton sx={{ color: 'white' }}>
+                    <IconButton sx={{ color: '#1E90FF' }}>
                     <AddIcon />
                         
                         </IconButton>
@@ -30,7 +30,8 @@ const Home = () => {
                 </Grid>
                 
             </Grid>
-           
+            <div className='diveder'></div>
+            
             
 
             <Box   textAlign="center"
@@ -43,14 +44,14 @@ const Home = () => {
                         alt="No activity"
                         
                         src={image}
-                        sx={{ width: 150, height: 150,  marginBottom: 2,alignItems:'center',marginTop:'105px' }}
+                        sx={{ width: 150, height: 150,  marginBottom: 2,alignItems:'center',marginTop:'105px',marginLeft:'-33px' }}
                     />
 
 </div>
                     
-                    <Typography variant="h5" sx={{ color: '#bbb' }}>
+                    <h1 className='nocurrent'>
                     No current activity!
-                    </Typography>
+                    </h1>
                     <div className='parraek'>
                     <p1 className='projectpara'>
                         When you create projects or projects are assigned to you, all progress
