@@ -1,0 +1,16 @@
+.flexingKeyelem {
+    display: flex;
+    flex-direction: column;
+}
+
+.flexingotems {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 33px;
+}
+
+.boldrr {
+    font-weight: bold;
+    font-size: 18px;
+}

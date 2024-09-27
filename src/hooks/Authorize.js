@@ -1,15 +1,14 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import Loading from '../components/Loading';
 import { env } from '../utilities/function';
-//import axios from 'axios';
-//import { useMessage } from '../components/Header';
 
 const authorizeContext = createContext();
 
 const AuthorizationProvider = ({ children }) => {
     const [content, setContent] = useState(<Loading message='Please wait, logging you in...' />);
     const [user, setUser] = useState({});
-   // const { showError } = useMessage();
+    const [manualInput, setManualInput] = useState(false); // New state to toggle manual input form
+    const [manualUser, setManualUser] = useState({ id: '', name: '', email: '' }); // Store manually entered data
 
     const authorize = async (loggedIn, cb) => {
         if (loggedIn) {
@@ -29,72 +28,91 @@ const AuthorizationProvider = ({ children }) => {
         if (typeof cb === 'function') cb(setUser);
     };
 
+    const handleManualSubmit = () => {
+        localStorage.setItem('user', JSON.stringify(manualUser));
+        authorize(true, (setUser) => setUser(manualUser));
+    };
+
     useEffect(() => {
         (async () => {
-            // try {
-            //     // Simulate fetching user data from server
-            //     const dummyUser = { id: 123, name: 'Test', email: 'test@test.com', role: 'user' };
-            //     setUser(dummyUser);
-            //     authorize(true, setUser => setUser(dummyUser));
-            // } catch (err) {
-            //     console.log(err);
-            //     handleAxiosError(err, showError);
-            //     authorize(false);
-            // }
             try {
-                    //  const loggedInUserEmail = getCookie('loggedInUserEmail');
-                    const queryParameters = new URLSearchParams(window.location.search)
-                    const userId = queryParameters.get("userId")
-                    console.log(userId);
+                const queryParameters = new URLSearchParams(window.location.search);
+                const userId = queryParameters.get("userId");
 
-                    if (userId) {
+                if (userId) {
+                    var formData = new FormData();
+                    formData.append("id", userId);
 
-                        var formData = new FormData();
-                        formData.append("id", userId);
-
-                        const response = await fetch(
-                            "https://accounts.clikkle.com:5000/api/auth/get_user_profile",
-                            // "https://api.campaigns.clikkle.com/get_user_profile",
-                            // "http://localhost:8000/get_user_profile",
-                            {
-                                method: "POST",
-                                body: formData
-                            },
-
-                        );
-
-                        if (response.ok) {
-                            console.log('user found ...')
-
-                            const responseData = await response.json();
-                            const { user } = responseData;
-                            console.log(user)
-                            localStorage.setItem("user", JSON.stringify(user));
-                            authorize(true, (setUser) => setUser(user));
-
-                        } else {
-                            console.log('user not found')
+                    const response = await fetch(
+                        "https://accounts.clikkle.com:5000/api/auth/get_user_profile",
+                        {
+                            method: "POST",
+                            body: formData
                         }
+                    );
 
-
-                    }else if(localStorage.getItem("user")){
-                        let user = JSON.parse(localStorage.getItem("user"));
-                        authorize(true, (setUser) => setUser(user)); 
+                    if (response.ok) {
+                        const responseData = await response.json();
+                        const { user } = responseData;
+                        localStorage.setItem("user", JSON.stringify(user));
+                        authorize(true, (setUser) => setUser(user));
                     } else {
-                        authorize(false);
+                        console.log('User not found, switching to manual input');
+                        setManualInput(true); // Enable manual input if API fails
                     }
-
-                } catch (err) {
-                    console.log(err);
-                    // handleAxiosError(err, showError);
-                    authorize(false);
+                } else if (localStorage.getItem("user")) {
+                    let user = JSON.parse(localStorage.getItem("user"));
+                    authorize(true, (setUser) => setUser(user));
+                } else {
+                    setManualInput(true); // Enable manual input if no user is found
                 }
+            } catch (err) {
+                console.log(err);
+                authorize(false);
+                setManualInput(true); // Enable manual input if error occurs
+            }
         })();
     }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     return (
         <authorizeContext.Provider value={{ authorize, setUser, user, setContent }}>
-            {content}
+            {manualInput ? (
+                <div>
+                    <h2>Manual User Entry</h2>
+                    <form onSubmit={(e) => { e.preventDefault(); handleManualSubmit(); }}>
+                        <label>
+                            User ID:
+                            <input
+                                type="text"
+                                value={manualUser.id}
+                                onChange={(e) => setManualUser({ ...manualUser, id: e.target.value })}
+                            />
+                        </label>
+                        <br />
+                        <label>
+                            Name:
+                            <input
+                                type="text"
+                                value={manualUser.name}
+                                onChange={(e) => setManualUser({ ...manualUser, name: e.target.value })}
+                            />
+                        </label>
+                        <br />
+                        <label>
+                            Email:
+                            <input
+                                type="email"
+                                value={manualUser.email}
+                                onChange={(e) => setManualUser({ ...manualUser, email: e.target.value })}
+                            />
+                        </label>
+                        <br />
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+            ) : (
+                content
+            )}
         </authorizeContext.Provider>
     );
 };

@@ -10,6 +10,35 @@
     flex-direction: column;
     
 }
+
+.clikkletechnologies {
+  margin-bottom: -43px !important;
+  margin-top: 23px !important;
+  font-size: 15px !important;
+  font-size: 25px !important;
+  margin-left: -13px;
+  color: #7a7a7a;
+  font-weight: lighter;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.bets{
+  margin-top: -53px !important;
+}
+.clikkle {
+  font-weight: bold;
+
+}
+
+.alighite {
+  display: flex;
+  flex-direction: row;
+}
+
+.cikklerepair{
+  height: 80px;
+}
 .companyclikkle {
     height: 83px;
     width: 83px;

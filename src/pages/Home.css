@@ -200,6 +200,314 @@ text-align: left;
   color: black !important;
 }
 
+.Kanbanitemimg {
+  height: 152px;
+margin:12px;
+}
+
+.Kanbantrackp {
+  font-size: 17px;
+}
+
+.KanbanParaG {
+  width: 279px;
+  text-align:left;
+}
+
+.secondKandn {
+  margin-left: 180px;
+}
+
+
+.alignKanbaInfo {
+  display: flex;
+  flex-direction: row;
+}
+
+.Kanbantrackpee {
+  font-size: 17px;
+
+
+}
+
+.alignitemskannext {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.Kanbantemplate {
+  background-color: #3b84d9;
+  color: black !important;
+}
+
+.KanbanResto {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.miniKanbandialog {
+  background-color: #1a1a1a; /* Dark theme for the dialog background */
+  color: white; /* White text color for readability */
+  height: 100vh; /* Full viewport height */
+  width: 100vw; /* Full viewport width */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Space between content and actions */
+  padding: 16px; /* Padding for the content */
+  box-sizing: border-box;
+}
+
+.KanbanelemDer {
+  display: flex;
+  flex-direction: row;
+  background-color: #1a1a1a;
+  
+}
+
+.companymanagKan {
+  background-color: #3767B1;
+  height: 2px;
+  width:500px ;
+  margin-left: 24px;
+}
+
+.flexingBoxesItems {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 33px;
+}
+
+.BoxcontentComp {
+  height: 590px;
+  width: 470px;
+  background-color: #3767B180;
+  margin-top: 22px;
+  text-align: center;
+  border-radius: 7px;
+  align-items: center;
+}
+
+.smallAboutTeam {
+  background-color: #92168580;
+  height:370px;
+  width: 400px;
+  text-align: center;
+  align-items: center;
+  border-radius: 7px;
+}
+
+.smallAboutComp{
+  background-color: #3767B180;
+  height:370px;
+  border-radius: 12px;
+  width: 400px;
+}
+
+.AccessPermission {
+  height: 120px;
+  border-radius: 7px;
+  width: 380px;
+  margin-left: 9px;
+  background-color:black;
+}
+
+.SmallAbouyFlex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 80px;
+}
+
+.smallAboutComp {
+  text-align: center;
+}
+.BoxcontentTeam {
+  height: 590px;
+  text-align: center;
+  align-items: center;
+  width: 470px;
+  background-color: #92168580;
+  margin-top: 22px;
+  border-radius: 7px;
+}
+
+.imagecomde {
+  height: 140px;
+}
+.containerSubco {
+  background-color: rgb(0, 0, 0);
+  height: 270px;
+  margin-left: 8px;
+  width: 450px;
+  margin-top: 20px;
+  border-radius: 7px;
+}
+
+.linesepetgerKan {
+  background-color: rgb(57, 57, 57);
+  width: 100vw;
+  height: 1px;
+  margin-top: 33px;
+}
+
+.buttondisplay {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 22px;
+  margin-bottom: 75px;
+}
+
+.Buttomele {
+  background-color: #E367D7;
+  height: 35px;
+  color: black;
+  border-width: 0px;
+  border-radius: 7px;
+  font-weight: bold;
+  text-align: center;
+  width: 420px;
+}
+
+.Buttomeleee {
+  background-color: #407BFF;
+  height: 35px;
+  color: black;
+  font-weight: bold;
+  border-width: 0px;
+  border-radius: 7px;
+  text-align: center;
+  width: 420px;
+}
+
+.lineTeamSeperation  {
+  height: 1px;
+  width: 400px;
+  background-color: #49484980;
+  margin-left: 22px;
+  margin-top: 12px;
+}
+
+.TeamFe {
+  height: 90px;
+}
+
+.modernclassClikk {
+  font-size: 13px;
+  text-align: left;
+  margin-left: 60px;
+  width: 300px;
+  margin-bottom: 12px;
+  
+}
+
+.lineTeamSeperationee {
+  height: 1px;
+  width: 350px;
+  background-color: #33333380;
+  margin-left: 22px;
+  margin-top: 12px;
+}
+
+.arrangingsometext {
+  font-size: 13px;
+  text-align: left;
+  margin-left: 33px;
+  padding-top: 22px;
+ 
+}
+
+.imagecomd {
+  margin-bottom: 32px;
+}
+
+.mimnipara {
+  font-size: 16px;
+  font-weight: lighter;
+  width: 300px;
+  text-align: center;
+  margin-left: 100px;
+ 
+}
+
+.simpleconfigu {
+  font-size: 18px;
+  margin-top: 45px;
+  margin-bottom: 20px;
+}
+
+.Heoolo {
+  height: 42px !important;
+  text-align: center !important;
+}
+
+.lineseperation {
+  height: 2px;
+  width: 500px;
+  margin-left: 22px;
+  background-color: #E367D7;
+}
+
+.flexingKanban {
+  margin-left: 22px;
+}
+
+.KanbanpopupimageFeer {
+  height: 104px;
+}
+
+
+.KanbanNext {
+  font-size: 16px;
+  color:#6d6d6d;
+  margin-right: 22px;
+}
+
+.KanBanLinee {
+  height: 2px;
+  width: 100vw;
+  background-color:#b6bcc1;
+  margin-top:62px;
+  margin-bottom: 11px;
+}
+
+.todobutton{
+  margin-bottom: 8px !important;
+}
+
+.butondispl {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-left: 15px;
+  margin-top: 12px;
+}
+
+.Kanbantrackpoo {
+  margin-left: 19px;
+  font-size: 18px;
+}
+
+.KanbanParaGee{
+  width: 500px;
+}
+
+.Kanbantrackpee{
+  font-size: 23px;
+  width: 400px;
+}
+
+.Kanbanto {
+  height: 182px;
+}
+
+.KanbanParaGee {
+  width: 450px;
+}
+
 .templatename {
   background-color: black !important;
 }
