@@ -1,27 +1,25 @@
 .imagedashboard {
-    margin-left: 452px;
-    margin-top: -522px;
+  margin-left: 452px;
+  margin-top: -522px;
 }
 .dashboardalignment {
-    margin-left: 22px;
+  margin-left: 22px;
 }
 
-.iconsizee {
-    display: none !important;
-}
+
 .dividingline {
-    height: 1px;
-    width: 156px;
-    background-color: rgb(142, 138, 138);
+  height: 1px;
+  width: 156px;
+  background-color: rgb(142, 138, 138);
 }
 
 .yourworj {
-    color: #6d6d6d;
-    font-family: Dm sans;
+  color: #6d6d6d;
+  font-family: Dm sans;
 }
 
 .buttonelement{
-    width: 175px;
+  width: 175px;
 height: 35px;
 border-width: 0px;
 
@@ -34,13 +32,13 @@ color: white
 ;
 }
 .coloursdk {
-    color: red;
+  color: red;
 }
 
 .normal {
-   padding-bottom: 663px;
-   
-   margin-right: 780px;
+ padding-bottom: 663px;
+ 
+ margin-right: 780px;
 font-family: roboto;
 margin-left: 22px;
 font-size: 25px;
@@ -52,713 +50,716 @@ text-align: left;
 }
 
 .flexingitems {
-    display: flex !important;
-    flex-direction: row !important;
-    justify-content: flex-start !important
-    ;
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: flex-start !important
+  ;
 }
 
 .cikklerepair {
-    height: 18px !important;
-    width: 18px !important;
-    margin-top: 23px;
-    margin-right: 8px;
+  height: 18px !important;
+  width: 18px !important;
+  margin-top: 23px;
+  margin-right: 8px;
 }
 .alighite {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .underliner {
-    height: 1px;
-    width: 80vw;
-    background-color: #cdcaca;
-    margin-top: -649px;
+  height: 1px;
+  width: 80vw;
+  background-color: #cdcaca;
+  margin-top: -649px;
 }
 
-.iconsize {
-    height: 22px !important;
-    margin-bottom: -7px !important;
-}
+
 .buttonelementee {
-    width: 175px;
-    height: 35px;
-    border-width: 0px;
-    
-    text-align: center;
-    
-    
-    background-color:#3b84d9!important;
-    border-left: 5px solid #1E90FF; /* Highlighted border for active item */
-    height: 42px;
-   
-    color: white !important;
+  width: 175px;
+  height: 35px;
+  border-width: 0px;
+  
+  text-align: center;
+  
+  
+  background-color:#3b84d9!important;
+  border-left: 5px solid #1E90FF; /* Highlighted border for active item */
+  height: 42px;
+ 
+  color: white !important;
 
-    border-radius: 4px !important;
+  border-radius: 4px !important;
 }
 
 
 
 .addingsomestyles 
-    {
-    background-color: #1E90FF !important;
-    border-left: 5px solid #1E90FF; /* Highlighted border for active item */
-    height: 32px;
-    width: 192px;
-    color: white !important;
-    margin-top: 12px !important;
-    border-radius: 4px !important;
+  {
+  background-color: #1E90FF !important;
+  border-left: 5px solid #1E90FF; /* Highlighted border for active item */
+  height: 32px;
+  width: 192px;
+  color: white !important;
+  margin-top: 12px !important;
+  border-radius: 4px !important;
 }
 
 .dahresponsi {
-    margin-top: 650px !important;
-    text-align: center !important;
+  margin-top: 650px !important;
+  text-align: center !important;
 }
 .margintoplev {
-    margin-top: -1480px;
-    background-color: #b6bcc1;
-    height: 2px;
-   
-    width: 100vw;
+  margin-top: -1480px;
+  background-color: #b6bcc1;
+  height: 2px;
+ 
+  width: 100vw;
 }
 
 .clikkletechnologies {
-    margin-bottom: -23px !important;
-    margin-top: 23px !important;
-    font-size: 15px !important;
-    color: #7a7a7a;
-    font-family: Arial, Helvetica, sans-serif;
+  margin-bottom: -23px !important;
+  margin-top: 23px !important;
+  font-size: 15px !important;
+  color: #7a7a7a;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .elignment {
-  display: flex !important;
-  flex-direction: row !important;
-  justify-content: center !important;
-  align-items: center !important;
-  margin-left: 44px;
-  
+display: flex !important;
+flex-direction: row !important;
+justify-content: center !important;
+align-items: center !important;
+margin-left: 44px;
+
 }
 
-.parraek {
-  display: flex !important;
-  flex-direction: row !important;
-  justify-content: center !important;
-}
+
 
 .seperationvertical {
-    height: 200vw;
-    width: 2px;
-    background-color: red;
+  height: 200vw;
+  width: 2px;
+  background-color: red;
 }
 
 
 .assaigning {
-    margin-left: 12px;
+  margin-left: 12px;
 }
 
-.dialogboxopening {
-    width: 100vw !important;
-    
-}
+
 
 .anchoreele {
-    color:black;
-    text-decoration: none;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 12px;
-    margin-left: 12px;
-    font-weight: bold;
+  color:black;
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  margin-left: 12px;
+  font-weight: bold;
 }
 
 .correctiong {
-    margin-left: -483px !important;
+  margin-left: -483px !important;
 }
 .storagetracj {
-    height: 4px;
-    border-radius: 12px;
-    width: 160px;
-    background-color: #c0d3e5;
+  height: 4px;
+  border-radius: 12px;
+  width: 160px;
+  background-color: #c0d3e5;
 }
 .marginbottom {
-    margin-bottom: 12px !important;
+  margin-bottom: 12px !important;
 }
 
 .diveder {
-  height: 1px;
-  width: 100%;
-  background-color: #747474;
+height: 1px;
+width: 100%;
+margin-top: 22px;
+margin-bottom: 22px;
+background-color: #747474;
 }
 
 .nocurrent {
-  font-size: 22px;
+font-size: 22px;
 }
 .sectionseperation {
-    height: 1px;
-    width: 210px;
-    margin-bottom: 18px;
-    background-color: #c0d3e5;
+  height: 1px;
+  width: 210px;
+  margin-bottom: 18px;
+  background-color: #c0d3e5;
 }
 
 .testing {
-    display: none;
+  display: none;
 }
 
 .Kanheddingbacground{
-  background-color: #1E90FF;
-  width: 100vw;
-  height: 102px;
-  
+background-color: #1E90FF;
+width: 100vw;
+height: 102px;
+
 }
 .kanbanfhg{
-  margin-top: 22px !important;
-  margin-left: 12px !important;
-  font-size: 28px !important;
+margin-top: 22px !important;
+margin-left: 12px !important;
+font-size: 28px !important;
 }
 
 .closex{
-  color: black !important;
+color: black !important;
 }
 
 .Kanbanitemimg {
-  height: 152px;
+height: 152px;
 margin:12px;
 }
 
 .Kanbantrackp {
-  font-size: 17px;
+font-size: 17px;
 }
 
 .KanbanParaG {
-  width: 279px;
-  text-align:left;
+width: 279px;
+text-align:left;
 }
 
 .secondKandn {
-  margin-left: 180px;
+margin-left: 180px;
 }
 
 
 .alignKanbaInfo {
-  display: flex;
-  flex-direction: row;
+display: flex;
+flex-direction: row;
 }
 
 .Kanbantrackpee {
-  font-size: 17px;
+font-size: 17px;
 
 
 }
 
 .alignitemskannext {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
+display: flex;
+flex-direction: row;
+justify-content: flex-end;
 }
 
 .Kanbantemplate {
-  background-color: #3b84d9;
-  color: black !important;
+background-color: #3b84d9;
+color: black !important;
 }
 
 .KanbanResto {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+display: flex;
+flex-direction: row;
+justify-content: space-between;
 }
 
 .miniKanbandialog {
-  background-color: #1a1a1a; /* Dark theme for the dialog background */
-  color: white; /* White text color for readability */
-  height: 100vh; /* Full viewport height */
-  width: 100vw; /* Full viewport width */
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between; /* Space between content and actions */
-  padding: 16px; /* Padding for the content */
-  box-sizing: border-box;
+background-color: #1a1a1a; /* Dark theme for the dialog background */
+color: white; /* White text color for readability */
+height: 100vh; /* Full viewport height */
+width: 100vw; /* Full viewport width */
+display: flex;
+flex-direction: column;
+justify-content: space-between; /* Space between content and actions */
+padding: 16px; /* Padding for the content */
+box-sizing: border-box;
 }
 
 .KanbanelemDer {
-  display: flex;
-  flex-direction: row;
-  background-color: #1a1a1a;
-  
+display: flex;
+flex-direction: row;
+background-color: #1a1a1a;
+
 }
 
 .companymanagKan {
-  background-color: #3767B1;
-  height: 2px;
-  width:500px ;
-  margin-left: 24px;
+background-color: #3767B1;
+height: 2px;
+width:500px ;
+margin-left: 24px;
 }
 
 .flexingBoxesItems {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  margin-top: 33px;
+display: flex;
+flex-direction: row;
+justify-content: space-around;
+margin-top: 33px;
 }
 
 .BoxcontentComp {
-  height: 590px;
-  width: 470px;
-  background-color: #3767B180;
-  margin-top: 22px;
-  text-align: center;
-  border-radius: 7px;
-  align-items: center;
+height: 590px;
+width: 470px;
+background-color: #3767B180;
+margin-top: 22px;
+text-align: center;
+border-radius: 7px;
+align-items: center;
 }
 
 .smallAboutTeam {
-  background-color: #92168580;
-  height:370px;
-  width: 400px;
-  text-align: center;
-  align-items: center;
-  border-radius: 7px;
+background-color: #92168580;
+height:370px;
+width: 400px;
+text-align: center;
+align-items: center;
+border-radius: 7px;
 }
 
 .smallAboutComp{
-  background-color: #3767B180;
-  height:370px;
-  border-radius: 12px;
-  width: 400px;
+background-color: #3767B180;
+height:370px;
+border-radius: 12px;
+width: 400px;
 }
 
 .AccessPermission {
-  height: 120px;
-  border-radius: 7px;
-  width: 380px;
-  margin-left: 9px;
-  background-color:black;
+height: 120px;
+border-radius: 7px;
+width: 380px;
+margin-left: 9px;
+background-color:black;
 }
 
 .SmallAbouyFlex {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  margin-top: 80px;
+display: flex;
+flex-direction: row;
+justify-content: space-around;
+margin-top: 80px;
 }
 
 .smallAboutComp {
-  text-align: center;
+text-align: center;
 }
 .BoxcontentTeam {
-  height: 590px;
-  text-align: center;
-  align-items: center;
-  width: 470px;
-  background-color: #92168580;
-  margin-top: 22px;
-  border-radius: 7px;
+height: 590px;
+text-align: center;
+align-items: center;
+width: 470px;
+background-color: #92168580;
+margin-top: 22px;
+border-radius: 7px;
 }
 
 .imagecomde {
-  height: 140px;
+height: 140px;
 }
 .containerSubco {
-  background-color: rgb(0, 0, 0);
-  height: 270px;
-  margin-left: 8px;
-  width: 450px;
-  margin-top: 20px;
-  border-radius: 7px;
+background-color: rgb(0, 0, 0);
+height: 270px;
+margin-left: 8px;
+width: 450px;
+margin-top: 20px;
+border-radius: 7px;
 }
 
 .linesepetgerKan {
-  background-color: rgb(57, 57, 57);
-  width: 100vw;
-  height: 1px;
-  margin-top: 33px;
+background-color: rgb(57, 57, 57);
+width: 100vw;
+height: 1px;
+margin-top: 33px;
 }
 
 .buttondisplay {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  margin-top: 22px;
-  margin-bottom: 75px;
+display: flex;
+flex-direction: row;
+justify-content: space-around;
+margin-top: 22px;
+margin-bottom: 75px;
 }
 
 .Buttomele {
-  background-color: #E367D7;
-  height: 35px;
-  color: black;
-  border-width: 0px;
-  border-radius: 7px;
-  font-weight: bold;
-  text-align: center;
-  width: 420px;
+background-color: #E367D7;
+height: 35px;
+color: black;
+border-width: 0px;
+border-radius: 7px;
+font-weight: bold;
+text-align: center;
+width: 420px;
 }
 
 .Buttomeleee {
-  background-color: #407BFF;
-  height: 35px;
-  color: black;
-  font-weight: bold;
-  border-width: 0px;
-  border-radius: 7px;
-  text-align: center;
-  width: 420px;
+background-color: #407BFF;
+height: 35px;
+color: black;
+font-weight: bold;
+border-width: 0px;
+border-radius: 7px;
+text-align: center;
+width: 420px;
 }
 
 .lineTeamSeperation  {
-  height: 1px;
-  width: 400px;
-  background-color: #49484980;
-  margin-left: 22px;
-  margin-top: 12px;
+height: 1px;
+width: 400px;
+background-color: #49484980;
+margin-left: 22px;
+margin-top: 12px;
 }
 
 .TeamFe {
-  height: 90px;
+height: 90px;
 }
 
 .modernclassClikk {
-  font-size: 13px;
-  text-align: left;
-  margin-left: 60px;
-  width: 300px;
-  margin-bottom: 12px;
-  
+font-size: 13px;
+text-align: left;
+margin-left: 60px;
+width: 300px;
+margin-bottom: 12px;
+
 }
 
 .lineTeamSeperationee {
-  height: 1px;
-  width: 350px;
-  background-color: #33333380;
-  margin-left: 22px;
-  margin-top: 12px;
+height: 1px;
+width: 350px;
+background-color: #33333380;
+margin-left: 22px;
+margin-top: 12px;
 }
 
 .arrangingsometext {
-  font-size: 13px;
-  text-align: left;
-  margin-left: 33px;
-  padding-top: 22px;
- 
+font-size: 13px;
+text-align: left;
+margin-left: 33px;
+padding-top: 22px;
+
 }
 
 .imagecomd {
-  margin-bottom: 32px;
+margin-bottom: 32px;
 }
 
 .mimnipara {
-  font-size: 16px;
-  font-weight: lighter;
-  width: 300px;
-  text-align: center;
-  margin-left: 100px;
- 
+font-size: 16px;
+font-weight: lighter;
+width: 300px;
+text-align: center;
+margin-left: 100px;
+
 }
 
 .simpleconfigu {
-  font-size: 18px;
-  margin-top: 45px;
-  margin-bottom: 20px;
+font-size: 18px;
+margin-top: 45px;
+margin-bottom: 20px;
 }
 
 .Heoolo {
-  height: 42px !important;
-  text-align: center !important;
+height: 42px !important;
+text-align: center !important;
 }
 
 .lineseperation {
-  height: 2px;
-  width: 500px;
-  margin-left: 22px;
-  background-color: #E367D7;
+height: 2px;
+width: 500px;
+margin-left: 22px;
+background-color: #E367D7;
 }
 
 .flexingKanban {
-  margin-left: 22px;
+margin-left: 22px;
 }
 
 .KanbanpopupimageFeer {
-  height: 104px;
+height: 104px;
 }
 
 
 .KanbanNext {
-  font-size: 16px;
-  color:#6d6d6d;
-  margin-right: 22px;
+font-size: 16px;
+color:#6d6d6d;
+margin-right: 22px;
 }
 
 .KanBanLinee {
-  height: 2px;
-  width: 100vw;
-  background-color:#b6bcc1;
-  margin-top:62px;
-  margin-bottom: 11px;
+height: 2px;
+width: 100vw;
+background-color:#b6bcc1;
+margin-top:62px;
+margin-bottom: 11px;
 }
 
 .todobutton{
-  margin-bottom: 8px !important;
+margin-bottom: 8px !important;
 }
 
 .butondispl {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  margin-left: 15px;
-  margin-top: 12px;
+display: flex;
+flex-direction: column;
+justify-content: space-around;
+margin-left: 15px;
+margin-top: 12px;
 }
 
 .Kanbantrackpoo {
-  margin-left: 19px;
-  font-size: 18px;
+margin-left: 19px;
+font-size: 18px;
 }
 
 .KanbanParaGee{
-  width: 500px;
+width: 500px;
 }
 
 .Kanbantrackpee{
-  font-size: 23px;
-  width: 400px;
+font-size: 23px;
+width: 400px;
 }
 
 .Kanbanto {
-  height: 182px;
+height: 182px;
 }
 
 .KanbanParaGee {
-  width: 450px;
+width: 450px;
 }
 
 .templatename {
-  background-color: black !important;
+background-color: black !important;
 }
 
 .kanbanaligment{
-  background-color: #1E90FF;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  height: 90px;
+background-color: #1E90FF;
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+height: 90px;
 }
 
 .projectpara{
-  width: 400vw;
+width: 400vw;
+text-align: center;
+align-items: center;
 }
- 
+
+.iconsize {
+color: #3b84d9 !important;
+}
+
 
 .responsive {
-    margin-top: -30px;
-    margin-left: 240px;
-    width: 100vw;
-    height: 100vh;
+  margin-top: -30px;
+  margin-left: 240px;
+  width: 100vw;
+  height: 100vh;
 }
 /* General styles */
 .dashboardarrange {
-    display: flex;
-    flex-direction: row;
-    display: none;
-  }
-  
-  .flexingitems {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    height: 100vw;
-  }
-  
-  .addingsomestyles {
-    padding: 10px;
-  }
-  
-  /* Styling for large devices */
-  @media (min-width: 1200px) {
-    .cikklerepair {
-      width: 100px;
-    }
-  
-    .clikkletechnologies {
-      font-size: 1.8rem;
-    }
-  
-    .dashboardarrange {
-      display: flex;
-      flex-direction: row;
-    }
-  
-    .sectionseperation {
-      height: 2px;
-      background-color: #ccc;
-      margin-top: 20px;
-    }
-  
-    .imagedashboard {
-      width: 150px;
-      height: 150px;
-    }
-  
-    .normal {
-      font-size: 2rem;
-    }
-  
-    .projectpara {
-      font-size: 1rem;
-    }
-  }
-  
-  /* Styling for medium devices */
-  @media (max-width: 1199px) and (min-width: 768px) {
-    .dashboardarrange {
-      flex-direction: row;
-    }
-  
-    .cikklerepair {
-      width: 80px;
-    }
-  
-    .clikkletechnologies {
-      font-size: 1.5rem;
-    }
-  
-    .imagedashboard {
-      width: 120px;
-      height: 120px;
-    }
-  
-    .normal {
-      font-size: 1.5rem;
-    }
-  
-    .projectpara {
-      font-size: 0.9rem;
-      
-    }
-  }
-  
-  /* Styling for small devices */
-  @media (max-width: 767px) {
-    .dashboardarrange {
-      flex-direction: column;
-    }
-  
-    .cikklerepair {
-      width: 60px;
-    }
+  display: flex;
+  flex-direction: row;
+  display: none;
+}
+.iconsizee {
+  display: block;
 
-
-
-    .righttoolbarres {
-        display: none !important;
-    }
-    .sidebarrespo {
-        display: none;
-    }
-
-    .responsive{
-        width: 100%;
-        height: 50vh !important;
-       margin-left: 1px;
-      margin-top: 2400px !important;
-        
-    }
-
- 
-
-.underliner {
-    margin-top: -255px !important;
 }
 
-    .normal {
-        margin-left: 12px;
-        margin-right: 170px;
-    }
-    .buttonelementee {
-        display: none;
-    }
-    .iconsizee {
-        display: block !important;
-    }
+.flexingitems {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 100vw;
+}
 
-    .margintoplev {
-        margin-top: -98%;
-        background-color: #c0d3e5;
-        height: 2px;
-        width: 100px;
-    }
+.addingsomestyles {
+  padding: 10px;
+}
 
-    .dahresponsi {
-        margin-top: 600px !important;
-        text-align: center !important;
-    }
+/* Styling for large devices */
+@media (min-width: 1200px) {
+  .cikklerepair {
+    width: 100px;
+  }
 
-    .imagedashboard {
-        display: block;
-        margin-left: 109px;
-    }
-   
-    .correctiong {
-        margin-left: 20px !important;
-        text-align: center !important;
-    }
-  
-    .clikkletechnologies {
-      font-size: 1.2rem;
-    }
-  
-    .imagedashboard {
-      width: 100px;
-      height: 100px;
-    }
-  
-    .normal {
-      font-size: 1.2rem;
-    }
-  
-    .projectpara {
-      font-size: 0.8rem;
-      margin-right: 12px !important;
-      text-align: center;
-      width: 400px;
-    }
-  
-    .sectionseperation {
-      height: 1px;
-      background-color: #ccc;
-      margin-top: 10px;
-    }
-  
-    .flexingitems {
-      flex-direction: column;
-      align-items: flex-start;
-    }
+  .clikkletechnologies {
+    font-size: 1.8rem;
   }
-  
-  .buttonelement {
-    padding: 8px 20px;
-    background-color: #3d83d5;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+
+  .dashboardarrange {
+    display: flex;
+    flex-direction: row;
   }
-  
-  .buttonelementee {
-    padding: 8px 15px;
-    background-color: #3b84d9;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .underliner {
-    border-bottom: 1px solid #ccc;
-    width: 100%;
-    margin: 20px 0;
-  }
-  
-  .marginbottom {
-    margin-bottom: 15px;
-  }
-  
-  .yourworj {
+
+  .sectionseperation {
+    height: 2px;
+    background-color: #ccc;
     margin-top: 20px;
   }
-  
+
+  .imagedashboard {
+    width: 150px;
+    height: 150px;
+  }
+
+  .normal {
+    font-size: 2rem;
+  }
+
+  .projectpara {
+    font-size: 1rem;
+  }
+}
+
+/* Styling for medium devices */
+@media (max-width: 1199px) and (min-width: 768px) {
+  .dashboardarrange {
+    flex-direction: row;
+  }
+
+  .cikklerepair {
+    width: 80px;
+  }
+
+  .clikkletechnologies {
+    font-size: 1.5rem;
+  }
+
+  .imagedashboard {
+    width: 120px;
+    height: 120px;
+  }
+
+  .normal {
+    font-size: 1.5rem;
+  }
+
+  .projectpara {
+    font-size: 0.9rem;
+    
+  }
+}
+
+/* Styling for small devices */
+@media (max-width: 767px) {
+  .dashboardarrange {
+    flex-direction: column;
+  }
+
+  .cikklerepair {
+    width: 60px;
+  }
+
+
+
+  .righttoolbarres {
+      display: none !important;
+  }
+  .sidebarrespo {
+      display: none;
+  }
+
+  .responsive{
+      width: 100%;
+      height: 50vh !important;
+     margin-left: 1px;
+    margin-top: 2400px !important;
+      
+  }
+
+
+
+.underliner {
+  margin-top: -255px !important;
+}
+
+  .normal {
+      margin-left: 12px;
+      margin-right: 170px;
+  }
+  .buttonelementee {
+      display: none;
+  }
+  .iconsizee {
+      display: block !important;
+      color: #3b84d9!important;
+     
+  }
+
+  .margintoplev {
+      margin-top: -98%;
+      background-color: #c0d3e5;
+      height: 2px;
+      width: 100px;
+  }
+
+  .dahresponsi {
+      margin-top: 600px !important;
+      text-align: center !important;
+  }
+
+  .imagedashboard {
+      display: block;
+      margin-left: 109px;
+  }
+ 
+  .correctiong {
+      margin-left: 20px !important;
+      text-align: center !important;
+  }
+
+  .clikkletechnologies {
+    font-size: 1.2rem;
+  }
+
+  .imagedashboard {
+    width: 100px;
+    height: 100px;
+  }
+
+  .normal {
+    font-size: 1.2rem;
+  }
+
+  .projectpara {
+    font-size: 0.8rem;
+    margin-right: 12px !important;
+    text-align: center;
+    width: 400px;
+  }
+
+  .sectionseperation {
+    height: 1px;
+    background-color: #ccc;
+    margin-top: 10px;
+  }
+
+  .flexingitems {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.buttonelement {
+  padding: 8px 20px;
+  background-color: #3d83d5;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.buttonelementee {
+  padding: 8px 15px;
+  background-color: #3b84d9;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.underliner {
+  border-bottom: 1px solid #ccc;
+  width: 100%;
+  margin: 20px 0;
+}
+
+.marginbottom {
+  margin-bottom: 15px;
+}
+
+.yourworj {
+  margin-top: 20px;
+}

@@ -85,7 +85,7 @@ const SearchBar = () => {
                 </FormControl>
                 <IconWrapperRight>
                     <IconButton
-                        sx={{ display: { xs: 'none', md: 'inline-flex' } }}
+                        sx={{ display: { md: 'inline-flex' } }}
                         onClick={openFilter}>
                         <TuneIcon />
                     </IconButton>
@@ -126,7 +126,7 @@ const FilterBox = () => {
                         variant='outlined'
                         placeholder='Any'
                         size='small'
-                        sx={{ mb: 0, width: '50%' }}
+                        sx={{ mb: 0, width: '50%',xs:'block', }}
                     />
                 </Grid>
             </Grid>

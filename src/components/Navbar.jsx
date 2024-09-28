@@ -60,6 +60,7 @@ import { env, handleAxiosError } from '../utilities/function';
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
 import Feedback from './Feedback';
 import MicrophoneIcon from './MicrophoneIcon';
+import { Margin } from '@mui/icons-material';
 
 const drawerWidth = 260;
 const appsWidth = 54;
@@ -548,7 +549,7 @@ export default function Navbar(props) {
                             px: 1,
                         },
                     }}>
-                    <Grid container alignItems='center' columnSpacing={1}>
+                    <Grid container alignItems='center' columnSpacing={3}  >
                         <Grid item>
                             <IconButton
                                 onClick={matches ? handleDrawerOpen : handleDrawerToggle}
@@ -561,8 +562,8 @@ export default function Navbar(props) {
                             </IconButton>
                         </Grid>
 
-                        <Grid className='searchbar' item xs md={5} alignItems='start'>
-                            <SearchBar />
+                        <Grid className='searchbar' item xs md={5} alignItems='start'  >
+                            <SearchBar  />
                         </Grid>
                         <Grid item xs display={{ xs: 'none', sm: 'block' }}>
                             <Stack
