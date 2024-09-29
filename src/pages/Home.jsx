@@ -228,6 +228,7 @@ const [templateInfo, setTemplateInfo] = useState('');
         {!isMobile || !selectedTemplate ? (
           <Box
             sx={{
+              
               width: isMobile ? '100%' : '20%',
               borderRight: isMobile ? 'none' : '1px solid #ccc',
               paddingRight: isMobile ? '0px' : '16px',
@@ -250,11 +251,12 @@ const [templateInfo, setTemplateInfo] = useState('');
                     padding: '10px',
                     borderRadius: '8px',
                     height:'39px',
+                    
                    
                     marginTop:'-6px',
                     backgroundColor: selectedTemplate === template.title ? '#3767b1' : 'transparent',
                     transition: 'background-color 0.2s ease-in-out',
-                    color: selectedTemplate === template.title ? '#ffffff' : '#dddddd', // White text for selected item
+                    color: selectedTemplate === template.title ? '#ffffff' : '', // White text for selected item
                     '&:hover': {
                       
                     },

@@ -43,7 +43,9 @@ const KanbanDetails = ({ onClose }) => {
     <Box
       sx={{
         
-        color: '#fff',
+        
+       
+        overflow:'scroll',
         borderRadius: '12px',
         position: 'relative',
         maxWidth: '100vw',
@@ -113,7 +115,7 @@ const KanbanDetails = ({ onClose }) => {
             variant="body1"
             sx={{
               marginBottom: '16px',
-              color: '#B0B0B0',
+              
               fontSize: '15px',
               width: '650px',
             }}
@@ -154,7 +156,7 @@ const KanbanDetails = ({ onClose }) => {
               sx={{
                 fontWeight: 'bold',
                 marginBottom: '8px',
-                color: '#E1E1E1',
+                
                 fontSize: '17px',
               }}
             >
@@ -162,7 +164,7 @@ const KanbanDetails = ({ onClose }) => {
             </Typography>
             <Typography
               variant="body2"
-              sx={{ color: '#B0B0B0', fontSize: '15px', lineHeight: '1.5',width:'400px' }}
+              sx={{  fontSize: '15px', lineHeight: '1.5',width:'400px' }}
             >
               Work tasks are shown on your Kanban board, making it easy for
               teams to track progress at any time. The columns on the board
@@ -171,7 +173,7 @@ const KanbanDetails = ({ onClose }) => {
               <Typography
           variant="body2"
           sx={{
-            color: '#0065ff',
+            
             cursor: 'pointer',
             marginBottom: '16px',
             fontSize: '13px',
@@ -186,7 +188,7 @@ const KanbanDetails = ({ onClose }) => {
 
           <Typography
               variant="body2"
-              sx={{ color: '#B0B0B0', fontSize: '15px', lineHeight: '1.5',width:'250px',marginLeft:'4%' }}
+              sx={{  fontSize: '15px', lineHeight: '1.5',width:'250px',marginLeft:'4%' }}
             >
               <Typography>RECOMMENDED FOR</Typography>
               Teams that manage tasks from 
@@ -215,7 +217,7 @@ their work across different tools
               sx={{
                 fontWeight: 'bold',
                 marginBottom: '8px',
-                color: '#E1E1E1',
+                
                 fontSize: '18px',
               }}
             >
@@ -223,7 +225,7 @@ their work across different tools
             </Typography>
             <Typography
               variant="body2"
-              sx={{ color: '#B0B0B0', fontSize: '15px', lineHeight: '1.5',width:'400px' }}
+              sx={{  fontSize: '15px', lineHeight: '1.5',width:'400px' }}
             >
               Work tasks are shown on your Kanban board, making it easy for
               teams to track progress at any time. The columns on the board
@@ -232,7 +234,7 @@ their work across different tools
               <Typography
           variant="body2"
           sx={{
-            color: '#0065ff',
+            
             cursor: 'pointer',
             marginBottom: '16px',
             fontSize: '14px',
@@ -251,7 +253,7 @@ their work across different tools
 
           <Typography
               variant="body2"
-              sx={{ color: '#B0B0B0', fontSize: '13px', lineHeight: '1.5',width:'250px',marginLeft:'-3%' }}
+              sx={{  fontSize: '13px', lineHeight: '1.5',width:'250px',marginLeft:'-3%' }}
             >
               <Typography>ISSUE TYPES</Typography>
               <ul>
@@ -292,7 +294,7 @@ their work across different tools
               sx={{
                 fontWeight: 'bold',
                 marginBottom: '8px',
-                color: '#E1E1E1',
+                
                 fontSize: '18px',
               }}
             >
@@ -300,14 +302,14 @@ their work across different tools
             </Typography>
             <Typography
               variant="body2"
-              sx={{ color: '#B0B0B0', fontSize: '15px', lineHeight: '1.5',width:'370px', marginLeft:'12px', }}
+              sx={{  fontSize: '15px', lineHeight: '1.5',width:'370px', marginLeft:'12px', }}
             >
               Kanban focuses on improving workflow for steady delivery. Agile reports, like the cumulative flow diagram, help your team consistently deliver the most value to your business.
 
               <Typography
           variant="body2"
           sx={{
-            color: '#0065ff',
+            
             cursor: 'pointer',
             marginBottom: '16px',
             fontSize: '13px',

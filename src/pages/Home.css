@@ -300,26 +300,29 @@ align-items: center;
 }
 
 .smallAboutTeam {
-background-color: #92168580;
-height:370px;
-width: 400px;
+background-color: #52144c;
+height:419px;
+width: 550px;
 text-align: center;
+color: white;
 align-items: center;
 border-radius: 7px;
 }
 
 .smallAboutComp{
-background-color: #3767B180;
-height:370px;
+background-color: #243c61;
+height:419px;
 border-radius: 12px;
-width: 400px;
+color: white;
+width: 550px;
 }
 
 .AccessPermission {
 height: 120px;
 border-radius: 7px;
-width: 380px;
+width: 95%;
 margin-left: 9px;
+margin-top: 42px;
 background-color:black;
 }
 
@@ -370,24 +373,24 @@ margin-bottom: 75px;
 
 .Buttomele {
 background-color: #E367D7;
-height: 35px;
+height: 40px;
 color: black;
 border-width: 0px;
 border-radius: 7px;
 font-weight: bold;
 text-align: center;
-width: 420px;
+width: 550px;
 }
 
 .Buttomeleee {
 background-color: #407BFF;
-height: 35px;
+height: 40px;
 color: black;
 font-weight: bold;
 border-width: 0px;
 border-radius: 7px;
 text-align: center;
-width: 420px;
+width: 550px;
 }
 
 .lineTeamSeperation  {
@@ -399,13 +402,14 @@ margin-top: 12px;
 }
 
 .TeamFe {
-height: 90px;
+height: 98px;
 }
 
 .modernclassClikk {
-font-size: 13px;
+font-size: 15px;
 text-align: left;
-margin-left: 60px;
+margin-left: 26%;
+text-align: center;
 width: 300px;
 margin-bottom: 12px;
 
@@ -441,7 +445,7 @@ margin-left: 59px;
 }
 
 .simpleconfigu {
-font-size: 18px;
+font-size: 19px;
 margin-top: 45px;
 margin-bottom: 20px;
 }

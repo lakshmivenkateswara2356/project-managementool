@@ -110,7 +110,7 @@ const ProjectDetailsForm = () => {
               </Typography>
               <Button
                 sx={{
-                 color:'white',
+                 color:'gray',
                   textTransform: 'none',
                   fontSize: '18px',
                   display: 'flex',
@@ -140,12 +140,12 @@ const ProjectDetailsForm = () => {
                 }}
               />
               <Box>
-                <Typography variant="subtitle1" sx={{ fontWeight: 'bold' }}>
+                <Typography variant="subtitle1" sx={{ fontWeight: 'bold', color:'white' }}>
                   Kanban
                 </Typography>
 
                 <Image cdn='projects/logo/2023/projects-text.png' sx={{ height: '20px', }} />
-                <Typography variant="body2" sx={{width:'350px',  }}>
+                <Typography variant="body2" sx={{width:'350px',color:'white'  }}>
                 See and move your project forward by managing tasks on an easy-to-use board.
                 </Typography>
               </Box>
@@ -160,7 +160,7 @@ const ProjectDetailsForm = () => {
               </Typography>
               <Button
                 sx={{
-                  color: 'white',
+                  color: 'gray',
                   textTransform: 'none',
                   fontSize: '19px',
                   display: 'flex',
@@ -190,11 +190,11 @@ const ProjectDetailsForm = () => {
                 }}
               />
               <Box>
-                <Typography variant="subtitle1" sx={{ fontWeight: 'bold'}}>
+                <Typography variant="subtitle1" sx={{ fontWeight: 'bold', color:'white'}}>
                   Team-managed
                 </Typography>
                 <Image cdn='projects/logo/2023/projects-text.png' sx={{ height: '20px', }} />
-                <Typography variant="body2" sx={{  }}>
+                <Typography variant="body2" sx={{ color:'white' }}>
                 Get up and running quickly, with simplified configuration.
                 </Typography>
               </Box>

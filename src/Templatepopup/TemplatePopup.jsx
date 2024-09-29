@@ -61,7 +61,7 @@ const TemplatePopup = ({ onClose }) => {
         overflow:'scroll',
         width: '95vw', // Adjust width to match the dialog in the image
         boxShadow: '0 4px 12px rgba(0, 0, 0, 0.2)',
-        color: '#fff', // White text
+         // White text
       }}
     >
       {/* Back navigation */}
@@ -70,9 +70,16 @@ const TemplatePopup = ({ onClose }) => {
         sx={{
           display: 'flex',
           alignItems: 'center',
-          color: '#ffffff99', // Greyish text for back button
+           // Greyish text for back button
           marginBottom: '16px',
+           // Function to close the popup
+           cursor: 'pointer', 
+           position: 'sticky',
+           
+           width:'100%',
+           top: 0,
         }}
+        onClick={onClose}
       >
         ← Back to project templates
       </Typography>
@@ -94,7 +101,7 @@ const TemplatePopup = ({ onClose }) => {
           justifyContent: 'space-between',
           alignItems: 'center',
           padding: '16px',
-          backgroundColor: '#2a2a2a',
+          backgroundColor: '#424242',
           borderRadius: '8px',
           marginBottom: '24px',
         }}
@@ -161,27 +168,27 @@ const TemplatePopup = ({ onClose }) => {
             Team-managed
           </Typography>
           <Box sx={{height:'2px',width:'450px', backgroundColor:'#ff66d6'}}></Box>
-          <Typography variant="body2" sx={{ color: '#ffffff80',marginTop:'33px',textAlign:'left',fontSize:'18px' }}>
+          <Typography variant="body2" sx={{ marginTop:'33px',textAlign:'left',fontSize:'18px' }}>
           Set up and maintained by your team.
           </Typography>
 
-          <Typography variant="body2" sx={{ color: '#ffffff80',marginTop:'13px',textAlign:'left',fontSize:'14px',width:'450px' }}>
+          <Typography variant="body2" sx={{ marginTop:'13px',textAlign:'left',fontSize:'14px',width:'450px' }}>
           For teams that want to manage their own work processes in their own space. Choose and combine agile tools to support your team as it grows and becomes more complex.
           </Typography>
         </Box>
         <Box sx={{ textAlign: 'center' }}>
           <Typography
             variant="body1"
-            sx={{ fontWeight: 'bold', color: '#66c1ff', marginBottom: '8px',fontSize:'22px' }}
+            sx={{ fontWeight: 'bold',  marginBottom: '8px',fontSize:'22px' }}
           >
             Company-managed
           </Typography>
           <Box sx={{height:'2px',width:'450px', backgroundColor:'#66c1ff'}}></Box>
-          <Typography variant="body2" sx={{ color: '#ffffff80',marginTop:'33px',textAlign:'left',fontSize:'18px',width:'380px' }}>
+          <Typography variant="body2" sx={{marginTop:'33px',textAlign:'left',fontSize:'18px',width:'380px' }}>
           Set up and maintained by your clikkle projects admins.
           </Typography>
 
-          <Typography variant="body2" sx={{ color: '#ffffff80',marginTop:'13px',textAlign:'left',fontSize:'14px',width:'450px' }}>
+          <Typography variant="body2" sx={{ marginTop:'13px',textAlign:'left',fontSize:'14px',width:'450px' }}>
           For teams that want to manage their own work processes in their own space. Choose and combine agile tools to support your team as it grows and becomes more complex.
           </Typography>
         </Box>
@@ -231,7 +238,7 @@ const TemplatePopup = ({ onClose }) => {
           <Paper
             elevation={3}
             sx={{
-              backgroundColor: '#3767B180',
+              backgroundColor: '#243c61',
           alignItems:'center',
               padding: '20px',
               borderRadius: '8px',
@@ -285,9 +292,9 @@ const TemplatePopup = ({ onClose }) => {
 </div>
 
 <div className='smallAboutComp'>
-<h1 className='simpleconfigu'>Essential features</h1>
+<h1 className='simpleconfigu'>Advanced features</h1>
 <img src={Companypl} className='TeamFe'/>
-<p className='modernclassClikk'>A modern Clikkle Projects experience for teams who don’t need advanced features.</p>
+<p className='modernclassClikk'>All the power and features that Clikkle Projects is known for.</p>
 
 <div className='AccessPermission'>
 <h1 className='arrangingsometext'>Simple configuration for multiple workflows</h1>
@@ -303,7 +310,7 @@ const TemplatePopup = ({ onClose }) => {
 <div className='linesepetgerKan'></div>
 
 <div className='buttondisplay'>
-<button className='Buttomele'>Select image team management project</button>
+<button  onClick={onClose} className='Buttomele'>Select image team management project</button>
 <button className='Buttomeleee'>Select image team management project</button>
 </div>
 </div>

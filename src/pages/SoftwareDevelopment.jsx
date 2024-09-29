@@ -143,17 +143,18 @@ const SoftwareDevelopment = () => {
                     backgroundImage: `url(${card.imgSrc})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
+                    display: { xs: 'none', sm: 'block' },
                   }}
                 />
 
                 <CardContent sx={{ flexGrow: 1, padding: '0' }}>
-                  <Typography variant="h6" sx={{ color: '#fff', fontWeight: 'bold', marginBottom: '4px' }}>
+                  <Typography variant="h6" sx={{  fontWeight: 'bold', marginBottom: '4px' }}>
                     {card.title}
                   </Typography>
-                  <Typography variant="body2" sx={{ color: '#A0A0A0', marginBottom: '8px' }}>
+                  <Typography variant="body2" sx={{  marginBottom: '8px' }}>
                     {card.projectType}
                   </Typography>
-                  <Typography variant="body1" sx={{ color: '#D0D0D0' }}>
+                  <Typography variant="body1" sx={{  }}>
                     {card.description}
                   </Typography>
                 </CardContent>
