@@ -19,138 +19,137 @@ const Dashboard = () => {
 
   return (
     <div>
-     <Box sx={{ flexGrow: 1, padding: '20px',height:'100vh',overflow:"scroll" }}
-     >
-        {/* Task Overview Section */}
+   <Box sx={{ flexGrow: 1, padding: '20px',overflow:"scroll" }}
+>
+   {/* Task Overview Section */}
 <Grid container spacing={2}>
-  {/* To Do */}
-  <Grid item xs={12} sm={6} md={3}>
-    <Paper sx={styles.paperContainer}>
-      <Box>
-        <Typography variant="h6">To Do</Typography>
-        <Typography variant="h4" sx={{ color: '#FF6347' }}>0</Typography>
-      </Box>
-      <FolderOutlinedIcon sx={styles.iconStyle('#FF6347')} />
-    </Paper>
-  </Grid>
+{/* To Do */}
+<Grid item xs={12} sm={6} md={3}>
+<Paper sx={styles.paperContainer}>
+ <Box>
+   <Typography variant="h6">To Do</Typography>
+   <Typography variant="h4" sx={{ color: '#FF6347' }}>0</Typography>
+ </Box>
+ <FolderOutlinedIcon sx={styles.iconStyle('#FF6347')} />
+</Paper>
+</Grid>
 
-  {/* In Progress */}
-  <Grid item xs={12} sm={6} md={3}>
-    <Paper sx={styles.paperContainer}>
-      <Box>
-        <Typography variant="h6">In Progress</Typography>
-        <Typography variant="h4" sx={{ color: '#1E90FF' }}>0</Typography>
-      </Box>
-      <AccessTimeOutlinedIcon sx={styles.iconStyle('#1E90FF')} />
-    </Paper>
-  </Grid>
+{/* In Progress */}
+<Grid item xs={12} sm={6} md={3}>
+<Paper sx={styles.paperContainer}>
+ <Box>
+   <Typography variant="h6">In Progress</Typography>
+   <Typography variant="h4" sx={{ color: '#1E90FF' }}>0</Typography>
+ </Box>
+ <AccessTimeOutlinedIcon sx={styles.iconStyle('#1E90FF')} />
+</Paper>
+</Grid>
 
-  {/* Review */}
-  <Grid item xs={12} sm={6} md={3}>
-    <Paper sx={styles.paperContainer}>
-      <Box>
-        <Typography variant="h6">Review</Typography>
-        <Typography variant="h4" sx={{ color: '#FFD700' }}>0</Typography>
-      </Box>
-      <GradeOutlinedIcon sx={styles.iconStyle('#FFD700')} />
-    </Paper>
-  </Grid>
+{/* Review */}
+<Grid item xs={12} sm={6} md={3}>
+<Paper sx={styles.paperContainer}>
+ <Box>
+   <Typography variant="h6">Review</Typography>
+   <Typography variant="h4" sx={{ color: '#FFD700' }}>0</Typography>
+ </Box>
+ <GradeOutlinedIcon sx={styles.iconStyle('#FFD700')} />
+</Paper>
+</Grid>
 
-  {/* Done */}
-  <Grid item xs={12} sm={6} md={3}>
-    <Paper sx={styles.paperContainer}>
-      <Box>
-        <Typography variant="h6">Done</Typography>
-        <Typography variant="h4" sx={{ color: '#32CD32' }}>2</Typography>
-      </Box>
-      <DeleteOutlinedIcon sx={styles.iconStyle('#32CD32')} />
-    </Paper>
-  </Grid>
+{/* Done */}
+<Grid item xs={12} sm={6} md={3}>
+<Paper sx={styles.paperContainer}>
+ <Box>
+   <Typography variant="h6">Done</Typography>
+   <Typography variant="h4" sx={{ color: '#32CD32' }}>2</Typography>
+ </Box>
+ <DeleteOutlinedIcon sx={styles.iconStyle('#32CD32')} />
+</Paper>
+</Grid>
 </Grid>
 <Box sx={{flexDirection:'row', display:'flex', justifyContent:'space-between'}} >
 <Typography variant="h6">Issues Updates</Typography>
 <Button sx={{backgroundColor:'#292828', color:'white'}} >
-  view all
+view all
 </Button>
 </Box>
-      {/* Issues Updates Section */}
-      <Box  sx={{ display: 'flex', flexDirection:{ xs: 'column', sm: 'row' }, justifyContent: 'space-between', padding: 2, gap: 2 }} >
-      
-     
-      <Paper sx={styles.activitySection}>
+ {/* Issues Updates Section */}
+ <Box  sx={{ display: 'flex', flexDirection:{ xs: 'column', sm: 'row' }, justifyContent: 'space-between', padding: 2, gap: 2 }} >
+ 
+
+ <Paper sx={styles.activitySection}>
 <Box sx={styles.sectionHeader}>
 
-  <Typography variant="h6" sx={{ fontWeight:'bold'}}>Activity</Typography>
-  <Button sx={styles.viewAllButton('contained')}>View All</Button>
+<Typography variant="h6" sx={{ fontWeight:'bold'}}>Activity</Typography>
+<Button sx={styles.viewAllButton('contained')}>View All</Button>
 </Box>
 
 <Divider sx={styles.divider} />
 
 <Box sx={{ paddingY: 2 }}>
-  {[...Array(5)].map((_, index) => (
-    <Box key={index} sx={styles.activityItem}>
-      <Avatar src={profileclikk} alt="Daniel Thompson" sx={styles.avatarStyle} />
-      <Box sx={{ flex: 1 }}>
-        <Typography variant="body1" sx={styles.activityText(index)}>
-          {index === 2
-            ? 'New Add list permission on the member list issue'
-            : index < 2
-              ? 'Add list permission on the member list issue'
-              : 'Work progress % calculation issue'}
-        </Typography>
-        <Typography variant="body2" sx={{ }}>
-          Daniel Thompson •
-        </Typography>
-      </Box>
-      <Button variant="outlined"  sx={styles.issueButton}>Issue</Button>
-      <Typography variant="body2" sx={{  fontSize:'9px',fontWeight:'light',margin:{xs:'1px',sm:"13px" }, }}>
-        {index * 2 + 38} minutes ago
-      </Typography>
-    </Box>
-  ))}
+{[...Array(5)].map((_, index) => (
+<Box key={index} sx={styles.activityItem}>
+ <Avatar src={profileclikk} alt="Daniel Thompson" sx={styles.avatarStyle} />
+ <Box sx={{ flex: 1 }}>
+   <Typography variant="body1" sx={styles.activityText(index)}>
+     {index === 2
+       ? 'New Add list permission on the member list issue'
+       : index < 2
+         ? 'Add list permission on the member list issue'
+         : 'Work progress % calculation issue'}
+   </Typography>
+   <Typography variant="body2" sx={{ }}>
+     Daniel Thompson •
+   </Typography>
+ </Box>
+ <Button variant="outlined"  sx={styles.issueButton}>Issue</Button>
+ <Typography variant="body2" sx={{  fontSize:'9px',fontWeight:'light',margin:{xs:'1px',sm:"13px" }, }}>
+   {index * 2 + 38} minutes ago
+ </Typography>
+</Box>
+))}
 </Box>
 </Paper>
 
 {/* Issues Section */}
 <Paper sx={styles.issuesSection}>
 <Box sx={styles.sectionHeader}>
-  <Typography variant="h6" sx={{ fontWeight: 600 }}>Issues</Typography>
-  <Button variant="contained" sx={styles.viewAllButton('contained')}>View All</Button>
+<Typography variant="h6" sx={{ fontWeight: 600 }}>Issues</Typography>
+<Button variant="contained" sx={styles.viewAllButton('contained')}>View All</Button>
 </Box>
 
 <Tabs value={activeTab} onChange={handleTabChange} textColor="inherit" indicatorColor="primary" sx={{ marginBottom: 1 }}>
-  <Tab label="Today Issues" sx={styles.tabStyle} />
-  <Tab label="Pending Issues" sx={styles.tabStyle} />
-  <Tab label="Review Issues" sx={styles.tabStyle} />
-  <Tab label="Completed Issues" sx={styles.tabStyle} />
+<Tab label="Today Issues" sx={styles.tabStyle} />
+<Tab label="Pending Issues" sx={styles.tabStyle} />
+<Tab label="Review Issues" sx={styles.tabStyle} />
+<Tab label="Completed Issues" sx={styles.tabStyle} />
 </Tabs>
 
 <Divider sx={styles.divider} />
 
 <Box sx={{ paddingY: 2 }}>
-  {[{ label: 'Show employee attendance record in attendance view page', done: true },
-    { label: 'There should be show file successfully uploaded instead of...', done: true }].map((issue, index) => (
-    <Box key={index} sx={styles.issueItem}>
-      <Box sx={styles.issueIcon(issue.done)} />
-      <Box sx={{ flexGrow: 1 }}>
-        <Typography variant="body1" sx={styles.issueText}>{issue.label}</Typography>
-        <Typography variant="body2" sx={{ }}>
-          {index === 0 ? 'CHR-17 • Clikkle HR' : 'ES-18 • Clikkle E-sign'}
-        </Typography>
-      </Box>
-      <Button size="small" variant="outlined" sx={styles.doneButton(issue.done)}>
-        {issue.done ? 'Done' : 'Pending'}
-      </Button>
-    </Box>
-  ))}
+{[{ label: 'Show employee attendance record in attendance view page', done: true },
+{ label: 'There should be show file successfully uploaded instead of...', done: true }].map((issue, index) => (
+<Box key={index} sx={styles.issueItem}>
+ <Box sx={styles.issueIcon(issue.done)} />
+ <Box sx={{ flexGrow: 1 }}>
+   <Typography variant="body1" sx={styles.issueText}>{issue.label}</Typography>
+   <Typography variant="body2" sx={{ }}>
+     {index === 0 ? 'CHR-17 • Clikkle HR' : 'ES-18 • Clikkle E-sign'}
+   </Typography>
+ </Box>
+ <Button size="small" variant="outlined" sx={styles.doneButton(issue.done)}>
+   {issue.done ? 'Done' : 'Pending'}
+ </Button>
+</Box>
+))}
 </Box>
 </Paper>
-      </Box>
+ </Box>
 
 
 
-     </Box>
-
+</Box>
 
      
     </div>

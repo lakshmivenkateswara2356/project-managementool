@@ -4,6 +4,9 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import Kanbanimg from '../Assets/Kanban.png';
 import Teampng from '../Assets/team.png';
 
+
+import Image from '../components/Image';
+
 const ProjectDetailsForm = () => {
   return (
     <Box
@@ -41,20 +44,20 @@ const ProjectDetailsForm = () => {
          
 
           <Box>
-            <Typography variant="h4" sx={{ fontWeight: 'bold', fontSize: '28px', color: '#172b4d', marginBottom: '8px' }}>
+            <Typography variant="h4" sx={{ fontWeight: 'bold', fontSize: '20px', marginBottom: '8px' }}>
               Add project details
             </Typography>
-            <Typography variant="body1" sx={{ color: '#5e6c84', marginBottom: '16px', maxWidth: '600px' }}>
-              Let your team achieve more. You can update project details anytime in the project settings.
+            <Typography variant="body1" sx={{  marginBottom: '16px', maxWidth: '600px' }}>
+            See what you can achieve by working with your team. You can update project details anytime in the project settings.
             </Typography>
-            <Typography variant="body2" sx={{ color: '#5e6c84', fontWeight: 'bold' }}>
+            <Typography variant="body2" sx={{ fontWeight: 'bold',fontSize:'16px' }}>
               Required fields are marked with an asterisk *
             </Typography>
           </Box>
 
           {/* Input Fields */}
           <Box>
-            <Typography variant="subtitle2" sx={{ color: '#172b4d', fontWeight: 'bold' }}>Project Name *</Typography>
+            <Typography variant="subtitle2" sx={{  fontWeight: 'bold' }}>Project Name *</Typography>
             <TextField
               fullWidth
               variant="outlined"
@@ -63,17 +66,18 @@ const ProjectDetailsForm = () => {
                 backgroundColor: 'background.default',
                 borderRadius: '8px',
                 marginTop: '8px',
+                width:'80%',
               }}
             />
           </Box>
           <Box>
-            <Typography variant="subtitle2" sx={{ color: '#172b4d', fontWeight: 'bold' }}>Access Level</Typography>
-            <Typography variant="body2" sx={{ color: '#5e6c84', marginTop: '8px' }}>
-              Access allows everyone in your organization to view this project. Customize access in project settings.
+            <Typography variant="subtitle2" sx={{  fontWeight: 'bold' }}>Access Level</Typography>
+            <Typography variant="body2" sx={{ marginTop: '8px',width:'450px',fontSize:'16px' }}>
+            Access Anyone with access to your organization can access and administer this project. Upgrade your plan to customize project permissions.
             </Typography>
           </Box>
           <Box>
-            <Typography variant="subtitle2" sx={{ color: '#172b4d', fontWeight: 'bold' }}>Project Key *</Typography>
+            <Typography variant="subtitle2" sx={{  fontWeight: 'bold',fontSize:"16px" }}> Key *</Typography>
             <TextField
               fullWidth
               variant="outlined"
@@ -81,6 +85,7 @@ const ProjectDetailsForm = () => {
               sx={{
                 backgroundColor: '#background.default',
                 borderRadius: '8px',
+                width:"80%",
                 marginTop: '8px',
               }}
             />
@@ -100,14 +105,14 @@ const ProjectDetailsForm = () => {
           {/* Template Section */}
           <Box>
             <Box sx={{ display: 'flex', justifyContent: 'space-between', marginBottom: '12px' }}>
-              <Typography variant="h6" sx={{ color: '#172b4d', fontWeight: 'bold' }}>
+              <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
                 Template
               </Typography>
               <Button
                 sx={{
-                  color: '#0065ff',
+                 color:'white',
                   textTransform: 'none',
-                  fontSize: '14px',
+                  fontSize: '18px',
                   display: 'flex',
                   alignItems: 'center',
                 }}
@@ -117,8 +122,8 @@ const ProjectDetailsForm = () => {
             </Box>
             <Box
               sx={{
-                backgroundColor: 'background.default',
-                border: '1px solid #dfe1e6',
+                backgroundColor: '#444445',
+                
                 borderRadius: '8px',
                 padding: '16px',
                 display: 'flex',
@@ -130,16 +135,18 @@ const ProjectDetailsForm = () => {
                 alt="Kanban"
                 style={{
                   marginRight: '16px',
-                  width: '50px',
-                  height: '50px',
+                  width: '150px',
+                  height: '110px',
                 }}
               />
               <Box>
-                <Typography variant="subtitle1" sx={{ fontWeight: 'bold', color: '#172b4d' }}>
+                <Typography variant="subtitle1" sx={{ fontWeight: 'bold' }}>
                   Kanban
                 </Typography>
-                <Typography variant="body2" sx={{ color: '#5e6c84' }}>
-                  Manage tasks on a simple, visual board.
+
+                <Image cdn='projects/logo/2023/projects-text.png' sx={{ height: '20px', }} />
+                <Typography variant="body2" sx={{width:'350px',  }}>
+                See and move your project forward by managing tasks on an easy-to-use board.
                 </Typography>
               </Box>
             </Box>
@@ -147,15 +154,15 @@ const ProjectDetailsForm = () => {
 
           {/* Project Type Section */}
           <Box>
-            <Box sx={{ display: 'flex', justifyContent: 'space-between', marginBottom: '12px' }}>
-              <Typography variant="h6" sx={{ color: '#172b4d', fontWeight: 'bold' }}>
+            <Box sx={{ display: 'flex', justifyContent: 'space-between', marginBottom: '12px' ,}}>
+              <Typography variant="h6" sx={{  fontWeight: 'bold' }}>
                 Project Type
               </Typography>
               <Button
                 sx={{
-                  color: '#0065ff',
+                  color: 'white',
                   textTransform: 'none',
-                  fontSize: '14px',
+                  fontSize: '19px',
                   display: 'flex',
                   alignItems: 'center',
                 }}
@@ -165,8 +172,8 @@ const ProjectDetailsForm = () => {
             </Box>
             <Box
               sx={{
-                backgroundColor: 'background.default',
-                border: '1px solid #dfe1e6',
+                backgroundColor: '#444445',
+                
                 borderRadius: '8px',
                 padding: '16px',
                 display: 'flex',
@@ -178,16 +185,17 @@ const ProjectDetailsForm = () => {
                 alt="Team-managed"
                 style={{
                   marginRight: '16px',
-                  width: '50px',
-                  height: '50px',
+                  width: '150px',
+                  height: '100px',
                 }}
               />
               <Box>
-                <Typography variant="subtitle1" sx={{ fontWeight: 'bold', color: '#172b4d' }}>
+                <Typography variant="subtitle1" sx={{ fontWeight: 'bold'}}>
                   Team-managed
                 </Typography>
-                <Typography variant="body2" sx={{ color: '#5e6c84' }}>
-                  Simplified project management with team settings.
+                <Image cdn='projects/logo/2023/projects-text.png' sx={{ height: '20px', }} />
+                <Typography variant="body2" sx={{  }}>
+                Get up and running quickly, with simplified configuration.
                 </Typography>
               </Box>
             </Box>
