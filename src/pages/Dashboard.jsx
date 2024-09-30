@@ -2,13 +2,24 @@ import React, { useState } from 'react';
 import { 
   Box, Typography, Grid, Paper, Button, Divider, Tabs, Tab, Avatar 
 } from '@mui/material';
+
+import { useNavigate } from 'react-router-dom';
 import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
 import GradeOutlinedIcon from '@mui/icons-material/GradeOutlined';
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 import FolderOutlinedIcon from '@mui/icons-material/FolderOutlined';
+import Bottommenu from '../pages/BottomMenu/Bottommenu'
+import Icon from '../components/Icon';
+import Actionicon from '../components/ActionIcon';
 import profileclikk from '../Assets/profileclikk.jpeg'; // Update the path accordingly
+import ActionIcon from '../components/ActionIcon';
 
 const Dashboard = () => {
+  const navigate = useNavigate();
+
+  const handleViewAll = () => {
+    navigate('/issue-updates');
+  };
   const [activeSection, setActiveSection] = useState('dashboard');
   const [activeTab, setActiveTab] = useState(3); // Controls the selected tab in 'Issues' section
 
@@ -19,7 +30,7 @@ const Dashboard = () => {
 
   return (
     <div>
-   <Box sx={{ flexGrow: 1, padding: '20px',overflow:"scroll" }}
+   <Box sx={{ flexGrow: 1, padding: '20px',height:'73vh', }}
 >
    {/* Task Overview Section */}
 <Grid container spacing={2}>
@@ -69,7 +80,7 @@ const Dashboard = () => {
 </Grid>
 <Box sx={{flexDirection:'row', display:'flex', justifyContent:'space-between'}} >
 <Typography variant="h6">Issues Updates</Typography>
-<Button sx={{backgroundColor:'#292828', color:'white'}} >
+<Button sx={{backgroundColor:'#292828', color:'white'}} onClick={handleViewAll} >
 view all
 </Button>
 </Box>
@@ -81,7 +92,7 @@ view all
 <Box sx={styles.sectionHeader}>
 
 <Typography variant="h6" sx={{ fontWeight:'bold'}}>Activity</Typography>
-<Button sx={styles.viewAllButton('contained')}>View All</Button>
+<Button sx={styles.viewAllButton('contained')} >View All</Button>
 </Box>
 
 <Divider sx={styles.divider} />
@@ -98,12 +109,12 @@ view all
          ? 'Add list permission on the member list issue'
          : 'Work progress % calculation issue'}
    </Typography>
-   <Typography variant="body2" sx={{ }}>
-     Daniel Thompson •
+   <Typography variant="body2" sx={{ marginLeft:"-8px"}}>
+     Daniel Thompson 
    </Typography>
  </Box>
- <Button variant="outlined"  sx={styles.issueButton}>Issue</Button>
- <Typography variant="body2" sx={{  fontSize:'9px',fontWeight:'light',margin:{xs:'1px',sm:"13px" }, }}>
+ <Button  variant="outlined"  sx={styles.issueButton}>Issue</Button>
+ <Typography variant="body2" sx={{  fontSize:'7px',fontWeight:'light',margin:{xs:'1px',sm:"13px" },width:"500px" }}>
    {index * 2 + 38} minutes ago
  </Typography>
 </Box>
@@ -127,7 +138,7 @@ view all
 
 <Divider sx={styles.divider} />
 
-<Box sx={{ paddingY: 2 }}>
+<Box sx={{ paddingY: 2,marginRight:'3px' }}>
 {[{ label: 'Show employee attendance record in attendance view page', done: true },
 { label: 'There should be show file successfully uploaded instead of...', done: true }].map((issue, index) => (
 <Box key={index} sx={styles.issueItem}>
@@ -147,11 +158,13 @@ view all
 </Paper>
  </Box>
 
+<Box sx={{display:{lg:'none'}}}>
+ <Bottommenu/>
+ </Box>
 
 
 </Box>
 
-     
     </div>
   );
 };
@@ -207,7 +220,7 @@ borderRadius:'17px',
 
     '@media (max-width:600px)':{
 
-      width:"90vw",
+      width:"87vw",
       height:"45vh",
       ml:-4.2,
     }
@@ -247,7 +260,8 @@ borderRadius:'17px',
     overflow: 'hidden',
 
     '@media (max-width :600px)':{
-width:'120px'
+width:'120px',
+ml:'-5px'
     }
    
   }),
@@ -260,7 +274,7 @@ width:'120px'
     backgroundColor: 'rgba(0, 200, 83, 0.1)',
 
     '@media(max-width:600px)': {
-      width:'7vw' ,
+      width:"10px",
       margin:'5px',
       
       
@@ -278,7 +292,7 @@ width:'120px'
     borderRadius: '12px',
 
     '@media(max-width: 600px)':{
-      width:'88vw',
+      width:'87vw',
       ml:-4,
 
     }
@@ -307,6 +321,7 @@ width:'120px'
   doneButton: (done) => ({
     color: done ? '#00C853' : '#bbb',
     textTransform: 'none',
+    width:{sm:'10px',}
   }),
 };
 

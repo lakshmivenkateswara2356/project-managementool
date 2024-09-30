@@ -112,7 +112,19 @@ const Drawer = styled(MuiDrawer, {
 export default function Navbar(props) {
     const { children } = props;
     const [mobileOpen, setMobileOpen] = useState(false);
-    const [sidebarApps, setSidebarApps] = useState(null);
+    const [sidebarApps, setSidebarApps] = useState([
+        // Example sidebar apps with CDN images
+        { order: 1, name: 'Adds', url: 'https://cdn.clikkle.com/images/ads/logo/2023/ads.png', logo: 'https://cdn.clikkle.com/images/ads/logo/2023/ads.png' },
+        { order: 2, name: 'Campapaigns', url: 'https://cdn.clikkle.com/images/campaigns/logo/2023/campaigns.png', logo: 'https://cdn.clikkle.com/images/campaigns/logo/2023/campaigns.png' },
+        { order: 3, name: 'E sign', url: 'https://cdn.clikkle.com/images/e-sign/logo/2023/e-sign.png', logo: 'https://cdn.clikkle.com/images/e-sign/logo/2023/e-sign.png' },
+        { order: 4, name: 'Files', url: 'https://cdn.clikkle.com/images/files/logo/2023/files.png', logo: 'https://cdn.clikkle.com/images/files/logo/2023/files.png' },
+        { order: 5, name: 'Host', url: 'https://cdn.clikkle.com/images/host/logo/2023/host.png', logo: 'https://cdn.clikkle.com/images/host/logo/2023/host.png' },
+        { order: 6, name: 'Launch', url: 'https://cdn.clikkle.com/images/launch/logo/2023/launch.png', logo: 'https://cdn.clikkle.com/images/launch/logo/2023/launch.png' },
+        { order: 7, name: 'Cmail', url: 'https://cdn.clikkle.com/images/cmail/logo/2023/cmail.png', logo: 'https://cdn.clikkle.com/images/cmail/logo/2023/cmail.png' },
+        { order: 8, name: 'Pitch', url: 'https://cdn.clikkle.com/images/pitch/logo/2023/pitch.png', logo: 'https://cdn.clikkle.com/images/pitch/logo/2023/pitch.png' },
+        { order: 9, name: 'Project', url: 'https://cdn.clikkle.com/images/projects/logo/2023/projects.png', logo: 'https://cdn.clikkle.com/images/projects/logo/2023/projects.png' },
+        // Add more apps as needed
+    ]);;
     const [isOrderChanged, setIsOrderChanged] = useState(false);
     const [editable, setEditable] = useState(false);
     const [user, setUser] = useState(null);
@@ -247,15 +259,39 @@ export default function Navbar(props) {
         }
     };
 
+    
+
     const signOut = () => {
+        console.log("signoutfunctioned called")
         clearCookie('accessToken');
         clearCookie('role');
         clearCookie('setupCompleted');
-
+        console.log('User signed out. Redirecting to login...');
         const redirectTo =
             env('AUTHENTICATION_CLIENT') + '/login?redirectto=' + encodeURIComponent(env('DOMAIN'));
         window.location.replace(redirectTo);
     };
+
+    const checking =()=>{
+        console.log("Sign out function called");
+        clearCookie('accessToken');
+        clearCookie('role');
+        clearCookie('setupCompleted');
+        
+        console.log('User signed out. Redirecting to login...');
+        
+        const isDevelopment = process.env.NODE_ENV === 'development'; // Check if in development mode
+        const clientUrl = isDevelopment ? process.env.REACT_APP_DEVELOPMENT_AUTHENTICATION_CLIENT : process.env.REACT_APP_PRODUCTION_AUTHENTICATION_CLIENT;
+        const domainUrl = isDevelopment ? process.env.REACT_APP_DEVELOPMENT_DOMAIN : process.env.REACT_APP_PRODUCTION_DOMAIN;
+        console.log('Client URL:', clientUrl);
+        console.log('Domain URL:', domainUrl);
+        const redirectTo =
+            `${clientUrl}/login?redirectto=${encodeURIComponent(domainUrl)}`;
+        
+        console.log('Redirect URL:', redirectTo);
+        window.location.href = redirectTo;
+
+    }
 
     useEffect(() => {
         setMobileOpen(false);
@@ -691,77 +727,78 @@ export default function Navbar(props) {
                             </IconButton>
 
                             <Menu
-                                anchorEl={anchorElProfile}
-                                open={Boolean(anchorElProfile)}
-                                onClose={closeProfileMenu}
-                                sx={{
-                                    '.MuiPaper-root.MuiMenu-paper.MuiPopover-paper': {
-                                        width: 'min(100%, 320px)',
-                                        boxShadow:
-                                            'rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px',
-                                        border: '1px solid #00000017',
-                                        bgcolor: 'custom.menu',
-                                        px: 0.5,
-                                        pt: 1.5,
-                                    },
-                                }}>
-                                <Grid container spacing={2} alignItems='center' flexWrap='nowrap'>
-                                    <Grid item>
-                                        <Avatar
-                                            alt='Remy Sharp'
-                                            src='https://shorturl.at/fjqz9'
-                                            sx={{ width: 100, height: 100 }}
-                                        />
-                                    </Grid>
-                                    <Grid item xs={8}>
-                                        <Typography
-                                            variant='substitle1'
-                                            component='div'
-                                            fontWeight={600}
-                                            sx={{
-                                                whiteSpace: 'nowrap',
-                                                overflow: 'hidden',
-                                                textOverflow: 'ellipsis',
-                                            }}>
-                                            {platformUser.firstName + ' ' + platformUser.lastName}
-                                        </Typography>
-                                        <Typography
-                                            variant='caption'
-                                            component='div'
-                                            sx={{
-                                                overflow: 'hidden',
-                                                textOverflow: 'ellipsis',
-                                                whiteSpace: 'nowrap',
-                                            }}>
-                                            {platformUser.email}
-                                        </Typography>
-                                        <Typography
-                                            variant='caption'
-                                            component='a'
-                                            href={env('MY_ACCOUNT')}
-                                            color='primary.main'
-                                            display='block'>
-                                            My Clikkle account
-                                        </Typography>
-                                        <Typography
-                                            variant='caption'
-                                            component='a'
-                                            href='#'
-                                            color='primary.main'
-                                            display='block'>
-                                            My Profile
-                                        </Typography>
-                                    </Grid>
-                                </Grid>
-                                <Stack direction='row' mt={2}>
-                                    <Button variant='text' fullWidth>
-                                        Add account
-                                    </Button>
-                                    <Button variant='text' onClick={signOut} fullWidth>
-                                        Sign out
-                                    </Button>
-                                </Stack>
-                            </Menu>
+            anchorEl={anchorElProfile}
+            open={Boolean(anchorElProfile)}
+            onClose={closeProfileMenu}
+            sx={{
+                '.MuiPaper-root.MuiMenu-paper.MuiPopover-paper': {
+                    width: 'min(100%, 320px)',
+                    boxShadow: 'rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px',
+                    border: '1px solid #00000017',
+                    bgcolor: 'custom.menu',
+                    px: 0.5,
+                    pt: 1.5,
+                },
+            }}>
+            <Grid container spacing={2} alignItems='center' flexWrap='nowrap'>
+                <Grid item>
+                    <Avatar
+                        alt='Remy Sharp'
+                        src='https://shorturl.at/fjqz9'
+                        sx={{ width: 100, height: 100 }}
+                    />
+                </Grid>
+                <Grid item xs={8}>
+                    <Typography
+                        variant='subtitle1' // Corrected 'substitle1' to 'subtitle1'
+                        component='div'
+                        fontWeight={600}
+                        sx={{
+                            whiteSpace: 'nowrap',
+                            overflow: 'hidden',
+                            textOverflow: 'ellipsis',
+                        }}>
+                        {platformUser.firstName + ' ' + platformUser.lastName}
+                    </Typography>
+                    <Typography
+                        variant='caption'
+                        component='div'
+                        sx={{
+                            overflow: 'hidden',
+                            textOverflow: 'ellipsis',
+                            whiteSpace: 'nowrap',
+                        }}>
+                        {platformUser.email}
+                    </Typography>
+                    <Typography
+                        variant='caption'
+                        component='a'
+                        href={env('MY_ACCOUNT')}
+                        color='primary.main'
+                        display='block'>
+                        My Clikkle account
+                    </Typography>
+                    <Typography
+                        variant='caption'
+                        component='a'
+                        href='#'
+                        color='primary.main'
+                        display='block'>
+                        My Profile
+                    </Typography>
+                </Grid>
+            </Grid>
+            <Stack direction='row' mt={2}>
+                <Button variant='text' fullWidth>
+                    Add account
+                </Button>
+                <Button variant='text' onClick={signOut} fullWidth>
+                    Sign out
+                </Button>
+
+                
+            </Stack>
+        </Menu>
                         </Grid>
                     </Grid>
                 </Toolbar>
@@ -774,6 +811,7 @@ export default function Navbar(props) {
                         zIndex: '1200',
                         position: 'absolute',
                         right: 0,
+                        
                         top: 65,
                     }}>
                     <Stack
@@ -781,9 +819,11 @@ export default function Navbar(props) {
                         justifyContent='center'
                         alignItems='center'
                         spacing={1}
+                        
+                       
                         overflow='hidden'
                         px={0.8}>
-                        <DragDropContext onDragEnd={onDragEnd}>
+                        <DragDropContext  onDragEnd={onDragEnd}>
                             <Droppable droppableId='apps' isDropDisabled={!editable}>
                                 {provided => (
                                     <div ref={provided.innerRef} {...provided.droppableProps}>
@@ -819,7 +859,7 @@ export default function Navbar(props) {
                                                 </Draggable>
                                             ))
                                         ) : (
-                                            <Box mt={2}>
+                                            <Box mt={2} >
                                                 {Array(8)
                                                     .fill(0)
                                                     .map((_, i) => (
@@ -950,6 +990,7 @@ export default function Navbar(props) {
                     <Feedback closeModal={closeFeedback} />
                 </>
             </Modal>
+            
         </Box>
     );
 }
