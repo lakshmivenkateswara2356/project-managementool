@@ -8,7 +8,13 @@ import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
 import GradeOutlinedIcon from '@mui/icons-material/GradeOutlined';
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 import FolderOutlinedIcon from '@mui/icons-material/FolderOutlined';
-import Bottommenu from '../pages/BottomMenu/Bottommenu'
+import Bottommenu from '../pages/BottomMenu/Bottommenu';
+import Groupicon from '../Assets/Group 1745 (1).png';
+import Groupicon2 from '../Assets/Group 174 (1).png';
+
+import Groupicon3 from '../Assets/Group 179.png';
+import Groupicon4 from '../Assets/Group 1744.png';
+import Footer from '../pages/BottomMenu/Footer';
 import Icon from '../components/Icon';
 import Actionicon from '../components/ActionIcon';
 import profileclikk from '../Assets/profileclikk.jpeg'; // Update the path accordingly
@@ -50,7 +56,8 @@ const Dashboard = () => {
    <Typography variant="h6">To Do</Typography>
    <Typography variant="h4" sx={{ color: '#FF6347' }}>0</Typography>
  </Box>
- <FolderOutlinedIcon sx={styles.iconStyle('#FF6347')} />
+ <img style={{height:'56px',}} src={Groupicon2}/>
+ 
 </Paper>
 </Grid>
 
@@ -61,7 +68,7 @@ const Dashboard = () => {
    <Typography variant="h6">In Progress</Typography>
    <Typography variant="h4" sx={{ color: '#1E90FF' }}>0</Typography>
  </Box>
- <AccessTimeOutlinedIcon sx={styles.iconStyle('#1E90FF')} />
+ <img style={{height:'56px',}} src={Groupicon3}/>
 </Paper>
 </Grid>
 
@@ -72,7 +79,7 @@ const Dashboard = () => {
    <Typography variant="h6">Review</Typography>
    <Typography variant="h4" sx={{ color: '#FFD700' }}>0</Typography>
  </Box>
- <GradeOutlinedIcon sx={styles.iconStyle('#FFD700')} />
+ <img style={{height:'56px',}} src={Groupicon4}/>
 </Paper>
 </Grid>
 
@@ -83,7 +90,7 @@ const Dashboard = () => {
    <Typography variant="h6">Done</Typography>
    <Typography variant="h4" sx={{ color: '#32CD32' }}>2</Typography>
  </Box>
- <DeleteOutlinedIcon sx={styles.iconStyle('#32CD32')} />
+ <img style={{height:'56px',}}  src={Groupicon}/>
 </Paper>
 </Grid>
 </Grid>
@@ -168,7 +175,7 @@ view all
  </Box>
 
 <Box sx={{display:{xs:'block',lg:'none'}}}>
-  <Bottommenu/>
+ 
 </Box>
 
 
