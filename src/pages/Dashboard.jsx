@@ -20,6 +20,14 @@ const Dashboard = () => {
   const handleViewAll = () => {
     navigate('/issue-updates');
   };
+
+  const handleActiveissues=() => {
+    navigate('active-issues')
+  }
+
+  const Issuesow  =()=>{
+    navigate ('issues-show')
+  }
   const [activeSection, setActiveSection] = useState('dashboard');
   const [activeTab, setActiveTab] = useState(3); // Controls the selected tab in 'Issues' section
 
@@ -92,7 +100,7 @@ view all
 <Box sx={styles.sectionHeader}>
 
 <Typography variant="h6" sx={{ fontWeight:'bold'}}>Activity</Typography>
-<Button sx={styles.viewAllButton('contained')} >View All</Button>
+<Button sx={styles.viewAllButton('contained')} onClick={handleActiveissues}>View All</Button>
 </Box>
 
 <Divider sx={styles.divider} />
@@ -126,7 +134,7 @@ view all
 <Paper sx={styles.issuesSection}>
 <Box sx={styles.sectionHeader}>
 <Typography variant="h6" sx={{ fontWeight: 600 }}>Issues</Typography>
-<Button variant="contained" sx={styles.viewAllButton('contained')}>View All</Button>
+<Button variant="contained" sx={styles.viewAllButton('contained')} onClick={Issuesow}>View All</Button>
 </Box>
 
 <Tabs value={activeTab} onChange={handleTabChange} textColor="inherit" indicatorColor="primary" sx={{ marginBottom: 1 }}>

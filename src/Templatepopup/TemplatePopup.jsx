@@ -179,7 +179,7 @@ const TemplatePopup = ({ onClose }) => {
         <Box sx={{ textAlign: 'center' }}>
           <Typography
             variant="body1"
-            sx={{ fontWeight: 'bold',  marginBottom: '8px',fontSize:'22px' }}
+            sx={{ fontWeight: 'bold',  marginBottom: '8px',fontSize:'22px',color:'#66c1ff' }}
           >
             Company-managed
           </Typography>

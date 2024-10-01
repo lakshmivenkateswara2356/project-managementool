@@ -2,6 +2,8 @@ import React, { useCallback, useEffect, useState } from 'react';
 
 import { Link, NavLink, useLocation } from 'react-router-dom';
 
+
+import SparklesIcon from '@mui/icons-material/AutoAwesome';
 //mui component
 import {
     AppBar,
@@ -114,15 +116,15 @@ export default function Navbar(props) {
     const [mobileOpen, setMobileOpen] = useState(false);
     const [sidebarApps, setSidebarApps] = useState([
         // Example sidebar apps with CDN images
-        { order: 1, name: 'Adds', url: 'https://cdn.clikkle.com/images/ads/logo/2023/ads.png', logo: 'https://cdn.clikkle.com/images/ads/logo/2023/ads.png' },
-        { order: 2, name: 'Campapaigns', url: 'https://cdn.clikkle.com/images/campaigns/logo/2023/campaigns.png', logo: 'https://cdn.clikkle.com/images/campaigns/logo/2023/campaigns.png' },
-        { order: 3, name: 'E sign', url: 'https://cdn.clikkle.com/images/e-sign/logo/2023/e-sign.png', logo: 'https://cdn.clikkle.com/images/e-sign/logo/2023/e-sign.png' },
-        { order: 4, name: 'Files', url: 'https://cdn.clikkle.com/images/files/logo/2023/files.png', logo: 'https://cdn.clikkle.com/images/files/logo/2023/files.png' },
-        { order: 5, name: 'Host', url: 'https://cdn.clikkle.com/images/host/logo/2023/host.png', logo: 'https://cdn.clikkle.com/images/host/logo/2023/host.png' },
-        { order: 6, name: 'Launch', url: 'https://cdn.clikkle.com/images/launch/logo/2023/launch.png', logo: 'https://cdn.clikkle.com/images/launch/logo/2023/launch.png' },
-        { order: 7, name: 'Cmail', url: 'https://cdn.clikkle.com/images/cmail/logo/2023/cmail.png', logo: 'https://cdn.clikkle.com/images/cmail/logo/2023/cmail.png' },
-        { order: 8, name: 'Pitch', url: 'https://cdn.clikkle.com/images/pitch/logo/2023/pitch.png', logo: 'https://cdn.clikkle.com/images/pitch/logo/2023/pitch.png' },
-        { order: 9, name: 'Project', url: 'https://cdn.clikkle.com/images/projects/logo/2023/projects.png', logo: 'https://cdn.clikkle.com/images/projects/logo/2023/projects.png' },
+        { order: 1, name: 'Adds', url: 'https://ads.clikkle.com/', logo: 'https://cdn.clikkle.com/images/ads/logo/2023/ads.png' },
+        { order: 2, name: 'Campapaigns', url: 'https://campaigns.clikkle.com/', logo: 'https://cdn.clikkle.com/images/campaigns/logo/2023/campaigns.png' },
+        { order: 3, name: 'E sign', url: 'https://esign.clikkle.com/', logo: 'https://cdn.clikkle.com/images/e-sign/logo/2023/e-sign.png' },
+        { order: 4, name: 'Files', url: 'https://files.clikkle.com/', logo: 'https://cdn.clikkle.com/images/files/logo/2023/files.png' },
+        { order: 5, name: 'Host', url: 'https://host.clikkle.com/', logo: 'https://cdn.clikkle.com/images/host/logo/2023/host.png' },
+        { order: 6, name: 'Launch', url: 'https://launch.clikkle.com/', logo: 'https://cdn.clikkle.com/images/launch/logo/2023/launch.png' },
+        { order: 7, name: 'Cmail', url: 'https://mail.clikkle.com/', logo: 'https://cdn.clikkle.com/images/cmail/logo/2023/cmail.png' },
+        { order: 8, name: 'Pitch', url: 'https://pitch.clikkle.com/', logo: 'https://cdn.clikkle.com/images/pitch/logo/2023/pitch.png' },
+        { order: 9, name: 'Project', url: 'https://projects.clikkle.com/', logo: 'https://cdn.clikkle.com/images/projects/logo/2023/projects.png' },
         // Add more apps as needed
     ]);;
     const [isOrderChanged, setIsOrderChanged] = useState(false);
@@ -601,13 +603,40 @@ export default function Navbar(props) {
                         <Grid className='searchbar' item xs md={5} alignItems='start'  >
                             <SearchBar  />
                         </Grid>
+                       
                         <Grid item xs display={{ xs: 'none', sm: 'block' }}>
+                        
                             <Stack
                                 direction='row'
                                 alignItems='center'
                                 justifyContent='flex-end'
                                 spacing={0}>
+
+<Box
+      sx={{
+        display: 'inline-flex',
+        alignItems: 'center',
+        padding: '5px 10px',
+        border: '1px solid #2979ff', // Border color matching the blue in the image
+        borderRadius: '8px',         // Rounded corners
+        backgroundColor: 'transparent',
+        color: '#2979ff',            // Text color matching the blue
+        fontWeight: 500,
+        cursor: 'pointer',
+      }}
+    >
+      {/* Icon */}
+      <IconButton size="small" sx={{ color: '#9C27B0', padding: '0' }}> 
+        <SparklesIcon sx={{ fontSize: '16px' }} />
+      </IconButton>
+      
+      {/* Text */}
+      <Typography sx={{ marginLeft: '4px', fontSize: '14px' }}>
+        13 days left
+      </Typography>
+    </Box>
                                 <IconButton onClick={openSettingsMenu}>
+                                
                                     <SettingsIcon />
                                 </IconButton>
                                 <Menu

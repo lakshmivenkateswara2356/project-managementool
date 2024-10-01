@@ -225,7 +225,7 @@ const ProjectDetailsForm = () => {
             sx={{
               textTransform: 'none',color:'black',
               backgroundColor: '#0065ff',
-              '&:hover': { backgroundColor: '#0052cc' },
+              '&:hover': { backgroundColor: '#0051cc' },
             }}
           >
             Next
