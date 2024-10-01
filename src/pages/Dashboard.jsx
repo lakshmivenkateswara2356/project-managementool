@@ -38,7 +38,8 @@ const Dashboard = () => {
 
   return (
     <div>
-   <Box sx={{ flexGrow: 1, padding: '20px',height:'73vh', }}
+   <Box sx={{ flexGrow: 1, padding: '20px',overflow:'scroll',height:{xs: '75vh',  // for small screens
+      lg: '74vh' } }}
 >
    {/* Task Overview Section */}
 <Grid container spacing={2}>
@@ -166,9 +167,9 @@ view all
 </Paper>
  </Box>
 
-<Box sx={{display:{lg:'none'}}}>
- <Bottommenu/>
- </Box>
+<Box sx={{display:{xs:'block',lg:'none'}}}>
+  <Bottommenu/>
+</Box>
 
 
 </Box>

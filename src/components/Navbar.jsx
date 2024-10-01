@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 
 import { Link, NavLink, useLocation } from 'react-router-dom';
-
+import { useNavigate } from 'react-router-dom';
 
 import SparklesIcon from '@mui/icons-material/AutoAwesome';
 //mui component
@@ -45,7 +45,7 @@ import { fileManager, sharedFile } from '../services/sidebarLinks';
 
 //react component
 import Image from '../components/Image';
-
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 //services
 import { useTheme } from '../style/theme';
 import { useMenu } from '../hooks/useMenu';
@@ -167,6 +167,7 @@ export default function Navbar(props) {
     const handleDrawerOpen = () => {
         setCollapseDrawer(!collapseDrawer);
     };
+    const navigate = useNavigate();
 
     const onDragEnd = result => {
         const { source, destination } = result;
@@ -274,6 +275,45 @@ export default function Navbar(props) {
         window.location.replace(redirectTo);
     };
 
+    const [anchorEl, setAnchorEl] = useState(null);  // State to manage dropdown open/close
+    const open = Boolean(anchorEl);
+  
+    const handleClick = (event) => {
+      setAnchorEl(event.currentTarget);  // Open the dropdown
+    };
+  
+    const handleOrganisation = () => {
+        navigate('Neworganisation')  // Close the dropdown
+    };
+
+    const handleViewOrganizations = () => {
+        navigate('/organizations'); // Navigate to the OrganizationList
+        handleClose(); // Close the menu after clicking
+    };  
+    const handleClose = () => {
+        setAnchorEl(null); // This will close the menu
+      };
+
+     
+      const organizations = [
+        { id: 1, name: 'Clikkle Technologies', logo: 'https://cdn.clikkle.com/images/clikkle/logo/2023/clikkle.svg' },
+        { id: 2, name: 'Tech Corp', logo: 'https://example.com/images/techcorp/logo.png' },
+        { id: 3, name: 'InnovateX', logo: 'https://example.com/images/innovatex/logo.png' },
+    ]; // Example organizations, fetch dynamically from backend if needed
+      // Default organization
+      
+     // For navigation
+     const [selectedOrganization, setSelectedOrganization] = useState(organizations[0].name);
+     const [selectedOrgLogo, setSelectedOrgLogo] = useState(organizations[0].logo);
+    
+    
+     const handleSelectOrganization = (name, logo) => {
+        setSelectedOrganization(name);
+        setSelectedOrgLogo(logo);
+        handleClose();
+      };
+    
+
     const checking =()=>{
         console.log("Sign out function called");
         clearCookie('accessToken');
@@ -328,9 +368,80 @@ export default function Navbar(props) {
             </Box>
 
             <Box sx={{ overflowY: 'auto', height: 'calc(100dvh - 90px)', flexGrow: 1 }}>
-                <Typography variant='body2' pl={3} mt={1.5} fontSize='14px' fontWeight={500}>
-                    Project Manager
-                </Typography>
+            <Box
+            sx={{
+                display: 'flex',
+                alignItems: 'center',
+                padding: '10px',
+                borderRadius: '8px',
+                color: '#B0B0B0', // Gray text color
+            }}
+        >
+            {/* Avatar */}
+            <Avatar 
+                alt={selectedOrganization} 
+                src={selectedOrgLogo} // Dynamically set the logo based on selected organization
+                sx={{ backgroundColor: 'white', height: '32px', width: '32px', marginRight: '12px', marginLeft: '14px' }} 
+            />
+
+            {/* Company Name */}
+            <Typography sx={{ fontSize: '14px', fontWeight: 500 }}>
+                {selectedOrganization} {/* Display the selected organization here */}
+            </Typography>
+
+            {/* Dropdown Icon */}
+            <IconButton
+                size="small"
+                sx={{ color: '#B0B0B0', padding: '0', marginLeft: '4px' }}
+                onClick={handleClick}  // Trigger dropdown on click
+            >
+                <ArrowDropDownIcon />
+            </IconButton>
+
+            {/* Dropdown Menu */}
+            <Menu
+                anchorEl={anchorEl}
+                open={open}
+                onClose={handleClose}
+                PaperProps={{
+                    style: {
+                        backgroundColor: '#1c1c1c', // Same dark background as the header
+                        color: '#B0B0B0', // Gray text color for the dropdown items
+                    },
+                }}
+            >
+                {/* Loop through organizations */}
+                {organizations.map((org) => (
+                    <MenuItem
+                        key={org.id}
+                        onClick={() => handleSelectOrganization(org.name, org.logo)} // Set the selected organization
+                        sx={{ fontSize: '14px', padding: '10px' }}
+                    >
+                        {org.name}
+                    </MenuItem>
+                ))}
+
+                {/* Divider and "Create Organization" option */}
+                <MenuItem
+                    onClick={() => {
+                        handleOrganisation(); // Redirect to create organization page
+                        handleClose(); // Close the menu after clicking
+                    }}
+                    sx={{ fontSize: '14px', padding: '10px', fontWeight: 'bold' }}
+                >
+                    Create Organization
+                </MenuItem>
+
+                {/* New "View Organizations" option */}
+                <MenuItem
+                    onClick={handleViewOrganizations} // Navigate to OrganizationList
+                    sx={{ fontSize: '14px', padding: '10px', fontWeight: 'bold' }}
+                >
+                    View Organizations
+                </MenuItem>
+            </Menu>
+        </Box>
+
                 <List sx={{ px: 3 }}>
                     {fileManager.map(link => (
                         <NavLink
