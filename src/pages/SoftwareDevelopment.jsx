@@ -19,13 +19,17 @@ import ProductDiscoveryDetails from '../CardItems/ProductDiscoveryDetails';
 import ProductRoadmapDetails from '../CardItems/ProductRoadmapDetails';
 import IdeaPrioritizationDetails from '../CardItems/IdeaPrioritizationDetails';
 import BugTrackingDetails from '../CardItems/BugTrackingDetails';
+import Image from '../components/Image';
+
 
 const softwareDevelopmentCards = [
   {
     title: 'Kanban',
+    secondaryImgSrc: 'https://cdn.clikkle.com/images/logo/2023/projects-text.png',
     description: 'See and move your project forward by managing tasks on an easy-to-use board.',
     imgSrc: Kanbanpng,
-    projectType: 'Clikkle Projects',
+   
+    projectType: 'Clikkle Projectse',
   },
   {
     title: 'Scrum',
@@ -104,7 +108,7 @@ const SoftwareDevelopment = () => {
   return (
     <Box sx={{ padding: '24px' }}>
       {/* Conditionally render heading and description only if no card is selected */}
-      {!selectedCard && (
+       {!selectedCard && (
         <>
           <Typography variant="h4" sx={{ fontWeight: 'bold', marginBottom: '16px', fontSize: '22px' }}>
             Software Development
@@ -151,6 +155,7 @@ const SoftwareDevelopment = () => {
                   <Typography variant="h6" sx={{  fontWeight: 'bold', marginBottom: '4px' }}>
                     {card.title}
                   </Typography>
+                  
                   <Typography variant="body2" sx={{  marginBottom: '8px' }}>
                     {card.projectType}
                   </Typography>

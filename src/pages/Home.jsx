@@ -284,7 +284,7 @@ const [templateInfo, setTemplateInfo] = useState('');
             {selectedTemplate ? (
               <>
                 <Typography variant="h4" sx={{ fontWeight: 'bold', marginBottom: '16px', fontSize: '16px' }}>
-                  {selectedTemplate}
+            <Box sx={{display:'flex',}}>    <h1 style={{fontSize:'16px',marginRight:'12px'}}>Template /</h1>  {selectedTemplate}</Box>
                 </Typography>
                 <Typography variant="body1" sx={{ marginTop: '16px', color: '#666665' }}>
                   {templateContent[selectedTemplate]}

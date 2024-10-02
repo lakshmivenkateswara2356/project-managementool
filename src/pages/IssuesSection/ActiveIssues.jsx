@@ -68,7 +68,7 @@ const ActiveIssus = () => {
     >
       <Grid container alignItems="center" justifyContent="space-between" sx={{ marginBottom: '20px' }}>
         <Grid item>
-          <Typography variant="h5" color="white">
+          <Typography variant="h5" color="gray" fontFamily='sans-serif'>
             Activities
           </Typography>
         </Grid>
@@ -79,7 +79,7 @@ const ActiveIssus = () => {
         </Grid>
       </Grid>
 <Box>
-    <Typography sx={{marginTop:'-23px',marginBottom:'33px'}}>Stay up-to-date with what is happening across the project</Typography>
+    <Typography sx={{marginTop:'-23px',marginBottom:'33px',color:'gray',}}>Stay up-to-date with what is happening across the project</Typography>
 </Box>
       {/* Search bar and filter */}
       <Box sx={{display:'flex',flexDirection:'row',justifyContent:'flex-start'}}

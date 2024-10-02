@@ -95,7 +95,7 @@ const IssueUpdate = () => {
     
              <Grid container alignItems='center'  >
                 <Grid item xs>
-                    <Typography variant='h5' color='text.primary'>
+                    <Typography variant='h5' color='gray' fontFamily='sans-serif'>
                         Issue Updates
                     </Typography>
                 </Grid>

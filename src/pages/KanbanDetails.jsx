@@ -173,7 +173,7 @@ const KanbanDetails = ({ onClose }) => {
               <Typography
           variant="body2"
           sx={{
-            
+            color:'#3666b0',
             cursor: 'pointer',
             marginBottom: '16px',
             fontSize: '13px',
@@ -234,7 +234,7 @@ their work across different tools
               <Typography
           variant="body2"
           sx={{
-            
+            color:'#3666b0',
             cursor: 'pointer',
             marginBottom: '16px',
             fontSize: '14px',
@@ -298,7 +298,7 @@ their work across different tools
                 fontSize: '18px',
               }}
             >
-              'Continuously improve with agile reports'
+              Continuously improve with agile reports
             </Typography>
             <Typography
               variant="body2"
@@ -309,7 +309,7 @@ their work across different tools
               <Typography
           variant="body2"
           sx={{
-            
+            color:'#3666b0',
             cursor: 'pointer',
             marginBottom: '16px',
             fontSize: '13px',

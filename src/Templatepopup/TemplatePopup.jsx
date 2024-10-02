@@ -6,6 +6,7 @@ import Companypl from '../Assets/compaPl.png';
 import ProjectDetailsForm from '../pages/ProjectDetailsForm';
 import Company from '../Assets/company.png';
 import Team from '../Assets/team.png';
+import Image from '../components/Image';
 
 import Kanban from '../Assets/Kanban.png';
 import './TemplatePopup.css';
@@ -75,6 +76,7 @@ const TemplatePopup = ({ onClose }) => {
            // Function to close the popup
            cursor: 'pointer', 
            position: 'sticky',
+           fontSize:'18px',
            
            width:'100%',
            top: 0,
@@ -115,7 +117,7 @@ const TemplatePopup = ({ onClose }) => {
           <Typography variant="h6" sx={{ color: '#fff', marginBottom: '8px' }}>
             Kanban
           </Typography>
-          
+          <Image cdn='projects/logo/2023/projects-text.png' sx={{ height: '27px' }} />
           <Typography variant="body2" sx={{ color: '#ffffff80' }}>
             See and move your project forward by managing tasks on an easy-to-use board.
           </Typography>
@@ -143,7 +145,7 @@ const TemplatePopup = ({ onClose }) => {
       <Typography sx={{fontSize:'22px', backgroundColor:'white',color:'black',height:'32px',width:'32px',textAlign:'center',borderRadius:'22px',marginRight:'12px',}}>2</Typography>
       <Typography variant="h5" sx={{ marginBottom: '16px', fontWeight: 'bold' }}>
         
-        Project template
+      Choose a project type
       </Typography>
       </Box>
 

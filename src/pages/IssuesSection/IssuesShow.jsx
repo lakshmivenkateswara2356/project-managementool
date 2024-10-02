@@ -7,19 +7,72 @@ import {
     TableBody,
     TableCell,
     TableContainer,
+    Divider,
     TableHead,
     TableRow,
     Checkbox,
     Paper,
-    Select,
-    MenuItem,
-    Avatar,
     Button,
+    Avatar,
     Card,
     CardContent,
 } from '@mui/material';
+
+
+import HtmlIcon from '../../Assets/Kanbanto.png';
+import FigmaIcon from '@mui/icons-material/Palette'; 
+import SearchIcon from '@mui/icons-material/Search'; // Import the search icon
+
+import yogeshimg from '../../Assets/YOGESH SINGH.jpg';
+import youngpretty from '../../Assets/young-pretty-model-is-smiling.jpg';
+import waistipimgm from '../../Assets/waist-up-portrait-smiling-pleased-guy-round-spectacles-looking-front-him.jpg';
+import smailymanimg from '../../Assets/smiley-man-holding-camera-front-view.jpg';
+import rashidimg from '../../Assets/RASHID AHMED.jpg';
 import { useState } from 'react';
 import InfoIcon from '@mui/icons-material/InfoOutlined';
+
+// Define styles for each status button
+const getStatusStyles = (status) => {
+    switch (status) {
+        case 'To Do':
+            return {
+                backgroundColor: 'transparent',
+                border: '1px solid red', // Orange border
+                color: 'red', // Orange text color
+                borderRadius: '10px',
+                padding: '5px 15px',
+                fontWeight: 'bold',
+                fontSize: '13px',
+                fontSize: '10px',
+                width:'11px',
+            };
+        case 'Review':
+            return {
+                backgroundColor: 'transparent',
+                border: '1px solid #FF9800', // Lighter orange border
+                color: '#FF9800', // Lighter orange text color
+                borderRadius: '10px',
+                padding: '5px 15px',
+                fontWeight: 'bold',
+                fontSize: '10px',
+                width:'11px',
+            };
+        case 'In Progress':
+            return {
+                backgroundColor: 'transparent',
+                border: '1px solid #0D47A1', // Blue border
+                color: '#0D47A1', // Blue text color
+                borderRadius: '10px',
+                padding: '5px 15px',
+                fontWeight: 'bold',
+                fontSize: '1px',
+                fontSize: '10px',
+                width:'25px',
+            };
+        default:
+            return {};
+    }
+};
 
 // Sample issues data
 const initialIssues = [
@@ -28,7 +81,9 @@ const initialIssues = [
         key: 'Edit subscription plan',
         status: 'Review',
         assignee: 'Dave Maxwell',
+        assigneeAvatar: yogeshimg, // Assignee avatar
         reporter: 'Daniel Thompson',
+        reporterAvatar: youngpretty, // Reporter avatar
         priority: 'High',
         createdAt: '05-08-2024',
         updatedAt: '07-08-2024',
@@ -39,7 +94,9 @@ const initialIssues = [
         key: 'Fix pagination error',
         status: 'To Do',
         assignee: 'Rohit Anderson',
+        assigneeAvatar: waistipimgm,
         reporter: 'Rohan Singh',
+        reporterAvatar: smailymanimg,
         priority: 'Medium',
         createdAt: '19-08-2024',
         updatedAt: '30-08-2024',
@@ -50,15 +107,46 @@ const initialIssues = [
         key: 'Structure the frontend code',
         status: 'Review',
         assignee: 'Dave Maxwell',
+        assigneeAvatar: rashidimg,
         reporter: 'Daniel Thompson',
+        reporterAvatar: smailymanimg,
         priority: 'Low',
         createdAt: '26-08-2024',
         updatedAt: '27-08-2024',
         dueDate: '21-09-2024',
     },
-    // Add more issues as needed
+    {
+        type: 'ES-137',
+        key: 'Structure the frontend code',
+        status: 'Review',
+        assignee: 'Dave Maxwell',
+        assigneeAvatar: youngpretty,
+        reporter: 'Daniel Thompson',
+        reporterAvatar: rashidimg,
+        priority: 'Low',
+        createdAt: '26-08-2024',
+        updatedAt: '27-08-2024',
+        dueDate: '21-09-2024',
+    }
+    ,
+    {
+        type: 'ES-137',
+        key: 'Structure the frontend code',
+        status: 'Review',
+        assignee: 'Dave Maxwell',
+        assigneeAvatar: rashidimg,
+        reporter: 'Daniel Thompson',
+        reporterAvatar: youngpretty,
+        priority: 'Low',
+        createdAt: '26-08-2024',
+        updatedAt: '27-08-2024',
+        dueDate: '21-09-2024',
+    }
+    ,
+    
+    
+    
 ];
-
 const IssuesShow = () => {
     const [issues, setIssues] = useState(initialIssues); // State for issues
     const [view, setView] = useState('list'); // State for managing view
@@ -70,27 +158,21 @@ const IssuesShow = () => {
         setIssues(updatedIssues);
     };
 
-    // Function to handle priority change
-    const handlePriorityChange = (index, newPriority) => {
-        const updatedIssues = [...issues];
-        updatedIssues[index].priority = newPriority;
-        setIssues(updatedIssues);
-    };
-
     return (
         <Box
             sx={{
                 padding: '20px',
-                backgroundColor: '#0d0d0d',
+                
                 color: '#fff',
-                height: '100vh',
+                height: '80vh',
                 overflowY: 'scroll',
+                
             }}
         >
             {/* Header */}
             <Grid container alignItems="center" justifyContent="space-between" sx={{ marginBottom: '20px' }}>
                 <Grid item>
-                    <Typography variant="h5" color="white">
+                    <Typography variant="h5" color="gray">
                         Issues
                     </Typography>
                 </Grid>
@@ -102,33 +184,84 @@ const IssuesShow = () => {
             </Grid>
 
             {/* Toggle View Buttons */}
-            <Box display="flex" mb={2}>
-                <Button
-                    variant={view === 'list' ? 'contained' : 'text'}
-                    sx={{ color: view === 'list' ? 'white' : '#999', marginRight: '10px' }}
-                    onClick={() => setView('list')}
-                >
-                    List
-                </Button>
-                <Button
-                    variant={view === 'board' ? 'contained' : 'text'}
-                    sx={{ color: view === 'board' ? 'white' : '#999' }}
-                    onClick={() => setView('board')}
-                >
-                    Board
-                </Button>
-            </Box>
+           
+           
+            <Box display="flex" mb={2} sx={{ borderBottom: '1px solid #333', width: 'fit-content' }}>
+            <Button
+          variant="text"
+          sx={{
+            color: view === 'board' ? 'white' : '#999',
+            borderBottom: view === 'board' ? '2px solid #1976d2' : 'none',
+            borderRadius: 0,
+            paddingBottom: '8px',
+          }}
+          onClick={() => setView('board')}
+        >
+          Board
+        </Button>
+       
+       
+       
+        <Button
+          variant="text"
+          sx={{
+            color: view === 'list' ? 'white' : '#999',
+            borderBottom: view === 'list' ? '2px solid #1976d2' : 'none', // Underline when active
+            marginRight: '10px',
+            borderRadius: 0, // No border radius for flat underline effect
+            paddingBottom: '8px', // Slight padding for the bottom
+          }}
+          onClick={() => setView('list')}
+        >
+          List
+        </Button>
+    
+      </Box>
 
+      {/* Search bar */}
+      <Box
+        sx={{
+          position: 'relative',
+          display: 'flex',
+          alignItems: 'center',
+          marginBottom: '12px',
+        }}
+      >
+        <SearchIcon
+          sx={{
+            position: 'absolute',
+            left: 10,  // Position the icon inside the input
+            color: '#999',
+            fontSize:'19px',
+            marginBottom:'12px',
+          }}
+        />
+        <input
+          placeholder="Search issues"
+          style={{
+            width: '250px',
+            height: '38px',
+            borderRadius: '9px',
+            color: 'white',
+            backgroundColor: '#141414',
+            borderWidth: '0px',
+            paddingLeft: '35px', // Add padding to the left to make space for the icon
+            marginBottom: '12px',
+            outline: 'none',
+          }}
+          type="search"
+        />
+      </Box>
             {/* Conditional Rendering Based on View */}
             {view === 'list' ? (
-                <TableContainer component={Paper} sx={{ backgroundColor: '#1c1c1c' }}>
+                <TableContainer component={Paper} sx={{  }}>
                     <Table>
                         <TableHead>
                             <TableRow>
                                 <TableCell sx={{ color: '#fff', width: '5%' }}>
-                                    <Checkbox sx={{ color: 'white' }} />
-                                </TableCell>
                                 <TableCell sx={{ color: '#fff' }}>Type</TableCell>
+                                </TableCell>
+                                
                                 <TableCell sx={{ color: '#fff' }}>Keys</TableCell>
                                 <TableCell sx={{ color: '#fff' }}>Summary</TableCell>
                                 <TableCell sx={{ color: '#fff' }}>Status</TableCell>
@@ -148,49 +281,35 @@ const IssuesShow = () => {
                                     </TableCell>
                                     <TableCell sx={{ color: '#fff' }}>{issue.type}</TableCell>
                                     <TableCell sx={{ color: '#fff' }}>{issue.key}</TableCell>
-                                    <TableCell sx={{ color: '#fff' }}>{issue.key}</TableCell>
 
-                                    {/* Status Select */}
+                                    {/* Status Button */}
                                     <TableCell>
-                                        <Select
-                                            value={issue.status}
-                                            onChange={(e) => handleStatusChange(index, e.target.value)}
-                                            sx={{
-                                                backgroundColor: 'rgba(255, 255, 255, 0.1)', // Transparent background
-                                                color: 'white',
-                                                borderRadius: '5px',
-                                                padding: '5px',
-                                                border: '1px solid white', // Border for visibility
-                                            }}
+                                        <Button
+                                            onClick={() => handleStatusChange(index, issue.status === 'To Do' ? 'Review' : 'In Progress')}
+                                          
+                                            sx={getStatusStyles(issue.status)}
                                         >
-                                            <MenuItem value="To Do">To Do</MenuItem>
-                                            <MenuItem value="Review">Review</MenuItem>
-                                            <MenuItem value="In Progress">In Progress</MenuItem>
-                                        </Select>
+                                            {issue.status}
+                                        </Button>
+                                    </TableCell>
+                                   
+                                    <TableCell sx={{ color: '#fff',  fontSize: '12px',marginLeft:"12px", }}>
+                                        <Box sx={{display:'flex'}}>
+                                        <Avatar src={issue.assigneeAvatar} sx={{  height: '17px', width: '17px',marginRight:'8px' }} />
+                                        {issue.assignee}
+                                        </Box>
+                                    </TableCell>
+                                     
+
+                                    
+                                    <TableCell sx={{ color: '#fff',  fontSize: '12px',marginLeft:"12px", }}>
+                                        <Box sx={{display:'flex'}}>
+                                        <Avatar src={issue.reporterAvatar} sx={{ height: '17px', width: '17px',marginRight:'8px' }} />
+                                        {issue.reporter}
+                                        </Box>
                                     </TableCell>
 
-                                    <TableCell sx={{ color: '#fff' }}>{issue.assignee}</TableCell>
-                                    <TableCell sx={{ color: '#fff' }}>{issue.reporter}</TableCell>
-
-                                    {/* Priority Select */}
-                                    <TableCell>
-                                        <Select
-                                            value={issue.priority}
-                                            onChange={(e) => handlePriorityChange(index, e.target.value)}
-                                            sx={{
-                                                backgroundColor: 'rgba(255, 255, 255, 0.1)', // Transparent background
-                                                color: 'white',
-                                                borderRadius: '5px',
-                                                padding: '5px',
-                                                border: '1px solid white', // Border for visibility
-                                            }}
-                                        >
-                                            <MenuItem value="High">High</MenuItem>
-                                            <MenuItem value="Medium">Medium</MenuItem>
-                                            <MenuItem value="Low">Low</MenuItem>
-                                        </Select>
-                                    </TableCell>
-
+                                    <TableCell sx={{ color: '#fff' }}>{issue.priority}</TableCell>
                                     <TableCell sx={{ color: '#fff' }}>{issue.createdAt}</TableCell>
                                     <TableCell sx={{ color: '#fff' }}>{issue.updatedAt}</TableCell>
                                     <TableCell sx={{ color: '#fff' }}>{issue.dueDate}</TableCell>
@@ -201,40 +320,82 @@ const IssuesShow = () => {
                 </TableContainer>
             ) : (
                 <Grid container spacing={2}>
-                    {issues.map((issue, index) => (
-                        <Grid item xs={12} sm={6} md={4} key={index}>
-                            <Card
-                                sx={{
-                                    backgroundColor: '#1c1c1c',
-                                    color: '#fff',
-                                    padding: '10px',
-                                    borderRadius: '10px',
-                                }}
-                            >
-                                <CardContent>
-                                    <Checkbox sx={{ color: 'white' }} />
-                                    <Typography variant="h6">{issue.key}</Typography>
-                                    <Typography variant="body2" color="gray">
-                                        {issue.type}
-                                    </Typography>
-                                    <Typography variant="body2" color="gray">
-                                        {issue.status}
-                                    </Typography>
-                                    <Box display="flex" alignItems="center" mt={2}>
-                                        <Avatar sx={{ marginRight: '10px' }} />
-                                        <Typography variant="body2">{issue.assignee}</Typography>
-                                    </Box>
-                                    <Typography variant="body2" color="gray" mt={1}>
-                                        Priority:{' '}
-                                        <span style={{ color: issue.priority === 'High' ? '#ff4d4d' : '#ffd700' }}>
-                                            {issue.priority}
-                                        </span>
-                                    </Typography>
-                                </CardContent>
-                            </Card>
-                        </Grid>
-                    ))}
-                </Grid>
+        {issues.map((issue, index) => (
+            <Grid item xs={12} sm={6} md={4} key={index}>
+                <Card
+                    sx={{
+                        backgroundColor: '#1c1c1c',
+                        color: '#fff',
+                        padding: '10px',
+                        borderRadius: '10px',
+                    }}
+                >
+                    <CardContent>
+                        <Box sx={{ display: "flex", alignItems: 'center' }}>
+                            <Checkbox sx={{ color: 'white' }} />
+                            <Typography sx={{ fontSize: "16px", marginTop: '8px' }} variant="h6">{issue.key}</Typography>
+                        </Box>
+                        <Typography sx={{ fontSize: "14px", marginTop: '8px', color: 'gray' }} variant="h6">Clikkle Hr</Typography>
+                        <Typography variant="body2" color="gray">
+                            {issue.type}
+                        </Typography>
+
+                        <Divider sx={{ backgroundColor: 'gray', height: '1px', width: '400px', marginTop: '12px', marginBottom: '24px' }} />
+
+                        {/* Assignee and Technologies */}
+                        <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+                            <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                                <Avatar src={issue.assigneeAvatar} sx={{ height: '27px', width: '27px', marginRight: '8px' }} />
+                            </Box>
+
+                            {/* Technology Icon */}
+                            <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                                {/* Display different icons based on the technology */}
+                                {issue.technology === 'HTML' ? (
+                                    <HtmlIcon sx={{ color: '#F16529', fontSize: '30px' }} />
+                                ) : issue.technology === 'Figma' ? (
+                                    <FigmaIcon sx={{ color: '#F24E1E', fontSize: '30px' }} />
+                                ) : null}
+                            </Box>
+
+                            <Box sx={{ display: "flex", justifyContent: "space-around" }}>
+                                <Button
+                                    variant="outlined"
+                                    sx={{
+                                        height: '27px', width: '27px',
+                                        color: issue.priority === 'High' ? '#ff4d4d' : (issue.priority === 'Medium' ? '#ffcc00' : '#00ccff'),
+                                        backgroundColor: 'transparent',
+                                        borderColor: issue.priority === 'High' ? '#ff4d4d' : (issue.priority === 'Medium' ? '#ffcc00' : '#00ccff'),
+                                        margin: '5px',
+                                        "&:hover": {
+                                            backgroundColor: issue.priority === 'High' ? '#ff4d4d10' : (issue.priority === 'Medium' ? '#ffcc0010' : '#00ccff10'),
+                                        }
+                                    }}
+                                >
+                                    {issue.priority}
+                                </Button>
+                                <Button
+                                    variant="outlined"
+                                    sx={{
+                                        height: '27px', marginTop: '33px',
+                                        color: issue.status === 'In Progress' ? '#0057e7' : (issue.status === 'Review' ? '#ffa500' : '#999'),
+                                        backgroundColor: 'transparent',
+                                        borderColor: issue.status === 'In Progress' ? '#0057e7' : (issue.status === 'Review' ? '#ffa500' : '#999'),
+                                        margin: '5px',
+                                        "&:hover": {
+                                            backgroundColor: issue.status === 'In Progress' ? '#0057e710' : (issue.status === 'Review' ? '#ffa50010' : '#99910'),
+                                        }
+                                    }}
+                                >
+                                    {issue.status}
+                                </Button>
+                            </Box>
+                        </Box>
+                    </CardContent>
+                </Card>
+            </Grid>
+        ))}
+    </Grid>
             )}
         </Box>
     );
