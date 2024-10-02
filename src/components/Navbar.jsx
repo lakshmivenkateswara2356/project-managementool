@@ -766,9 +766,9 @@ export default function Navbar(props) {
                                     </MenuItem>
                                 </Menu>
 
-                                <IconButton onClick={openAppsMenu}>
-                                    <AppsIcon />
-                                </IconButton>
+                                <IconButton onClick={() => window.location.href = 'https://apps.clikkle.com/'}>
+    <AppsIcon />
+</IconButton>
 
                                 <Menu
                                     anchorEl={anchorElApps}

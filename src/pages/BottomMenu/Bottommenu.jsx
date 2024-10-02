@@ -52,9 +52,10 @@ const Bottommenu = () => {
             <Typography sx={{marginTop:'-4px', fontSize:'12px',marginLeft:'-8px'}}>Projects</Typography>
             </Box>
             <Box>
-            <IconButton onClick={openAppsMenu}>
-                                    <AppsIcon />
-                                </IconButton>
+            <IconButton onClick={() => window.location.href = 'https://apps.clikkle.com/'}>
+    <AppsIcon />
+</IconButton>
+
 
             </Box>
            
@@ -113,12 +114,7 @@ const Bottommenu = () => {
                                                                       bgcolor: 'custom.appsHover',
                                                                   },
                                                               }}>
-                                                              <Image
-                                                                  src={app.logo}
-                                                                  sx={{
-                                                                      height: '35px',
-                                                                  }}
-                                                              />
+                                                              
                                                               <Typography
                                                                   sx={{
                                                                       fontSize: '12px',
