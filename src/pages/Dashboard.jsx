@@ -175,7 +175,7 @@ view all
  </Box>
 
 <Box sx={{display:{xs:'block',lg:'none'}}}>
- 
+<Bottommenu/>
 </Box>
 
 
