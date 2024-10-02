@@ -1,155 +1,176 @@
 import React, { useState } from "react";
-
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
-import Homeiconbtn from '../../Assets/ic_outline-home.png';
-import clipboard from '../../Assets/el_list-alt.png';
-import peoples from '../../Assets/ic_round-people.png';
-import workicon from '../../Assets/material-symbols_work-outline.png'
 import AssignmentOutlinedIcon from '@mui/icons-material/AssignmentOutlined';
 import WorkOutlineIcon from '@mui/icons-material/WorkOutline';
 import PeopleIcon from '@mui/icons-material/People';
-import { useMenu } from '../../hooks/useMenu';
+import AppsIcon from '@mui/icons-material/Apps';
 import {
     Box,
-    Grid,
     IconButton,
-    Menu,
-    Typography,
-    Skeleton,
-    Link as MuiLink,
+    Typography
 } from '@mui/material';
-import AppsIcon from '@mui/icons-material/Apps';
 
 const Bottommenu = () => {
+    const [activeTab, setActiveTab] = useState('home'); // Set 'home' as the initial active tab
 
-    const {
-        anchorEl: anchorElProfile,
-        openMenu: openProfileMenu,
-        closeMenu: closeProfileMenu,
-    } = useMenu();
-    const [mobileOpen, setMobileOpen] = useState(false);
-    const [sidebarApps, setSidebarApps] = useState(null);
-    const [activeTab, setActiveTab] = useState('home');
-    const { anchorEl: anchorElApps, openMenu: openAppsMenu, closeMenu: closeAppsMenu } = useMenu();
+    // Function to handle tab click and change the activeTab state
+    const handleTabClick = (tab) => {
+        setActiveTab(tab);
+    };
 
     return (
-        <Box sx={{display:'flex',flexDirection:'row',justifyContent:'space-between',height:'82px',position: 'fixed',paddingLeft:'12px',paddingRight:'12px', backgroundColor:'#1f1e1e',paddingTop:'22px',
-            bottom: 0, 
+        <Box sx={{
+            display: 'flex',
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            height: '60px',
+           alignItems:'center',
+            position: 'fixed',
+            paddingLeft: '12px',
+            paddingRight: '12px',
+            backgroundColor: '#1f1e1e',
+            backgroundColor:'#161717',
+            paddingTop: '22px',
+            bottom: 0,
             zIndex: 1000,
-            left: 0,   
-            right: 0,  }}>
-           
-           <Box>
-            <HomeOutlinedIcon sx={{ fontSize: '30px', color: activeTab === 'home' ? 'primary.main' : 'text.secondary',
-                flexDirection:'column',justifyContent:'space-between'
-            }} />
-            <Typography sx={{marginTop: '-10px', fontSize: '12px', color: activeTab === 'home' ? 'primary.main' : 'text.secondary'}}>Home</Typography>
+            left: 0,
+            right: 0,
+        }}>
+            {/* Home Icon */}
+            <Box sx={{ alignItems: 'center' }} onClick={() => handleTabClick('home')}>
+                <Box
+                    sx={{
+                        backgroundColor: activeTab === 'home' ? 'rgba(46, 99, 160, 0.2)' : '', // Active when 'home' is selected
+                        borderRadius: '40%',
+                        width: '47px',
+                        height: '31px',
+                        display: 'flex',
+                        marginTop:'-25px',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                    }}
+                >
+                    <HomeOutlinedIcon
+                        sx={{
+                            fontSize: '20px',
+                            color: activeTab === 'home' ? 'primary.main' : 'text.secondary', // Color changes based on activeTab
+                        }}
+                    />
+                </Box>
+                <Typography sx={{ fontSize: '12px', marginLeft: '8px', color: activeTab === 'home' ? 'primary.main' : 'text.secondary' }}>
+                    Home
+                </Typography>
             </Box>
 
-            <Box  onClick={() => setActiveTab('home')} sx={{ textAlign: 'center', cursor: 'pointer' }}>
-            <AssignmentOutlinedIcon sx={{fontSize:'30px', fontWeight:'lighter', display:'flex',
-                flexDirection:'column',justifyContent:'space-between'}} />
-            <Typography sx={{marginTop:'-4px', fontSize:'12px',marginLeft:'-8px'}}>Projects</Typography>
+            {/* Project Icon */}
+            <Box sx={{ alignItems: 'center' }} onClick={() => handleTabClick('project')}>
+                <Box
+                    sx={{
+                        backgroundColor: activeTab === 'project' ? 'rgba(46, 99, 160, 0.2)' : '', // Active when 'project' is selected
+                        borderRadius: '40%',
+                        width: '47px',
+                        height: '31px',
+                        marginTop:'-25px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                    }}
+                >
+                    <AssignmentOutlinedIcon
+                        sx={{
+                            fontSize: '20px',
+                            color: activeTab === 'project' ? 'primary.main' : 'text.secondary', // Color changes based on activeTab
+                        }}
+                    />
+                </Box>
+                <Typography sx={{ fontSize: '12px', marginLeft: '7px', color: activeTab === 'project' ? 'primary.main' : 'text.secondary' }}>
+                    Project
+                </Typography>
             </Box>
-            <Box>
-            <IconButton onClick={() => window.location.href = 'https://apps.clikkle.com/'}>
-    <AppsIcon />
+
+
+
+
+
+            <Box
+                    sx={{
+                        backgroundColor: activeTab === ' ' ? 'rgba(46, 99, 160, 0.2)' : '', // Active when 'home' is selected
+                        borderRadius: '40%',
+                        width: '55px',
+                        height: '37px',
+                        marginTop:'-25px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                    }}
+                >  <IconButton sx={{marginLeft:'22px',marginTop:'10px'}} onClick={() => window.location.href = 'https://apps.clikkle.com/'}>
+                    <AppsIcon
+                        sx={{
+                            fontSize: '30px',
+                            color: activeTab === '' ? 'primary.main' : 'text.secondary', // Color changes based on activeTab
+                        }}
+                    />
+
 </IconButton>
-
-
-            </Box>
-           
-           <Box sx={{alignItems:'center'}}>
-
-            <WorkOutlineIcon sx={{fontSize:'30px', fontWeight:'lighter', display:'flex',
-                flexDirection:'column',justifyContent:'space-between'}}/>
-            <Typography sx={{marginTop:'-5px', fontSize:'12px',marginLeft:'3px'}}>work</Typography>
+                </Box>
+            {/* Apps Icon */}
+            <Box>
+              
+                   
+                
             </Box>
 
-            <Box sx={{alignItems:'center'}}>
-            <PeopleIcon sx={{fontSize:'30px', fontWeight:'lighter'}} />
-            <Typography sx={{marginTop:'-10px', fontSize:'12px',marginLeft:'-6px'}}>Teams</Typography>
-           
-           
-           
+            {/* Work Icon */}
+            <Box sx={{ alignItems: 'center' }} onClick={() => handleTabClick('work')}>
+                <Box
+                    sx={{
+                        backgroundColor: activeTab === 'work' ? 'rgba(46, 99, 160, 0.2)' : '', // Active when 'work' is selected
+                        borderRadius: '40%',
+                        width: '47px',
+                        height: '31px',
+                        marginTop:'-25px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                    }}
+                >
+                    <WorkOutlineIcon
+                        sx={{
+                            fontSize: '20px',
+                            color: activeTab === 'work' ? 'primary.main' : 'text.secondary', // Color changes based on activeTab
+                        }}
+                    />
+                </Box>
+                <Typography sx={{ fontSize: '12px', marginLeft: '10px', color: activeTab === 'work' ? 'primary.main' : 'text.secondary' }}>
+                    Work
+                </Typography>
             </Box>
 
-
-
-           
-            <Menu
-                                    anchorEl={anchorElApps}
-                                    open={Boolean(anchorElApps)}
-                                    onClose={closeAppsMenu}
-                                    sx={{
-                                        '.MuiPaper-root.MuiMenu-paper.MuiPopover-paper': {
-                                            marginTop: '16px',
-                                            bgcolor: 'custom.menu',
-                                            width: '300px',
-                                            padding: '10px 14px',
-                                            borderRadius: '8px',
-                                            boxShadow: 'rgba(100, 100, 111, 0.2) 0px 7px 29px 0px',
-                                            border: '1px solid rgba(0, 0, 0, 0.11)',
-                                        },
-                                    }}>
-                                    <Grid container alignItems='center' spacing={2}>
-                                        {sidebarApps
-                                            ? sidebarApps.map(app => (
-                                                  <Grid item xs={4} key={app.name}>
-                                                      <MuiLink
-                                                          href={app.url}
-                                                          target='_blank'
-                                                          sx={{
-                                                              fontWeight: 500,
-                                                              textDecoration: 'none',
-                                                              color: '#5f6368',
-                                                          }}>
-                                                          <Box
-                                                              align='center'
-                                                              sx={{
-                                                                  borderRadius: '8px',
-                                                                  p: 1.2,
-                                                                  textAlign: 'center',
-                                                                  '&:hover': {
-                                                                      bgcolor: 'custom.appsHover',
-                                                                  },
-                                                              }}>
-                                                              
-                                                              <Typography
-                                                                  sx={{
-                                                                      fontSize: '12px',
-                                                                      overflowX: 'hidden',
-                                                                      textOverflow: 'ellipsis',
-                                                                      whiteSpace: 'nowrap',
-                                                                      fontWeight: 500,
-                                                                  }}>
-                                                                  {app.name}
-                                                              </Typography>
-                                                          </Box>
-                                                      </MuiLink>
-                                                  </Grid>
-                                              ))
-                                            : Array(9)
-                                                  .fill(0)
-                                                  .map((_, i) => (
-                                                      <Grid item xs={4} key={i} align='center'>
-                                                          <Skeleton
-                                                              variant='circular'
-                                                              animation='wave'
-                                                              width={37}
-                                                              height={37}
-                                                              sx={{ mt: 1 }}
-                                                          />
-                                                          <Skeleton
-                                                              variant='text'
-                                                              animation='wave'
-                                                              width={38}
-                                                              sx={{ mt: 1 }}
-                                                          />
-                                                      </Grid>
-                                                  ))}
-                                    </Grid>
-                                </Menu>
+            {/* Teams Icon */}
+            <Box sx={{ alignItems: 'center' }} onClick={() => handleTabClick('teams')}>
+                <Box
+                    sx={{
+                        backgroundColor: activeTab === 'teams' ? 'rgba(46, 99, 160, 0.2)' : '', // Active when 'teams' is selected
+                        borderRadius: '40%',
+                        width: '47px',
+                        height: '31px',
+                        marginTop:'-25px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                    }}
+                >
+                    <PeopleIcon
+                        sx={{
+                            fontSize: '20px',
+                            color: activeTab === 'teams' ? 'primary.main' : 'text.secondary', // Color changes based on activeTab
+                        }}
+                    />
+                </Box>
+                <Typography sx={{ fontSize: '12px', marginLeft: '7px', color: activeTab === 'teams' ? 'primary.main' : 'text.secondary' }}>
+                    Teams
+                </Typography>
+            </Box>
         </Box>
     );
 };
