@@ -389,7 +389,7 @@ Done
 <div>
 <h1 className='KanbanNext'>Next: Select a project type</h1>
 </div>
-<div >   <Button className='Kanbantemplate'
+<div >   <Button sx={{marginRight:'32px',}}
     variant="contained"
     
     onClick={handleOpenPopup}

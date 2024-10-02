@@ -115,6 +115,7 @@ const TemplatePopup = ({ onClose }) => {
           <Typography variant="h6" sx={{ color: '#fff', marginBottom: '8px' }}>
             Kanban
           </Typography>
+          
           <Typography variant="body2" sx={{ color: '#ffffff80' }}>
             See and move your project forward by managing tasks on an easy-to-use board.
           </Typography>
@@ -130,7 +131,7 @@ const TemplatePopup = ({ onClose }) => {
             padding: '8px 16px',
           }}
         >
-          Change template
+          Choose a project type
         </Button>
       </Box>
 
@@ -167,7 +168,7 @@ const TemplatePopup = ({ onClose }) => {
           >
             Team-managed
           </Typography>
-          <Box sx={{height:'2px',width:'450px', backgroundColor:'#ff66d6'}}></Box>
+          <Box sx={{height:'2px',width:'550px', backgroundColor:'#ff66d6'}}></Box>
           <Typography variant="body2" sx={{ marginTop:'33px',textAlign:'left',fontSize:'18px' }}>
           Set up and maintained by your team.
           </Typography>
@@ -183,7 +184,7 @@ const TemplatePopup = ({ onClose }) => {
           >
             Company-managed
           </Typography>
-          <Box sx={{height:'2px',width:'450px', backgroundColor:'#66c1ff'}}></Box>
+          <Box sx={{height:'2px',width:'550px', backgroundColor:'#66c1ff'}}></Box>
           <Typography variant="body2" sx={{marginTop:'33px',textAlign:'left',fontSize:'18px',width:'380px' }}>
           Set up and maintained by your clikkle projects admins.
           </Typography>
@@ -203,7 +204,7 @@ const TemplatePopup = ({ onClose }) => {
           alignItems:'center',
               padding: '20px',
               borderRadius: '8px',
-              width:'510px',
+              width:'550px',
               color: '#ffffff'
             }}
           >
@@ -242,7 +243,7 @@ const TemplatePopup = ({ onClose }) => {
           alignItems:'center',
               padding: '20px',
               borderRadius: '8px',
-              width:'510px',
+              width:'550px',
               color: '#ffffff'
             }}
           >
@@ -257,16 +258,16 @@ const TemplatePopup = ({ onClose }) => {
 <p className='mimnipara'>Benefit from complete control with expert configuration, customization and flexibility.</p>
 <div className='containerSubco'>
 <div className='Heoolo'>
-<h1 className='arrangingsometext'>Anyone on your team can set up and maintain</h1>
+<h1 className='arrangingsometext'>Set up and maintained by your clikkle projects admins</h1>
 </div>
 <div className='lineTeamSeperation'></div>
-<h1 className='arrangingsometext'>Settings do not impact other projects</h1>
+<h1 className='arrangingsometext'>Standardized configuration shared across projects</h1>
 <div className='lineTeamSeperation'></div>
-<h1 className='arrangingsometext'>Easy setup for issue types and custom fields</h1>
+<h1 className='arrangingsometext'>Complete control over issue types and custom fields</h1>
 <div className='lineTeamSeperation'></div>
-<h1 className='arrangingsometext'>Simple configuration for multiple workflows</h1>
+<h1 className='arrangingsometext'>Customizable workflows, statuses and issue transitions</h1>
 <div className='lineTeamSeperation'></div>
-<h1 className='arrangingsometext'>Access level permissions</h1>
+<h1 className='arrangingsometext'>Detailed permission schemes</h1>
 </div>
         
           </Paper>
@@ -285,9 +286,9 @@ const TemplatePopup = ({ onClose }) => {
 <p className='modernclassClikk'>A modern Clikkle Projects experience for teams who don’t need advanced features.</p>
 
 <div className='AccessPermission'>
-<h1 className='arrangingsometext'>Simple configuration for multiple workflows</h1>
+<h1 className='arrangingsometext'>Only show your project’s issues on your board</h1>
 <div className='lineTeamSeperationee'></div>
-<h1 className='arrangingsometext'>Access level permissions</h1>
+<h1 className='arrangingsometext'>Essential agile reporting</h1>
 </div>
 </div>
 
@@ -297,9 +298,9 @@ const TemplatePopup = ({ onClose }) => {
 <p className='modernclassClikk'>All the power and features that Clikkle Projects is known for.</p>
 
 <div className='AccessPermission'>
-<h1 className='arrangingsometext'>Simple configuration for multiple workflows</h1>
+<h1 className='arrangingsometext'>Pull in issues from other projects on your board</h1>
 <div className='lineTeamSeperationee'></div>
-<h1 className='arrangingsometext'>Access level permissions</h1>
+<h1 className='arrangingsometext'>Comprehensive agile reporting</h1>
 </div>
 </div>
 
@@ -310,8 +311,8 @@ const TemplatePopup = ({ onClose }) => {
 <div className='linesepetgerKan'></div>
 
 <div className='buttondisplay'>
-<button  onClick={onClose} className='Buttomele'>Select image team management project</button>
-<button className='Buttomeleee'>Select image team management project</button>
+<button  onClick={onClose} className='Buttomele'>Select a team-managed project</button>
+<button className='Buttomeleee'>Select a company-managed project</button>
 </div>
 </div>
 
