@@ -91,7 +91,7 @@ const IssueUpdate = () => {
   return (
 
    
-    <Box container sx={{ padding: '20px',  Height: '50vh', overflow:'scroll',}}>
+    <Box container sx={{ padding: '20px',height: '85vh',overflow:'scroll',}}>
     
              <Grid container alignItems='center'  >
                 <Grid item xs>

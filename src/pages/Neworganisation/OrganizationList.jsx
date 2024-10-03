@@ -1,26 +1,8 @@
 import React, { useState } from 'react';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { Dialog, DialogTitle, DialogContent, DialogActions, Button, TextField,Typography } from '@mui/material';
+import { Dialog, DialogTitle, DialogContent, DialogActions, Button, TextField, Typography } from '@mui/material';
 
-const OrganizationList = () => {
-  const organizations = [
-    {
-      name: 'Clikkle Technologies',
-      status: 'Active',
-      imageUrl: 'https://cdn.clikkle.com/images/clikkle/logo/2023/clikkle.svg', // Clikkle logo
-    },
-    {
-      name: 'Beehive Corporate Affairs',
-      status: 'Inactive',
-      imageUrl: 'https://cdn.clikkle.com/images/clikkle/logo/2023/clikkle.svg', // Beehive logo
-    },
-    {
-      name: 'Revolution Africa',
-      status: 'Active',
-      imageUrl: 'https://cdn.clikkle.com/images/clikkle/logo/2023/clikkle.svg', // Revolution Africa logo
-    },
-  ];
-
+const OrganizationList = ({ organizations }) => {
   const [open, setOpen] = useState(false);
   const [selectedOrg, setSelectedOrg] = useState(null);
   const [confirmName, setConfirmName] = useState('');
@@ -81,10 +63,11 @@ const OrganizationList = () => {
                   style={{
                     backgroundColor: 'transparent',
                     border: 'none',
+                    color: 'white',
                     cursor: 'pointer',
                   }}
                 >
-                  <DeleteIcon style={{ color: 'red', fontSize: '20px' }} />
+                  <DeleteIcon />
                 </button>
               </td>
             </tr>
@@ -92,54 +75,24 @@ const OrganizationList = () => {
         </tbody>
       </table>
 
-      {/* Delete confirmation dialog */}
-      <Dialog open={open} onClose={() => setOpen(false)} maxWidth="xs" PaperProps={{ style: {  color: '#fff', padding: '20px',height:'50vh',width:'70vw', } }}>
-        <DialogTitle style={{ fontSize: '20px', fontWeight: 'bold', color: '#fff', paddingBottom: '0px' }}>
-          Delete {selectedOrg}
-        </DialogTitle>
-        <DialogContent style={{ fontSize: '15px', fontFamily: 'sans-serif',marginTop:'22px',color:'gray',}}>
-          <p>Are you sure you want to delete the organization <a href="#" style={{ color: '#5b94f5', textDecoration: 'none',fontSize:'12px' }}>{selectedOrg}</a>?</p>
-          <p style={{ color: 'red', fontSize: '13px', marginBottom: '20px',marginTop:'25px', }}>This action cannot be undone.</p>
-          
-          <Typography sx={{color:'white',fontFamily:'sans-serif',
-            fontSize:'15px',
-          }}>Please type in the organization name to confirm:</Typography>
+      {/* Delete Confirmation Dialog */}
+      <Dialog open={open} onClose={() => setOpen(false)}>
+        <DialogTitle>Delete Organization</DialogTitle>
+        <DialogContent>
+          <Typography>Enter the organization's name to confirm deletion:</Typography>
           <TextField
-            label="Enter organisation name:"
-            fullWidth
-            variant="outlined"
             value={confirmName}
             onChange={(e) => setConfirmName(e.target.value)}
-            InputLabelProps={{ style: { color: 'white', fontSize: '13px' } }}
-            inputProps={{ style: { color: '#fff', padding: '10px' } }}
-            style={{ marginBottom: '20px', backgroundColor: '#333', borderRadius: '5px',marginTop:'5px', }}
+            fullWidth
+            margin="normal"
+            variant="outlined"
           />
         </DialogContent>
-        <DialogActions style={{  }}>
-          <Button
-            onClick={() => setOpen(false)}
-            variant="outlined"
-            style={{
-              color: '#fff',
-              borderColor: '#fff',
-              padding: '6px 20px',
-              fontSize: '13px',
-              fontFamily: 'sans-serif',
-            }}
-          >
-            Close
+        <DialogActions>
+          <Button onClick={() => setOpen(false)} color="primary">
+            Cancel
           </Button>
-          <Button
-            onClick={confirmDelete}
-            variant="contained"
-            style={{
-              backgroundColor: '#5b94f5',
-              color: '#fff',
-              padding: '6px 20px',
-              fontSize: '13px',
-              fontFamily: 'sans-serif',
-            }}
-          >
+          <Button onClick={confirmDelete} color="secondary">
             Delete
           </Button>
         </DialogActions>
