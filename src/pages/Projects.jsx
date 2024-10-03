@@ -50,7 +50,7 @@ const Projects = () => {
   const handleCloseIssueTypeDialog = () => setIssueTypeDialogOpen(false);
 
   return (
-    <Header>
+    
     <Box
       sx={{
         flexGrow: 1,
@@ -456,7 +456,7 @@ const Projects = () => {
     
       </Box>
 
-      </Header>
+     
    
   );
 };

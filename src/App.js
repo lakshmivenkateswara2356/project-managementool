@@ -6,6 +6,7 @@ import Dashboard from './pages/Dashboard';
 import Header from './components/Header';
 import IssueUpdate from './pages/IssuesSection/IssueUpdate';
 import ActiveIssues from './pages/IssuesSection/ActiveIssues';
+import Projects from './pages/Projects';
 import IssuesShow from './pages/IssuesSection/IssuesShow';
 import OrganizationList from './pages/Neworganisation/OrganizationList';
 import Neworganisation from './pages/Neworganisation/Neworganisation';
@@ -22,7 +23,7 @@ const App = () => {
             <Route path="/issue-updates" element={<IssueUpdate />} />
             <Route path='/active-issues' element={<ActiveIssues/>}/>
             <Route path="/issues-show" element={<IssuesShow/>}/>
-        
+            <Route path ="Projects" element={<Projects/>}/>
         
         {/* Route without the Header component */}
         <Route path='Neworganisation' element={<Neworganisation />} />
