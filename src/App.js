@@ -10,19 +10,47 @@ import IssuesShow from './pages/IssuesSection/IssuesShow';
 import OrganizationList from './pages/Neworganisation/OrganizationList';
 import Neworganisation from './pages/Neworganisation/Neworganisation';
 import Home from './pages/Home';
+import Login from './pages/Login'; // Import the Login component
 
 const App = () => {
     return (
-        <Header>
-            <Routes>
-                <Route path='/' element={<Home />} />
-                <Route path="/issue-updates" element={<IssueUpdate />} />
-                <Route path='/active-issues' element={<ActiveIssues/>}/>
-                <Route path="/issues-show" element={<IssuesShow/>}/>
-                <Route path='Neworganisation' element={<Neworganisation/>}/>
-                <Route path="/organizations" element={<OrganizationList/>}/>
-            </Routes>
-        </Header>
+        <Routes>
+            <Route 
+                path='/' 
+                element={
+                    <Header>
+                        <Home />
+                    </Header>
+                } 
+            />
+            <Route 
+                path="/issue-updates" 
+                element={
+                    <Header>
+                        <IssueUpdate />
+                    </Header>
+                } 
+            />
+            <Route 
+                path='/active-issues' 
+                element={
+                    <Header>
+                        <ActiveIssues />
+                    </Header>
+                } 
+            />
+            <Route 
+                path="/issues-show" 
+                element={
+                    <Header>
+                        <IssuesShow />
+                    </Header>
+                } 
+            />
+            <Route path="/login" element={<Login />} />  {/* Login route without Header */}
+            <Route path='Neworganisation' element={<Neworganisation />} />
+            <Route path="/organizations" element={<OrganizationList />} />
+        </Routes>
     );
 };
 

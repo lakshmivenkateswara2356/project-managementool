@@ -2,7 +2,7 @@ import { Box, Typography, Avatar, List, ListItem, ListItemAvatar, ListItemText, 
 import InfoIcon from '@mui/icons-material/InfoOutlined';
 import Danielthompson from '../../Assets/DANIEL THOMPSON.jpg'
 import RashhedAhmed from '../../Assets/RASHID AHMED.jpg';
-
+import Header from '../../components/Header';
 
 
 // Sample updates data
@@ -90,7 +90,7 @@ const updates = [
 const IssueUpdate = () => {
   return (
 
-    
+   
     <Box container sx={{ padding: '20px',  Height: '50vh', overflow:'scroll',}}>
     
              <Grid container alignItems='center'  >
@@ -98,6 +98,7 @@ const IssueUpdate = () => {
                     <Typography variant='h5' color='gray' fontFamily='sans-serif'>
                         Issue Updates
                     </Typography>
+                    <Typography sx={{fontSize:'12px',color:'gray'}}>Beta</Typography>
                 </Grid>
                
                 <Grid item>
@@ -151,6 +152,7 @@ const IssueUpdate = () => {
       ))}
      
     </Box>
+   
   );
 };
 

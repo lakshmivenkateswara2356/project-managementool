@@ -742,8 +742,8 @@ export default function Navbar(props) {
       </IconButton>
       
       {/* Text */}
-      <Typography sx={{ marginLeft: '4px', fontSize: '14px' }}>
-        13 days left
+      <Typography sx={{ marginLeft: '4px', fontSize: '12px' }}>
+        Upgrade
       </Typography>
     </Box>
                                 <IconButton onClick={openSettingsMenu}>

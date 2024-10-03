@@ -3,11 +3,21 @@ import { Box, Button, Typography, TextField, Divider } from '@mui/material';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import Kanbanimg from '../Assets/Kanban.png';
 import Teampng from '../Assets/team.png';
+import { useNavigate } from 'react-router-dom';
 
 
 import Image from '../components/Image';
+import { Navigate } from 'react-router-dom';
 
 const ProjectDetailsForm = () => {
+  const navigate = useNavigate();
+
+  const handleActiveissues=() => {
+    navigate('active-issues')
+  }
+  const gotoNxtstep =()=>{
+    navigate('/Projects')
+  }
   return (
     <Box
       sx={{
@@ -221,15 +231,18 @@ const ProjectDetailsForm = () => {
             Cancel
           </Button>
           <Button
-            variant="contained"
-            sx={{
-              textTransform: 'none',color:'black',
-              backgroundColor: '#0065ff',
-              '&:hover': { backgroundColor: '#0051cc' },
-            }}
-          >
-            Next
-          </Button>
+        variant="contained"
+        sx={{
+          textTransform: 'none',
+          color: 'black',
+          backgroundColor: '#3666b0',
+          width: '100px',
+          '&:hover': { backgroundColor: '#3666b0' },
+        }}
+        onClick={gotoNxtstep}
+      >
+        Next
+      </Button>
         </Box>
       </Box>
     </Box>

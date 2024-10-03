@@ -18,7 +18,7 @@ import {
     CardContent,
 } from '@mui/material';
 
-
+import Header from '../../components/Header';
 import HtmlIcon from '../../Assets/Kanbanto.png';
 import FigmaIcon from '@mui/icons-material/Palette'; 
 import SearchIcon from '@mui/icons-material/Search'; // Import the search icon
@@ -159,6 +159,7 @@ const IssuesShow = () => {
     };
 
     return (
+       
         <Box
             sx={{
                 padding: '20px',
@@ -175,6 +176,7 @@ const IssuesShow = () => {
                     <Typography variant="h5" color="gray">
                         Issues
                     </Typography>
+                    
                 </Grid>
                 <Grid item>
                     <IconButton sx={{ color: 'white' }}>
@@ -190,7 +192,7 @@ const IssuesShow = () => {
             <Button
           variant="text"
           sx={{
-            color: view === 'board' ? 'white' : '#999',
+            color: view === 'board' ? '#999' : '#999',
             borderBottom: view === 'board' ? '2px solid #1976d2' : 'none',
             borderRadius: 0,
             paddingBottom: '8px',
@@ -205,7 +207,7 @@ const IssuesShow = () => {
         <Button
           variant="text"
           sx={{
-            color: view === 'list' ? 'white' : '#999',
+            color: view === 'list' ? '#999' : '#999',
             borderBottom: view === 'list' ? '2px solid #1976d2' : 'none', // Underline when active
             marginRight: '10px',
             borderRadius: 0, // No border radius for flat underline effect
@@ -241,9 +243,8 @@ const IssuesShow = () => {
           style={{
             width: '250px',
             height: '38px',
+            backgroundColor:'black',
             borderRadius: '9px',
-            color: 'white',
-            backgroundColor: '#141414',
             borderWidth: '0px',
             paddingLeft: '35px', // Add padding to the left to make space for the icon
             marginBottom: '12px',
@@ -258,29 +259,29 @@ const IssuesShow = () => {
                     <Table>
                         <TableHead>
                             <TableRow>
-                                <TableCell sx={{ color: '#fff', width: '5%' }}>
-                                <TableCell sx={{ color: '#fff' }}>Type</TableCell>
+                                <TableCell sx={{ width: '5%' }}>
+                                <TableCell sx={{  }}>Type</TableCell>
                                 </TableCell>
                                 
-                                <TableCell sx={{ color: '#fff' }}>Keys</TableCell>
-                                <TableCell sx={{ color: '#fff' }}>Summary</TableCell>
-                                <TableCell sx={{ color: '#fff' }}>Status</TableCell>
-                                <TableCell sx={{ color: '#fff' }}>Assignee</TableCell>
-                                <TableCell sx={{ color: '#fff' }}>Reporter</TableCell>
-                                <TableCell sx={{ color: '#fff' }}>Priority</TableCell>
-                                <TableCell sx={{ color: '#fff' }}>Created At</TableCell>
-                                <TableCell sx={{ color: '#fff' }}>Updated At</TableCell>
-                                <TableCell sx={{ color: '#fff' }}>Due Date</TableCell>
+                                <TableCell sx={{  }}>Keys</TableCell>
+                                <TableCell sx={{ }}>Summary</TableCell>
+                                <TableCell sx={{}}>Status</TableCell>
+                                <TableCell sx={{  }}>Assignee</TableCell>
+                                <TableCell sx={{  }}>Reporter</TableCell>
+                                <TableCell sx={{  }}>Priority</TableCell>
+                                <TableCell sx={{  }}>Created At</TableCell>
+                                <TableCell sx={{}}>Updated At</TableCell>
+                                <TableCell sx={{ }}>Due Date</TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
                             {issues.map((issue, index) => (
                                 <TableRow key={index}>
                                     <TableCell>
-                                        <Checkbox sx={{ color: 'white' }} />
+                                        <Checkbox sx={{ }} />
                                     </TableCell>
-                                    <TableCell sx={{ color: '#fff' }}>{issue.type}</TableCell>
-                                    <TableCell sx={{ color: '#fff' }}>{issue.key}</TableCell>
+                                    <TableCell sx={{  }}>{issue.type}</TableCell>
+                                    <TableCell sx={{  }}>{issue.key}</TableCell>
 
                                     {/* Status Button */}
                                     <TableCell>
@@ -293,7 +294,7 @@ const IssuesShow = () => {
                                         </Button>
                                     </TableCell>
                                    
-                                    <TableCell sx={{ color: '#fff',  fontSize: '12px',marginLeft:"12px", }}>
+                                    <TableCell sx={{   fontSize: '12px',marginLeft:"12px", }}>
                                         <Box sx={{display:'flex'}}>
                                         <Avatar src={issue.assigneeAvatar} sx={{  height: '17px', width: '17px',marginRight:'8px' }} />
                                         {issue.assignee}
@@ -302,17 +303,17 @@ const IssuesShow = () => {
                                      
 
                                     
-                                    <TableCell sx={{ color: '#fff',  fontSize: '12px',marginLeft:"12px", }}>
+                                    <TableCell sx={{   fontSize: '12px',marginLeft:"12px", }}>
                                         <Box sx={{display:'flex'}}>
                                         <Avatar src={issue.reporterAvatar} sx={{ height: '17px', width: '17px',marginRight:'8px' }} />
                                         {issue.reporter}
                                         </Box>
                                     </TableCell>
 
-                                    <TableCell sx={{ color: '#fff' }}>{issue.priority}</TableCell>
-                                    <TableCell sx={{ color: '#fff' }}>{issue.createdAt}</TableCell>
-                                    <TableCell sx={{ color: '#fff' }}>{issue.updatedAt}</TableCell>
-                                    <TableCell sx={{ color: '#fff' }}>{issue.dueDate}</TableCell>
+                                    <TableCell sx={{  }}>{issue.priority}</TableCell>
+                                    <TableCell sx={{ }}>{issue.createdAt}</TableCell>
+                                    <TableCell sx={{  }}>{issue.updatedAt}</TableCell>
+                                    <TableCell sx={{  }}>{issue.dueDate}</TableCell>
                                 </TableRow>
                             ))}
                         </TableBody>
@@ -324,8 +325,8 @@ const IssuesShow = () => {
             <Grid item xs={12} sm={6} md={4} key={index}>
                 <Card
                     sx={{
-                        backgroundColor: '#1c1c1c',
-                        color: '#fff',
+                       
+                       
                         padding: '10px',
                         borderRadius: '10px',
                     }}
@@ -398,6 +399,8 @@ const IssuesShow = () => {
     </Grid>
             )}
         </Box>
+
+       
     );
 };
 

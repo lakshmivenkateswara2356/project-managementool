@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 
+import { useNavigate } from 'react-router-dom';
+
+
 import { 
     Box, Typography, Grid, Paper, Button, Divider, Tabs, Tab, Avatar 
   } from '@mui/material';
@@ -9,18 +12,19 @@ import neworganisation from '../../Assets/organisation.png'
 
 const Neworganisation =() => {
 
+  const navigate = useNavigate();
+
+
+  const handleCreateOrganisation = () => {
+    // Logic for creating the new organization
+    // After creation, navigate to the Home (Dashboard) page
+    navigate('/');
+};
+
+
     const [organizationName, setOrganizationName] = useState('');
 
-    const handleCreateOrganization = () => {
-        // Call the API to create an organization
-        if (organizationName) {
-          console.log('Creating organization:', organizationName);
-          // Perform the POST request to save the organization
-        } else {
-          alert('Please enter an organization name.');
-        }
-      };
-    
+
     return (
        
         <Box sx={{backgroundColor:'black',}}>
@@ -46,21 +50,35 @@ const Neworganisation =() => {
             borderStyle:'solid',
             height:'45px',
             borderRadius:'3px',
-            width:'91vw',
+            width:'92vw',
             marginRight:'12px',
             borderWidth:'1px',
             
             fontSize: '16px',
           }}
         >
-            <Typography sx={{marginTop:'8px',marginLeft:'12px'}}>Create organisation</Typography>
+            <input
+          placeholder="Create organisation"
+          style={{
+            width: '91vw',
+            height: '38px',
+            borderRadius: '9px',
+            color: 'white',
+            backgroundColor: '#141414',
+            borderWidth: '0px',
+            paddingLeft: '35px', // Add padding to the left to make space for the icon
+            marginBottom: '12px',
+            outline: 'none',
+          }}
+          type="search"
+        />
         </Box>
 </Box>
 
 
             </Box>
             <Box sx={{display:'flex',flexDirection:'row',justifyContent:'flex-end',marginLeft:'42px',marginTop:'-175px'}}>
-    <Button sx={{marginRight:'82px',backgroundColor:'#3767B1',color:'white',width:'120px',marginBottom:"12px",}}>Create</Button>
+    <Button onClick={handleCreateOrganisation} sx={{marginRight:'82px',backgroundColor:'#3767B1',color:'white',width:'120px',marginBottom:"12px",}}>Create</Button>
 </Box>
         </Box>
     )

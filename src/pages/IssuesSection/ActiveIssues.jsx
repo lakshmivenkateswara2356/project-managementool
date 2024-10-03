@@ -1,6 +1,7 @@
 import { Box, Typography, Avatar, List, ListItem, ListItemAvatar, ListItemText, Divider, IconButton, Grid } from '@mui/material';
 import InfoIcon from '@mui/icons-material/InfoOutlined';
 import Danielthompson from '../../Assets/DANIEL THOMPSON.jpg';
+import Header from '../../components/Header'
 import RashhedAhmed from '../../Assets/RASHID AHMED.jpg';
 
 // Sample updates data
@@ -57,23 +58,27 @@ const updates = [
 
 const ActiveIssus = () => {
   return (
+  
     <Box
       sx={{
         padding: '20px',
-        backgroundColor: '#000', // Set background color to black
+         // Set background color to black
         color: '#fff', // Set text color to white
         height: '100vh',
         overflowY: 'scroll',
       }}
     >
+
+
       <Grid container alignItems="center" justifyContent="space-between" sx={{ marginBottom: '20px' }}>
         <Grid item>
           <Typography variant="h5" color="gray" fontFamily='sans-serif'>
             Activities
           </Typography>
+          <Typography sx={{fontSize:'12px',color:'gray'}}>Beta</Typography>
         </Grid>
         <Grid item>
-          <IconButton sx={{ color: 'white' }}>
+          <IconButton sx={{  }}>
             <InfoIcon />
           </IconButton>
         </Grid>
@@ -93,7 +98,7 @@ const ActiveIssus = () => {
             backgroundColor: '#1c1c1c',
             border: 'none',
             outline: 'none',
-            color: 'white',
+           
             borderStyle:'solid',
             height:'45px',
             borderRadius:'8px',
@@ -107,15 +112,15 @@ const ActiveIssus = () => {
         </Box>
         <select
           style={{
-             backgroundColor: 'transparent',  color: 'white',
+             backgroundColor: 'transparent',  
             borderStyle:'solid',
             height:'45px',
             borderRadius:'8px',
             width:'40vw',
             borderWidth:'1px',
             borderStyle:'solid',
-            
-            color: 'white',
+            color:'gray',
+           
             padding: '5px 10px',
             borderRadius: '5px',
             fontSize: '16px',
@@ -128,7 +133,7 @@ const ActiveIssus = () => {
       {/* List of activities */}
       {updates.map((section, sectionIndex) => (
         <Box key={sectionIndex} sx={{ marginBottom: '30px' }}>
-          <Typography variant="h6" sx={{ color: '#fff', marginBottom: '10px' }}>
+          <Typography variant="h6" sx={{  marginBottom: '10px' }}>
             {section.section}
           </Typography>
 
@@ -140,12 +145,12 @@ const ActiveIssus = () => {
                 </ListItemAvatar>
                 <ListItemText
                   primary={
-                    <Typography variant="body1" sx={{ color: '#fff' }}>
+                    <Typography variant="body1" sx={{color:'gray'  }}>
                       {update.title}
                     </Typography>
                   }
                   secondary={`${update.name} • ${update.time}`}
-                  secondaryTypographyProps={{ sx: { color: '#aaa' } }}
+                  secondaryTypographyProps={{ sx: {  } }}
                 />
               </ListItem>
             ))}
@@ -155,6 +160,7 @@ const ActiveIssus = () => {
         </Box>
       ))}
     </Box>
+   
   );
 };
 
