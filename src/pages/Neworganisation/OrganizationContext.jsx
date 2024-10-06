@@ -1,18 +1,13 @@
-// OrganizationContext.js
 import React, { createContext, useState } from 'react';
 
 export const OrganizationContext = createContext();
 
 export const OrganizationProvider = ({ children }) => {
-    const [organizations, setOrganizations] = useState([]);
+  const [selectedOrganization, setSelectedOrganization] = useState('Clikkle Technologies');
 
-    const addOrganization = (name) => {
-        setOrganizations((prevOrgs) => [...prevOrgs, name]);
-    };
-
-    return (
-        <OrganizationContext.Provider value={{ organizations, addOrganization }}>
-            {children}
-        </OrganizationContext.Provider>
-    );
+  return (
+    <OrganizationContext.Provider value={{ selectedOrganization, setSelectedOrganization }}>
+      {children}
+    </OrganizationContext.Provider>
+  );
 };

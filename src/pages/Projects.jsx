@@ -1,17 +1,31 @@
 import React, { useState } from "react";
-import { Box, Typography, Table, TableBody,IconButton,  Dialog, DialogActions, DialogContent, DialogTitle,TableCell,TextField,MenuItem, TableHead, TableRow, Button, Grid, Card, CardContent } from '@mui/material';
+import { Box, Typography, Table, TableBody,IconButton, Menu, Checkbox,   Dialog, DialogActions, DialogContent, DialogTitle,TableCell,TextField,MenuItem, TableHead, TableRow, Button, Grid, Card, CardContent } from '@mui/material';
 
 import AddIcon from "@mui/icons-material/Add";
 import Streamlineimg from "../Assets/streamline-emojis_bird-1 (2).png";
 import Image from "../components/Image";
 import InputAdornment from '@mui/material/InputAdornment';
 import Header from '../components/Header';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import SearchIcon from '@mui/icons-material/Search';
 
 
-const Projects = () => {
+const Projects = ({ todoDescription }) => {
   const [openDialog, setOpenDialog] = useState(false);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [checked, setChecked] = useState(false);
+  
+  // Open/close dropdown
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  
 
+  
+  // Toggle checkbox
+  const handleCheck = (event) => {
+    setChecked(event.target.checked);
+  };
   const handleClickOpen = () => {
     setOpenDialog(true);
   };
@@ -50,7 +64,7 @@ const Projects = () => {
   const handleCloseIssueTypeDialog = () => setIssueTypeDialogOpen(false);
 
   return (
-    
+    <Header>
     <Box
       sx={{
         flexGrow: 1,
@@ -303,7 +317,7 @@ const Projects = () => {
         {type}
       </MenuItem>
     ))}
-    <MenuItem value="Create Issue">+ Create Issue</MenuItem>
+    
   </TextField>
 
   {/* Assignee Creation Dialog */}
@@ -375,53 +389,120 @@ const Projects = () => {
               <Grid  key={status}>
                 <Card sx={{width:'270px',marginRight:'12px' }}>
       <CardContent>
-        <Box sx={{ display: 'flex', justifyContent: 'space-between', height: '100px', }}>
-          <Typography
-            variant="h6"
-            sx={{
-              color: status === 'To Do' ? 'red' : status === 'In Progress' ? 'blue' : 'green',
-              borderColor: status === 'To Do' ? 'red' : status === 'In Progress' ? 'blue' : 'green',
-              borderWidth: '1px',
-              borderStyle: 'solid',
-              height: '30px',
-              width: '60px',
-              fontSize: '10px',
-              borderRadius: '9px',
-              textAlign: 'center',
-              lineHeight: '30px',
-              backgroundColor: status === 'To Do'
-                ? 'rgba(255, 0, 0, 0.2)'
-                : status === 'In Progress'
-                ? 'rgba(0, 0, 255, 0.2)'
-                : 'rgba(0, 128, 0, 0.2)', // Same background color logic for status
-            }}
-          >
-            {status}
-          </Typography>
+      <Box
+      sx={{
+        display: 'flex',
+        justifyContent: 'space-between',
+        height: '100px',
+        position: 'relative',
+        '&:hover .hover-content': {
+          display: 'block', // Show hover content on hover
+        },
+      }}
+    >
+      <Typography
+        variant="h6"
+        sx={{
+          color: status === 'To Do' ? 'red' : status === 'In Progress' ? 'blue' : 'green',
+          borderColor: status === 'To Do' ? 'red' : status === 'In Progress' ? 'blue' : 'green',
+          borderWidth: '1px',
+          borderStyle: 'solid',
+          height: '30px',
+          width: '60px',
+          fontSize: '10px',
+          borderRadius: '9px',
+          textAlign: 'center',
+          lineHeight: '30px',
+          backgroundColor: status === 'To Do'
+            ? 'rgba(255, 0, 0, 0.2)'
+            : status === 'In Progress'
+            ? 'rgba(0, 0, 255, 0.2)'
+            : 'rgba(0, 128, 0, 0.2)',
+          cursor: 'pointer',
+        }}
+        onClick={handleClick}
+      >
+        {status}
+        <IconButton size="small" sx={{ padding: '0', marginLeft: '5px' }}>
+          <ArrowDropDownIcon />
+        </IconButton>
+      </Typography>
 
-          <Typography
-            variant="body1"
-            sx={{
-              color: status === 'To Do' ? 'red' : status === 'In Progress' ? 'blue' : 'green',
-              borderColor: status === 'To Do' ? 'red' : status === 'In Progress' ? 'blue' : 'green',
-              borderWidth: '1px',
-              borderStyle: 'solid',
-              height: '30px',
-              width: '40px',
-              fontSize: '16px',
-              borderRadius: '9px',
-              textAlign: 'center',
-              lineHeight: '30px',
-              backgroundColor: status === 'To Do'
-                ? 'rgba(255, 0, 0, 0.2)'
-                : status === 'In Progress'
-                ? 'rgba(0, 0, 255, 0.2)'
-                : 'rgba(0, 128, 0, 0.2)', // Same background color logic for number
-            }}
-          >
-            {issueCount}
-          </Typography>
-        </Box>
+      <Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleClose}>
+        <MenuItem>
+          <Checkbox checked={checked} onChange={handleCheck} />
+          Mark as done
+        </MenuItem>
+      </Menu>
+
+      <Typography
+        variant="body1"
+        sx={{
+          color: status === 'To Do' ? 'red' : status === 'In Progress' ? 'blue' : 'green',
+          borderColor: status === 'To Do' ? 'red' : status === 'In Progress' ? 'blue' : 'green',
+          borderWidth: '1px',
+          borderStyle: 'solid',
+          height: '30px',
+          width: '40px',
+          fontSize: '16px',
+          borderRadius: '9px',
+          textAlign: 'center',
+          lineHeight: '30px',
+          backgroundColor: status === 'To Do'
+            ? 'rgba(255, 0, 0, 0.2)'
+            : status === 'In Progress'
+            ? 'rgba(0, 0, 255, 0.2)'
+            : 'rgba(0, 128, 0, 0.2)',
+        }}
+      >
+        {issueCount}
+      </Typography>
+
+      {/* Hover Content */}
+      <Box
+  sx={{
+    display: 'flex',
+    justifyContent: 'space-between',
+    height: '100px',
+    position: 'relative',
+    '&:hover .hover-content': {
+      display: 'block', // Show hover content on hover
+    },
+  }}
+>
+  
+
+  <Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleClose}>
+    <MenuItem>
+      <Checkbox checked={checked} onChange={handleCheck} />
+      Mark as done
+    </MenuItem>
+  </Menu>
+
+  
+
+  {/* Hover Content */}
+  <Box
+    className="hover-content"
+    sx={{
+      display: 'none', // Initially hidden
+      position: 'absolute',
+      top: '100px', // Positioned below the status box
+      left: '0',
+      backgroundColor: 'gray',
+      border: '1px solid #ccc',
+      borderRadius: '8px',
+      padding: '10px',
+      height: '65px',
+      width: '200px',
+      zIndex: 1,
+    }}
+  >
+    <Typography variant="body2">{todoDescription}</Typography>
+  </Box>
+</Box>
+
+    </Box>
 
         <Button
           sx={{ color: 'gray', borderWidth: '0px', backgroundColor: 'background.default', marginTop: '-84px', height: '42px' }}
@@ -456,7 +537,7 @@ const Projects = () => {
     
       </Box>
 
-     
+      </Header>
    
   );
 };

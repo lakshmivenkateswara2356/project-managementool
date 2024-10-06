@@ -16,7 +16,7 @@ import Navbar from '../components/Navbar'
 import Teamplan from '../Assets/teampla.png';
 import Companypl from '../Assets/compaPl.png';
 import Kanbanim from '../Assets/Kanban.png'
-import Testing from './Login';
+
 import Kanbathree from '../Assets/Kanbathree.png'
 import ProjectDetailsForm from './ProjectDetailsForm';
 import Team from '../Assets/team.png';

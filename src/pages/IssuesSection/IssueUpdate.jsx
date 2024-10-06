@@ -90,6 +90,7 @@ const updates = [
 const IssueUpdate = () => {
   return (
 
+    <Header>
    
     <Box container sx={{ padding: '20px',height: '85vh',overflow:'scroll',}}>
     
@@ -98,7 +99,7 @@ const IssueUpdate = () => {
                     <Typography variant='h5' color='gray' fontFamily='sans-serif'>
                         Issue Updates
                     </Typography>
-                    <Typography sx={{fontSize:'12px',color:'gray'}}>Beta</Typography>
+                   
                 </Grid>
                
                 <Grid item>
@@ -152,7 +153,7 @@ const IssueUpdate = () => {
       ))}
      
     </Box>
-   
+    </Header>
   );
 };
 

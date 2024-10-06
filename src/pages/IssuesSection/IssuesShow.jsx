@@ -160,6 +160,7 @@ const IssuesShow = () => {
 
     return (
        
+        <Header>
         <Box
             sx={{
                 padding: '20px',
@@ -400,7 +401,7 @@ const IssuesShow = () => {
             )}
         </Box>
 
-       
+        </Header>
     );
 };
 

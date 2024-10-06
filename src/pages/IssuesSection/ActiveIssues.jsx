@@ -58,7 +58,7 @@ const updates = [
 
 const ActiveIssus = () => {
   return (
-  
+  <Header>
     <Box
       sx={{
         padding: '20px',
@@ -75,7 +75,7 @@ const ActiveIssus = () => {
           <Typography variant="h5" color="gray" fontFamily='sans-serif'>
             Activities
           </Typography>
-          <Typography sx={{fontSize:'12px',color:'gray'}}>Beta</Typography>
+          
         </Grid>
         <Grid item>
           <IconButton sx={{  }}>
@@ -160,7 +160,7 @@ const ActiveIssus = () => {
         </Box>
       ))}
     </Box>
-   
+    </Header>
   );
 };
 

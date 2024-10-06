@@ -21,6 +21,7 @@ import profileclikk from '../Assets/profileclikk.jpeg'; // Update the path accor
 import ActionIcon from '../components/ActionIcon';
 
 const Dashboard = () => {
+  
   const navigate = useNavigate();
 
   const handleViewAll = () => {
@@ -28,11 +29,11 @@ const Dashboard = () => {
   };
 
   const handleActiveissues=() => {
-    navigate('active-issues')
+    navigate('/active-issues')
   }
 
   const Issuesow  =()=>{
-    navigate ('issues-show')
+    navigate ('/issues-show')
   }
   const [activeSection, setActiveSection] = useState('dashboard');
   const [activeTab, setActiveTab] = useState(3); // Controls the selected tab in 'Issues' section

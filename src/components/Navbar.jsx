@@ -286,6 +286,16 @@ export default function Navbar(props) {
         navigate('Neworganisation')  // Close the dropdown
     };
 
+   
+  
+    const handleMenuOpen = (event) => {
+      setAnchorEl(event.currentTarget);
+    };
+  
+    const handleMenuClose = () => {
+      setAnchorEl(null);
+    };
+
     const handleViewOrganizations = () => {
         navigate('/organizations'); // Navigate to the OrganizationList
         handleClose(); // Close the menu after clicking
@@ -433,12 +443,9 @@ export default function Navbar(props) {
                 </MenuItem>
 
                 {/* New "View Organizations" option */}
-                <MenuItem
-                    onClick={handleViewOrganizations} // Navigate to OrganizationList
-                    sx={{ fontSize: '14px', padding: '10px', fontWeight: 'bold' }}
-                >
-                    View Organizations
-                </MenuItem>
+                <Button sx={{ color: 'white' }} href="/listorganization">
+          Organizations
+        </Button>
             </Menu>
         </Box>
 
