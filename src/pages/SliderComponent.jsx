@@ -156,7 +156,7 @@ const SliderComponent = () => {
               }
             }}>
 
-<Box sx={{display:'none','@media(max-width:600px)':{display:'block',marginBottom:'44px',marginTop:'107px'} }}>
+<Box sx={{display:'none','@media(max-width:600px)':{display:'block',marginBottom:'44px',marginTop:'75px'} }}>
               {slide.image && (
                 <img
                   src={slide.image}
@@ -184,7 +184,7 @@ const SliderComponent = () => {
               {index === 3 && (
                 <Button
                   variant="contained"
-                  sx={{display:'none', "@media(max-width:600px)":{display:'block',height:'47px',marginTop:'22px',} }}
+                  sx={{display:'none', "@media(max-width:600px)":{display:'block',height:'47px',marginTop:'22px',marginBottom:'50px',} }}
                   onClick={handleGetStarted}
                 >
                   Get Started
