@@ -22,7 +22,7 @@ const App = () => {
 
   return (
     <Routes>
-         <Route path="/" element={<SliderComponent />} />
+         <Route path="/walk-through" element={<SliderComponent />} />
       {/* Pass addOrganization as a prop to Neworganisation */}
       <Route path="/neworganisation" element={<Neworganisation addOrganization={addOrganization} />} />
 
@@ -31,7 +31,7 @@ const App = () => {
       <Route path="/listorganisation" element={<OrganizationList organizations={organizations} />} />
      
      
-      <Route path="/home" element={<Header><Home /></Header> } />
+      <Route path="/" element={<Header><Home /></Header> } />
 <Route path="/Projects" element={
   <Projects/> }/>
 <Route path ='/issue-updates' element={<IssueUpdate/>}/>

@@ -14,7 +14,7 @@ const fileManager = [
     {
         name: 'Dashboard',
         icon: <FolderOutlinedIcon fontSize='small' />,
-        to: '/home',
+        to: '/',
     },
     {
         name: 'Projects',
