@@ -131,7 +131,7 @@ view all
    </Typography>
  </Box>
  <Button  variant="outlined"  sx={styles.issueButton}>Issue</Button>
- <Typography variant="body2" sx={{  fontSize:'7px',fontWeight:'light',margin:{xs:'1px',sm:"13px" },width:"500px" }}>
+ <Typography variant="body2" sx={{  fontSize:'12px',fontWeight:'light',margin:{xs:'1px',sm:"13px" },width:"500px" }}>
    {index * 2 + 38} minutes ago
  </Typography>
 </Box>

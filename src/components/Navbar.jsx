@@ -2,6 +2,10 @@ import React, { useCallback, useEffect, useState } from 'react';
 
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import DiamondIcon from "@mui/icons-material/Diamond"; 
+import { IoDiamondOutline } from "react-icons/io5";
+
+import NotificationIcon from './NotificationIcon';
 
 import SparklesIcon from '@mui/icons-material/AutoAwesome';
 //mui component
@@ -67,6 +71,23 @@ import { Margin } from '@mui/icons-material';
 const drawerWidth = 260;
 const appsWidth = 54;
 const miniDrawerWidth = 72;
+
+const StyledButton = styled(Button)({
+    border: '2px solid #2962FF', // Match the border color
+    borderRadius: '8px', // Rounded corners
+    color: '#2962FF', // Text and icon color
+    padding: '8px 16px', // Adjust padding for a good fit
+    fontSize: '13px',
+     // Adjust font size
+    textTransform: 'none', // Remove uppercase transformation
+    display: 'flex',
+    alignItems: 'center',
+    gap: '8px', // Space between icon and text
+    '&:hover': {
+      backgroundColor: 'transparent', // Keep background transparent on hover
+      borderColor: '#2962FF', // Ensure border color stays on hover
+    },
+  });
 
 const openedMixin = theme => ({
     width: drawerWidth,
@@ -729,29 +750,11 @@ export default function Navbar(props) {
                                 alignItems='center'
                                 justifyContent='flex-end'
                                 spacing={0}>
-
-<Box
-      sx={{
-        display: 'inline-flex',
-        alignItems: 'center',
-        padding: '5px 10px',
-        border: '1px solid #2979ff', // Border color matching the blue in the image
-        borderRadius: '8px',         // Rounded corners
-        backgroundColor: 'transparent',
-        color: '#2979ff',            // Text color matching the blue
-        fontWeight: 500,
-        cursor: 'pointer',
-      }}
-    >
-      {/* Icon */}
-      <IconButton size="small" sx={{ color: '#9C27B0', padding: '0' }}> 
-        <SparklesIcon sx={{ fontSize: '16px' }} />
-      </IconButton>
-      
-      {/* Text */}
-      <Typography sx={{ marginLeft: '4px', fontSize: '12px' }}>
-        Upgrade
-      </Typography>
+  <StyledButton>
+  <IoDiamondOutline sx={{fontSize:'19px',}} />      Upgrade
+    </StyledButton>
+<Box >
+    <NotificationIcon />
     </Box>
                                 <IconButton onClick={openSettingsMenu}>
                                 

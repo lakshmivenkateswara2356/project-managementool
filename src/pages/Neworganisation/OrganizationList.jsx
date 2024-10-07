@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
 import DeleteIcon from '@mui/icons-material/Delete';
+import NotificationIcon from '../../components/NotificationIcon';
 import { Dialog, DialogTitle, DialogContent, DialogActions, Button, TextField, Typography } from '@mui/material';
 
 const OrganizationList = ({ organizations }) => {
@@ -42,21 +43,21 @@ const OrganizationList = ({ organizations }) => {
         <thead>
           <tr style={{ borderBottom: '1px solid #ccc' }}>
             <th style={{ padding: '10px', fontFamily: 'sans-serif' }}>Organizations</th>
-            <th style={{ paddingRight: '120px', marginRight: '133px' }}>Status</th>
-            <th style={{ paddingRight: '120px', marginRight: '133px' }}>Action</th>
+            <th style={{ paddingRight: '120px', marginRight: '133px',fontFamily: 'sans-serif' }}>Status</th>
+            <th style={{ paddingRight: '120px', marginRight: '133px',fontFamily: 'sans-serif' }}>Action</th>
           </tr>
         </thead>
         <tbody>
           {organizations.map((org, index) => (
-            <tr key={index} style={{ borderBottom: '1px solid black' }}>
+            <tr key={index} style={{ borderBottom: '1px solid black',fontFamily: 'sans-serif' }}>
               <td
-                style={{ padding: '10px', textAlign: 'left', cursor: 'pointer' }}
+                style={{ padding: '10px', textAlign: 'left', cursor: 'pointer',fontFamily: 'sans-serif' }}
                 onClick={() => handleOrgClick(org.name)} // Handle organization click to navigate to home
               >
                 <img
                   src={org.imageUrl}
                   alt={`${org.name} logo`}
-                  style={{ width: '30px', height: '30px', marginBottom: '-5px', marginRight: '10px', backgroundColor: 'white', borderRadius: '22px', paddingTop: '1px' }}
+                  style={{ fontFamily: 'sans-serif',width: '30px', height: '30px', marginBottom: '-5px', marginRight: '10px', backgroundColor: 'white', borderRadius: '22px', paddingTop: '1px' }}
                 />
                 {org.name}
               </td>
@@ -84,7 +85,8 @@ const OrganizationList = ({ organizations }) => {
                     cursor: 'pointer',
                   }}
                 >
-                  <DeleteIcon />
+                  <DeleteIcon sx={{color:'red',}}/>
+                  
                 </button>
               </td>
             </tr>

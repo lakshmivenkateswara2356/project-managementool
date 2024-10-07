@@ -4,6 +4,7 @@ import { Box, Typography, Button } from "@mui/material";
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import slideone from '../Assets/slideeon.svg';
+import Navbar from '../components/Navbar';
 import slidetwo from '../Assets/slidetwo.png';
 import slidethree from '../Assets/slidethree.png';
 import slidefour from '../Assets/slidefour.png';
@@ -66,6 +67,8 @@ const SliderComponent = () => {
   };
 
   return (
+<>
+
     <Box
       sx={{
         width: "95vw",
@@ -76,8 +79,36 @@ const SliderComponent = () => {
         alignItems: "center",
         position: "relative",
         backgroundColor: "#f9f9f9",
+        '@media(max-width:600px)':{
+          
+          height:'100vh',
+          width:'100vw',
+        }
       }}
     >
+
+{currentSlide < slides.length - 1 && (
+          <Box
+            sx={{
+              color: "#007bff",
+              cursor: "pointer",
+              fontWeight: 'bold',
+              fontFamily: 'sans-serif',
+              position: 'absolute',
+              top: '25px',
+              right: '12px',
+              '@media (max-width: 600px)': {
+                marginTop:'55px',
+                marginRight:'27px',
+               
+              }
+            }}
+            onClick={handleSkip}
+          >
+            Skip
+          </Box>
+        )}
+      
       {slides.map((slide, index) => (
         <Box
           key={slide.id}
@@ -118,22 +149,26 @@ const SliderComponent = () => {
                 textAlign: 'center', // Center text on mobile
                 paddingRight: '0',
                 width: '100%',
+                
                 marginTop:'100px',
                 
                 
               }
             }}>
-                <Box sx={{ height: { lg: '480px', xs: '300px' }, marginTop: { xs: '20px', lg: '0' },display:{xs:'block',lg:'none',} }}>
+
+<Box sx={{display:'none','@media(max-width:600px)':{display:'block',marginBottom:'44px',marginTop:'107px'} }}>
               {slide.image && (
                 <img
                   src={slide.image}
                   alt={slide.title}
-                  style={{ width: "100%", height: "100%", objectFit: 'contain',}}
+                  style={{ width: "95%", height: "100%", objectFit: 'contain',}}
                 />
               )}
             </Box>
+             
+
               <Typography
-                sx={{ fontFamily: 'sans-serif', fontWeight: '800px', fontSize: { lg: '45px', xs: '25px' }, marginLeft:'-80px' }}
+                sx={{display:'none',"@media(max-width:600px)":{display:'block',fontSize:'24px'} }}
                 variant="h4"
                 gutterBottom
               >
@@ -142,10 +177,36 @@ const SliderComponent = () => {
 
               <Typography
                 variant="body1"
-                sx={{ marginBottom: "20px", fontSize: { lg: '19px', xs: '16px' }, color: 'gray', fontFamily: 'sans-serif', marginLeft:'-80px', width: { lg: '430px', xs: '110%' } }}
+                sx={{ display:'none',"@media(max-width:600px)":{colour:'gray',display:'block'}}}
               >
                 {slide.description}
               </Typography>
+              {index === 3 && (
+                <Button
+                  variant="contained"
+                  sx={{display:'none', "@media(max-width:600px)":{display:'block',height:'47px',marginTop:'22px',} }}
+                  onClick={handleGetStarted}
+                >
+                  Get Started
+                </Button>
+              )}
+
+              <Typography
+                sx={{width:'550px', fontFamily:'sans-serif', fontWeight:'800px', fontSize:'45px', marginLeft:'-80px',"@media(max-width:600px)":{display:'none'} }}
+                variant="h4"
+                gutterBottom
+              >
+                {slide.title}
+              </Typography>
+
+              <Typography
+                variant="body1"
+                sx={{ marginBottom: "20px", fontSize: { lg: '19px', xs: '16px' }, color: 'gray', fontFamily: 'sans-serif', marginLeft:'-80px', width: { lg: '430px', xs: '110%' },display:{lg:'block',xs:'none'} }}
+              >
+                {slide.description}
+              </Typography>
+
+            
 
               {index === 3 && (
                 <Button
@@ -153,10 +214,17 @@ const SliderComponent = () => {
                   sx={{
                     marginTop: "20px",
                     padding: { lg: "10px 20px", xs: "8px 16px" },
-                    width: { lg: "160px", xs: '105%' },
-                    height: { lg: "40px", xs: '8%' },
+                    width: { lg: "222px", xs: '105%' },
+                    height: { lg: "48px", xs: '8%' },
                     fontSize: { lg: '12px', xs: '14px' },
-                    fontFamily: 'sans-serif',
+                    fontFamily:'sans-serif',
+                    fontWeight:'bold',
+                    marginLeft:'-77px',
+                    
+                    borderRadius:'11px',
+                display:{lg:'block',xs:'none'}
+
+                    
                   }}
                   onClick={handleGetStarted}
                 >
@@ -164,75 +232,112 @@ const SliderComponent = () => {
                 </Button>
               )}
 
-              <Box
-                sx={{
 
-                  display: "flex",
-                  justifyContent: "flex-start",
-                  marginTop: '50px',
-                  '@media (max-width: 600px)': {
-                    justifyContent: 'center', // Center buttons on mobile
-                    marginTop: '50px',
-                    marginRight:'-229px'
-                    
-                  }
-                }}
-              >
-                <Button
-                  variant="contained"
-                  color="primary"
-                  disabled={currentSlide === 0}
-                  onClick={handlePrev}
-                  sx={{
-                    height: '55px',
-                    width: '55px',
-                    borderRadius: "50%",
-                    marginRight: "10px",
-                    minWidth: "auto",
-                    padding: 0,
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    '@media (max-width: 600px)': {
-                      height: '45px',
-                      width: '45px',
-                    }
-                  }}
-                >
-                  <ArrowBackIosNewIcon sx={{ fontSize: { lg: "18px", xs: "14px" }, color: "white" }} />
-                </Button>
 
-                <Button
-                  variant="contained"
-                  color="primary"
-                  disabled={currentSlide === slides.length - 1}
-                  onClick={handleNext}
-                  sx={{
-                    height: '55px',
-                    width: '55px',
-                    borderRadius: "50%",
-                    minWidth: "auto",
-                    padding: 0,
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    '@media (max-width: 600px)': {
-                      height: '45px',
-                      width: '45px',
-                    }
-                  }}
-                >
-                  <ArrowForwardIosIcon sx={{ fontSize: { lg: "18px", xs: "14px" }, color: "white" }} />
-                </Button>
-              </Box>
+
+
+
+
+
+
+
+
+
+
+
+
+<Box
+  sx={{
+    display: "flex",
+    justifyContent: "flex-start",
+    marginTop: '30px',
+    
+    '@media (max-width: 600px)': {
+      justifyContent: 'center', // Center buttons on mobile
+      marginTop: '50px',
+      display:'none',
+      marginRight: '-229px',
+    },
+  }}
+>
+  <Button
+    variant="text"
+    disabled={currentSlide === 0}
+    onClick={handlePrev}
+    sx={{
+      height: '40px',
+      width: '40px',
+      borderRadius: "50%",
+      marginRight: "10px",
+      minWidth: "auto",
+      marginLeft: '-80px',
+      padding: 0,
+      borderStyle:'solid',
+      borderWidth:'1px',
+      
+      borderColor:'gray',
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      '&:disabled': {
+        opacity: 0.5, // Make the arrow icon appear shaded when disabled
+      },
+      '@media (max-width: 600px)': {
+        height: '45px',
+        width: '45px',
+      },
+    }}
+  >
+    <ArrowBackIosNewIcon 
+      sx={{ 
+        fontSize: { lg: "27px", xs: "14px" }, 
+        color: currentSlide === 0 ? "gray" : "#007bff"  // Change arrow color based on currentSlide
+      }} 
+    />
+  </Button>
+
+  <Button
+    variant="text"
+    disabled={currentSlide === slides.length - 1}
+    onClick={handleNext}
+    sx={{
+      height: '40px',
+      width: '40px',
+      borderRadius: "50%",
+      minWidth: "auto",
+      padding: 0,
+      borderStyle:'solid',
+      borderWidth:'1px',
+      borderColor:'gray',
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      '&:disabled': {
+        opacity: 0.5, // Shade the arrow icon when disabled
+      },
+      '@media (max-width: 600px)': {
+        height: '45px',
+        width: '45px',
+      },
+    }}
+  >
+    <ArrowForwardIosIcon 
+      sx={{ 
+        fontSize: { lg: "27px", xs: "14px" }, 
+        color: currentSlide === slides.length - 1 ? "gray" : "#007bff"  // Change arrow color based on currentSlide
+      }} 
+    />
+  </Button>
+</Box>
+
             </Box>
 
-            <Box sx={{ height: { lg: '480px', xs: '300px' }, marginTop: { xs: '20px', lg: '0' },display:{xs:'none',lg:'block'} }}>
+            <Box sx={{marginRight:'-110px', height: { lg: '480px', xs: '300px' }, marginTop: { xs: '20px', lg: '0' },display:{xs:'none',lg:'block'} }}>
               {slide.image && (
                 <img
                   src={slide.image}
                   alt={slide.title}
-                  style={{ width: "100%", height: "100%", objectFit: 'contain',}}
+                  style={{ width: "95%", height: "100%", objectFit: 'contain',}}
                 />
               )}
             </Box>
@@ -250,7 +355,7 @@ const SliderComponent = () => {
         justifyContent: 'space-between',
         padding: "0 30px",
         '@media (max-width: 600px)': {
-          padding: '0 20px',marginBottom:'26px',marginLeft:"-33px"
+          padding: '0 20px',marginBottom:'26px',marginLeft:"-3px"
         }
       }}>
 
@@ -258,6 +363,7 @@ const SliderComponent = () => {
           display: "flex",
           justifyContent: "center",
           padding: '12px',
+          marginLeft:'33px',
           '@media (max-width: 600px)': {
             marginLeft: '0',
           }
@@ -280,27 +386,97 @@ const SliderComponent = () => {
           ))}
         </Box>
 
-        {currentSlide < slides.length - 1 && (
-          <Box
-            sx={{
-              color: "#007bff",
-              cursor: "pointer",
-              fontWeight: 'bold',
-              fontFamily: 'sans-serif',
-              position: 'absolute',
-              top: '25px',
-              right: '12px',
-              '@media (max-width: 600px)': {
-                top: '-710px',
-              }
-            }}
-            onClick={handleSkip}
-          >
-            Skip
-          </Box>
-        )}
+       
       </Box>
+      
+
+      <Box
+  sx={{
+   
+       display:'none',
+    '@media (max-width: 600px)': {
+      display: "flex",
+      justifyContent: "flex-start",
+      marginTop: '30px', // Center buttons on mobile
+      marginTop: '50px',
+      
+      marginRight: '-289px',
+    },
+  }}
+>
+  <Button
+    variant="text"
+    disabled={currentSlide === 0}
+    onClick={handlePrev}
+    sx={{
+      height: '40px',
+      width: '40px',
+      borderRadius: "50%",
+      marginRight: "10px",
+      minWidth: "auto",
+      marginLeft: '-80px',
+      padding: 0,
+      borderStyle:'solid',
+      borderWidth:'1px',
+      
+      borderColor:'gray',
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      '&:disabled': {
+        opacity: 0.5, // Make the arrow icon appear shaded when disabled
+      },
+      '@media (max-width: 600px)': {
+        height: '45px',
+        width: '45px',
+      },
+    }}
+  >
+    <ArrowBackIosNewIcon 
+      sx={{ 
+        fontSize: { lg: "27px", xs: "14px" }, 
+        color: currentSlide === 0 ? "gray" : "#007bff"  // Change arrow color based on currentSlide
+      }} 
+    />
+  </Button>
+
+  <Button
+    variant="text"
+    disabled={currentSlide === slides.length - 1}
+    onClick={handleNext}
+    sx={{
+      height: '40px',
+      width: '40px',
+      borderRadius: "50%",
+      minWidth: "auto",
+      padding: 0,
+      borderStyle:'solid',
+      borderWidth:'1px',
+      borderColor:'gray',
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      '&:disabled': {
+        opacity: 0.5, // Shade the arrow icon when disabled
+      },
+      '@media (max-width: 600px)': {
+        height: '45px',
+        width: '45px',
+      },
+    }}
+  >
+    <ArrowForwardIosIcon 
+      sx={{ 
+        fontSize: { lg: "27px", xs: "14px" }, 
+        color: currentSlide === slides.length - 1 ? "gray" : "#007bff"  // Change arrow color based on currentSlide
+      }} 
+    />
+  </Button>
+</Box>
     </Box>
+
+
+    </>
   );
 };
 
