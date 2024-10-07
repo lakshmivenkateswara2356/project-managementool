@@ -29,12 +29,12 @@ const Neworganisation = ({ addOrganization }) => {
 
   return (
     <Box sx={{ backgroundColor: 'black' }}>
-      <Box sx={{ display: 'flex', flexDirection: 'column', paddingTop: '90px', backgroundColor: 'black', height: '100vh' }}>
-        <Typography sx={{ fontSize: '30px', marginLeft: '33px', color: 'white' }}>
+      <Box sx={{ display: 'flex', flexDirection: 'column', paddingTop: '90px', backgroundColor: 'black', height: '100vh'}}>
+        <Typography sx={{ fontSize: '30px', marginLeft: '33px', color: 'white',"@media(max-width:600px)":{width:'300px',fontSize:'18px'}  }}>
           Create an Organization to track the status of your projects.
         </Typography>
-        <Typography sx={{ color: 'gray', width: '858px', marginLeft: '33px' }}>
-          Project organization refers to the style of coordination, communication, and management a team uses throughout a project’s lifecycle.
+        <Typography sx={{ color: 'gray', width: '858px', marginLeft: '33px',"@media(max-width:600px)":{width:'322px',fontSize:'12px'}  }}>
+        Project organization refer to the style of coordination, communication and management a team uses throughout a project’s lifecycle.
         </Typography>
 
         <Box sx={{ textAlign: 'center' }}>

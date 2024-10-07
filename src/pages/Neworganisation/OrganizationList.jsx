@@ -30,69 +30,94 @@ const OrganizationList = ({ organizations }) => {
   const handleOrgClick = (organizationName) => {
     console.log('Organization selected:', organizationName);
     // Navigate to Home page or any other page on clicking the organization
-    navigate('/'); // Redirect to home
+    navigate('/home'); // Redirect to home
   };
 
   return (
     <div style={{ textAlign: 'center', color: '#fff', padding: '50px', textAlign: 'left', marginLeft: '-12px', backgroundColor: 'black', height: '100vh' }}>
       <h1 style={{ fontWeight: 'lighter', fontFamily: 'sans-serif',marginBottom:'22px', }}>Organization<span style={{ color: 'gray' }}> List</span></h1>
-      <p style={{ width: '900px', color: 'gray', fontFamily: 'sans-serif', fontSize: '18px',width:'850px', }}>Project organization refers to the style of coordination, communication, and management a team uses throughout a project’s lifecycle.</p>
+      <Typography sx={{ width: '900px', color: 'gray', fontFamily: 'sans-serif', fontSize: '18px',width:'850px',"@media(max-width:600px)":{width:'300px',fontSize:'18px'}  }}>Project organization refers to the style of coordination, communication, and management a team uses throughout a project’s lifecycle.</Typography>
       <h2 style={{ marginTop: '43px', fontSize: '18px', color: 'gray', fontFamily: 'sans-serif',marginBottom:'33px',fontWeight:'lighter', }}>Total Organization</h2>
       <h1 style={{ fontSize: '46px', fontWeight: 'lighter', color: 'gray', fontFamily: 'san-sirf' }}>{organizations.length}</h1>
       <table style={{ width: '100%', margin: '20px auto', color: '#fff', borderCollapse: 'collapse' }}>
-        <thead>
-          <tr style={{ borderBottom: '1px solid #ccc' }}>
-            <th style={{ padding: '10px', fontFamily: 'sans-serif' }}>Organizations</th>
-            <th style={{ paddingRight: '120px', marginRight: '133px',fontFamily: 'sans-serif' }}>Status</th>
-            <th style={{ paddingRight: '120px', marginRight: '133px',fontFamily: 'sans-serif' }}>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          {organizations.map((org, index) => (
-            <tr key={index} style={{ borderBottom: '1px solid black',fontFamily: 'sans-serif' }}>
-              <td
-                style={{ padding: '10px', textAlign: 'left', cursor: 'pointer',fontFamily: 'sans-serif' }}
-                onClick={() => handleOrgClick(org.name)} // Handle organization click to navigate to home
-              >
-                <img
-                  src={org.imageUrl}
-                  alt={`${org.name} logo`}
-                  style={{ fontFamily: 'sans-serif',width: '30px', height: '30px', marginBottom: '-5px', marginRight: '10px', backgroundColor: 'white', borderRadius: '22px', paddingTop: '1px' }}
-                />
-                {org.name}
-              </td>
-              <td style={{ padding: '10px' }}>
-                <button
-                  style={{
-                    backgroundColor: org.status === 'Active' ? 'rgba(0, 100, 0, 0.2)' : 'rgba(139, 0, 0, 0.2)',
-                    color: org.status === 'Active' ? 'green' : 'red',
-                    border: 'none',
-                    padding: '5px 10px',
-                    borderRadius: '5px',
-                    cursor: 'pointer',
-                  }}
-                >
-                  {org.status}
-                </button>
-              </td>
-              <td style={{ padding: '10px' }}>
-                <button
-                  onClick={() => handleDelete(org.name)}
-                  style={{
-                    backgroundColor: 'transparent',
-                    border: 'none',
-                    color: 'white',
-                    cursor: 'pointer',
-                  }}
-                >
-                  <DeleteIcon sx={{color:'red',}}/>
-                  
-                </button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+  <thead>
+    <tr style={{ borderBottom: '5px solid #ccc', display:{xs:'none' , lg :'block'
+    } }}>
+      <th style={{ padding: '10px', fontFamily: 'sans-serif' }}>Organizations</th>
+      <th style={{ paddingRight: '120px', marginRight: '133px', fontFamily: 'sans-serif' }}>Status</th>
+      <th style={{ paddingRight: '120px', marginRight: '133px', fontFamily: 'sans-serif' }}>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    {organizations.map((org, index) => (
+      <tr key={index} style={{ borderBottom: '1px solid black', fontFamily: 'sans-serif' }}>
+        <td
+          style={{ padding: '10px', textAlign: 'left', cursor: 'pointer', fontFamily: 'sans-serif' }}
+          onClick={() => handleOrgClick(org.name)}
+        >
+          <img
+            src={org.imageUrl}
+            alt={`${org.name} logo`}
+            style={{ width: '30px', height: '30px', marginBottom: '-5px', marginRight: '10px', backgroundColor: 'white', borderRadius: '22px', paddingTop: '1px' }}
+          />
+          {org.name}
+        </td>
+        <td style={{ padding: '10px' }}>
+          <button
+            style={{
+              backgroundColor: org.status === 'Active' ? 'rgba(0, 100, 0, 0.2)' : 'rgba(139, 0, 0, 0.2)',
+              color: org.status === 'Active' ? 'green' : 'red',
+              border: 'none',
+              padding: '5px 10px',
+              borderRadius: '5px',
+              cursor: 'pointer',
+            }}
+          >
+            {org.status}
+          </button>
+        </td>
+        <td style={{ padding: '10px' }}>
+          <button
+            onClick={() => handleDelete(org.name)}
+            style={{
+              backgroundColor: 'transparent',
+              border: 'none',
+              color: 'white',
+              cursor: 'pointer',
+            }}
+          >
+            <DeleteIcon sx={{ color: 'red' }} />
+          </button>
+        </td>
+      </tr>
+    ))}
+  </tbody>
+</table>
+
+<style jsx>{`
+  @media (max-width: 600px) {
+    table {
+      width: 100px;
+      font-size: 18px;
+    }
+    th, td {
+      padding: 5px;
+      font-size: 14px;
+    }
+
+    tr{
+    width:50px;
+    }
+    img {
+      width: 20px;
+      height: 20px;
+    }
+    button {
+      padding: 3px 5px;
+    }
+  }
+`}</style>
+
 
       {/* Delete Confirmation Dialog */}
       <Dialog open={open} onClose={() => setOpen(false)}>
