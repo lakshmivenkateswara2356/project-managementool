@@ -30,24 +30,30 @@ const OrganizationList = ({ organizations }) => {
   const handleOrgClick = (organizationName) => {
     console.log('Organization selected:', organizationName);
     // Navigate to Home page or any other page on clicking the organization
-    navigate('/home'); // Redirect to home
+    navigate('/'); // Redirect to home
   };
 
   return (
     <div style={{ textAlign: 'center', color: '#fff', padding: '50px', textAlign: 'left', marginLeft: '-12px', backgroundColor: 'black', height: '100vh' }}>
-      <h1 style={{ fontWeight: 'lighter', fontFamily: 'sans-serif',marginBottom:'22px', }}>Organization<span style={{ color: 'gray' }}> List</span></h1>
-      <Typography sx={{ width: '900px', color: 'gray', fontFamily: 'sans-serif', fontSize: '18px',width:'850px',"@media(max-width:600px)":{width:'300px',fontSize:'18px'}  }}>Project organization refers to the style of coordination, communication, and management a team uses throughout a project’s lifecycle.</Typography>
+      <h1 style={{ fontWeight: 'lighter', fontFamily: 'sans-serif',marginBottom:'22px',marginTop:'75px' }}>Organization<span style={{ color: 'gray' }}> List</span></h1>
+      <Typography sx={{ width: '900px', color: 'gray', fontFamily: 'sans-serif', fontSize: '18px',width:'850px',"@media(max-width:600px)":{width:'350px',fontSize:'18px'}  }}>Project organization refers to the style of coordination, communication, and management a team uses throughout a project’s lifecycle.</Typography>
       <h2 style={{ marginTop: '43px', fontSize: '18px', color: 'gray', fontFamily: 'sans-serif',marginBottom:'33px',fontWeight:'lighter', }}>Total Organization</h2>
       <h1 style={{ fontSize: '46px', fontWeight: 'lighter', color: 'gray', fontFamily: 'san-sirf' }}>{organizations.length}</h1>
       <table style={{ width: '100%', margin: '20px auto', color: '#fff', borderCollapse: 'collapse' }}>
-  <thead>
-    <tr style={{ borderBottom: '5px solid #ccc', display:{xs:'none' , lg :'block'
-    } }}>
-      <th style={{ padding: '10px', fontFamily: 'sans-serif' }}>Organizations</th>
-      <th style={{ paddingRight: '120px', marginRight: '133px', fontFamily: 'sans-serif' }}>Status</th>
-      <th style={{ paddingRight: '120px', marginRight: '133px', fontFamily: 'sans-serif' }}>Action</th>
-    </tr>
-  </thead>
+      <div style={{ overflowX: 'auto' }}>
+  <table style={{ width: '100%' }}>
+    <thead>
+      <tr style={{ borderBottom: '5px solid #ccc', display: 'table-row' }}>
+        <th style={{ padding: '10px', fontFamily: 'sans-serif' }}>Organizations</th>
+        <th style={{ padding: '10px', fontFamily: 'sans-serif' }}>Status</th>
+        <th style={{ padding: '10px', fontFamily: 'sans-serif' }}>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {/* Add table body rows here */}
+    </tbody>
+  </table>
+</div>
   <tbody>
     {organizations.map((org, index) => (
       <tr key={index} style={{ borderBottom: '1px solid black', fontFamily: 'sans-serif' }}>
@@ -114,6 +120,36 @@ const OrganizationList = ({ organizations }) => {
     }
     button {
       padding: 3px 5px;
+    }
+  }
+
+
+
+
+   @media (max-width: 768px) {
+    thead {
+      display: block; /* Allow thead to be block for easier manipulation */
+    }
+
+    tr {
+      display: table; /* Keep table behavior for the rows */
+      width: 100%; /* Ensures the row takes full width */
+    }
+
+    th {
+      padding: 10px; /* Padding for mobile view */
+      font-size: 14px; /* Adjust font size for mobile */
+      white-space: nowrap; /* Prevents text from wrapping */
+    }
+  }
+
+  @media (min-width: 769px) {
+    thead {
+      display: table-header-group; /* Regular display for larger screens */
+    }
+
+    th {
+      padding: 10px; /* Default padding for larger screens */
     }
   }
 `}</style>

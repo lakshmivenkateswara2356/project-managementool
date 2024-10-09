@@ -161,7 +161,7 @@ const SliderComponent = () => {
                 <img
                   src={slide.image}
                   alt={slide.title}
-                  style={{ width: "95%", height: "100%", objectFit: 'contain',}}
+                  style={{ width: "90%", height: "90%", objectFit: 'contain',}}
                 />
               )}
             </Box>

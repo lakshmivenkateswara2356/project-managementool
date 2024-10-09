@@ -6,6 +6,9 @@ import {
 import { useNavigate } from 'react-router-dom';
 import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
 import GradeOutlinedIcon from '@mui/icons-material/GradeOutlined';
+import Vector from '../Assets/Vector (2).png';
+import ELips from '../Assets/Ellipse 46.png';
+import Image from '../components/Image';
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 import FolderOutlinedIcon from '@mui/icons-material/FolderOutlined';
 import Bottommenu from '../pages/BottomMenu/Bottommenu';
@@ -21,6 +24,8 @@ import profileclikk from '../Assets/profileclikk.jpeg'; // Update the path accor
 import ActionIcon from '../components/ActionIcon';
 
 const Dashboard = () => {
+
+
   
   const navigate = useNavigate();
 
@@ -42,6 +47,41 @@ const Dashboard = () => {
   const handleTabChange = (event, newValue) => {
     setActiveTab(newValue);
   };
+
+  const activityData = [
+    {
+      label: 'Today Issues',
+      activities: [
+        'No current issues'
+      ],
+    },
+    {
+      label: 'Pending Issues',
+      activities: [
+        'Pending review for issue #5678: File upload error',
+        'Need clarification for requirement change in task #1011',
+      ],
+    },
+    {
+      label: 'Review Issues',
+      activities: [
+        'Code review for PR #1122: Refactoring API service',
+        'Review pending for issue #2233: Performance optimization',
+      ],
+    },
+    {
+      label: 'Completed Issues',
+      activities: [
+        'Completed task #3344: Add new user role management',
+        'Finished testing #4455: Integration tests for checkout flow',
+      ],
+    },
+  ];
+
+  
+
+
+  
 
   return (
     <div>
@@ -97,10 +137,11 @@ const Dashboard = () => {
 </Grid>
 <Box sx={{flexDirection:'row', display:'flex', justifyContent:'space-between'}} >
 <Typography variant="h6">Issues Updates</Typography>
-<Button sx={{backgroundColor:'#292828', color:'white'}} onClick={handleViewAll} >
+<Button sx={{backgroundColor:'#292828', color:'white',width:'96px'}} onClick={handleViewAll} >
 view all
 </Button>
 </Box>
+ {/* Issues Updates Section */}
  {/* Issues Updates Section */}
  <Box  sx={{ display: 'flex', flexDirection:{ xs: 'column', sm: 'row' }, justifyContent: 'space-between', padding: 2, gap: 2 }} >
  
@@ -126,7 +167,7 @@ view all
          ? 'Add list permission on the member list issue'
          : 'Work progress % calculation issue'}
    </Typography>
-   <Typography variant="body2" sx={{ marginLeft:"-8px"}}>
+   <Typography variant="body2" sx={{ marginLeft:"1px"}}>
      Daniel Thompson 
    </Typography>
  </Box>
@@ -156,11 +197,18 @@ view all
 <Divider sx={styles.divider} />
 
 <Box sx={{ paddingY: 2,marginRight:'3px' }}>
-{[{ label: 'Show employee attendance record in attendance view page', done: true },
+  
+{[{ label: 'Show employee attendance record in attendance view page', done: true},
 { label: 'There should be show file successfully uploaded instead of...', done: true }].map((issue, index) => (
 <Box key={index} sx={styles.issueItem}>
- <Box sx={styles.issueIcon(issue.done)} />
+ <Box sx={{}} />
+ 
+ <Image src={Vector} sx={{ width: '28px', height: '28px', marginRight: '10px',backgroundColor:'#3767B1',padding:'7px' ,borderRadius:'7px'}} />
+
+
  <Box sx={{ flexGrow: 1 }}>
+
+
    <Typography variant="body1" sx={styles.issueText}>{issue.label}</Typography>
    <Typography variant="body2" sx={{ }}>
      {index === 0 ? 'CHR-17 • Clikkle HR' : 'ES-18 • Clikkle E-sign'}
@@ -233,7 +281,7 @@ borderRadius:'17px',
     width: '60%',
     overflow: 'scroll',
     ml:-4,
-    height: '40vh',
+    height: '42vh',
 
     '@media (max-width:600px)':{
 
@@ -250,6 +298,7 @@ borderRadius:'17px',
   },
   viewAllButton: (variant = 'text') => ({
     color: variant === 'text' ? '#0A84FF' : '#fff',
+    width:'95px',
     backgroundColor: variant === 'contained' ? '#0A84FF' : 'none',
     textTransform: 'none',
   }),

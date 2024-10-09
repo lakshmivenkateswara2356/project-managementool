@@ -30,10 +30,10 @@ const Neworganisation = ({ addOrganization }) => {
   return (
     <Box sx={{ backgroundColor: 'black' }}>
       <Box sx={{ display: 'flex', flexDirection: 'column', paddingTop: '90px', backgroundColor: 'black', height: '100vh'}}>
-        <Typography sx={{ fontSize: '30px', marginLeft: '33px', color: 'white',"@media(max-width:600px)":{width:'300px',fontSize:'18px'}  }}>
+        <Typography sx={{ fontSize: '30px', marginLeft: '33px', color: 'white',"@media(max-width:600px)":{width:'370px',fontSize:'26px',textAlign:'center',marginLeft:'16px',marginBottom:'22px'}  }}>
           Create an Organization to track the status of your projects.
         </Typography>
-        <Typography sx={{ color: 'gray', width: '858px', marginLeft: '33px',"@media(max-width:600px)":{width:'322px',fontSize:'12px'}  }}>
+        <Typography sx={{ color: 'gray', width: '858px', marginLeft: '33px',"@media(max-width:600px)":{width:'322px',fontSize:'12px',textAlign:'center',}  }}>
         Project organization refer to the style of coordination, communication and management a team uses throughout a project’s lifecycle.
         </Typography>
 
@@ -77,7 +77,7 @@ const Neworganisation = ({ addOrganization }) => {
         </Box>
 
         <Box sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'flex-end', marginLeft: '42px', marginTop: '25px' }}>
-          <Button onClick={handleCreateOrganisation} sx={{ marginRight: '82px', backgroundColor: '#3767B1', color: 'white', width: '120px', marginBottom: "12px" }}>
+          <Button onClick={handleCreateOrganisation} sx={{ marginRight: '82px', backgroundColor: '#3767B1', color: 'white', width: '120px', marginBottom: "12px",'@media(max-width:600px)':{marginRight:'22px'} }}>
             Create
           </Button>
         </Box>
