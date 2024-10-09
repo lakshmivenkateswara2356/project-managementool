@@ -57,12 +57,12 @@ const Neworganisation = ({ addOrganization }) => {
         </Box>
 
         {/* Avatar upload and preview */}
-        <Box sx={{ textAlign: 'center', marginTop: '8px', }}>
+        <Box sx={{ textAlign: 'center', marginTop: '5px', }}>
           {avatarPreview ? (
             <img
               src={avatarPreview}
               alt="Organization Avatar"
-              style={{ width: '70px', height: '70px', borderRadius: '50%', marginBottom: '20px' }}
+              style={{ width: '40px', height: '40px', borderRadius: '50%', marginBottom: '20px' }}
             />
           ) : (
             <Typography sx={{ color: 'gray' }}>No avatar uploaded</Typography>

@@ -138,7 +138,7 @@ const Dashboard = () => {
 <Box sx={{flexDirection:'row', display:'flex', justifyContent:'space-between'}} >
 <Typography variant="h6">Issues Updates</Typography>
 <Button sx={{backgroundColor:'#292828', color:'white',width:'96px'}} onClick={handleViewAll} >
-view all
+View All
 </Button>
 </Box>
  {/* Issues Updates Section */}

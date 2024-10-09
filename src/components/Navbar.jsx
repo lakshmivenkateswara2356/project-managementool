@@ -84,10 +84,10 @@ const StyledButton = styled(Button)({
     gap: '8px', // Space between icon and text
     transition: 'all 0.3s ease', // Smooth transition for hover effect
     '&:hover': {
-      backgroundColor: 'transparent', // Keep background transparent on hover
+      backgroundColor: '#3767B1', // Keep background transparent on hover
       borderColor: '#2962FF', // Ensure border color stays on hover
       boxShadow: '0 0 10px rgba(41, 98, 255, 0.5)', // Glow effect
-      color: '#2962FF', // Change text color on hover if desired
+      color: '#ffff', // Change text color on hover if desired
     },
   });
   

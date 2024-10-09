@@ -39,66 +39,62 @@ const OrganizationList = ({ organizations }) => {
       <Typography sx={{ width: '900px', color: 'gray', fontFamily: 'sans-serif', fontSize: '18px',width:'850px',"@media(max-width:600px)":{width:'350px',fontSize:'18px'}  }}>Project organization refers to the style of coordination, communication, and management a team uses throughout a project’s lifecycle.</Typography>
       <h2 style={{ marginTop: '43px', fontSize: '18px', color: 'gray', fontFamily: 'sans-serif',marginBottom:'33px',fontWeight:'lighter', }}>Total Organization</h2>
       <h1 style={{ fontSize: '46px', fontWeight: 'lighter', color: 'gray', fontFamily: 'san-sirf' }}>{organizations.length}</h1>
-      <table style={{ width: '100%', margin: '20px auto', color: '#fff', borderCollapse: 'collapse' }}>
-      <div style={{ overflowX: 'auto' }}>
-  <table style={{ width: '100%' }}>
+      <div style={{ overflowX: 'auto', width: '100%', margin: '20px auto' }}>
+  <table style={{ width: '100%', color: '#fff', borderCollapse: 'collapse' }}>
     <thead>
-      <tr style={{ borderBottom: '5px solid #ccc', display: 'table-row' }}>
+      <tr style={{ borderBottom: '1px solid #ccc' }}>
         <th style={{ padding: '10px', fontFamily: 'sans-serif' }}>Organizations</th>
         <th style={{ padding: '10px', fontFamily: 'sans-serif' }}>Status</th>
         <th style={{ padding: '10px', fontFamily: 'sans-serif' }}>Action</th>
       </tr>
     </thead>
     <tbody>
-      {/* Add table body rows here */}
+      {organizations.map((org, index) => (
+        <tr key={index} style={{ borderBottom: '1px solid black', fontFamily: 'sans-serif' }}>
+          <td
+            style={{ padding: '10px', textAlign: 'left', cursor: 'pointer', fontFamily: 'sans-serif' }}
+            onClick={() => handleOrgClick(org.name)}
+          >
+            <img
+              src={org.imageUrl}
+              alt={`${org.name} logo`}
+              style={{ width: '30px', height: '30px', marginBottom: '-5px', marginRight: '10px', backgroundColor: 'white', borderRadius: '22px', paddingTop: '1px' }}
+            />
+            {org.name}
+          </td>
+          <td style={{ padding: '10px' }}>
+            <button
+              style={{
+                backgroundColor: org.status === 'Active' ? 'rgba(0, 100, 0, 0.2)' : 'rgba(139, 0, 0, 0.2)',
+                color: org.status === 'Active' ? 'green' : 'red',
+                border: 'none',
+                padding: '5px 10px',
+                borderRadius: '5px',
+                cursor: 'pointer',
+              }}
+            >
+              {org.status}
+            </button>
+          </td>
+          <td style={{ padding: '10px' }}>
+            <button
+              onClick={() => handleDelete(org.name)}
+              style={{
+                backgroundColor: 'transparent',
+                border: 'none',
+                color: 'white',
+                cursor: 'pointer',
+              }}
+            >
+              <DeleteIcon sx={{ color: 'red' }} />
+            </button>
+          </td>
+        </tr>
+      ))}
     </tbody>
   </table>
 </div>
-  <tbody>
-    {organizations.map((org, index) => (
-      <tr key={index} style={{ borderBottom: '1px solid black', fontFamily: 'sans-serif' }}>
-        <td
-          style={{ padding: '10px', textAlign: 'left', cursor: 'pointer', fontFamily: 'sans-serif' }}
-          onClick={() => handleOrgClick(org.name)}
-        >
-          <img
-            src={org.imageUrl}
-            alt={`${org.name} logo`}
-            style={{ width: '30px', height: '30px', marginBottom: '-5px', marginRight: '10px', backgroundColor: 'white', borderRadius: '22px', paddingTop: '1px' }}
-          />
-          {org.name}
-        </td>
-        <td style={{ padding: '10px' }}>
-          <button
-            style={{
-              backgroundColor: org.status === 'Active' ? 'rgba(0, 100, 0, 0.2)' : 'rgba(139, 0, 0, 0.2)',
-              color: org.status === 'Active' ? 'green' : 'red',
-              border: 'none',
-              padding: '5px 10px',
-              borderRadius: '5px',
-              cursor: 'pointer',
-            }}
-          >
-            {org.status}
-          </button>
-        </td>
-        <td style={{ padding: '10px' }}>
-          <button
-            onClick={() => handleDelete(org.name)}
-            style={{
-              backgroundColor: 'transparent',
-              border: 'none',
-              color: 'white',
-              cursor: 'pointer',
-            }}
-          >
-            <DeleteIcon sx={{ color: 'red' }} />
-          </button>
-        </td>
-      </tr>
-    ))}
-  </tbody>
-</table>
+
 
 <style jsx>{`
   @media (max-width: 600px) {
