@@ -216,7 +216,7 @@ const SliderComponent = () => {
                     padding: { lg: "10px 20px", xs: "8px 16px" },
                     width: { lg: "222px", xs: '105%' },
                     height: { lg: "48px", xs: '8%' },
-                    fontSize: { lg: '12px', xs: '14px' },
+                    fontSize: { lg: '16px', xs: '14px' },
                     fontFamily:'sans-serif',
                     fontWeight:'bold',
                     marginLeft:'-77px',

@@ -31,13 +31,13 @@ const App = () => {
       <Route path="/listorganisation" element={<OrganizationList organizations={organizations} />} />
      
      
-      <Route path="/" element={<Header><Home /></Header> } />
+      <Route path="/" element={<Home /> } />
 <Route path="/Projects" element={
-  <Projects/> }/>
+ <Header><Projects/></Header>  }/>
 <Route path ='/issue-updates' element={<IssueUpdate/>}/>
 <Route path = '/issues-show' element={<Activity/>}/>
-<Route path='/active-issues' element={<Issuesshow/>}/>
-<Route path='/yourwork' element={<Work/>}/>
+<Route path='/active-issues' element={<Header><Issuesshow/></Header>}/>
+<Route path='/yourwork' element={ <Work/> }/>
       {/* Other routes like home, projects, etc., can be added here */}
     </Routes>
   );

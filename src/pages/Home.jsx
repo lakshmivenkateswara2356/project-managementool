@@ -15,6 +15,7 @@ import Dashboard from '../pages/Dashboard'
 import Navbar from '../components/Navbar'
 import Teamplan from '../Assets/teampla.png';
 import Companypl from '../Assets/compaPl.png';
+import Header from '../components/Header';
 import Kanbanim from '../Assets/Kanban.png'
 
 import Kanbathree from '../Assets/Kanbathree.png'
@@ -160,6 +161,8 @@ const [templateInfo, setTemplateInfo] = useState('');
     };
 
     return (
+
+      <Header>
         <Box container p={2}  marginTop="-8px"  >
             <Grid container alignItems='center'  >
                 <Grid item xs>
@@ -302,6 +305,8 @@ const [templateInfo, setTemplateInfo] = useState('');
      
     </Dialog>
         </Box>
+
+        </Header>
     );
 };
 export default Home;

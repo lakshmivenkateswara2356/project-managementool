@@ -58,7 +58,7 @@ const OrganizationList = ({ organizations }) => {
             <img
               src={org.imageUrl}
               alt={`${org.name} logo`}
-              style={{ width: '30px', height: '30px', marginBottom: '-5px', marginRight: '10px', backgroundColor: 'white', borderRadius: '22px', paddingTop: '1px' }}
+              style={{ width: '30px', height: '30px', marginBottom: '-11px', marginRight: '10px', backgroundColor: 'white', borderRadius: '22px', paddingTop: '1px' }}
             />
             {org.name}
           </td>

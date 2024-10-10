@@ -65,36 +65,14 @@ const Neworganisation = ({ addOrganization }) => {
               style={{ width: '40px', height: '40px', borderRadius: '50%', marginBottom: '20px' }}
             />
           ) : (
-            <Typography sx={{ color: 'gray' }}>No avatar uploaded</Typography>
+            <Typography sx={{ color: 'gray' }}></Typography>
           )}
         <Box sx={{ display: 'flex', justifyContent: 'center', marginBottom: '20px' }}>
   {/* Hidden file input */}
-  <input
-    type="file"
-    accept="image/*"
-    id="file-upload"
-    onChange={handleFileChange}
-    style={{ display: 'none' }} // Hide the default file input
-  />
+
   
   {/* Custom label styled as a button */}
-  <label
-    htmlFor="file-upload"
-    style={{
-      backgroundColor: '#3767B1', // Custom button background color
-      color: 'white', // Text color
-      padding: '12px 24px', // Padding for the button
-      borderRadius: '5px', // Rounded corners
-      cursor: 'pointer', // Pointer cursor on hover
-      border: '1px solid #3767B1', // Border style to match button
-      fontSize: '16px', // Font size
-      textAlign: 'center',
-      fontFamily:'sans-serif',
-      transition: 'background-color 0.3s ease', // Smooth background color change
-    }}
-  >
-    Upload Avatar
-  </label>
+
 </Box>
 
 
@@ -119,7 +97,7 @@ const Neworganisation = ({ addOrganization }) => {
               placeholder="Create organization"
               style={{
                 width: '91vw',
-                height: '38px',
+                height: '40px',
                 borderRadius: '9px',
                 color: 'white',
                 backgroundColor: '#141414',

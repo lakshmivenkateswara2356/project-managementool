@@ -5,6 +5,10 @@ import AddIcon from "@mui/icons-material/Add";
 import Streamlineimg from "../Assets/streamline-emojis_bird-1 (2).png";
 import Image from "../components/Image";
 import InputAdornment from '@mui/material/InputAdornment';
+import Rashid from '../Assets/RASHID AHMED.jpg';
+import Yogesh from '../Assets/YOGESH SINGH.jpg';
+import Smily from '../Assets/young-pretty-model-is-smiling.jpg';
+import Thompson from '../Assets/DANIEL THOMPSON.jpg';
 import Header from '../components/Header';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import SearchIcon from '@mui/icons-material/Search';
@@ -14,6 +18,19 @@ const Projects = ({ todoDescription }) => {
   const [openDialog, setOpenDialog] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
   const [checked, setChecked] = useState(false);
+
+
+  const [toDoInput, setToDoInput] = useState('');
+  const [toDoItems, setToDoItems] = useState([]);
+  const [inProgressItems, setInProgressItems] = useState([]);
+
+  const handleCreateToDo = () => {
+    if (toDoInput.trim() !== '') {
+      setToDoItems([...toDoItems, toDoInput]);
+      setToDoInput(''); // Clear input after adding
+    }
+  };
+
   
   // Open/close dropdown
   const handleClick = (event) => {
@@ -64,7 +81,7 @@ const Projects = ({ todoDescription }) => {
   const handleCloseIssueTypeDialog = () => setIssueTypeDialogOpen(false);
 
   return (
-    <Header>
+   
     <Box
       sx={{
         flexGrow: 1,
@@ -173,191 +190,195 @@ const Projects = ({ todoDescription }) => {
         </Button>
       </Box>
 
-      <Box sx={{display:'flex',justifyContent:'space-between'}}>
-<Box>
+      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '8px 16px', borderRadius: '8px' }}>
+    
+    {/* Search Field */}
+    <Box sx={{ flexGrow: 1, maxWidth: '450px' }}>
       <TextField
-          variant="outlined"
-          size="small"
-          placeholder="Search this board"
-          sx={{
-            
-            width: "160%",
-            borderRadius: "4px",
-            input: { }, // Text color
+        variant="outlined"
+        size="small"
+        placeholder="Search this board"
+        InputProps={{
+          style: {
+            borderRadius: '4px',
+            backgroundColor: '#333333',
+            color: 'white',
+            height:'38px'
+          },
+        }}
+        sx={{
+          
+          width: '65%',
+          '& .MuiOutlinedInput-root': {
+            '& fieldset': {
+              borderColor: '#4D4D4D',
+            },
+            '&:hover fieldset': {
+              borderColor: '#FFFFFF',
+            },
+            '&.Mui-focused fieldset': {
+              borderColor: '#FFFFFF',
+            },
+          },
+          input: {
+            color: 'white',
+          },
+        }}
+      />
+    </Box>
+
+    {/* Avatars Section */}
+    <Box sx={{ display: 'flex', gap: 'px', alignItems: 'center', marginLeft: '-209px',marginTop:'-18px', }}>
+      {/* Assuming you map avatar images here */}
+      {[Rashid, Yogesh, Smily, Thompson, Rashid].map((avatar, index) => (
+        <img key={index} src={avatar} alt={`Avatar ${index}`} style={{ width: '39px', height: '35px', borderRadius: '50%', border: '2px solid white' }} />
+      ))}
+      <Box sx={{ backgroundColor: '#4D4D4D', width: '32px', height: '32px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white' }}>
+        +2
+      </Box>
+    </Box>
+
+    {/* Assignee Dropdown */}
+    <select
+          style={{
+             backgroundColor: 'transparent',  
+            borderStyle:'solid',
+            height:'32px',
+            borderRadius:'18px',
+            width:'6vw',
+            borderWidth:'1px',
+            borderStyle:'solid',
+            color:'white',
+           marginLeft:'250px',
+            padding: '5px 10px',
+            borderRadius: '5px',
+            fontSize: '13px',
           }}
-          InputProps={{
-            style: {
-             
-              borderRadius: "4px",
+        >
+          <option>Asignee</option>
+        </select>
+
+    {/* Priority Dropdown */}
+    <select
+          style={{
+             backgroundColor: 'transparent',  
+            borderStyle:'solid',
+            height:'31px',
+            borderRadius:'18px',
+            width:'6vw',
+            borderWidth:'1px',
+            borderStyle:'solid',
+            color:'white',
+            marginLeft:'-45px',
+            padding: '5px 10px',
+            borderRadius: '5px',
+            fontSize: '13px',
+          }}
+        >
+          <option>Priority</option>
+        </select>
+
+    {/* Issue Type Dropdown */}
+    <select
+          style={{
+             backgroundColor: 'transparent',  
+            borderStyle:'solid',
+            height:'31px',
+            borderRadius:'18px',
+            width:'7vw',
+            borderWidth:'1px',
+
+            borderStyle:'solid',
+            color:'white',
+           marginLeft:'-45px',
+            padding: '5px 10px',
+            borderRadius: '5px',
+            fontSize: '13px',
+          }}
+        >
+          <option>Issue Type</option>
+        </select>
+
+    {/* Assignee Dialog */}
+    <Dialog open={assigneeDialogOpen} onClose={handleCloseAssigneeDialog}>
+      <DialogTitle sx={{ color: 'white', backgroundColor: '#333333' }}>
+        Create Assignee
+      </DialogTitle>
+      <DialogContent sx={{ backgroundColor: '#333333' }}>
+        <TextField
+          label="Assignee Name"
+          fullWidth
+          sx={{
+            '& .MuiInputLabel-root': { color: '#A0A0A0' },
+            '& .MuiOutlinedInput-root': {
+              color: 'white',
+              '& fieldset': {
+                borderColor: '#4D4D4D',
+              },
+              '&:hover fieldset': {
+                borderColor: 'white',
+              },
+              '&.Mui-focused fieldset': {
+                borderColor: 'white',
+              },
             },
           }}
         />
-        </Box>
-        <Box>
-        <Box display="flex" gap="10px">
-  {/* Assignee Dropdown */}
-  <TextField
-    select
-    size="small"
-    variant="outlined"
-    value={selectedAssignee}
-    onChange={(e) => {
-      const value = e.target.value;
-      if (value === 'Create Assignee') {
-        handleOpenAssigneeDialog();
-      } else {
-        setSelectedAssignee(value);
-      }
-    }}
-    displayEmpty
-    renderValue={(selected) => {
-      if (!selected) {
-        return <span style={{ color: 'grey' }}>Assignee</span>;
-      }
-      return selected;
-    }}
-    sx={{
-      width: '150px',
-      '& .MuiOutlinedInput-root': {
-        
-        '& fieldset': {
-          borderColor: 'white',
-        },
-        '&:hover fieldset': {
-          borderColor: 'white',
-        },
-      },
-    }}
-  >
-    <MenuItem value="" disabled>
-      Assignee
-    </MenuItem>
-    {assignees.map((assignee) => (
-      <MenuItem key={assignee} value={assignee}>
-        {assignee}
-      </MenuItem>
-    ))}
-    <MenuItem value="Create Assignee">+ Create Assignee</MenuItem>
-  </TextField>
+      </DialogContent>
+      <DialogActions sx={{ backgroundColor: '#333333' }}>
+        <Button onClick={handleCloseAssigneeDialog} sx={{ color: 'white' }}>
+          Cancel
+        </Button>
+        <Button onClick={handleCloseAssigneeDialog} sx={{ color: 'white' }}>
+          Create
+        </Button>
+      </DialogActions>
+    </Dialog>
 
-  {/* Priority Dropdown */}
-  <TextField
-    select
-    size="small"
-    variant="outlined"
-    value={selectedPriority}
-    onChange={(e) => setSelectedPriority(e.target.value)}
-    displayEmpty
-    renderValue={(selected) => {
-      if (!selected) {
-        return <span style={{ color: 'grey' }}>Priority</span>;
-      }
-      return selected;
-    }}
-    sx={{
-      width: '150px',
-      '& .MuiOutlinedInput-root': {
-       
-        '& fieldset': {
-          borderColor: 'white',
-        },
-        '&:hover fieldset': {
-          borderColor: 'white',
-        },
-      },
-    }}
-  >
-    <MenuItem value="" disabled>
-      Priority
-    </MenuItem>
-    <MenuItem value="High">High</MenuItem>
-    <MenuItem value="Medium">Medium</MenuItem>
-    <MenuItem value="Low">Low</MenuItem>
-  </TextField>
-
-  {/* Issue Type Dropdown */}
-  <TextField
-    select
-    size="small"
-    variant="outlined"
-    value={selectedIssueType}
-    onChange={(e) => {
-      const value = e.target.value;
-      if (value === 'Create Issue') {
-        handleOpenIssueTypeDialog();
-      } else {
-        setSelectedIssueType(value);
-      }
-    }}
-    displayEmpty
-    renderValue={(selected) => {
-      if (!selected) {
-        return <span style={{ color: 'red' }}>Issue Type</span>;
-      }
-      return selected;
-    }}
-    sx={{
-      width: '150px',
-      '& .MuiOutlinedInput-root': {
-       
-        '& fieldset': {
-          borderColor: 'white',
-        },
-        '&:hover fieldset': {
-          borderColor: 'white',
-        },
-      },
-    }}
-  >
-    <MenuItem value="" disabled>
-      Issue Type
-    </MenuItem>
-    {issueTypes.map((type) => (
-      <MenuItem key={type} value={type}>
-        {type}
-      </MenuItem>
-    ))}
-    
-  </TextField>
-
-  {/* Assignee Creation Dialog */}
-  <Dialog open={assigneeDialogOpen} onClose={handleCloseAssigneeDialog}>
-    <DialogTitle>Create Assignee</DialogTitle>
-    <DialogContent>
-      {/* Assignee Creation Form */}
-      <TextField label="Assignee Name" fullWidth />
-    </DialogContent>
-    <DialogActions>
-      <Button onClick={handleCloseAssigneeDialog}>Cancel</Button>
-      <Button onClick={handleCloseAssigneeDialog}>Create</Button>
-    </DialogActions>
-  </Dialog>
-
-  {/* Issue Type Creation Dialog */}
-  <Dialog open={issueTypeDialogOpen} onClose={handleCloseIssueTypeDialog}>
-    <DialogTitle>Create Issue</DialogTitle>
-    <DialogContent>
-      {/* Issue Creation Form */}
-      <TextField label="Issue Title" fullWidth />
-    </DialogContent>
-    <DialogActions>
-      <Button onClick={handleCloseIssueTypeDialog}>Cancel</Button>
-      <Button onClick={handleCloseIssueTypeDialog}>Create</Button>
-    </DialogActions>
-  </Dialog>
-</Box>
-
-
-    </Box>
-      </Box>
+    {/* Issue Type Dialog */}
+    <Dialog open={issueTypeDialogOpen} onClose={handleCloseIssueTypeDialog}>
+      <DialogTitle sx={{ color: 'white', backgroundColor: '#333333' }}>
+        Create Issue
+      </DialogTitle>
+      <DialogContent sx={{ backgroundColor: '#333333' }}>
+        <TextField
+          label="Issue Title"
+          fullWidth
+          sx={{
+            '& .MuiInputLabel-root': { color: '#A0A0A0' },
+            '& .MuiOutlinedInput-root': {
+              color: 'white',
+              '& fieldset': {
+                borderColor: '#4D4D4D',
+              },
+              '&:hover fieldset': {
+                borderColor: 'white',
+              },
+              '&.Mui-focused fieldset': {
+                borderColor: 'white',
+              },
+            },
+          }}
+        />
+      </DialogContent>
+      <DialogActions sx={{ backgroundColor: '#333333' }}>
+        <Button onClick={handleCloseIssueTypeDialog} sx={{ color: 'white' }}>
+          Cancel
+        </Button>
+        <Button onClick={handleCloseIssueTypeDialog} sx={{ color: 'white' }}>
+          Create
+        </Button>
+      </DialogActions>
+    </Dialog>
+  </Box>
 
       {/* Content Based on Selected Option */}
       <Box sx={{ padding: '20px',  color: 'white' }}>
       {selectedOption === 'List' && (
         <Box>
           {/* List View */}
-          <Table sx={{ minWidth: 650 }} aria-label="simple table">
-            <TableHead>
+          <Table sx={{ minWidth: 650 ,}} aria-label="simple table">
+            <TableHead sx={{backgroundColor:'#191a19'}}>
               <TableRow>
                 <TableCell sx={{ color: 'white' }}>Type</TableCell>
                 <TableCell sx={{ color: 'white' }}>Keys</TableCell>
@@ -384,146 +405,196 @@ const Projects = ({ todoDescription }) => {
       {selectedOption === 'Board' && (
         <Box>
           {/* Board View */}
-          <Grid sx={{display:'flex',}}>
-            {['To Do', 'In Progress', 'Done'].map((status) => (
-              <Grid  key={status}>
-                <Card sx={{width:'270px',marginRight:'12px' }}>
-      <CardContent>
-      <Box
-      sx={{
-        display: 'flex',
-        justifyContent: 'space-between',
-        height: '100px',
-        position: 'relative',
-        '&:hover .hover-content': {
-          display: 'block', // Show hover content on hover
-        },
-      }}
-    >
-      <Typography
-        variant="h6"
+          <div style={{ display: 'flex', gap: '20px', padding: '20px',  }}>
+      
+      {/* To Do Section */}
+      <Card
         sx={{
-          color: status === 'To Do' ? 'red' : status === 'In Progress' ? 'blue' : 'green',
-          borderColor: status === 'To Do' ? 'red' : status === 'In Progress' ? 'blue' : 'green',
-          borderWidth: '1px',
-          borderStyle: 'solid',
-          height: '30px',
-          width: '60px',
-          fontSize: '10px',
-          borderRadius: '9px',
-          textAlign: 'center',
-          lineHeight: '30px',
-          backgroundColor: status === 'To Do'
-            ? 'rgba(255, 0, 0, 0.2)'
-            : status === 'In Progress'
-            ? 'rgba(0, 0, 255, 0.2)'
-            : 'rgba(0, 128, 0, 0.2)',
-          cursor: 'pointer',
-        }}
-        onClick={handleClick}
-      >
-        {status}
-        <IconButton size="small" sx={{ padding: '0', marginLeft: '5px' }}>
-          <ArrowDropDownIcon />
-        </IconButton>
-      </Typography>
-
-      <Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleClose}>
-        <MenuItem>
-          <Checkbox checked={checked} onChange={handleCheck} />
-          Mark as done
-        </MenuItem>
-      </Menu>
-
-      <Typography
-        variant="body1"
-        sx={{
-          color: status === 'To Do' ? 'red' : status === 'In Progress' ? 'blue' : 'green',
-          borderColor: status === 'To Do' ? 'red' : status === 'In Progress' ? 'blue' : 'green',
-          borderWidth: '1px',
-          borderStyle: 'solid',
-          height: '30px',
-          width: '40px',
-          fontSize: '16px',
-          borderRadius: '9px',
-          textAlign: 'center',
-          lineHeight: '30px',
-          backgroundColor: status === 'To Do'
-            ? 'rgba(255, 0, 0, 0.2)'
-            : status === 'In Progress'
-            ? 'rgba(0, 0, 255, 0.2)'
-            : 'rgba(0, 128, 0, 0.2)',
+          width: '270px',
+          height:'185px',
+          padding: '16px',
+          backgroundColor: '#141414',  // Transparent background for To Do card
+          color: 'white',
+          borderRadius: '8px',
+          border: '1px solid #4D4D4D',  // Border to differentiate section
         }}
       >
-        {issueCount}
-      </Typography>
-
-      {/* Hover Content */}
-      <Box
+        <div style={{ display: 'flex', justifyContent: 'space-between',  alignItems: 'center', marginBottom: '16px' }}>
+        <Typography
   sx={{
-    display: 'flex',
-    justifyContent: 'space-between',
-    height: '100px',
-    position: 'relative',
-    '&:hover .hover-content': {
-      display: 'block', // Show hover content on hover
-    },
+    color: '#FF4D4D',  // Red text color
+    fontSize: '14px', 
+    backgroundColor: 'rgba(255, 77, 77, 0.2)',  // Transparent red background
+    border: '1px solid #FF4D4D',  // Solid red border
+    padding: '4px 8px',  // Padding to make the text stand out inside the border
+    borderRadius: '9px',  // Optional: rounded corners
   }}
 >
-  
+  To Do
+</Typography>
 
-  <Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleClose}>
-    <MenuItem>
-      <Checkbox checked={checked} onChange={handleCheck} />
-      Mark as done
-    </MenuItem>
-  </Menu>
-
-  
-
-  {/* Hover Content */}
-  <Box
-    className="hover-content"
-    sx={{
-      display: 'none', // Initially hidden
-      position: 'absolute',
-      top: '100px', // Positioned below the status box
-      left: '0',
-      backgroundColor: 'gray',
-      border: '1px solid #ccc',
-      borderRadius: '8px',
-      padding: '10px',
-      height: '65px',
-      width: '200px',
-      zIndex: 1,
-    }}
-  >
-    <Typography variant="body2">{todoDescription}</Typography>
-  </Box>
-</Box>
-
-    </Box>
-
-        <Button
-          sx={{ color: 'gray', borderWidth: '0px', backgroundColor: 'background.default', marginTop: '-84px', height: '42px' }}
-          variant="outlined"
+          <div
+            style={{
+              backgroundColor: 'rgba(255, 77, 77, 0.2)',  // Transparent red background
+              border: '1px solid #FF4D4D',  // Solid red border
+              padding: '4px 8px',  // Padding to make the text stand out inside the border
+              borderRadius: '9px',
+              width: '34px',
+              height: '28px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              color: '#FF4D4D',
+              fontSize: '13px',
+            }}
+          >
+            {toDoItems.length}
+          </div>
+        </div>
+        <Box sx={{backgroundColor:'black',borderRadius:'9px',}}>
+        <TextField
           fullWidth
-          onClick={handleCreateIssue}
+          variant="filled"
+          value={toDoInput}
+          onChange={(e) => setToDoInput(e.target.value)}
+          placeholder="What needs to be done?"
+          InputProps={{
+            disableUnderline: true,
+            sx: {
+              width:'215px',
+              backgroundColor:'black',
+              color: 'white',
+              borderRadius: '4px',
+              '&::placeholder': {
+                color: '#A0A0A0',
+              },
+            },
+          }}
+          sx={{
+            marginBottom: '16px',
+          }}
+        />
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <Checkbox sx={{ color: '#A0A0A0' }} />
+          <Button
+            onClick={handleCreateToDo}
+            disabled={!toDoInput.trim()}
+            sx={{
+              backgroundColor: toDoInput.trim() ? '#4D4DFF' : '#191a19',
+              color: '#191a19',
+              textTransform: 'none',
+              marginRight:'8px',
+              width: '75px',
+              height:'32px',
+            }}
+          >
+            Create
+          </Button>
+          
+        </div>
+        </Box>
+        {toDoItems.map((item, index) => (
+          <Typography key={index} sx={{ marginTop: '8px', color: '#A0A0A0' }}>{item}</Typography>
+        ))}
+      </Card>
+
+      {/* In Progress Section */}
+      <Card sx={{ width: '250px', padding: '16px', backgroundColor: '#141414', color: 'white', borderRadius: '8px' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
+        <Typography
+  sx={{
+    color: '#4D4DFF',  // Blue text color
+    fontSize: '13px',
+    backgroundColor: 'rgba(77, 77, 255, 0.2)',  // Transparent blue background
+    border: '1px solid #4D4DFF',  // Solid blue border
+    padding: '4px 8px',  // Padding for better spacing
+    borderRadius: '8px',  // Optional: rounded corners
+  }}
+>
+  In Progress
+</Typography>
+
+          <div
+            style={{
+              color: '#4D4DFF',  // Blue text color
+    fontSize: '13px',
+    backgroundColor: 'rgba(77, 77, 255, 0.2)',  // Transparent blue background
+    border: '1px solid #4D4DFF',  // Solid blue border
+    padding: '4px 8px',  // Padding for better spacing
+    borderRadius: '7px',  // O
+              width: '34px',
+              height: '27px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+          
+              fontSize: '13px',
+            }}
+          >
+            {inProgressItems.length}
+          </div>
+        </div>
+        <Button
+          sx={{
+            backgroundColor: 'black',
+            color: '#A0A0A0',
+            textTransform: 'none',
+            width: '100%',
+            padding: '12px',
+            justifyContent: 'flex-start',
+          }}
+          onClick={() => {
+            // Logic for creating a new issue in progress (e.g., open modal)
+          }}
         >
-          + Create issue
+          + Create Issue
         </Button>
-      </CardContent>
-      
-    </Card>
-    
-              </Grid>
-            ))}
-            <Grid item xs={4}>
-              <Button sx={{  }} variant="outlined" >
-                + 
-              </Button>
-            </Grid>
-          </Grid>
+        {inProgressItems.map((item, index) => (
+          <Typography key={index} sx={{ marginTop: '8px', color: '#A0A0A0' }}>{item}</Typography>
+        ))}
+      </Card>
+
+      <Card sx={{ width: '250px', padding: '16px', backgroundColor: '#141414', color: 'white', borderRadius: '8px' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
+        <Typography
+  sx={{
+    color: '#4DFF4D',  // Green text color
+    fontSize: '13px',
+    backgroundColor: 'rgba(77, 255, 77, 0.2)',  // Transparent green background
+    border: '1px solid #4DFF4D',  // Solid green border
+    padding: '4px 8px',  // Padding for spacing
+    borderRadius: '8px',  // Optional: rounded corners
+  }}
+>
+  Done
+</Typography>
+
+
+          <div
+            style={{
+              color: '#4DFF4D',  // Green text color
+    fontSize: '13px',
+    backgroundColor: 'rgba(77, 255, 77, 0.2)',  // Transparent green background
+    border: '1px solid #4DFF4D',  // Solid green border
+    padding: '4px 8px',  // Padding for spacing
+ 
+    borderRadius: '7px',  // O
+              width: '34px',
+              height: '27px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+          
+              fontSize: '13px',
+            }}
+          >
+            {inProgressItems.length}
+          </div>
+        </div>
+     
+        
+      </Card>
+    </div>
         </Box>
       )}
 
@@ -537,7 +608,7 @@ const Projects = ({ todoDescription }) => {
     
       </Box>
 
-      </Header>
+  
    
   );
 };
