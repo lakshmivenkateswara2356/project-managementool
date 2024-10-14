@@ -6,8 +6,10 @@ import Header from './components/Header';
 import Activity from './pages/IssuesSection/ActiveIssues';
 import SliderComponent from './pages/SliderComponent';
 import Work from './pages/Work';
+import ProjectDash from './pages/Project/Projectdashboard';
 import Issuesshow from './pages/IssuesSection/IssuesShow';
 import IssueUpdate from './pages/IssuesSection/IssueUpdate';
+import Teams from './pages/Teams/Teams';
 import Projects from './pages/Projects';
 import OrganizationList from './pages/Neworganisation/OrganizationList';
 
@@ -37,6 +39,8 @@ const App = () => {
 <Route path ='/issue-updates' element={<IssueUpdate/>}/>
 <Route path = '/issues-show' element={<Activity/>}/>
 <Route path='/active-issues' element={<Header><Issuesshow/></Header>}/>
+<Route path='/shared-with-me' element={<Teams/>}/>
+
 <Route path='/yourwork' element={ <Work/> }/>
       {/* Other routes like home, projects, etc., can be added here */}
     </Routes>

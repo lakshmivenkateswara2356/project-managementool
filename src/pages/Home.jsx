@@ -91,12 +91,13 @@ const projectTemplates = [
 
 
 const Home = () => {
-    const [openDialog, setOpenDialog] = useState(false);
+  const [openDialog, setOpenDialog] = React.useState(false);
+
     const [newItem, setNewItem] = useState('');
 
-    const handleClickOpen = () => {
-        setOpenDialog(true);
-    };
+    
+
+    const handleClickOpen = () => setOpenDialog(true);
 
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
@@ -193,8 +194,8 @@ const [templateInfo, setTemplateInfo] = useState('');
             </Box>
             
 
-          
-
+       
+    
                 <Dialog
       
       open={openDialog}

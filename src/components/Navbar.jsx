@@ -37,6 +37,7 @@ import {
     useMediaQuery,
 } from '@mui/material';
 
+import { Storage, Security } from '@mui/icons-material';
 //mui icons
 import AppsIcon from '@mui/icons-material/Apps';
 import SettingsIcon from '@mui/icons-material/SettingsOutlined';
@@ -46,6 +47,8 @@ import DarkModeIcon from '@mui/icons-material/DarkMode';
 import CloudOutlinedIcon from '@mui/icons-material/CloudOutlined';
 import clikklepro from '../Assets/clikkleproj.png';
 import { fileManager, sharedFile } from '../services/sidebarLinks';
+
+import Notificationbell from '../components/NotificationBell';
 
 //react component
 import Image from '../components/Image';
@@ -66,7 +69,35 @@ import { env, handleAxiosError } from '../utilities/function';
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
 import Feedback from './Feedback';
 import MicrophoneIcon from './MicrophoneIcon';
+
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import StorageIcon from '@mui/icons-material/Storage';
+import FolderIcon from '@mui/icons-material/Folder';
+import BugReportIcon from '@mui/icons-material/BugReport';
+import GroupIcon from '@mui/icons-material/Group';
+
+import personprogg from '../Assets/gg_profile.png';
+import systemgg from '../Assets/fluent-mdl2_system.png';
+import foldergg from '../Assets/bi_folder.png';
+import trsckingg from '../Assets/fluent-mdl2_issue-tracking.png';
+import peoplegg from '../Assets/bi_people-fill.png'
+
+
+import upgradegrp from '../Assets/Group 1014.png';
+import upgradestack from '../Assets/Group 1015.png';
+import upgradeIssue from '../Assets/Group 1019.png';
+
+
+
+
+import { Dialog, DialogContent, DialogTitle, Card, CardContent,ListItemAvatar,
+   ListSubheader, } from '@mui/material';
+
+import { Person } from '@mui/icons-material';
+
 import { Margin } from '@mui/icons-material';
+
+import { useSignOut } from '../hooks/Authorize';
 
 const drawerWidth = 260;
 const appsWidth = 54;
@@ -102,6 +133,9 @@ const openedMixin = theme => ({
     backgroundColor: theme.palette.background.default,
     borderRight: 'none',
 });
+
+
+
 
 const closedMixin = theme => ({
     transition: theme.transitions.create('width', {
@@ -139,7 +173,7 @@ export default function Navbar(props) {
     const { children } = props;
     const [mobileOpen, setMobileOpen] = useState(false);
     const [sidebarApps, setSidebarApps] = useState([
-        // Example sidebar apps with CDN images
+        //  sidebar apps with CDN images
         { order: 1, name: 'Adds', url: 'https://ads.clikkle.com/', logo: 'https://cdn.clikkle.com/images/ads/logo/2023/ads.png' },
         { order: 2, name: 'Campapaigns', url: 'https://campaigns.clikkle.com/', logo: 'https://cdn.clikkle.com/images/campaigns/logo/2023/campaigns.png' },
         { order: 3, name: 'E sign', url: 'https://esign.clikkle.com/', logo: 'https://cdn.clikkle.com/images/e-sign/logo/2023/e-sign.png' },
@@ -170,6 +204,25 @@ export default function Navbar(props) {
     const theme = useMuiTheme();
 
     // useMenu
+
+
+
+//opensetting
+
+    const [opene, setOpen] = useState(false); // 
+    const [opensetting, setOpene] = useState(false); 
+
+const handleOpen = () => setOpen(true);
+
+const handleOpenset = () => {
+    setOpene(true);
+  };
+
+  const handleCloseset = () => {
+    setOpene(false);
+  };
+
+
     const {
         anchorEl: anchorElProfile,
         openMenu: openProfileMenu,
@@ -341,6 +394,8 @@ export default function Navbar(props) {
      const [selectedOrgLogo, setSelectedOrgLogo] = useState(organizations[0].logo);
     
     
+
+     
      const handleSelectOrganization = (name, logo) => {
         setSelectedOrganization(name);
         setSelectedOrgLogo(logo);
@@ -753,17 +808,235 @@ export default function Navbar(props) {
                                 alignItems='center'
                                 justifyContent='flex-end'
                                 spacing={0}>
-  <StyledButton>
-  <IoDiamondOutline sx={{fontSize:'19px',}} />      Upgrade
-    </StyledButton>
-    <Box sx={{ transform: 'rotate(40deg)' }}>
-  <NotificationIcon />
+  {/* Upgrade Button */}
+  <Button
+        onClick={handleOpen}
+        variant="outlined"
+        sx={{
+          display: 'flex',
+          alignItems: 'center',
+          fontSize: '16px',
+          fontWeight: 'bold',
+          padding: '8px 16px',
+          borderRadius: '8px',
+        }}
+      >
+        <IoDiamondOutline style={{ fontSize: '19px', marginRight: '8px' }} />
+        Upgrade
+      </Button>
+
+      {/* Popup Dialog */}
+      <Dialog  sx={{
+        marginRight:'-555px',
+    '& .MuiDialog-paper': {
+      width: '420px',  // Custom width
+      maxWidth: '90%',  // Responsive behavior for smaller screens
+      height: '540px',  // Custom height
+      maxHeight: '90vh', // Ensures it doesn't overflow the screen
+        // Add padding for internal spacing
+      borderRadius: '3px', // Optional: Rounded corners
+     
+
+    },
+  }}open={opene} onClose={handleClose} maxWidth="sm" fullWidth>
+      {/* Header: Days Left */}
+      <DialogTitle sx={{ p: 0 }}>
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'flex-start',
+            alignItems: 'center',
+            padding: '8px 16px',
+            width:'150px',
+            backgroundColor: 'rgba(0, 30, 255, 0.1)', // Transparent blue background
+            borderRadius: '8px',
+            marginBottom:'22px',
+            marginTop:'24px',
+            marginLeft:'23px',
+          }}
+        >
+          <Typography
+            variant="body2"
+            sx={{
+              color: '#407BFF', // Bold blue text
+              fontWeight: 'bold',
+              fontSize: '14px',
+              
+              
+              
+            }}
+          >
+            14 DAYS LEFT
+          </Typography>
+        </Box>
+      </DialogTitle>
+
+      {/* Dialog Content */}
+      <DialogContent sx={{ padding: '24px' }}>
+        <Typography
+          variant="h6"
+          sx={{ marginBottom: '8px',fontFamily:'sans-serif',fontSize:'24px', }}
+        >
+          Make the most of your trial
+        </Typography>
+
+        <Typography
+          variant="body1"
+          sx={{ marginBottom: '16px', fontFamily:"sans-serif",fontSize:'17px',}}
+        >
+          Your standard trial includes:
+        </Typography>
+
+        {/* Feature Cards */}
+        <Box sx={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '24px' }}>
+          {[
+            { icon: <img src={upgradegrp} alt="Icon" style={{ width: '40px', height: '40px' }}/>, title: 'Unlimited users', description: 'Add your teams and stakeholders to boost collaboration.' },
+            { icon:<img src={upgradeIssue} alt="Icon" style={{ width: '40px', height: '40px' }}/>, title: 'User activity logs', description: 'See all changes made in a project.' },
+            { icon: <img src={upgradestack } alt="Icon" style={{ width: '40px', height: '40px' }}/>, title: 'Issue permissions', description: 'Choose who can view, edit, and create issues.' },
+          ].map((feature, index) => (
+            <Card
+              key={index}
+              sx={{
+                display: 'flex',
+                alignItems: 'center',
+                padding: '12px',
+               
+                backgroundColor:'#1c1c1c',
+               
+                cursor: 'pointer',
+        
+              }}
+            >
+              <Box sx={{ marginRight: '12px' }}>{feature.icon}</Box>
+              <Box>
+                <Typography variant="subtitle1" sx={{ fontSize: '17px',fontFamily:'sans-serif', }}>
+                  {feature.title}
+                </Typography>
+                <Typography variant="body2" sx={{ fontSize: '12px', color: 'gray',fontSize:'14px', }}>
+                  {feature.description}
+                </Typography>
+              </Box>
+            </Card>
+          ))}
+        </Box>
+
+        {/* "I'm Ready to Buy" Button */}
+        <Box sx={{display:'flex',flexDirection:"row",justifyContent:'flex-end',}}>
+        <Button
+          variant="contained"
+          sx={{
+            width: '47%',
+            height:'44px',
+            padding: '12px',
+            fontSize: '16px',
+            fontFamily:"sans-serif",
+            backgroundColor: '#3767B1',
+           
+            color: 'white',
+            borderRadius: '8px',
+            '&:hover': { backgroundColor: '#3767B1' },
+          }}
+          onClick={handleClose}
+        >
+          I'm ready to buy
+        </Button>
+
+
+        </Box>
+      </DialogContent>
+    </Dialog>
+    <Box sx={{ transform: 'rotate(-17deg)',marginLeft:'35px',marginRight:'23px', }}>
+  <Notificationbell sx={{color:'gray',}} />
 </Box>
 
-                                <IconButton onClick={openSettingsMenu}>
+                                <IconButton onClick={handleOpenset}>
                                 
                                     <SettingsIcon />
                                 </IconButton>
+
+
+                                 {/* Dialog for the settings popup */}
+      <Dialog sx={{marginLeft:'655px',}} open={opensetting} onClose={handleClose} fullWidth maxWidth="sm" PaperProps={{
+        style: {  color: '#fff', borderRadius: '10px',height:'91vh',width:"550px" }
+      }}>
+        <DialogTitle sx={{  color: '#fff',marginTop:'22px', }}>Settings</DialogTitle>
+        <DialogContent>
+          <List>
+            {/* Personal Settings Section */}
+            <ListSubheader sx={{ color: '#ccc', backgroundColor: 'inherit',  fontSize: '18px',fontFamily:'sans-serif', paddingBottom: '10px',marginTop:'-33px' }}>
+              PERSONAL SETTINGS
+            </ListSubheader>
+            <ListItem sx={{  borderRadius: '10px', mb: 2 }}>
+              <ListItemAvatar>
+                <Avatar sx={{ backgroundColor: '#3767B1',borderRadius:'7px', }}>
+                  <Image sx={{height:'22px',}} src={personprogg}/>
+                </Avatar>
+              </ListItemAvatar>
+              <ListItemText
+                primary={<Typography sx={{ color: '#fff',fontFamily:'sans-serif',fontSize:'18px', }}>Personal Projects Settings</Typography>}
+                secondary={<Typography sx={{ color: '#bbb',fontSize:'13px',fontFamily:'sans-serif',width:'500px', }}>Manage your email notifications and other projects settings.</Typography>}
+              />
+            </ListItem>
+
+            {/* Projects Settings Section */}
+            <ListSubheader sx={{ color: '#ccc', backgroundColor: 'inherit',  fontSize: '18px', paddingBottom: '10px',marginTop:'-13px',fontFamily:'sans-serif' }}>
+              PROJECTS SETTINGS
+            </ListSubheader>
+            <ListItem sx={{  borderRadius: '10px', mb: 2 }}>
+              <ListItemAvatar>
+                <Avatar sx={{  backgroundColor: '#3767B1',borderRadius:'7px',}}>
+                 <Image sx={{height:'22px',}} src={systemgg}/>
+                </Avatar>
+              </ListItemAvatar>
+              <ListItemText
+                primary={<Typography sx={{ color: '#fff', marginTop:'-12px',fontFamily:'sans-serif',fontSize:'18px', }}>System</Typography>}
+                secondary={<Typography sx={{ color: '#bbb',fontFamily:'sans-serif',fontSize:'13px',width:'600px', }}>Manage your general configuration, global permissions, look, feel and more.</Typography>}
+              />
+            </ListItem>
+            <ListItem sx={{ borderRadius: '10px', mb: 2 }}>
+              <ListItemAvatar>
+                <Avatar sx={{ backgroundColor: '#3767B1',borderRadius:'7px', }}>
+                  <Image sx={{height:'22px',}} src={foldergg}/>
+                </Avatar>
+              </ListItemAvatar>
+              <ListItemText sx={{marginTop:'-12px',}}
+                primary={<Typography sx={{ color: '#fff',fontFamily:'sans-serif',fontSize:'18px',  }}>Projects</Typography>}
+                secondary={<Typography sx={{ color: '#bbb',fontFamily:'sans-serif',fontSize:'13px',width:'600px', }}>Manage your projects settings, categories and more.</Typography>}
+              />
+            </ListItem>
+            <ListItem sx={{  borderRadius: '10px', mb: 2 }}>
+              <ListItemAvatar>
+                <Avatar sx={{ backgroundColor: '#3767B1',borderRadius:'7px', }}>
+                  <Image sx={{height:'22px',}} src={trsckingg}/>
+                </Avatar>
+              </ListItemAvatar>
+              <ListItemText
+                primary={<Typography sx={{ color: '#fff',fontFamily:'sans-serif',fontSize:'18px',  }}>Issues</Typography>}
+                secondary={<Typography sx={{ color: '#bbb',fontFamily:'sans-serif',fontSize:'13px',width:'600px', }}>Configure your issue types, workflows, screens, custom fields and more.</Typography>}
+              />
+            </ListItem>
+
+            {/* Projects Admin Section */}
+            <ListSubheader sx={{ color: '#ccc', backgroundColor: 'inherit', fontSize: '18px', paddingBottom: '10px',marginTop:'-13px',fontFamily:'sans-serif' }}>
+              PROJECTS ADMIN
+            </ListSubheader>
+            <ListItem sx={{ borderRadius: '10px', mb: 2 }}>
+              <ListItemAvatar>
+                <Avatar sx={{ backgroundColor: '#3767B1',borderRadius:'7px',}}>
+                 <Image sx={{height:'22px',}} src={peoplegg}/>
+                </Avatar>
+              </ListItemAvatar>
+              <ListItemText
+                primary={<Typography sx={{ color: '#fff',fontFamily:'sans-serif',fontSize:'18px',  }}>User Management</Typography>}
+                secondary={<Typography sx={{ color: '#bbb' ,fontFamily:'sans-serif',fontSize:'13px',width:'600px',}}>Add users, groups, and manage access requests.</Typography>}
+              />
+            </ListItem>
+          </List>
+        </DialogContent>
+      </Dialog>
+
+
+
                                 <Menu
                                     anchorEl={anchorElSettings}
                                     open={Boolean(anchorElSettings)}
@@ -884,7 +1157,7 @@ export default function Navbar(props) {
         textOverflow: 'ellipsis',
     }}>
     {platformUser && platformUser.firstName && platformUser.lastName
-        ? platformUser.firstName.charAt(0).toUpperCase() + platformUser.lastName.charAt(0).toLowerCase()
+        ? platformUser.firstName.charAt(0).toUpperCase() + platformUser.lastName.charAt(0).toUpperCase()
         : '?'}
 </Typography>
                             </IconButton>
@@ -905,11 +1178,22 @@ export default function Navbar(props) {
             }}>
             <Grid container spacing={2} alignItems='center' flexWrap='nowrap'>
                 <Grid item>
-                    <Avatar
-                        alt='Remy Sharp'
-                        src='https://shorturl.at/fjqz9'
-                        sx={{ width: 100, height: 100 }}
-                    />
+
+                <Typography
+    variant='subtitle1' // Corrected 'substitle1' to 'subtitle1'
+    component='div'
+    fontWeight={600}
+    sx={{
+        whiteSpace: 'nowrap',
+        overflow: 'hidden',
+        textOverflow: 'ellipsis',
+        width: 100, height: 100 
+    }}>
+    {platformUser && platformUser.firstName && platformUser.lastName
+        ? platformUser.firstName.charAt(0).toUpperCase() + platformUser.lastName.charAt(0).toUpperCase()
+        : '?'}
+</Typography>
+                  
                 </Grid>
                 <Grid item xs={8}>
                     <Typography
