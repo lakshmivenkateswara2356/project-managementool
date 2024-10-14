@@ -165,28 +165,8 @@ const [templateInfo, setTemplateInfo] = useState('');
 
       <Header>
         <Box container p={2}  marginTop="-8px"  >
-            <Grid container alignItems='center'  >
-                <Grid item xs>
-                    <Typography variant='h5' color='text.primary'>
-                        Dashboard
-                    </Typography>
-                </Grid>
-                <Grid item>
-                    <IconButton sx={{ display: { sm: 'block' } }}>
-                    <IconButton onClick={handleClickOpen} >
-                        
-                        <AddIcon className='iconsize'/>
-                        </IconButton>
-                    </IconButton>
-                </Grid>
-                <Grid item>
-                    <IconButton sx={{ display: { sm: 'block' } }}>
-                        <InfoIcon />
-                    </IconButton>
-                </Grid>
-                
-            </Grid>
-            <div className='diveder'></div>
+            
+            
             <Box>
 
             <Dashboard/>
@@ -196,115 +176,6 @@ const [templateInfo, setTemplateInfo] = useState('');
 
        
     
-                <Dialog
-      
-      open={openDialog}
-      onClose={handleClose}
-      maxWidth="xl"
-      fullWidth
-     
-    >
-      <DialogTitle sx={{ backgroundColor:'background.default' }}> {/* Dark background for header */}
-        <Typography
-          variant="subtitle1"
-          sx={{
-            fontSize: '1.25rem',
-            textAlign: isMobile ? 'center' : 'left',
-              // White text for the header
-            marginTop: '8px',
-          
-          }}
-        >
-          
-        
-<IconButton
-      onClick={handleClose}
-      variant="contained"
-      sx={{  marginRight: '8px' }}
->
-  <CloseIcon />
-</IconButton>
-        </Typography>
-      </DialogTitle>
-
-      <DialogContent sx={{ display: 'flex', flexDirection: isMobile ? 'column' : 'row', padding: '20px', backgroundColor: 'background.default' }}>
-        {/* Left side: List of templates */}
-        {!isMobile || !selectedTemplate ? (
-          <Box
-            sx={{
-              
-              width: isMobile ? '100%' : '20%',
-              borderRight: isMobile ? 'none' : '1px solid #ccc',
-              paddingRight: isMobile ? '0px' : '16px',
-              marginBottom: isMobile ? '16px' : '0',
-              backgroundColor:'background.default' , // Same background as the screenshot
-          
-            }}
-          >
-            <Typography variant="h6" sx={{ marginBottom: '16px', fontWeight: 'bold',}}>
-              Project templates
-            </Typography>
-            <List>
-              {projectTemplates.map((template) => (
-                <ListItem
-                
-                  button
-                  key={template.title}
-                  onClick={() => handleTemplateSelect(template)}
-                  sx={{
-                    padding: '10px',
-                    borderRadius: '8px',
-                    height:'39px',
-                    
-                   
-                    marginTop:'-6px',
-                    backgroundColor: selectedTemplate === template.title ? '#3767b1' : 'transparent',
-                    transition: 'background-color 0.2s ease-in-out',
-                    color: selectedTemplate === template.title ? '#ffffff' : '', // White text for selected item
-                    '&:hover': {
-                      
-                    },
-                  }}
-                >
-                  <ListItemText primary={template.title} />
-                </ListItem>
-              ))}
-            </List>
-          </Box>
-        ) : null}
-
-        {/* Right side: Display information */}
-        {(!isMobile || selectedTemplate) && (
-          <Box
-            className="assigning"
-            sx={{
-              width: isMobile ? '100%' : '80%',
-              paddingLeft: isMobile ? '0px' : '24px',
-              backgroundColor: 'background.default',
-              borderRadius: '8px',
-              overflowY: 'auto',
-            }}
-          >
-            {selectedTemplate ? (
-              <>
-                <Typography variant="h4" sx={{ fontWeight: 'bold', marginBottom: '16px', fontSize: '16px' }}>
-            <Box sx={{display:'flex',}}>    <h1 style={{fontSize:'16px',marginRight:'12px'}}>Template /</h1>  {selectedTemplate}</Box>
-                </Typography>
-                <Typography variant="body1" sx={{ marginTop: '16px', color: '#666665' }}>
-                  {templateContent[selectedTemplate]}
-                </Typography>
-              </>
-            ) : (
-              <Typography variant="body1" sx={{ color: '#666665' }}>
-                Select a project template to see details.
-              </Typography>
-            )}
-          </Box>
-        )}
-      </DialogContent>
-
-     
-    </Dialog>
         </Box>
 
         </Header>

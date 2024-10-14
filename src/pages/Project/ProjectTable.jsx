@@ -8,6 +8,25 @@ import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
+
+import profile from '../../Assets/Ellipse 47.png';
+import profileteo from '../../Assets/Ellipse 48.png';
+import profilethre from '../../Assets/Ellipse 61.png';
+import profilefour from '../../Assets/Ellipse 54.png';
+import profilefive from '../../Assets/Ellipse 68.png';
+
+
+import Listimageone from '../../Assets/listimgone.png';
+import Listimagetwo from '../../Assets/listimagetwo.png';
+import Listimagethree from '../../Assets/listimagethree.png';
+import Listimagefour from '../../Assets/listimagefour.png';
+import Listimagefive from '../../Assets/listimagefive.png';
+import Listimagesix from '../../Assets/listimagesix.png';
+import Listimageseven from '../../Assets/listimageseven.png';
+import Listimageeight from '../../Assets/listimageeight.png';
+import Listimagenine from '../../Assets/listimagenine.png';
+import Projecttable from '../../pages/Project/ProjectTable';
+
 import Yogeshsingh from '../../Assets/YOGESH SINGH.jpg';
 
 // Initial project data
@@ -16,11 +35,11 @@ const initialProjectData = [
     id: 1,
     name: { 
       name: "Clikkle E-Sign",
-      avatar: Yogeshsingh 
+      avatar: Listimageone 
     },
     key: "CES",
     lead: { name: "Yogesh Singh", avatar: Yogeshsingh, },
-    team: [Yogeshsingh, Yogeshsingh, Yogeshsingh,Yogeshsingh],
+    team: [profile, profileteo, Yogeshsingh,profilethre],
     priority: "High",
     startDate: "05-08-2024",
     deadline: "23-08-2024",
@@ -31,11 +50,11 @@ const initialProjectData = [
     id: 2,
     name: { 
       name: "Clikkle HR",
-      avatar: Yogeshsingh 
+      avatar: Listimagetwo
     },
     key: "CES",
-    lead: { name: "Yogesh Singh", avatar: Yogeshsingh, },
-    team: [Yogeshsingh, Yogeshsingh, Yogeshsingh],
+    lead: { name: "Isabella Campbell", avatar:profilethre, },
+    team: [profilefive, profileteo, Yogeshsingh,profilefour,],
     priority: "High",
     startDate: "05-08-2024",
     deadline: "23-08-2024",
@@ -46,11 +65,11 @@ const initialProjectData = [
     id: 3,
     name: { 
       name: "Web Scrapper",
-      avatar: Yogeshsingh 
+      avatar: Listimagethree
     },
     key: "CES",
-    lead: { name: "Yogesh Singh", avatar: Yogeshsingh, },
-    team: [Yogeshsingh, Yogeshsingh, Yogeshsingh],
+    lead: { name: "Dwayne Graham", avatar:profilefive, },
+    team: [profilefour, profileteo, Yogeshsingh,profilefive,],
     priority: "High",
     startDate: "05-08-2024",
     deadline: "23-08-2024",
@@ -61,11 +80,11 @@ const initialProjectData = [
     id: 4,
     name: { 
       name: "CMail",
-      avatar: Yogeshsingh 
+      avatar: Listimagefour
     },
     key: "CES",
-    lead: { name: "Yogesh Singh", avatar: Yogeshsingh, },
-    team: [Yogeshsingh, Yogeshsingh, Yogeshsingh],
+    lead: { name: "Daniel Thompson", avatar: profile, },
+    team: [Yogeshsingh, profileteo, profilefour,profileteo,],
     priority: "Medieum",
     startDate: "05-08-2024",
     deadline: "23-08-2024",
@@ -76,11 +95,11 @@ const initialProjectData = [
     id: 5,
     name: { 
       name: "Clikkle Projects",
-      avatar: Yogeshsingh 
+      avatar: Listimagefive
     },
     key: "CES",
     lead: { name: "Yogesh Singh", avatar: Yogeshsingh, },
-    team: [Yogeshsingh, Yogeshsingh, Yogeshsingh],
+    team: [Yogeshsingh, Yogeshsingh, profile],
     priority: "High",
     startDate: "05-08-2024",
     deadline: "23-08-2024",
@@ -91,11 +110,11 @@ const initialProjectData = [
     id: 6,
     name: { 
       name: "Clikkle Admin",
-      avatar: Yogeshsingh 
+      avatar: Listimagesix 
     },
     key: "CES",
     lead: { name: "Yogesh Singh", avatar: Yogeshsingh, },
-    team: [Yogeshsingh, Yogeshsingh, Yogeshsingh],
+    team: [ profilefour, Yogeshsingh, Yogeshsingh],
     priority: "High",
     startDate: "05-08-2024",
     deadline: "23-08-2024",
@@ -120,7 +139,7 @@ const ProjectTable = () => {
   const navigate = useNavigate(); 
 
   const handleViewProject = (projectId) => {
-    navigate(`/project/${projectId}`); // Navigate to the project page
+    navigate('/project-detail'); // Navigate to the project page
     handleActionClose(); // Close the menu
   };
 
@@ -189,7 +208,7 @@ const ProjectTable = () => {
               <TableCell>
                 <Box sx={{ display: 'flex' }}>
                   {project.team.map((member, idx) => (
-                    <Avatar key={idx} src={member} alt="Team Member" sx={{ width: '22px', height: '22px', marginRight: '4px' }} />
+                    <Avatar key={idx} src={member} alt="Team Member" sx={{ width: '22px', height: '22px', marginRight: '-4px' }} />
                   ))}
                 </Box>
               </TableCell>
@@ -198,11 +217,11 @@ const ProjectTable = () => {
                   variant="outlined"
                   sx={{
                     backgroundColor: project.priority === "High" ? 'rgba(255, 94, 94, 0.1)' :
-                      project.priority === "Medium" ? 'rgba(240, 165, 0, 0.1)' : 'rgba(91, 192, 222, 0.1)',
-                    borderColor: project.priority === "High" ? '#ff5e5e' :
-                      project.priority === "Medium" ? '#f0a500' : '#5bc0de',
-                    color: project.priority === "High" ? '#ff5e5e' :
-                      project.priority === "Medium" ? '#f0a500' : '#5bc0de',
+                      project.priority === "Medium" ? 'rgba(240, 165, 0, 0.1)' : 'gba(255, 140, 0, 0.1)',
+                    borderColor: project.priority === "High" ? 'red' :
+                      project.priority === "Medium" ? '#f0a500' : 'orange',
+                    color: project.priority === "High" ? 'red' :
+                      project.priority === "Medium" ? '#f0a500' : 'orange',
                     fontSize: '12px',
                     padding: '8px 16px',
                     borderRadius: '8px',

@@ -7,6 +7,8 @@ import Calander from '../../Assets/calander.png'; // Your calendar icon
 import SearchIcon from '@mui/icons-material/Search';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import Checkbox from '@mui/material/Checkbox';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+
 import { grey, blue, red } from '@mui/material/colors';
 
 const Projectcalander = () => {
@@ -223,28 +225,76 @@ const Projectcalander = () => {
 
         {/* Modal for adding event */}
         <Modal open={openModal} onClose={() => setOpenModal(false)}>
-          <Box sx={{ 
-            position: 'absolute', 
-            top: '50%', 
-            left: '50%', 
-            transform: 'translate(-50%, -50%)', 
-            backgroundColor: 'gray', 
-            padding: '20px', 
-            borderRadius: '8px' 
-          }}>
-            <Typography variant="h6">Add Event for {selectedDay}</Typography>
-            <TextField
-              fullWidth
-              label="Event"
-              value={eventText}
-              onChange={(e) => setEventText(e.target.value)}
-              sx={{ marginBottom: '10px' }}
-            />
-            <Button onClick={handleCreateEvent} variant="contained" color="primary">
-              Create
-            </Button>
-          </Box>
-        </Modal>
+  <Box
+    sx={{
+      position: "absolute",
+      top: "50%",
+      left: "50%",
+      transform: "translate(-50%, -50%)",
+      backgroundColor: "#141414",
+      border: "1px solid #1976d2",
+      padding: "15px 20px",
+      borderRadius: "8px",
+      width: "300px", // Adjust the width to fit the design
+    }}
+  >
+    {/* Title text */}
+    <Typography
+      sx={{
+        fontFamily: "sans-serif",
+        fontSize: "14px",
+        color: "#D3D3D3", // Use light gray color
+        marginBottom: "10px",
+      }}
+    >
+      What needs to be done?
+    </Typography>
+
+    {/* Checkbox section */}
+    <Box sx={{ display: "flex",justifyContent:"flex-start", marginBottom: "20px",
+      height:"30px",
+     }}>
+      <Checkbox
+        sx={{
+          marginTop:'40px',
+          padding: "0",
+          color: "#1976d2",
+          "&.Mui-checked": { color: "#1976d2" },
+        }}
+      />
+      <Typography sx={{ fontSize: "12px", color: "gray" }}> </Typography>
+      {/* Placeholder for dropdown icon */}
+      <Box sx={{  cursor: "pointer" }}>
+        <ArrowDropDownIcon sx={{ color: "gray", marginTop:'30px', }} />
+      </Box>
+
+      <Button
+      sx={{
+        backgroundColor: "#2c2c2c",
+        color: "gray",
+        fontSize: "12px",
+        width: "100px",
+        marginLeft:'130px',
+        height: "28px",
+        boxShadow: "none",
+        marginTop:'30px',
+        "&:hover": {
+          backgroundColor: "#4c4c4c", // Slight hover effect
+        },
+      }}
+      onClick={handleCreateEvent}
+      variant="contained"
+      disabled={eventText === ""} // Disable button based on input text
+    >
+      Create
+    </Button>
+    </Box>
+
+    {/* Create button */}
+   
+  </Box>
+</Modal>
+
       </Box>
 
       {/* Right-side panel */}

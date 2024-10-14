@@ -11,6 +11,7 @@ import Issuesshow from './pages/IssuesSection/IssuesShow';
 import IssueUpdate from './pages/IssuesSection/IssueUpdate';
 import Teams from './pages/Teams/Teams';
 import Projects from './pages/Projects';
+import Subscription from './pages/Subscriptionpage.jsx/Subscription';
 import OrganizationList from './pages/Neworganisation/OrganizationList';
 
 const App = () => {
@@ -35,11 +36,14 @@ const App = () => {
      
       <Route path="/" element={<Home /> } />
 <Route path="/Projects" element={
- <Header><Projects/></Header>  }/>
+ <Header><ProjectDash/></Header>  }/>
+
+ <Route path="/project-detail" element ={<Header><Projects/></Header>}/>
 <Route path ='/issue-updates' element={<IssueUpdate/>}/>
 <Route path = '/issues-show' element={<Activity/>}/>
 <Route path='/active-issues' element={<Header><Issuesshow/></Header>}/>
 <Route path='/shared-with-me' element={<Teams/>}/>
+<Route path="/paymet-gateway" element={<Subscription/>}/>
 
 <Route path='/yourwork' element={ <Work/> }/>
       {/* Other routes like home, projects, etc., can be added here */}

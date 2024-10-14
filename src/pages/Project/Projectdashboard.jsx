@@ -3,6 +3,15 @@ import { Box, Typography, Table, TableBody,IconButton, Menu, Checkbox,   Dialog,
 import InfoIcon from '@mui/icons-material/InfoOutlined';
 import AddIcon from '@mui/icons-material/Add';
 import Image from '../../components/Image';
+import Listimageone from '../../Assets/listimgone.png';
+import Listimagetwo from '../../Assets/listimagetwo.png';
+import Listimagethree from '../../Assets/listimagethree.png';
+import Listimagefour from '../../Assets/listimagefour.png';
+import Listimagefive from '../../Assets/listimagefive.png';
+import Listimagesix from '../../Assets/listimagesix.png';
+import Listimageseven from '../../Assets/listimageseven.png';
+import Listimageeight from '../../Assets/listimageeight.png';
+import Listimagenine from '../../Assets/listimagenine.png';
 import Projecttable from '../../pages/Project/ProjectTable';
 import { IoGrid } from "react-icons/io5";
 import { MdList } from "react-icons/md";
@@ -20,9 +29,16 @@ const Projectdashboard =()=>{
 
 
     const projects = [
-        { name: 'Clikkle E-Sign', image: 'path/to/image1.png' },
-        { name: 'Clikkle HR', image: 'path/to/image2.png' },
-        { name: 'Web Scrapper', image: 'path/to/image3.png' },
+        { name: 'Clikkle E-Sign', image:Listimageone },
+        { name: 'Clikkle HR', image: Listimagetwo },
+        { name: 'Web Scrapper', image: Listimagethree},
+        { name: 'CMail', image: Listimagefour },
+        { name: 'Clikkle launch', image: Listimageeight },
+        { name: 'Clikkle Projects', image: Listimagefive },
+        { name: 'Clikkle Admin', image: Listimagesix},
+        { name: 'Files Project', image: Listimageseven },
+        { name: 'Clikkle Campaigns', image: Listimagenine },
+
         // Add other projects here...
       ];
     
@@ -83,11 +99,11 @@ Projects                    </Typography>
         <Grid  sx={{ padding: '22px',display:'flex',marginRight:'12px'
          }}>
           {projects.map((project, index) => (
-            <Grid item xs={12} sm={6} md={4} key={index}>
+            <Grid sx={{textAlign:'center'}} item xs={12} sm={6} md={4} key={index}>
               
                 
-                  <Avatar sx={{backgroundColor:'red',height:'76px',width:'76px',borderRadius:'7px',marginRight:'18px'}} src={project.image} alt={project.name} />
-                  <Typography sx={{fontSize:'13px',marginRight:'12px'}} variant="h6">{project.name}</Typography>
+                  <Avatar sx={{backgroundColor:'red',height:'86px',width:'88px',borderRadius:'7px',marginRight:'34px'}} src={project.image} alt={project.name} />
+                  <Typography sx={{fontSize:'13px',marginLeft:"-33px",fontFamily:'sans-serif',fontSize:'13px'}} variant="h6">{project.name}</Typography>
                 
               
             </Grid>
