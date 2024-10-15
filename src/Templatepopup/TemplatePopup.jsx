@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Typography, Button,Alert } from '@mui/material';
-import { Grid, Paper, List, ListItem, ListItemText } from '@mui/material';
+import { Grid, Paper} from '@mui/material';
 import Teamplan from '../Assets/teampla.png';
 import Companypl from '../Assets/compaPl.png';
 import ProjectDetailsForm from '../pages/ProjectDetailsForm';

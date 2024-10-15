@@ -14,7 +14,7 @@ const tasksData = {
     { id: 'ES-11', title: 'Show payment analytics dashboard in payslip page', project: 'Clikkle E-sign', status: 'To Do' },
   ],
   workedOn: [
-    
+    { id: 'ES-11', title: 'Show payment analytics dashboard in payslip page.', project: 'Clikkle E-sign', status: 'To Do' },
   ],
   starred: [],
 };
@@ -89,7 +89,7 @@ const Detailofworkproject = () => {
 
       <TabPanel value={selectedTab} index={1}>
         {tasksData.workedOn.length > 0 ? (
-          <Worktask tasks={tasksData.workedOn} />
+          <TaskList tasks={tasksData.workedOn} />
         ) : (
           renderEmptyState(
             Projectbox,

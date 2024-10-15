@@ -71,14 +71,15 @@ const SliderComponent = () => {
 
     <Box
       sx={{
-        width: "95vw",
+        width: "100vw",
         height: "100vh",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
         position: "relative",
-        backgroundColor: "#f9f9f9",
+       
+        backgroundColor: "black",
         '@media(max-width:600px)':{
           
           height:'100vh',
@@ -97,9 +98,10 @@ const SliderComponent = () => {
               position: 'absolute',
               top: '25px',
               right: '12px',
+              marginRight:'57px',
               '@media (max-width: 600px)': {
                 marginTop:'55px',
-                marginRight:'27px',
+                marginRight:'57px',
                
               }
             }}
@@ -119,6 +121,7 @@ const SliderComponent = () => {
             alignItems: "center",
             textAlign: "center",
             width: "80%",
+           
             height: "80%",
             '@media (max-width: 600px)': { // Media queries for mobile view
               width: '100%', // Full width on mobile

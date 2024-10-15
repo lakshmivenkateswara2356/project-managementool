@@ -10,6 +10,8 @@ import Dotele from '../../Assets/dot.png';
 import Tick from '../../Assets/tick.png';
 import Image from '../../components/Image';
 import ShareIcon from '@mui/icons-material/Share';
+import FilterListIcon from '@mui/icons-material/FilterList';
+
 import SettingsIcon from '@mui/icons-material/Settings';
 import { Box, Typography, Table, TableBody, IconButton, Menu, Tabs,
   Tab,
@@ -154,6 +156,12 @@ const ProjectList = () => {
   };
 
 
+  const [filter, setFilter] = useState('Newest first');
+
+  const handleChange = (event) => {
+    setFilter(event.target.value);
+  };
+
   const [anchorEl, setAnchorEl] = useState(null);
   const openMenu = Boolean(anchorEl);
 
@@ -169,6 +177,8 @@ const ProjectList = () => {
     setOpen(false);
     setSelectedData(null);
   };
+
+  
 
   return (
     <Box>
@@ -273,17 +283,16 @@ const ProjectList = () => {
         </Table>
       </Box>
 
-      {/* Dialog for showing details */}
-      <Dialog open={open} onClose={handleClose} fullWidth maxWidth="lg" PaperProps={{ sx: { color: '#ffffff', borderRadius: '8px', height: '100vh',} }}>
-  <DialogTitle sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center',  padding: '16px 24px' }}>
-    <Box sx={{ display: 'flex', alignItems: 'center' }}>
+      {/* {selectedData?.description} */}
+      <Dialog sx={{}} open={open} onClose={handleClose} fullWidth maxWidth="lg" PaperProps={{ sx: { color: '#ffffff', borderRadius: '8px', height: '100vh',} }}>
+  <DialogTitle sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', backgroundColor:'background.default', }}>
+    <Box sx={{ display: 'flex', alignItems: 'center',backgroundColor:'background.default' }}>
       <Checkbox checked={selectedData?.isChecked} sx={{ color: '#00ab55' }} />
-      <Typography variant="h6" sx={{ marginLeft: '10px', color: '#ffffff' }}>{selectedData?.id} - {selectedData?.description}</Typography>
+      <Typography variant="h6" sx={{ marginLeft: '10px', color: '#ffffff' }}>{selectedData?.id} </Typography>
+      
     </Box>
-    <Box>
-      <IconButton onClick={handleMenuClick} sx={{ color: '#ffffff' }}>
-        <MoreVertIcon />
-      </IconButton>
+    <Box>                                                                     
+      
       <Menu
         anchorEl={anchorEl}
         open={openMenu}
@@ -298,11 +307,11 @@ const ProjectList = () => {
     </Box>
   </DialogTitle>
 
-  <DialogContent sx={{ display: 'flex', padding: '24px', gap: '24px' }}>
+  <DialogContent sx={{ display: 'flex', padding: '24px', gap: '24px',backgroundColor:'background.default' }}>
     {/* Main Content */}
-    <Box sx={{ flex: 2, padding: '24px', color: '#ffffff', backgroundColor: '#1e1e1e' }}>
+    <Box sx={{ flex: 2, padding: '24px', color: '#ffffff',backgroundColor:'background.default' }}>
       {/* Action Buttons */}
-      <Box sx={{ display: 'flex', gap: 2, marginBottom: '16px' }}>
+      <Box sx={{ display: 'flex', gap: 2, marginBottom: '16px', }}>
         <Button
           startIcon={<AttachFile />}
           sx={{ color: '#ffffff', backgroundColor: '#3e3e3e', padding: '6px 12px' }}
@@ -334,70 +343,133 @@ const ProjectList = () => {
         Description
       </Typography>
       <TextField
-        placeholder="Add a description..."
-        multiline
-        rows={3}
-        fullWidth
-        
-        sx={{
-          marginBottom: '20px',
-        borderStyle:'none',
-          color: '#ffffff',
-          '& .MuiOutlinedInput-root': { color: '#ffffff' },
-        }}
-      />
+  placeholder="Add a description..."
+  multiline
+  rows={3}
+  fullWidth
+  variant="outlined"
+  sx={{
+    marginLeft:'-14px',
+    marginBottom: '20px',
+    '& .MuiOutlinedInput-root': {
+      '& fieldset': {
+        border: 'none', // Remove the border
+      },
+      color: '#ffffff', // Text color inside input
+    },
+    '& .MuiInputBase-input': {
+      color: '#ffffff', // Input text color
+    },
+  }}
+/>
+
 
       {/* Activity Section */}
       <Typography variant="h6" sx={{ marginBottom: '10px', color: '#ffffff' }}>
         Activity
       </Typography>
-
+<Box sx={{display:'flex',justifyContent:'space-between',}}>
+  <Typography sx={{marginRight:'-235px',marginTop:'13px',}}>Show :</Typography>
       {/* Tabs for All / Comments / History */}
-      <Tabs value={tab} onChange={handleTabChange} textColor="inherit" sx={{ marginBottom: '10px' }}>
-        <Tab label="All" />
-        <Tab label="Comments" />
-        <Tab label="History" />
-      </Tabs>
+      <Tabs
+      value={tab}
+      onChange={handleTabChange}
+      TabIndicatorProps={{ style: { display: 'none' } }} // Hide default indicator
+      sx={{
+        display: 'flex', // Allows horizontal arrangement
+        justifyContent: 'space-around', // Distribute evenly
+        marginBottom: '10px',
+        '& .MuiTab-root': {
+          flex: 1, // Makes each tab grow evenly (optional)
+          // Minimum width for the tabs
+          height: '10px', // Adjustable height
+          width:'12px', // Optional maximum width constraint
+          
+          margin: '0 5px', // Add spacing between tabs
+          borderRadius: '8px',
+          backgroundColor: '#1f1f1f', // Default background color
+          color: '#fff',
+          textTransform: 'none', // Prevents all-uppercase text
+          fontSize: '13px',
+          transition: 'all 0.3s ease', // Smooth transition for hover effects
+        },
+        '& .Mui-selected': {
+          backgroundColor: '#2279FF1A', // Transparent blue background
+          color: '#2279FF', // Blue text color for the selected tab
+        },
+        '& .MuiTab-root:hover': {
+          backgroundColor: '#333', // Optional hover effect
+        },
+      }}
+    >
+      <Tab sx={{height:'12px',}} label="All" />
+      <Tab label="Comments" />
+      <Tab label="History" />
+    </Tabs>
 
       {/* Filter Dropdown */}
-      <FormControl sx={{ marginBottom: '10px', minWidth: 120 }}>
-        <InputLabel sx={{ color: '#ffffff' }}>Newest first</InputLabel>
+      <Box 
+      sx={{ 
+        display: 'flex', 
+        alignItems: 'center', 
+        gap: 1, 
+        cursor: 'pointer' 
+      }}
+    >
+      <Typography sx={{ color: '#ffffff', fontSize: '16px' }}>
+        {filter}
+      </Typography>
+      <FilterListIcon sx={{ color: 'rgba(255, 255, 255, 0.7)' }} />
+
+      {/* Hidden Dropdown */}
+      <FormControl sx={{ display: 'none' }}>
         <Select
-          defaultValue="Newest first"
-          sx={{ color: '#ffffff', backgroundColor: '#3e3e3e' }}
+          value={filter}
+          onChange={handleChange}
+          sx={{ 
+            color: '#ffffff', 
+            backgroundColor: '#3e3e3e',
+          }}
         >
           <MenuItem value="Newest first">Newest first</MenuItem>
           <MenuItem value="Oldest first">Oldest first</MenuItem>
         </Select>
       </FormControl>
+    </Box>
+
+
+      </Box>
 
       {/* Comment Section */}
-      <Box sx={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
+      <Box sx={{ display: 'flex', alignItems: 'center', marginBottom: '10px',marginLeft:"33px" }}>
         <Avatar src={selectedData?.assignee.avatar} sx={{ width: 36, height: 36 }} />
         <TextField
-          placeholder="Add a comment..."
-          value={comment}
-          onChange={handleCommentChange}
-          fullWidth
-          variant="outlined"
-          sx={{
-            marginLeft: '10px',
-            backgroundColor: '#2b2b2b',
-            '& .MuiOutlinedInput-root': { color: '#ffffff' },
-          }}
-          InputProps={{
-            endAdornment: (
-              <InputAdornment position="end">
-                <IconButton sx={{ color: '#ffffff' }}>
-                  <EmojiEmotions />
-                </IconButton>
-                <IconButton sx={{ color: '#ffffff' }}>
-                  <SendIcon />
-                </IconButton>
-              </InputAdornment>
-            ),
-          }}
-        />
+  placeholder="Add a comment..."
+  value={comment}
+  onChange={handleCommentChange}
+  fullWidth
+  variant="outlined"
+  sx={{
+    marginLeft: '10px',
+    backgroundColor: 'background.default',
+    borderRadius: '8px', // Optional: Rounded corners
+    width: '160%', // Adjust width to fit container or customize
+    maxWidth: '600px', // Adjust as needed for your layout
+  }}
+  InputProps={{
+    style: {
+      height: '38px', // Control height of the TextField
+      padding: '0 14px', // Adjust internal padding
+  marginTop:'22px',
+    },
+    endAdornment: (
+      <InputAdornment position="end">
+        {/* Add any icon or action here if needed */}
+      </InputAdornment>
+    ),
+  }}
+/>
+
       </Box>
 
       {/* Existing Comment */}
@@ -408,7 +480,7 @@ const ProjectList = () => {
             Daniel Thompson <span style={{ color: '#888888' }}>3 minutes ago</span>
           </Typography>
         </Box>
-        <Typography sx={{ marginLeft: '34px', color: '#ffffff', fontSize: '14px' }}>
+        <Typography sx={{ marginLeft: '34px', color: '#ffffff', fontSize: '14px',color:'gray', }}>
           Icon updated to match the design for E-sign.
         </Typography>
         <Box sx={{ display: 'flex', gap: 2, marginLeft: '34px', marginTop: '4px' }}>
@@ -426,7 +498,7 @@ const ProjectList = () => {
     </Box>
 
     {/* Right Panel (Details) */}
-    <Box sx={{ flex: 1, padding: '24px', color: '#ffffff', backgroundColor: '#1e1e1e' }}>
+    <Box sx={{ flex: 1, padding: '24px', color: '#ffffff', backgroundColor:'background.default' }}>
       {/* Top Icons */}
       <Box sx={{ display: 'flex', justifyContent: 'flex-end', gap: 1, marginBottom: '16px' }}>
         <IconButton sx={{ color: '#ffffff' }}>
@@ -458,14 +530,14 @@ const ProjectList = () => {
       </Menu>
 
       {/* ToDo and Actions Dropdowns */}
-      <Box sx={{ display: 'flex', justifyContent: 'space-between', marginBottom: '16px' }}>
-        <Typography variant="button" sx={{ color: '#888888' }}>To Do</Typography>
+      <Box sx={{ display: 'flex', marginBottom: '16px' }}>
+        <Typography variant="button" sx={{ color: '#888888',marginRight:'12px', }}>To Do</Typography>
         <Typography variant="button" sx={{ color: '#888888' }}>Actions</Typography>
       </Box>
 
       {/* Details Section */}
       <Box sx={{ border: '1px solid #444444', borderRadius: '8px', padding: '16px' }}>
-        <Typography variant="h6" sx={{ marginBottom: '10px' }}>Details</Typography>
+        <Typography variant="h6" sx={{ marginBottom: '10px',backgroundColor:'#313131',width:'110%',padding:'8px',marginLeft:'-15px',marginTop:"-15px" }}>Details</Typography>
 
         <Box sx={{ marginBottom: '16px' }}>
           <Typography variant="subtitle2" sx={{ color: '#888888' }}>Assignee</Typography>
@@ -500,19 +572,24 @@ const ProjectList = () => {
       </Box>
 
       {/* Footer Section */}
-      <Box sx={{ display: 'flex', justifyContent: 'space-between', marginTop: '16px', color: '#888888' }}>
-        <Typography>Created 3 days ago</Typography>
-        <Typography>Updated 3 days ago</Typography>
+      <Box sx={{ display:'flex',justifyContent:'space-between', marginTop: '16px', color: '#888888' }}>
+
+        <Box>
+        <Typography sx={{fontFamily:"sans-serif",fontSize:"13px"}}>Created 3 days ago</Typography>
+        <Typography sx={{fontFamily:"sans-serif",fontSize:"13px"}}>Updated 3 days ago</Typography>
+
+        </Box>
+        <Box>
         <IconButton sx={{ color: '#888888' }}>
-          <SettingsIcon />
+          <SettingsIcon sx={{height:'15px'}} />
+          <Typography sx={{fontSize:'12px',fontFamily:'sans-serif'}}>Configure</Typography>
         </IconButton>
+        </Box>
       </Box>
     </Box>
   </DialogContent>
 
-  <DialogActions sx={{ borderTop: '1px solid #444444', padding: '16px 24px' }}>
-    <Button onClick={handleClose} sx={{ color: '#00ab55' }}>Close</Button>
-  </DialogActions>
+  
 </Dialog>
 
     </Box>

@@ -363,6 +363,15 @@ const handleOpenset = () => {
         navigate('Neworganisation')  // Close the dropdown
     };
 
+
+    const taketotheSubscriptionpage =() =>{
+        navigate('/paymet-gateway')
+    }
+
+    const handleusermanagement =()=>{
+        navigate('/Organization-managment')
+    }
+
    
   
     const handleMenuOpen = (event) => {
@@ -936,7 +945,7 @@ const handleOpenset = () => {
             borderRadius: '8px',
             '&:hover': { backgroundColor: '#3767B1' },
           }}
-          onClick={handleClose}
+          onClick={taketotheSubscriptionpage}
         >
           I'm ready to buy
         </Button>
@@ -1027,6 +1036,7 @@ const handleOpenset = () => {
                 </Avatar>
               </ListItemAvatar>
               <ListItemText
+              onClick={handleusermanagement}
                 primary={<Typography sx={{ color: '#fff',fontFamily:'sans-serif',fontSize:'18px',  }}>User Management</Typography>}
                 secondary={<Typography sx={{ color: '#bbb' ,fontFamily:'sans-serif',fontSize:'13px',width:'600px',}}>Add users, groups, and manage access requests.</Typography>}
               />

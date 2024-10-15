@@ -13,6 +13,7 @@ import {  Avatar,   Box,
     IconButton,} from '@mui/material';
 import creditcardone from '../../Assets/Page-1.png';
 import creditcardtwo from '../../Assets/visa.png';
+import Billingadress from '../../pages/Subscriptionpage/BillingAddress';
 import creditthree from '../../Assets/american-express.png';
 import Yogesh from '../../Assets/YOGESH SINGH.jpg';
 import democreditcard from '../../Assets/fxemoji_creditcard.png';
@@ -69,37 +70,53 @@ const Subscription= () => {
     >
       {/* Header Section */}
       <Box
-        sx={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          p: 2,
-          bgcolor: '#1f1f1f',
-        }}
-      >
-        <Box sx={{display:'flex'}}>
-          <Avatar
-            src={brandicon}
-            alt="Profile"
-            sx={{ width: 35, height: 35 ,marginRight:'12px'}}
-          />
-        <Typography sx={{color
-            :'gray',fontSize:'25px',
-        }} variant="h6">Clikkle Technologies</Typography>
-        </Box>
-        <Box sx={{ display: 'flex', alignItems: 'center' }}>
-          <Typography variant="body1" sx={{ mr: 1 }}>
-            Need help?
-          </Typography>
-
-          <Box sx={{backgroundColor:'white',height:"37px",width:'1px',marginRight:'14px'}}></Box>
-          <Avatar
-            src={Yogesh}
-            alt="Profile"
-            sx={{ width: 35, height: 35 }}
-          />
-        </Box>
+      sx={{
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        p: 2,
+        bgcolor: '#1f1f1f',
+        position: 'sticky', // Make the header sticky
+        top: 0, // Stick to the top of the viewport
+        zIndex: 1000, // Ensure it stays on top of other content
+      }}
+    >
+      <Box sx={{ display: 'flex' }}>
+        <Avatar
+          src={brandicon}
+          alt="Profile"
+          sx={{ width: 35, height: 35, marginRight: '12px' }}
+        />
+        <Typography
+          sx={{
+            color: 'gray',
+            fontSize: '25px',
+          }}
+          variant="h6"
+        >
+          Clikkle Technologies
+        </Typography>
       </Box>
+      <Box sx={{ display: 'flex', alignItems: 'center' }}>
+        <Typography variant="body1" sx={{ mr: 1 }}>
+          Need help?
+        </Typography>
+
+        <Box
+          sx={{
+            backgroundColor: 'white',
+            height: '37px',
+            width: '1px',
+            marginRight: '14px',
+          }}
+        ></Box>
+        <Avatar
+          src={Yogesh}
+          alt="Profile"
+          sx={{ width: 35, height: 35 }}
+        />
+      </Box>
+    </Box>
 
       {/* Main Content */}
       <Box
@@ -586,6 +603,7 @@ const Subscription= () => {
     variant="contained"
    
     sx={{
+      
       backgroundColor: isFormValid ? '#1a73e8' : '#555', // Blue when valid, gray when not
       color: isFormValid ? '#fff' : '#ccc', // Adjust text color accordingly
       '&:hover': {
@@ -605,6 +623,7 @@ const Subscription= () => {
 </Box>
 
     </Box>
+    <Billingadress/>
 </Box>
 
 

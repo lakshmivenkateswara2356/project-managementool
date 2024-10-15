@@ -54,7 +54,7 @@ const StandardFeatures = () => {
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-      
+  
         padding: '24px',
         borderRadius: '12px',
         width: '400px', // Customize width

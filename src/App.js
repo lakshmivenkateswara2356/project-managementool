@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import Neworganisation from './pages/Neworganisation/Neworganisation';
 import Home from './pages/Home';
 import Header from './components/Header';
@@ -10,8 +10,11 @@ import ProjectDash from './pages/Project/Projectdashboard';
 import Issuesshow from './pages/IssuesSection/IssuesShow';
 import IssueUpdate from './pages/IssuesSection/IssueUpdate';
 import Teams from './pages/Teams/Teams';
+import Teammember from './pages/profile/Profileteammember';
+import Profile from './pages/profile/Profileaccount';
 import Projects from './pages/Projects';
-import Subscription from './pages/Subscriptionpage.jsx/Subscription';
+import Usermanagment from './pages/Usermanagment/OrganizationUsers';
+import Subscription from './pages/Subscriptionpage/Subscription';
 import OrganizationList from './pages/Neworganisation/OrganizationList';
 
 const App = () => {
@@ -43,6 +46,10 @@ const App = () => {
 <Route path = '/issues-show' element={<Activity/>}/>
 <Route path='/active-issues' element={<Header><Issuesshow/></Header>}/>
 <Route path='/shared-with-me' element={<Teams/>}/>
+<Route path="/profile" element={<Header><Profile/></Header>}/>
+<Route path="/teammember" element={<Header><Teammember/> </Header>}/>
+<Route path="/Organization-managment" element={<Header><Usermanagment/> </Header>}/>
+
 <Route path="/paymet-gateway" element={<Subscription/>}/>
 
 <Route path='/yourwork' element={ <Work/> }/>
