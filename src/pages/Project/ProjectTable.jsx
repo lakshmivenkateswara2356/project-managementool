@@ -197,7 +197,7 @@ const ProjectTable = () => {
           {projects.map((project, index) => (
             <TableRow key={project.id}>
               <TableCell sx={{ color: '#FFFFFF' }}>#{index + 1}</TableCell>
-              <TableCell sx={{ display: 'flex', alignItems: 'center', color: '#FFFFFF', height: '90px' }}>
+              <TableCell sx={{ display: 'flex', alignItems: 'center', color: '#FFFFFF', height: '2px' }}>
                 <StarBorderIcon sx={{ color: '#FFFFFF', marginRight: '10px' }} />
                 <img src={project.name.avatar} alt="Project Icon" style={{ width: '22px', height: '22px', marginRight: '10px' }} />
                 {project.name.name}
@@ -221,8 +221,8 @@ const ProjectTable = () => {
                     backgroundColor: project.priority === "High" ? 'rgba(255, 94, 94, 0.1)' :
                       project.priority === "Medium" ? 'rgba(240, 165, 0, 0.1)' : 'gba(255, 140, 0, 0.1)',
                     borderColor: project.priority === "High" ? 'red' :
-                      project.priority === "Medium" ? '#f0a500' : 'orange',
-                    color: project.priority === "High" ? 'red' :
+                      project.priority === "Medium" ? '#f0a500' : '#FF9446',
+                    color: project.priority === "High" ? '#F33E3E' :
                       project.priority === "Medium" ? '#f0a500' : 'orange',
                     fontSize: '12px',
                     padding: '8px 16px',

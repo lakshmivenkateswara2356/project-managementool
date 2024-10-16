@@ -6,6 +6,7 @@ import Partyillu from '../../Assets/Illustrtion.png';
 import { GoTypography } from 'react-icons/go';
 import Image from '../../components/Image';
 import Listofprojects from '../../pages/Work/listofprojectsifwehave';
+import Bottommenu from '../../pages/BottomMenu/Bottommenu'
 import Detailsoftheproject from '../../pages/Work/Detailofworkproject';
 
 
@@ -85,7 +86,9 @@ const Workheaderele =()=>{
           <Detailsoftheproject/>
 
          
-          
+          <Box sx={{display:{xs:'block',lg:'none'}}}>
+<Bottommenu/>
+</Box>
        </Box>
     )
 }

@@ -12,7 +12,11 @@ import IssueUpdate from './pages/IssuesSection/IssueUpdate';
 import Teams from './pages/Teams/Teams';
 import Teammember from './pages/profile/Profileteammember';
 import Profile from './pages/profile/Profileaccount';
+import Profileediter from './pages/Profilesettings/ProfileEdit';
+
+import Inprogresscard from './pages/Project/projectcards/Projectinprogress';
 import Projects from './pages/Projects';
+
 import Usermanagment from './pages/Usermanagment/OrganizationUsers';
 import Subscription from './pages/Subscriptionpage/Subscription';
 import OrganizationList from './pages/Neworganisation/OrganizationList';
@@ -49,6 +53,9 @@ const App = () => {
 <Route path="/profile" element={<Header><Profile/></Header>}/>
 <Route path="/teammember" element={<Header><Teammember/> </Header>}/>
 <Route path="/Organization-managment" element={<Header><Usermanagment/> </Header>}/>
+<Route path="/gooder" element={<Inprogresscard/>}/>
+
+<Route path="/Profilesettings" element ={<Profileediter/>}/>
 
 <Route path="/paymet-gateway" element={<Subscription/>}/>
 

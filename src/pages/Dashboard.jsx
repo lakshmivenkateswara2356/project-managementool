@@ -258,7 +258,7 @@ const [templateInfo, setTemplateInfo] = useState('');
 
   return (
     <div>
-   <Box sx={{ flexGrow: 1, padding: '20px',overflow:'scroll',height:{xs: '75vh',  // for small screens
+   <Box sx={{ flexGrow: 1, padding: '20px',overflow:'scroll',height:{xs: '85vh',  // for small screens
       lg: '84vh' } }}
 >
 

@@ -13,6 +13,7 @@ import Listimageseven from '../../Assets/listimageseven.png';
 import Listimageeight from '../../Assets/listimageeight.png';
 import Listimagenine from '../../Assets/listimagenine.png';
 import Projecttable from '../../pages/Project/ProjectTable';
+import Bottommenu from '../../pages/BottomMenu/Bottommenu';
 import { IoGrid } from "react-icons/io5";
 import { MdList } from "react-icons/md";
 import Menuitem from '../../Assets/Vector (10).png';
@@ -110,6 +111,11 @@ Projects                    </Typography>
           ))}
         </Grid>
       )}
+
+<Box sx={{display:{xs:'block',lg:'none'}}}>
+<Bottommenu/>
+</Box>
+     
     </Box>
     )
 };

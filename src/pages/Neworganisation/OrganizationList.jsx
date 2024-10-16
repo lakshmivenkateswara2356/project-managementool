@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
 import DeleteIcon from '@mui/icons-material/Delete';
+import Delete from '../../pages/Neworganisation/DeleteOrganization';
 import NotificationIcon from '../../components/NotificationIcon';
 import { Dialog, DialogTitle, DialogContent, DialogActions, Button, TextField, Typography } from '@mui/material';
 
@@ -39,6 +40,11 @@ const OrganizationList = ({ organizations }) => {
       <Typography sx={{ width: '900px', color: 'gray', fontFamily: 'sans-serif', fontSize: '18px',width:'850px',"@media(max-width:600px)":{width:'350px',fontSize:'18px'}  }}>Project organization refers to the style of coordination, communication, and management a team uses throughout a project’s lifecycle.</Typography>
       <h2 style={{ marginTop: '43px', fontSize: '18px', color: 'gray', fontFamily: 'sans-serif',marginBottom:'33px',fontWeight:'lighter', }}>Total Organization</h2>
       <h1 style={{ fontSize: '46px', fontWeight: 'lighter', color: 'gray', fontFamily: 'san-sirf' }}>{organizations.length}</h1>
+     
+     
+     
+     
+     
       <div style={{ overflowX: 'auto', width: '100%', margin: '20px auto' }}>
   <table style={{ width: '100%', color: '#fff', borderCollapse: 'collapse' }}>
     <thead>
@@ -51,17 +57,37 @@ const OrganizationList = ({ organizations }) => {
     <tbody>
       {organizations.map((org, index) => (
         <tr key={index} style={{ borderBottom: '1px solid black', fontFamily: 'sans-serif' }}>
-          <td
-            style={{ padding: '10px', textAlign: 'left', cursor: 'pointer', fontFamily: 'sans-serif' }}
-            onClick={() => handleOrgClick(org.name)}
-          >
-            <img
-              src={org.imageUrl}
-              alt={`${org.name} logo`}
-              style={{ width: '30px', height: '30px', marginBottom: '-11px', marginRight: '10px', backgroundColor: 'white', borderRadius: '22px', paddingTop: '1px' }}
-            />
-            {org.name}
-          </td>
+         <td
+  style={{
+    padding: '10px',
+    textAlign: 'left',
+    cursor: 'pointer',
+    fontFamily: 'sans-serif',
+    whiteSpace: 'nowrap', // Prevents wrapping
+    overflow: 'hidden', // Ensures content doesn't overflow
+    textOverflow: 'ellipsis', // Adds ellipsis when text overflows
+    maxWidth: '150px', // Restrict width to enable ellipsis (can be adjusted)
+  }}
+  onClick={() => handleOrgClick(org.name)}
+>
+  <img
+    src={org.imageUrl}
+    alt={`${org.name} logo`}
+    style={{
+      width: '30px',
+      height: '30px',
+      marginBottom: '-11px',
+      marginRight: '10px',
+      backgroundColor: 'white',
+      borderRadius: '22px',
+      paddingTop: '1px',
+    }}
+  />
+
+
+  <span style={{ display: 'inline-block', verticalAlign: 'middle' }}>{org.name}</span>
+</td>
+
           <td style={{ padding: '10px' }}>
             <button
               style={{
@@ -153,25 +179,7 @@ const OrganizationList = ({ organizations }) => {
 
       {/* Delete Confirmation Dialog */}
       <Dialog open={open} onClose={() => setOpen(false)}>
-        <DialogTitle>Delete Organization</DialogTitle>
-        <DialogContent>
-          <Typography>Enter the organization's name to confirm deletion:</Typography>
-          <TextField
-            value={confirmName}
-            onChange={(e) => setConfirmName(e.target.value)}
-            fullWidth
-            margin="normal"
-            variant="outlined"
-          />
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={() => setOpen(false)} color="primary">
-            Cancel
-          </Button>
-          <Button onClick={confirmDelete} color="secondary">
-            Delete
-          </Button>
-        </DialogActions>
+        
       </Dialog>
     </div>
   );

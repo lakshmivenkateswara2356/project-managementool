@@ -28,9 +28,7 @@ const Profileteammember = () => {
     const collaborators = [
         { name: 'Yogesh Singh', title: 'Development Manager', avatar: Yogesh },
         { name: 'Amina Kumar', avatar: Amena  },
-        { name: 'Dwyane Graham', avatar: Dwyane },
-        { name: 'Isabella Campbell', avatar: Isbella },
-        { name: 'Amanda Throne', avatar: Amanda }
+       
       ];
   return (
     <Box sx={{ backgroundColor: '#000', color: '#fff', minHeight: '70vh' }}>

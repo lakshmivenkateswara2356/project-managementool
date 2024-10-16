@@ -91,81 +91,83 @@ const Teammembers = () => {
       <Grid container spacing={2} sx={{ mb: 4 }}>
         {teamMembers.map((person, index) => (
           <Grid item xs={6} sm={2} md={1.7} key={index}>
-            <Card
-              sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                alignItems: 'center',
-                backgroundColor: '#1c1c1c',
-                borderRadius: '10px',
-                textAlign: 'center',
-                color: '#fff',
-                width: '150px',
-                height: '170px',
-                padding: '16px',
+            <Grid item xs={6} sm={2} md={1.7} key={index}>
+  <Card
+    sx={{
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor: '#1c1c1c',
+      borderRadius: '10px',
+      textAlign: 'center',
+      color: '#fff',
+      width: '150px',
+      height: '170px',
+      padding: '16px',
+      cursor: person.name === 'Rohit Anderson' ? 'pointer' : 'default',
+      '&:hover': {
+        backgroundColor: 'gray', // Change to gray on hover
+      },
+    }}
+    onClick={() => {
+      if (person.name === 'Rohit Anderson') {
+        handleRohitClick();
+      } else if (person.name === 'Rashid Ahmed') {
+        handleRashidClick();
+      }
+    }}
+  >
+    <CardContent sx={{ width: '100%' }}>
+      <Avatar
+        src={person.avatar}
+        alt={person.name}
+        sx={{
+          width: '80px',
+          height: 80,
+          margin: '0 auto',
+          marginBottom: 1,
+        }}
+      />
+      <Typography
+        variant="body1"
+        sx={{
+          fontWeight: 'bold',
+          marginBottom: '4px',
+          fontSize: '11px',
+        }}
+      >
+        {person.name}
+      </Typography>
 
-                cursor: person.name === 'Rohit Anderson' ? 'pointer' : 'default',
-                curser: person.name === 'Rashid Ahmed' ? 'pointer' : 'default',
-              }}
-              onClick={() => {
-                if (person.name === 'Rohit Anderson') {
-                  handleRohitClick();
-                } else if (person.name === 'Rashid Ahmed') {
-                  handleRashidClick();
-                }
-              }}
-              
-            >
-              <CardContent sx={{ width: '100%' }}>
-                <Avatar
-                  src={person.avatar}
-                  alt={person.name}
-                  sx={{
-                    width: '80px',
-                    height: 80,
-                    margin: '0 auto',
-                    marginBottom: 1,
-                  }}
-                />
-                <Typography
-                  variant="body1"
-                  sx={{
-                    fontWeight: 'bold',
-                    marginBottom: '4px',
-                    fontSize: '11px',
-                  }}
-                >
-                  {person.name}
-                </Typography>
+      {/* Conditional rendering: Button or Role */}
+      {person.role === 'Add people' ? (
+        <Button
+          variant="contained"
+          color="primary"
+          sx={{
+            textTransform: 'none',
+            fontSize: '12px',
+            padding: '6px 12px',
+            borderRadius: '5px',
+            backgroundColor: 'gray',
+            width: '90px',
+            height: '28px',
+            marginLeft: '-7px',
+          }}
+          onClick={() => console.log('Add people button clicked')}
+        >
+          {person.role}
+        </Button>
+      ) : (
+        <Typography variant="body2" sx={{ color: '#bbb' }}>
+          {person.role || ''}
+        </Typography>
+      )}
+    </CardContent>
+  </Card>
+</Grid>
 
-                {/* Conditional rendering: Button or Role */}
-                {person.role === 'Add people' ? (
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    sx={{
-                      textTransform: 'none',
-                      fontSize: '12px',
-                      padding: '6px 12px',
-                      borderRadius: '5px',
-                      backgroundColor: 'gray',
-                      width: '90px',
-                      height: '28px',
-                      marginLeft: '-7px',
-                    }}
-                    onClick={() => console.log('Add people button clicked')}
-
-                  >
-                    {person.role}
-                  </Button>
-                ) : (
-                  <Typography variant="body2" sx={{ color: '#bbb' }}>
-                    {person.role || ''}
-                  </Typography>
-                )}
-              </CardContent>
-            </Card>
           </Grid>
         ))}
       </Grid>
@@ -174,7 +176,75 @@ const Teammembers = () => {
       <Typography variant="h6" sx={{ mb: 2, fontSize: '13px' }}>
         Your teams
       </Typography>
+<Box sx={{display:'flex',justifyContent:'flex-start',}}>
       <Grid container spacing={2}>
+  {teams.map((team, index) => (
+    <Grid item xs={12} sm={6} md={4} key={index}>
+      <Card
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          backgroundColor: '#1c1c1c',
+          borderRadius: '10px',
+          textAlign: 'center',
+          color: '#fff',
+          width: '150px',
+          height: '177px',
+          padding: '16px',
+        }}
+      >
+        <CardContent
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: 1,
+          }}
+        >
+          {/* Avatars - Two team members side by side */}
+          <Box sx={{ display: 'flex', gap: 1, marginBottom: 1 }}>
+            <Avatar src={Demoimg} sx={{ width: 40, height: 40,marginRight:"-13px" }} />
+            <Avatar src={team.leadAvatar} sx={{ width: 40, height: 40 }} />
+          </Box>
+
+          {/* Team Name */}
+          <Typography
+            variant="body1"
+            sx={{
+              fontWeight: 'bold',
+              fontSize: '14px',
+              marginBottom: '8px',
+            }}
+          >
+            Your new team!
+          </Typography>
+
+          {/* Create Team Button */}
+          <Button
+            variant="contained"
+            color="primary"
+            sx={{
+              textTransform: 'none',
+              backgroundColor: '#333',
+              borderRadius: '5px',
+              width: '100px',
+              height: '30px',
+              fontSize: '11px',
+              '&:hover': {
+                backgroundColor: 'gray',
+              },
+            }}
+          >
+            Create team
+          </Button>
+        </CardContent>
+      </Card>
+    </Grid>
+  ))}
+</Grid>
+
+      <Grid sx={{marginLeft:'-853px'}} container spacing={2}>
         {teams.map((team, index) => (
           <Grid item xs={12} sm={6} md={4} key={index}>
             <Card
@@ -227,6 +297,8 @@ const Teammembers = () => {
           </Grid>
         ))}
       </Grid>
+
+      </Box>
     </Box>
   );
 };

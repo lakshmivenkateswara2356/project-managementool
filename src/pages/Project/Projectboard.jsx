@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import Board from './ProjectHeader';
 import { HiOutlinePlus } from "react-icons/hi";
-
+import Projectcard from '../../pages/Project/projectcards/Projectinprogress';
+import Createproject from '../Project/projectcards/Createproject';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import { Box, Typography, Table, TableBody,IconButton, Menu, Checkbox,   Dialog, DialogActions, DialogContent, DialogTitle,TableCell,TextField,MenuItem, TableHead, TableRow, Button, Grid, Card, CardContent } from '@mui/material';
 
@@ -109,6 +110,9 @@ const Projectboard =() => {
         setToDoInput(''); // Clear input after adding
       }
     };
+
+
+
   
     return (
 <Box>
@@ -202,6 +206,8 @@ const Projectboard =() => {
           >
             Create
           </Button>
+
+        
           
         </div>
         </Box>
@@ -211,65 +217,7 @@ const Projectboard =() => {
       </Card>
 
       {/* In Progress Section */}
-      <Card sx={{ width: '270px',
-          height:'145px', padding: '16px', borderRadius: '8px',backgroundColor:'background.default' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
-        <Typography
-  sx={{
-    color: '#1976d2',  // Blue text color
-    fontSize: '13px',
-    backgroundColor: 'rgba(0, 0, 139, 0.2)',
-  // Transparent blue background
-    border: '1px solid #1976d2',  // Solid blue border
-    padding: '4px 8px',  // Padding for better spacing
-    borderRadius: '8px',  // Optional: rounded corners
-  }}
->
-  In Progress
-</Typography>
-
-          <div
-            style={{
-              color: '#1976d2',  // Blue text color
-    fontSize: '13px',
-    backgroundColor: 'rgba(0, 0, 139, 0.2)',
-  // Transparent blue background
-    border: '1px solid #1976d2',  // Solid blue border
-    padding: '4px 8px',  // Padding for better spacing
-    borderRadius: '7px',  // O
-              width: '34px',
-              height: '27px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-          
-              fontSize: '13px',
-            }}
-          >
-            {inProgressItems.length}
-          </div>
-        </div>
-        <Button
-          sx={{
-            
-            textTransform: 'none',
-            width: '100%',
-            height:'35px',
-            padding: '12px',
-            color:'white',
-            justifyContent: 'flex-start',
-            backgroundColor:'#171716',
-          }}
-          onClick={() => {
-            // Logic for creating a new issue in progress (e.g., open modal)
-          }}
-        >
-          + Create Issue
-        </Button>
-        {inProgressItems.map((item, index) => (
-          <Typography key={index} sx={{ marginTop: '8px', color: '#A0A0A0' }}>{item}</Typography>
-        ))}
-      </Card>
+      <Projectcard />
 
       <Card sx={{ width: '250px', padding: '16px', borderRadius: '8px',backgroundColor:'background.default' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
@@ -336,12 +284,10 @@ const Projectboard =() => {
 
 
        {/* Plus Icon to Create New Task */}
-       {!showReview && !showBacklog && (
-                    <IconButton onClick={handleAddClick} sx={{backgroundColor:'background.default',borderRadius:'5px',height:'30px',width:'30px', }}>
-                        <HiOutlinePlus sx={{height:'20px',width:'20px',}}/>
-                    </IconButton>
-                )}
+       <Createproject/>
     </div>
+
+   
 
     
         </Box>

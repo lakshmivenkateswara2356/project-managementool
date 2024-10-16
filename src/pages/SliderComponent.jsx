@@ -78,7 +78,7 @@ const SliderComponent = () => {
         justifyContent: "center",
         alignItems: "center",
         position: "relative",
-       
+        color:'white',
         backgroundColor: "black",
         '@media(max-width:600px)':{
           
@@ -97,11 +97,11 @@ const SliderComponent = () => {
               fontFamily: 'sans-serif',
               position: 'absolute',
               top: '25px',
+              marginRight:'33px',
               right: '12px',
-              marginRight:'57px',
               '@media (max-width: 600px)': {
                 marginTop:'55px',
-                marginRight:'57px',
+                marginRight:'27px',
                
               }
             }}
@@ -121,7 +121,6 @@ const SliderComponent = () => {
             alignItems: "center",
             textAlign: "center",
             width: "80%",
-           
             height: "80%",
             '@media (max-width: 600px)': { // Media queries for mobile view
               width: '100%', // Full width on mobile

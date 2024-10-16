@@ -113,6 +113,10 @@ const Neworganisation = ({ addOrganization }) => {
           </Box>
         </Box>
 
+        <Box>
+          
+        </Box>
+
         <Box sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'flex-end', marginLeft: '42px', marginTop: '25px' }}>
           <Button  onClick={handleCreateOrganisation} sx={{ marginRight: '82px', backgroundColor: '#3767B1', color: 'white', width: '120px', marginBottom: "12px",'@media(max-width:600px)':{marginRight:'22px'} }}>
             Create

@@ -4,6 +4,8 @@ import AssignmentOutlinedIcon from '@mui/icons-material/AssignmentOutlined';
 import WorkOutlineIcon from '@mui/icons-material/WorkOutline';
 import PeopleIcon from '@mui/icons-material/People';
 import AppsIcon from '@mui/icons-material/Apps';
+import { useNavigate } from 'react-router-dom';
+
 import {
     Box,
     IconButton,
@@ -11,12 +13,29 @@ import {
 } from '@mui/material';
 
 const Bottommenu = () => {
+    const navigate = useNavigate(); // Initialize navigate
+
     const [activeTab, setActiveTab] = useState('home'); // Set 'home' as the initial active tab
 
     // Function to handle tab click and change the activeTab state
     const handleTabClick = (tab) => {
         setActiveTab(tab);
+
+
     };
+
+
+    const handleProjectd =()=>{
+        navigate('/Projects')
+    }
+
+    const handleWork =()=>{
+        navigate ('/yourwork')
+    }
+
+    const handleTeams =()=>{
+        navigate('/shared-with-me')
+    }
 
     return (
         <Box sx={{
@@ -83,7 +102,7 @@ const Bottommenu = () => {
                         }}
                     />
                 </Box>
-                <Typography sx={{ fontSize: '12px', marginLeft: '7px', color: activeTab === 'project' ? 'primary.main' : 'text.secondary' }}>
+                <Typography onClick={handleProjectd} sx={{ fontSize: '12px', marginLeft: '7px', color: activeTab === 'project' ? 'primary.main' : 'text.secondary' }}>
                     Project
                 </Typography>
             </Box>
@@ -141,7 +160,7 @@ const Bottommenu = () => {
                         }}
                     />
                 </Box>
-                <Typography sx={{ fontSize: '12px', marginLeft: '10px', color: activeTab === 'work' ? 'primary.main' : 'text.secondary' }}>
+                <Typography onClick={handleWork} sx={{ fontSize: '12px', marginLeft: '10px', color: activeTab === 'work' ? 'primary.main' : 'text.secondary' }}>
                     Work
                 </Typography>
             </Box>
@@ -167,7 +186,7 @@ const Bottommenu = () => {
                         }}
                     />
                 </Box>
-                <Typography sx={{ fontSize: '12px', marginLeft: '7px', color: activeTab === 'teams' ? 'primary.main' : 'text.secondary' }}>
+                <Typography onClick={handleTeams } sx={{ fontSize: '12px', marginLeft: '7px', color: activeTab === 'teams' ? 'primary.main' : 'text.secondary' }}>
                     Teams
                 </Typography>
             </Box>

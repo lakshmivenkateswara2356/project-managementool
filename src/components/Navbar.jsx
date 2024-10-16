@@ -4,6 +4,7 @@ import { Link, NavLink, useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import DiamondIcon from "@mui/icons-material/Diamond"; 
 import { IoDiamondOutline } from "react-icons/io5";
+import Animatedbell from '../components/AnimatedBell';
 
 import NotificationIcon from './NotificationIcon';
 
@@ -75,6 +76,8 @@ import StorageIcon from '@mui/icons-material/Storage';
 import FolderIcon from '@mui/icons-material/Folder';
 import BugReportIcon from '@mui/icons-material/BugReport';
 import GroupIcon from '@mui/icons-material/Group';
+import NotificationsIcon from '@mui/icons-material/Notifications';
+
 
 import personprogg from '../Assets/gg_profile.png';
 import systemgg from '../Assets/fluent-mdl2_system.png';
@@ -87,6 +90,7 @@ import upgradegrp from '../Assets/Group 1014.png';
 import upgradestack from '../Assets/Group 1015.png';
 import upgradeIssue from '../Assets/Group 1019.png';
 
+import UpgradeButton from '../pages/Button/GradientButton'
 
 
 
@@ -818,22 +822,9 @@ const handleOpenset = () => {
                                 justifyContent='flex-end'
                                 spacing={0}>
   {/* Upgrade Button */}
-  <Button
-        onClick={handleOpen}
-        variant="outlined"
-        sx={{
-          display: 'flex',
-          alignItems: 'center',
-          fontSize: '16px',
-          fontWeight: 'bold',
-          padding: '8px 16px',
-          borderRadius: '8px',
-        }}
-      >
-        <IoDiamondOutline style={{ fontSize: '19px', marginRight: '8px' }} />
-        Upgrade
+<Button onClick={handleOpen}>
+      <UpgradeButton/>
       </Button>
-
       {/* Popup Dialog */}
       <Dialog  sx={{
         marginRight:'-555px',
@@ -954,9 +945,11 @@ const handleOpenset = () => {
         </Box>
       </DialogContent>
     </Dialog>
-    <Box sx={{ transform: 'rotate(-17deg)',marginLeft:'35px',marginRight:'23px', }}>
-  <Notificationbell sx={{color:'gray',}} />
-</Box>
+   
+
+<Animatedbell/>
+
+
 
                                 <IconButton onClick={handleOpenset}>
                                 
@@ -1187,22 +1180,38 @@ const handleOpenset = () => {
                 },
             }}>
             <Grid container spacing={2} alignItems='center' flexWrap='nowrap'>
-                <Grid item>
+               
 
-                <Typography
+                <Grid sx={{ borderWidth: "2px",
+                  width
+                  :'145px',
+                  marginLeft:'22px',
+                  height
+                  :'85px',
+                 
+                  borderRadius:'60px',
+                  textAlign:'center',
+                  borderStyle: "solid",
+                  borderColor: "primary.main",
+                  p: "3px",}} item>
+                  <Typography
     variant='subtitle1' // Corrected 'substitle1' to 'subtitle1'
     component='div'
     fontWeight={600}
     sx={{
+       
+      fontSize:'30px',
+      fontFamily:'sans-serif',
+      marginLeft:'-12px',
         whiteSpace: 'nowrap',
         overflow: 'hidden',
         textOverflow: 'ellipsis',
-        width: 100, height: 100 
     }}>
     {platformUser && platformUser.firstName && platformUser.lastName
         ? platformUser.firstName.charAt(0).toUpperCase() + platformUser.lastName.charAt(0).toUpperCase()
         : '?'}
 </Typography>
+                  
                   
                 </Grid>
                 <Grid item xs={8}>

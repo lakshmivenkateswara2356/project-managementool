@@ -163,7 +163,7 @@ const Projects = ({ todoDescription }) => {
             sx={{ fontSize: "33px", color:'blue' }}
             onClick={handleClickOpen}
           >
-            <AddIcon sx={{ color: "blue" }} />
+            <AddIcon sx={{ color: "#3767B1" }} />
           </IconButton>
         </Grid>
 
