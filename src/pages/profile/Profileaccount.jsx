@@ -6,6 +6,8 @@ import tickicon from '../../Assets/tick.png';
 import duckemoj from '../../Assets/profileimages/Group 761 (1).png';
 import Robo from '../../Assets/profileimages/Group 760 (1).png';
 import bader from '../../Assets/profileimages/Group 1032.png';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
+
 import Image from '../../components/Image';
 import accountone from '../../Assets/profileimages/Group (5).png';
 import accounttwo from '../../Assets/profileimages/Group (6).png';
@@ -19,10 +21,16 @@ import Amena  from '../../Assets/Ellipse 68.png';
 import Dwyane from '../../Assets/DANIEL THOMPSON.jpg';
 import Isbella from '../../Assets/Ellipse 48.png';
 import Amanda from '../../Assets/Ellipse 47.png';
+
 import { CheckBox, CheckBoxOutlineBlank, Email, LocationOn, Business } from '@mui/icons-material';
 
 const Profileaccount = () => {
+  const navigate = useNavigate();
+
     
+  const handleManageaccountsettings =()=> {
+    navigate ('/Profilesettings')
+  }
 
     const collaborators = [
         { name: 'Yogesh Singh', title: 'Development Manager', avatar: Yogesh },
@@ -47,7 +55,7 @@ const Profileaccount = () => {
 <Box sx={{width:'25vw',alignItems:'center'}}>
       {/* Manage Account Button */}
       <Box sx={{ display: 'flex', justifyContent: 'center', padding: '20px 0' }}>
-        <Button variant="contained" sx={{ backgroundColor: '#45413C', borderRadius: '5px', width: '100%' ,color:'#A5A5A5',marginLeft:'32px'}}>
+        <Button onClick={handleManageaccountsettings} variant="contained" sx={{ backgroundColor: '#45413C', borderRadius: '5px', width: '100%' ,color:'#A5A5A5',marginLeft:'32px'}}>
           Manage your account
         </Button>
       </Box>

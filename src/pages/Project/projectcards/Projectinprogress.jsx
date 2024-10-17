@@ -87,9 +87,7 @@ const Projectinprogress = () => {
             <MoreHorizIcon sx={{ color: 'white' }} />
           </IconButton> */}
           {/* More (Three Dots) Button */}
-          <IconButton size="small" onClick={handleMenuOpen}>
-            <MoreHorizIcon sx={{ color: 'white' }} />
-          </IconButton>
+         
           <Menu
             anchorEl={anchorEl}
             open={Boolean(anchorEl)}

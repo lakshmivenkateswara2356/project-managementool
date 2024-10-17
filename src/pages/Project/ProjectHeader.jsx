@@ -246,72 +246,7 @@ onClick={handleClickOpen}
   </Box>
 
   {/* Popup (Dialog) */}
-  <Dialog
-        open={open}
-        onClose={handleClose}
-        maxWidth="lg"
-        PaperProps={{
-          sx: {
-            width: '1050px',   // Custom width for popup box
-            height: '600px',  // Custom height for popup box
-            borderRadius: '12px', // Rounded corners
-            backgroundColor:'background.default',
-          },
-        }}
-      >
-        <DialogContent
-          sx={{
-            display: 'flex',
-            flexDirection: 'row',
-            p: 0, 
-            backgroundColor: '#1e1e1e',
-          }}
-        >
-          {/* Left section */}
-          <Box sx={{ width: '50%', padding: '24px', color: '#fff' }}>
-            <Image src={Clikklebrand} sx={{height:'38px',marginBottom:'22px',marginTop:'22px'}}/>
-            <Typography variant="h6" sx={{fontFamily:'sans-serif', mb: 2,fontSize:'22px' }}>
-              Upgrade for unlimited users
-            </Typography>
-            <Typography sx={{ mb: 2 ,fontFamily:'sans-serif',fontSize:'14px',color:'gray',width:'400px'}}>
-              With the Standard plan, you get unlimited users, 250GB of storage, free guest access and more.
-            </Typography>
-
-            {/* Users invited section */}
-            <Typography sx={{ mb: 1,fontFamily:'sans-serif',fontSize:'20px'}}>0 of 10 invited</Typography>
-            <Typography sx={{fontFamily:'sans-serif',fontSize:'15px',color:'gray'}}>Upgrade for unlimited users</Typography>
-            <AvatarGroup max={10} sx={{ mb: 2 ,marginRight:'115px',marginTop:'12px', }}>
-              {[...Array(10)].map((_, index) => (
-                <Avatar key={index} sx={{ backgroundColor: '#666' }} />
-              ))}
-            </AvatarGroup>
-
-            {/* Storage usage section */}
-            <Typography sx={{ mb: 1 }}>0 GB of 2 GB</Typography>
-            <Typography sx={{fontFamily:'sans-serif',color:'gray',fontSize:'15px',marginBottom:'12px'}}>Upgrade for 250 GB storage</Typography>
-            <LinearProgress
-              variant="determinate"
-              value={0}
-              sx={{ mb: 3, backgroundColor: '#444', '& .MuiLinearProgress-bar': { backgroundColor: '#fff' } ,height:'7px',borderRadius:'22px'}}
-            />
-
-            {/* Actions */}
-            <DialogActions sx={{  mt: 2,marginTop:'72px' }}>
-              <Button onClick={handleClose} sx={{ color: '#888', backgroundColor: '#45413C', textTransform: 'none', p: '8px 24px' }}>
-                Maybe later
-              </Button>
-              <Button onClick={handleClose} sx={{ backgroundColor: '#3767B1', color: 'black', textTransform: 'none', p: '8px 24px' }}>
-                Upgrade
-              </Button>
-            </DialogActions>
-          </Box>
-
-          {/* Right section */}
-          <Box sx={{ width: '50%', backgroundColor: 'background.default', padding: '24px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-       <StandardFeatures/>
-          </Box>
-        </DialogContent>
-      </Dialog>
+ 
 </Box>
 
     )

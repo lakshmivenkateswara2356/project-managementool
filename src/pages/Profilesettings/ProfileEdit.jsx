@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
 import Profielinage from '../Profilesettings/ProfileImageSection';
 import Profileheding from '../../pages/Profilesettings/Profileheader';
+import Emailsection from '../../pages/Profilesettings/EmailSection';
+import Privacysetting from '../../pages/Profilesettings/PrivacySection';
+import Accountpreference from '../../pages/Profilesettings/AccountPreferences';
+import Changepassword from '../../pages/Profilesettings/ChangePassword';
+import Linkpreference from '../../pages/Profilesettings/LinkPreferences';
+import Productsettings from '../../pages/Profilesettings/ProductSettings';
 import { Button, Tabs, Tab, Box, Typography } from '@mui/material';
 
 const ProfileEdit = () => {
@@ -71,8 +77,31 @@ const ProfileEdit = () => {
       </TabPanel>
 
       <TabPanel value={selectedTab} index={1}>
-        <Typography variant="h6" sx={{  }}>Email Settings</Typography>
-        <h1>hekk</h1>
+        <Typography variant="h6" sx={{  }}>Email </Typography>
+        <Emailsection/>
+      </TabPanel>
+
+      <TabPanel value={selectedTab} index={2}>
+        <Typography variant="h6" sx={{  }}>Security </Typography>
+        <Changepassword/>
+      </TabPanel>
+
+      <TabPanel value={selectedTab} index={3}>
+        <Typography variant="h6" sx={{  }}>Privacy </Typography>
+        <Privacysetting/>
+      </TabPanel>
+
+      <TabPanel value={selectedTab} index={4}>
+        <Typography variant="h6" sx={{  }}>Account preference </Typography>
+        <Accountpreference/>
+      </TabPanel>
+      <TabPanel value={selectedTab} index={5}>
+        <Typography variant="h6" sx={{  }}>Link Preference </Typography>
+        <Linkpreference/>
+      </TabPanel>
+      <TabPanel value={selectedTab} index={6}>
+        <Typography variant="h6" sx={{  }}>Product settings </Typography>
+        <Productsettings/>
       </TabPanel>
       
       {/* Add other tab panels for the rest of the sections */}

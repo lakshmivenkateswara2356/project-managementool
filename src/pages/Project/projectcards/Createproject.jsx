@@ -26,8 +26,9 @@ const ProjectInProgress = () => {
     <Box>
       <Card
         sx={{
-          width: '300px',
+          width: '270px',
           padding: '16px',
+         
           borderRadius: '8px',
            // Adjust background color to match design
           position: 'relative',

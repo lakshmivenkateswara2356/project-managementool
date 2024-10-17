@@ -51,7 +51,9 @@ import Navbar from '../components/Navbar'
 import Teamplan from '../Assets/teampla.png';
 import Companypl from '../Assets/compaPl.png';
 import Header from '../components/Header';
-import Kanbanim from '../Assets/Kanban.png'
+import Kanbanim from '../Assets/Kanban.png'; 
+
+import Footerbottom from '../pages/BottomMenu/Footer';
 
 import Kanbathree from '../Assets/Kanbathree.png'
 import ProjectDetailsForm from './ProjectDetailsForm';

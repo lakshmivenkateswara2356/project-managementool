@@ -19,10 +19,15 @@ const Bottommenu = () => {
 
     // Function to handle tab click and change the activeTab state
     const handleTabClick = (tab) => {
+       
         setActiveTab(tab);
 
 
     };
+
+    const handleHome =()=> {
+        navigate('/')
+    }
 
 
     const handleProjectd =()=>{
@@ -58,6 +63,7 @@ const Bottommenu = () => {
             {/* Home Icon */}
             <Box sx={{ alignItems: 'center' }} onClick={() => handleTabClick('home')}>
                 <Box
+                onClick={handleHome}
                     sx={{
                         backgroundColor: activeTab === 'home' ? 'rgba(46, 99, 160, 0.2)' : '', // Active when 'home' is selected
                         borderRadius: '40%',
@@ -76,7 +82,7 @@ const Bottommenu = () => {
                         }}
                     />
                 </Box>
-                <Typography sx={{ fontSize: '12px', marginLeft: '8px', color: activeTab === 'home' ? 'primary.main' : 'text.secondary' }}>
+                <Typography  sx={{ fontSize: '12px', marginLeft: '8px', color: activeTab === 'home' ? 'primary.main' : 'text.secondary' }}>
                     Home
                 </Typography>
             </Box>
@@ -84,6 +90,7 @@ const Bottommenu = () => {
             {/* Project Icon */}
             <Box sx={{ alignItems: 'center' }} onClick={() => handleTabClick('project')}>
                 <Box
+                
                     sx={{
                         backgroundColor: activeTab === 'project' ? 'rgba(46, 99, 160, 0.2)' : '', // Active when 'project' is selected
                         borderRadius: '40%',
@@ -102,7 +109,7 @@ const Bottommenu = () => {
                         }}
                     />
                 </Box>
-                <Typography onClick={handleProjectd} sx={{ fontSize: '12px', marginLeft: '7px', color: activeTab === 'project' ? 'primary.main' : 'text.secondary' }}>
+                <Typography  sx={{ fontSize: '12px', marginLeft: '7px', color: activeTab === 'project' ? 'primary.main' : 'text.secondary' }}>
                     Project
                 </Typography>
             </Box>

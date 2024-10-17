@@ -70,6 +70,8 @@ import { env, handleAxiosError } from '../utilities/function';
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
 import Feedback from './Feedback';
 import MicrophoneIcon from './MicrophoneIcon';
+import Clikklebrand from '../Assets/clikkleprobrand.png'
+
 
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import StorageIcon from '@mui/icons-material/Storage';
@@ -92,9 +94,10 @@ import upgradeIssue from '../Assets/Group 1019.png';
 
 import UpgradeButton from '../pages/Button/GradientButton'
 
+import StandardFeatures from '../pages/Project/StandardFeatures';
 
 
-import { Dialog, DialogContent, DialogTitle, Card, CardContent,ListItemAvatar,
+import { Dialog, DialogContent, DialogTitle, Card, CardContent,ListItemAvatar, AvatarGroup, DialogActions,
    ListSubheader, } from '@mui/material';
 
 import { Person } from '@mui/icons-material';
@@ -182,11 +185,12 @@ export default function Navbar(props) {
         { order: 2, name: 'Campapaigns', url: 'https://campaigns.clikkle.com/', logo: 'https://cdn.clikkle.com/images/campaigns/logo/2023/campaigns.png' },
         { order: 3, name: 'E sign', url: 'https://esign.clikkle.com/', logo: 'https://cdn.clikkle.com/images/e-sign/logo/2023/e-sign.png' },
         { order: 4, name: 'Files', url: 'https://files.clikkle.com/', logo: 'https://cdn.clikkle.com/images/files/logo/2023/files.png' },
-        { order: 5, name: 'Host', url: 'https://host.clikkle.com/', logo: 'https://cdn.clikkle.com/images/host/logo/2023/host.png' },
-        { order: 6, name: 'Launch', url: 'https://launch.clikkle.com/', logo: 'https://cdn.clikkle.com/images/launch/logo/2023/launch.png' },
-        { order: 7, name: 'Cmail', url: 'https://mail.clikkle.com/', logo: 'https://cdn.clikkle.com/images/cmail/logo/2023/cmail.png' },
-        { order: 8, name: 'Pitch', url: 'https://pitch.clikkle.com/', logo: 'https://cdn.clikkle.com/images/pitch/logo/2023/pitch.png' },
-        { order: 9, name: 'Project', url: 'https://projects.clikkle.com/', logo: 'https://cdn.clikkle.com/images/projects/logo/2023/projects.png' },
+        { order: 5, name: 'hr', url: 'https://hr.clikkle.com/', logo: 'https://cdn.clikkle.com/images/hr/logo/2023/hr.png' },
+        { order: 6, name: 'Host', url: 'https://host.clikkle.com/', logo: 'https://cdn.clikkle.com/images/host/logo/2023/host.png' },
+        { order: 7, name: 'Launch', url: 'https://launch.clikkle.com/', logo: 'https://cdn.clikkle.com/images/launch/logo/2023/launch.png' },
+        { order: 8, name: 'Cmail', url: 'https://mail.clikkle.com/', logo: 'https://cdn.clikkle.com/images/cmail/logo/2023/cmail.png' },
+        { order: 9, name: 'Pitch', url: 'https://pitch.clikkle.com/', logo: 'https://cdn.clikkle.com/images/pitch/logo/2023/pitch.png' },
+        
         // Add more apps as needed
     ]);;
     const [isOrderChanged, setIsOrderChanged] = useState(false);
@@ -822,9 +826,76 @@ const handleOpenset = () => {
                                 justifyContent='flex-end'
                                 spacing={0}>
   {/* Upgrade Button */}
-<Button onClick={handleOpen}>
-      <UpgradeButton/>
+<Button sx={{marginRight:'-27px'}} onClick={handleOpen}>
+      <UpgradeButton />
       </Button>
+
+      <Dialog
+        open={opene}
+        onClose={handleClose}
+        maxWidth="lg"
+        PaperProps={{
+          sx: {
+            width: '1050px',   // Custom width for popup box
+            height: '600px',  // Custom height for popup box
+            borderRadius: '12px', // Rounded corners
+            backgroundColor:'background.default',
+          },
+        }}
+      >
+        <DialogContent
+          sx={{
+            display: 'flex',
+            flexDirection: 'row',
+            p: 0, 
+            backgroundColor: '#1e1e1e',
+          }}
+        >
+          {/* Left section */}
+          <Box sx={{ width: '50%', padding: '24px', color: '#fff' }}>
+            <Image src={Clikklebrand} sx={{height:'38px',marginBottom:'22px',marginTop:'22px'}}/>
+            <Typography variant="h6" sx={{fontFamily:'sans-serif', mb: 2,fontSize:'22px' }}>
+              Upgrade for unlimited users
+            </Typography>
+            <Typography sx={{ mb: 2 ,fontFamily:'sans-serif',fontSize:'14px',color:'gray',width:'400px'}}>
+              With the Standard plan, you get unlimited users, 250GB of storage, free guest access and more.
+            </Typography>
+
+            {/* Users invited section */}
+            <Typography sx={{ mb: 1,fontFamily:'sans-serif',fontSize:'20px'}}>0 of 10 invited</Typography>
+            <Typography sx={{fontFamily:'sans-serif',fontSize:'15px',color:'gray'}}>Upgrade for unlimited users</Typography>
+            <AvatarGroup max={10} sx={{ mb: 2 ,marginRight:'115px',marginTop:'12px', }}>
+              {[...Array(10)].map((_, index) => (
+                <Avatar key={index} sx={{ backgroundColor: '#666' }} />
+              ))}
+            </AvatarGroup>
+
+            {/* Storage usage section */}
+            <Typography sx={{ mb: 1 }}>0 GB of 2 GB</Typography>
+            <Typography sx={{fontFamily:'sans-serif',color:'gray',fontSize:'15px',marginBottom:'12px'}}>Upgrade for 250 GB storage</Typography>
+            <LinearProgress
+              variant="determinate"
+              value={0}
+              sx={{ mb: 3, backgroundColor: '#444', '& .MuiLinearProgress-bar': { backgroundColor: '#fff' } ,height:'7px',borderRadius:'22px'}}
+            />
+
+            {/* Actions */}
+            <DialogActions sx={{  mt: 2,marginTop:'72px' }}>
+              <Button onClick={handleClose} sx={{ color: '#888', backgroundColor: '#45413C', textTransform: 'none', p: '8px 24px' }}>
+                Maybe later
+              </Button>
+              <Button onClick={handleClose} sx={{ backgroundColor: '#3767B1', color: 'black', textTransform: 'none', p: '8px 24px' }}>
+                Upgrade
+              </Button>
+            </DialogActions>
+          </Box>
+
+          {/* Right section */}
+          <Box sx={{ width: '50%', backgroundColor: 'background.default', padding: '24px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+       <StandardFeatures/>
+          </Box>
+        </DialogContent>
+      </Dialog>
       {/* Popup Dialog */}
       <Dialog  sx={{
         marginRight:'-555px',
@@ -838,7 +909,7 @@ const handleOpenset = () => {
      
 
     },
-  }}open={opene} onClose={handleClose} maxWidth="sm" fullWidth>
+  }}open={open} onClose={handleClose} maxWidth="sm" fullWidth>
       {/* Header: Days Left */}
       <DialogTitle sx={{ p: 0 }}>
         <Box
@@ -945,11 +1016,11 @@ const handleOpenset = () => {
         </Box>
       </DialogContent>
     </Dialog>
-   
+   <Box sx={{marginRight:'-26px'}}>
 
 <Animatedbell/>
 
-
+</Box>
 
                                 <IconButton onClick={handleOpenset}>
                                 

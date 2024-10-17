@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{ useState }  from 'react';
 import Teammemon from '../../Assets/team1.png';
 import Demoimg from '../../Assets/demoadimg.png';
 import Teamtwo from '../../Assets/team2.png';
@@ -6,6 +6,10 @@ import Teamthre from '../../Assets/team3.png';
 import Teamfour from '../../Assets/team4.png';
 import Teambackgro from '../../Assets/teambackgr.png';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import Bottommenu from '../BottomMenu/Bottommenu';
+import { Dialog, DialogActions, DialogContent, DialogTitle,  Checkbox, FormControlLabel } from '@mui/material';
+import Teamcreatimage from '../../Assets/Personsimages/pana.png';
+import Image from '../../components/Image';
 
 import Rashid from '../../Assets/RASHID AHMED (1).jpg';
 import Teamfiv from '../../Assets/team.png';
@@ -52,8 +56,29 @@ const Teammembers = () => {
     navigate('/teammember')
   }
 
+  const [open, setOpen] = useState(false);
+
+  const [openee, setOpenee] = useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const handleClickOpenmin = () => {
+    setOpenee(true);
+  };
+
+  const handleClosee = () => {
+    setOpenee(false);
+  };
+
+
   return (
-    <Box sx={{ color: '#fff', height: '70vh', p: 3 }}>
+    <Box sx={{ color: '#fff', height:{xs:'82vh' ,xl:'75vh'}, p: 3,overflow:'scroll' }}>
       {/* Search Bar */}
       <Box sx={{ display: 'flex', alignItems: 'center', mb: 4 }}>
         <TextField
@@ -155,7 +180,7 @@ const Teammembers = () => {
             height: '28px',
             marginLeft: '-7px',
           }}
-          onClick={() => console.log('Add people button clicked')}
+          onClick={handleClickOpenmin} // Opens the dialog
         >
           {person.role}
         </Button>
@@ -166,6 +191,9 @@ const Teammembers = () => {
       )}
     </CardContent>
   </Card>
+
+   {/* Dialog Box for "Add People" */}
+  
 </Grid>
 
           </Grid>
@@ -221,23 +249,106 @@ const Teammembers = () => {
           </Typography>
 
           {/* Create Team Button */}
-          <Button
-            variant="contained"
-            color="primary"
-            sx={{
-              textTransform: 'none',
-              backgroundColor: '#333',
-              borderRadius: '5px',
-              width: '100px',
-              height: '30px',
-              fontSize: '11px',
-              '&:hover': {
-                backgroundColor: 'gray',
-              },
-            }}
-          >
-            Create team
-          </Button>
+       {/* Button to trigger the dialog */}
+       <Button
+        variant="contained"
+        color="primary"
+        onClick={handleClickOpen}
+        sx={{
+          textTransform: 'none',
+          backgroundColor: '#333',
+          borderRadius: '5px',
+          width: '100px',
+          height: '30px',
+          fontSize: '11px',
+          '&:hover': {
+            backgroundColor: 'gray',
+          },
+        }}
+      >
+        Create team
+      </Button>
+
+      {/* Dialog for "Create a Team" */}
+      <Dialog   open={open} onClose={handleClose} maxWidth="md" fullWidth>
+        <DialogContent sx={{backgroundColor: '#1c1c1c'}}>
+        <DialogTitle sx={{ color: '#fff' }}>Create a team</DialogTitle>
+          {/* Grid Layout to split the dialog into two sections */}
+          <Grid container>
+            {/* Left Side (Image Section) */}
+            <Grid item xs={12} sm={5}>
+              <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
+                <img 
+                  src={Teamcreatimage} 
+                  alt="Team illustration" 
+                  style={{ maxWidth: '100%', maxHeight: '100%' }}
+                />
+              </Box>
+            </Grid>
+
+            {/* Right Side (Form Section) */}
+            <Grid item xs={12} sm={7} sx={{ paddingLeft: '20px', color: '#fff', backgroundColor: '#1c1c1c' }}>
+              
+              <DialogContent>
+                <p style={{ fontSize: '14px', marginBottom: '20px' }}>
+                  Unite your team in one place, where you can @mention, filter, and assign tasks with ease.
+                </p>
+
+                {/* Team name input */}
+                <TextField
+                  fullWidth
+                  required
+                  label="Team name"
+                  placeholder="Enter team name"
+                  variant="outlined"
+                  margin="dense"
+                  InputLabelProps={{ style: { color: '#fff' } }}
+                  InputProps={{ style: { backgroundColor: '#222', color: '#fff' } }}
+                  sx={{ marginBottom: '20px' }}
+                />
+
+                {/* Team members input */}
+                <TextField
+                  fullWidth
+                  required
+                  label="Who should be in this team?"
+                  placeholder="Choose people"
+                  variant="outlined"
+                  margin="dense"
+                  InputLabelProps={{ style: { color: '#fff' } }}
+                  InputProps={{ style: { backgroundColor: '#222', color: '#fff' } }}
+                  helperText="You can choose up to 50 people at once."
+                  sx={{ marginBottom: '20px' }}
+                />
+
+                {/* Membership control */}
+                <FormControlLabel
+                  control={<Checkbox />}
+                  label="Anyone can join this team without approval"
+                  sx={{ color: '#fff' }}
+                />
+              </DialogContent>
+
+              <DialogActions>
+                <Button onClick={handleClose} sx={{ color: '#ccc' }}>
+                  Cancel
+                </Button>
+                <Button
+                  variant="contained"
+                  sx={{
+                    backgroundColor: '#3767B1',
+                    '&:hover': {
+                      backgroundColor: '#285693',
+                    },
+                  }}
+                >
+                  Create a team
+                </Button>
+              </DialogActions>
+            </Grid>
+          </Grid>
+        </DialogContent>
+      </Dialog>
         </CardContent>
       </Card>
     </Grid>
@@ -298,7 +409,64 @@ const Teammembers = () => {
         ))}
       </Grid>
 
+      <Dialog  open={openee} onClose={handleClosee} >
+        <DialogContent sx={{ padding: '24px'}}>
+          <DialogTitle sx={{ color: '#fff', padding: 0, marginBottom: '20px' }}>
+            Add people to Clikkle Projects
+          </DialogTitle>
+
+          <Box sx={{ color: '#ccc', marginBottom: '20px' }}>
+            Your admin enables you to request access on behalf of others. Any added individuals will be reviewed before being granted access.
+          </Box>
+
+          {/* Input Field for adding names or emails */}
+          <TextField
+            fullWidth
+            required
+            label="Names or email addresses"
+            placeholder="Enter name or email"
+            variant="outlined"
+            InputLabelProps={{ style: { color: '#fff' } }}
+            InputProps={{ style: { backgroundColor: '#333', color: '#fff' } }}
+            sx={{ marginBottom: '20px' }}
+          />
+
+          <DialogActions sx={{ justifyContent: 'space-between' }}>
+            {/* Cancel Button */}
+            <Button
+             onClick={handleClosee}
+              sx={{
+                color: '#ccc',
+                backgroundColor: '#333',
+                '&:hover': {
+                  backgroundColor: '#444',
+                },
+              }}
+            >
+              Cancel
+            </Button>
+
+            {/* Add Button */}
+            <Button
+              variant="contained"
+              onClick={handleClose}
+              sx={{
+                backgroundColor: '#3767B1',
+                '&:hover': {
+                  backgroundColor: '#285693',
+                },
+              }}
+            >
+              Add
+            </Button>
+          </DialogActions>
+        </DialogContent>
+      </Dialog>
+
       </Box>
+      <Box sx={{display:{xs:'block',lg:'none'}}}>
+<Bottommenu/>
+</Box>
     </Box>
   );
 };
