@@ -35,7 +35,7 @@ const Workheaderele =()=>{
    
     
     return (
-       <Box >
+       <Box  >
             <Grid container alignItems="center">
         <Grid item xs>
           <Typography sx={{ marginLeft: '22px', color: 'gray' }} variant="h5" color="text.primary">
@@ -60,7 +60,7 @@ const Workheaderele =()=>{
 
       {projects.length === 0 ? (
         // If there are no projects, show this content.
-        <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '20vh' }}>
+        <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '20vh'}}>
           <Box>
             <Box>
               <img
@@ -81,7 +81,9 @@ const Workheaderele =()=>{
         </Box>
       ) : (
         // If there are projects, show the Listofprojects component.
+        <Box >
         <Listofprojects />
+        </Box>
       )}
           <Detailsoftheproject/>
 

@@ -95,9 +95,10 @@ import upgradeIssue from '../Assets/Group 1019.png';
 import UpgradeButton from '../pages/Button/GradientButton'
 
 import StandardFeatures from '../pages/Project/StandardFeatures';
+import CloseIcon from '@mui/icons-material/Close';
 
 
-import { Dialog, DialogContent, DialogTitle, Card, CardContent,ListItemAvatar, AvatarGroup, DialogActions,
+import { Dialog, DialogContent, DialogTitle, Tabs, Tab, Card, CardContent,ListItemAvatar, AvatarGroup, DialogActions,
    ListSubheader, } from '@mui/material';
 
 import { Person } from '@mui/icons-material';
@@ -228,6 +229,20 @@ const handleOpenset = () => {
 
   const handleCloseset = () => {
     setOpene(false);
+  };
+
+
+
+
+  const [opening, setNotification] = useState(false);
+  const [tabValue, setTabValue] = useState(0);
+
+  const handleTabChange = (event, newValue) => {
+    setTabValue(newValue);
+  };
+
+  const toggleDialog = () => {
+    setNotification(!opening);
   };
 
 
@@ -395,8 +410,13 @@ const handleOpenset = () => {
         handleClose(); // Close the menu after clicking
     };  
     const handleClose = () => {
-        setAnchorEl(null); // This will close the menu
+        setOpen(false); // This will close the menu
       };
+
+
+      const handleUpgrade = ()=>{
+        navigate('/paymet-gateway')
+      }
 
      
       const organizations = [
@@ -539,7 +559,7 @@ const handleOpenset = () => {
                 </MenuItem>
 
                 {/* New "View Organizations" option */}
-                <Button sx={{ color: 'white' }} href="/listorganization">
+                <Button sx={{ color: 'white' }} href="/listorganisation">
           Organizations
         </Button>
             </Menu>
@@ -884,7 +904,7 @@ const handleOpenset = () => {
               <Button onClick={handleClose} sx={{ color: '#888', backgroundColor: '#45413C', textTransform: 'none', p: '8px 24px' }}>
                 Maybe later
               </Button>
-              <Button onClick={handleClose} sx={{ backgroundColor: '#3767B1', color: 'black', textTransform: 'none', p: '8px 24px' }}>
+              <Button onClick={handleUpgrade} sx={{ backgroundColor: '#3767B1', color: 'black', textTransform: 'none', p: '8px 24px' }}>
                 Upgrade
               </Button>
             </DialogActions>
@@ -1017,8 +1037,91 @@ const handleOpenset = () => {
       </DialogContent>
     </Dialog>
    <Box sx={{marginRight:'-26px',backgroundColor:'background.default'}}>
+    <Button  onClick={toggleDialog}>
 
 <Animatedbell/>
+</Button>
+
+
+<Dialog open={opening} onClose={toggleDialog} fullWidth maxWidth="sm">
+        <Box sx={{ p: 2, backgroundColor: '#1F1F1F', color: '#FFFFFF' }}>
+          <Box display="flex" justifyContent="space-between" alignItems="center">
+            <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
+              Notifications
+            </Typography>
+            <IconButton onClick={toggleDialog} sx={{ color: '#fff' }}>
+              <CloseIcon />
+            </IconButton>
+          </Box>
+
+          {/* Tabs for 'Direct' and 'Watching' */}
+          <Tabs value={tabValue} onChange={handleTabChange} textColor="inherit" indicatorColor="primary">
+            <Tab label="Direct" />
+            <Tab label="Watching" />
+          </Tabs>
+
+          {/* Divider */}
+          <Divider sx={{ backgroundColor: '#333' }} />
+
+          {/* Content for Notification */}
+          <Box sx={{ p: 2 }}>
+            {tabValue === 0 ? (
+              <Box>
+                <Typography variant="body2" sx={{ color: '#999', marginBottom: 2 }}>
+                  TODAY
+                </Typography>
+
+                {/* Example notification entry */}
+                <Box display="flex" alignItems="flex-start" mb={2}>
+                  <Box
+                    component="img"
+                    src="https://via.placeholder.com/40"
+                    alt="Avatar"
+                    sx={{ width: 40, height: 40, borderRadius: '50%', marginRight: 2 }}
+                  />
+                  <Box>
+                    <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
+                      Yogesh Singh updated an issue <span style={{ color: '#999' }}>2 hours ago</span>
+                    </Typography>
+                    <Typography variant="body2">Employee section in Clikkle HR Dashboard</Typography>
+                    <Typography variant="caption" sx={{ color: '#999' }}>
+                      CHR-17 - In Progress
+                    </Typography>
+                  </Box>
+                </Box>
+
+                <Divider sx={{ backgroundColor: '#333' }} />
+              </Box>
+            ) : (
+              <Box>
+                <Typography variant="body2" sx={{ color: '#999', marginBottom: 2 }}>
+                  TODAY
+                </Typography>
+
+                <Box display="flex" alignItems="flex-start" mb={2}>
+                  <Box
+                    component="img"
+                    src="https://via.placeholder.com/40"
+                    alt="Avatar"
+                    sx={{ width: 40, height: 40, borderRadius: '50%', marginRight: 2 }}
+                  />
+                  <Box>
+                    <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
+                      James Bator updated an issue <span style={{ color: '#999' }}>10 hours ago</span>
+                    </Typography>
+                    <Typography variant="body2">Fix UI Flaws</Typography>
+                    <Typography variant="caption" sx={{ color: '#999' }}>
+                      CHR-8 - To Do
+                    </Typography>
+                  </Box>
+                </Box>
+
+                <Divider sx={{ backgroundColor: '#333' }} />
+              </Box>
+            )}
+          </Box>
+        </Box>
+      </Dialog>
 
 </Box>
 
@@ -1050,7 +1153,7 @@ const handleOpenset = () => {
       {/* Personal Settings Section */}
       <ListSubheader
         sx={{
-            color: 'gray',
+          color: 'gray',
           backgroundColor: 'inherit',
           fontSize: '18px',
           fontFamily: 'sans-serif',
@@ -1062,7 +1165,14 @@ const handleOpenset = () => {
       </ListSubheader>
 
       {/* Theme Toggle MenuItem */}
-      <ListItem sx={{ borderRadius: '10px', mb: 2 }} onClick={toggleTheme}>
+      <ListItem
+        sx={{
+          borderRadius: '10px',
+          mb: 2,
+          '&:hover': { backgroundColor: '#2e2e2d' }  // Add hover effect
+        }}
+        onClick={toggleTheme}
+      >
         <ListItemAvatar>
           <Avatar sx={{ backgroundColor: '#3767B1', borderRadius: '7px' }}>
             {mode === 'dark' ? (
@@ -1074,12 +1184,12 @@ const handleOpenset = () => {
         </ListItemAvatar>
         <ListItemText
           primary={
-            <Typography sx={{  color: 'gray', fontFamily: 'sans-serif', fontSize: '18px' }}>
+            <Typography sx={{ color: 'gray', fontFamily: 'sans-serif', fontSize: '18px' }}>
               Appearance
             </Typography>
           }
           secondary={
-            <Typography sx={{  color: 'gray', fontSize: '13px', fontFamily: 'sans-serif', width: '500px' }}>
+            <Typography sx={{ color: 'gray', fontSize: '13px', fontFamily: 'sans-serif', width: '500px' }}>
               Toggle between light and dark themes.
             </Typography>
           }
@@ -1087,7 +1197,13 @@ const handleOpenset = () => {
       </ListItem>
 
       {/* Other Personal Settings Items */}
-      <ListItem sx={{ borderRadius: '10px', mb: 2 }}>
+      <ListItem
+        sx={{
+          borderRadius: '10px',
+          mb: 2,
+          '&:hover': {backgroundColor: '#2e2e2d' }  // Add hover effect
+        }}
+      >
         <ListItemAvatar>
           <Avatar sx={{ backgroundColor: '#3767B1', borderRadius: '7px' }}>
             <Image sx={{ height: '22px' }} src={personprogg} />
@@ -1095,12 +1211,12 @@ const handleOpenset = () => {
         </ListItemAvatar>
         <ListItemText
           primary={
-            <Typography sx={{  color: 'gray', fontFamily: 'sans-serif', fontSize: '18px' }}>
+            <Typography sx={{ color: 'gray', fontFamily: 'sans-serif', fontSize: '18px' }}>
               Personal Projects Settings
             </Typography>
           }
           secondary={
-            <Typography sx={{  color: 'gray', fontSize: '13px', fontFamily: 'sans-serif', width: '500px' }}>
+            <Typography sx={{ color: 'gray', fontSize: '13px', fontFamily: 'sans-serif', width: '500px' }}>
               Manage your email notifications and other projects settings.
             </Typography>
           }
@@ -1110,7 +1226,7 @@ const handleOpenset = () => {
       {/* Projects Settings Section */}
       <ListSubheader
         sx={{
-            color: 'gray',
+          color: 'gray',
           backgroundColor: 'inherit',
           fontSize: '18px',
           paddingBottom: '10px',
@@ -1121,7 +1237,13 @@ const handleOpenset = () => {
         PROJECTS SETTINGS
       </ListSubheader>
 
-      <ListItem sx={{ borderRadius: '10px', mb: 2 }}>
+      <ListItem
+        sx={{
+          borderRadius: '10px',
+          mb: 2,
+          '&:hover': { backgroundColor: '#2e2e2d' }  // Add hover effect
+        }}
+      >
         <ListItemAvatar>
           <Avatar sx={{ backgroundColor: '#3767B1', borderRadius: '7px' }}>
             <Image sx={{ height: '22px' }} src={systemgg} />
@@ -1129,18 +1251,25 @@ const handleOpenset = () => {
         </ListItemAvatar>
         <ListItemText
           primary={
-            <Typography sx={{  color: 'gray', marginTop: '-12px', fontFamily: 'sans-serif', fontSize: '18px' }}>
+            <Typography sx={{ color: 'gray', marginTop: '-12px', fontFamily: 'sans-serif', fontSize: '18px' }}>
               System
             </Typography>
           }
           secondary={
-            <Typography sx={{  color: 'gray', fontFamily: 'sans-serif', fontSize: '13px', width: '600px' }}>
+            <Typography sx={{ color: 'gray', fontFamily: 'sans-serif', fontSize: '13px', width: '600px' }}>
               Manage your general configuration, global permissions, look, feel, and more.
             </Typography>
           }
         />
       </ListItem>
-      <ListItem sx={{ borderRadius: '10px', mb: 2 }}>
+
+      <ListItem
+        sx={{
+          borderRadius: '10px',
+          mb: 2,
+          '&:hover': { backgroundColor: '#2e2e2d' }  // Add hover effect
+        }}
+      >
         <ListItemAvatar>
           <Avatar sx={{ backgroundColor: '#3767B1', borderRadius: '7px' }}>
             <Image sx={{ height: '22px' }} src={foldergg} />
@@ -1149,26 +1278,33 @@ const handleOpenset = () => {
         <ListItemText
           sx={{ marginTop: '-12px' }}
           primary={
-            <Typography sx={{  color: 'gray', fontFamily: 'sans-serif', fontSize: '18px' }}>
+            <Typography sx={{ color: 'gray', fontFamily: 'sans-serif', fontSize: '18px' }}>
               Projects
             </Typography>
           }
           secondary={
-            <Typography sx={{  color: 'gray', fontFamily: 'sans-serif', fontSize: '13px', width: '600px' }}>
+            <Typography sx={{ color: 'gray', fontFamily: 'sans-serif', fontSize: '13px', width: '600px' }}>
               Manage your projects settings, categories, and more.
             </Typography>
           }
         />
       </ListItem>
-      <ListItem sx={{ borderRadius: '10px', mb: 2 }}>
+
+      <ListItem
+        sx={{
+          borderRadius: '10px',
+          mb: 2,
+          '&:hover': { backgroundColor: '#2e2e2d' }  // Add hover effect
+        }}
+      >
         <ListItemAvatar>
           <Avatar sx={{ backgroundColor: '#3767B1', borderRadius: '7px' }}>
-            <Image sx={{  color: 'gray' }} src={trsckingg} />
+            <Image sx={{ color: 'gray' }} src={trsckingg} />
           </Avatar>
         </ListItemAvatar>
         <ListItemText
           primary={
-            <Typography sx={{  color: 'gray', fontFamily: 'sans-serif', fontSize: '18px' }}>
+            <Typography sx={{ color: 'gray', fontFamily: 'sans-serif', fontSize: '18px' }}>
               Issues
             </Typography>
           }
@@ -1193,7 +1329,15 @@ const handleOpenset = () => {
       >
         PROJECTS ADMIN
       </ListSubheader>
-      <ListItem sx={{ borderRadius: '10px', mb: 2 }} onClick={handleusermanagement}>
+
+      <ListItem
+        sx={{
+          borderRadius: '10px',
+          mb: 2,
+          '&:hover': { backgroundColor: '#2e2e2d' }  // Add hover effect
+        }}
+        onClick={handleusermanagement}
+      >
         <ListItemAvatar>
           <Avatar sx={{ backgroundColor: '#3767B1', borderRadius: '7px' }}>
             <Image sx={{ height: '22px' }} src={peoplegg} />

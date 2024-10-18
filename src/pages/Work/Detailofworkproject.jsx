@@ -63,7 +63,7 @@ const Detailofworkproject = () => {
     <Box sx={{ width: '100%', height: '30vh', color: 'white' }}>
       <AppBar position="static" sx={{ borderBottom: '1px solid gray' }}>
         <Tabs
-          sx={{ backgroundColor: 'black' }}
+          sx={{ backgroundColor:'background.default' }}
           value={selectedTab}
           onChange={handleTabChange}
           textColor="primary"

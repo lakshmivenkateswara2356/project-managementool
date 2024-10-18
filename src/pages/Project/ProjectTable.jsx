@@ -145,6 +145,12 @@ const ProjectTable = () => {
     handleActionClose(); // Close the menu
   };
 
+
+
+  const Openspecificproject =() => {
+    navigate("/project-detail")
+  }
+
   // Handle action menu close
   const handleActionClose = () => {
     setAnchorEl(null);
@@ -199,8 +205,8 @@ const ProjectTable = () => {
               <TableCell sx={{ color: '#FFFFFF' }}>#{index + 1}</TableCell>
               <TableCell sx={{ display: 'flex', alignItems: 'center', color: '#FFFFFF', height: '2px' }}>
                 <StarBorderIcon sx={{ color: '#FFFFFF', marginRight: '10px' }} />
-                <img src={project.name.avatar} alt="Project Icon" style={{ width: '22px', height: '22px', marginRight: '10px' }} />
-                {project.name.name}
+             <Typography sx={{fontSize:'13px'}}  onClick={Openspecificproject}>   <img src={project.name.avatar} alt="Project Icon" style={{ width: '22px', height: '22px', marginRight: '10px' }} />
+                {project.name.name}</Typography>
               </TableCell>
               <TableCell sx={{ fontSize: '11px', color: '#FFFFFF' }}>{project.key}</TableCell>
               <TableCell sx={{ display: 'flex', alignItems: 'center', color: '#FFFFFF' }}>

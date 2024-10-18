@@ -10,7 +10,7 @@ const Work=()=>{
 
     return(
         <Header>
-            <Box>
+            <Box >
                 <Workheaderele/>
                 
                 

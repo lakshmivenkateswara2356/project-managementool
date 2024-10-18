@@ -18,7 +18,7 @@ const tasks = {
 
 const TaskList = () => {
   const renderTasks = (taskList, status) => (
-    <Box sx={{ marginBottom: '16px' , }}>
+    <Box sx={{ marginBottom: '16px'  }}>
       <Typography
         variant="h6"
         sx={{ color: 'gray', marginBottom: '8px', fontWeight: 'bold' ,marginLeft:'-155px'}}

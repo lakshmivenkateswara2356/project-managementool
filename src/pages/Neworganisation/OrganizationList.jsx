@@ -17,7 +17,6 @@ const OrganizationList = ({ organizations }) => {
   const confirmDelete = async () => {
     if (confirmName === selectedOrg) {
       console.log('Deleting organization:', selectedOrg);
-      // Perform DELETE request here (add API logic)
       try {
         const response = await fetch(`/api/organizations/${selectedOrg}`, {
           method: 'DELETE',
@@ -26,7 +25,7 @@ const OrganizationList = ({ organizations }) => {
         if (response.ok) {
           console.log('Organization deleted successfully');
           setOpen(false);
-          navigate('/walk-through'); // Navigate to the walkthrough screen after deletion
+          navigate('/walk-through');
         } else {
           alert('Failed to delete the organization. Please try again.');
         }
@@ -41,33 +40,29 @@ const OrganizationList = ({ organizations }) => {
 
   const handleOrgClick = (organizationName) => {
     console.log('Organization selected:', organizationName);
-    // Navigate to the home page when an organization is clicked
-    navigate('/'); // This will redirect to the home page
+    navigate('/'); // Navigate to the home page
   };
 
-  // Redirect to walkthrough if organization list is empty
   useEffect(() => {
     if (organizations.length === 0) {
-      navigate('/walk-through'); // Redirect to the walkthrough screen
+      navigate('/walk-through');
     }
   }, [organizations.length, navigate]);
 
   return (
-    <div
-      style={{
-        textAlign: 'center',
-        color: '#fff',
-        padding: '50px',
-        textAlign: 'left',
-        marginLeft: '-12px',
-        backgroundColor: 'black',
-        height: '100vh',
-      }}
-    >
+    <div style={{
+      textAlign: 'center',
+      color: '#fff',
+      padding: '50px',
+      backgroundColor: 'black',
+      height: '100vh',
+      textAlign: 'left',
+      marginLeft: '-12px',
+    }}>
       <h1 style={{ fontWeight: 'lighter', fontFamily: 'sans-serif', marginBottom: '22px', marginTop: '75px' }}>
         Organization<span style={{ color: 'gray' }}> List</span>
       </h1>
-
+      
       <Typography
         sx={{
           width: '850px',
@@ -110,7 +105,7 @@ const OrganizationList = ({ organizations }) => {
                     textOverflow: 'ellipsis',
                     maxWidth: '150px',
                   }}
-                  onClick={() => handleOrgClick(org.name)} // Navigate to home on click
+                  onClick={() => handleOrgClick(org.name)}
                 >
                   <img
                     src={org.imageUrl}
@@ -181,79 +176,19 @@ const OrganizationList = ({ organizations }) => {
         </Typography>
         <DialogContent sx={{ color: 'gray', marginLeft: '17px' }}>
           <Typography sx={{ fontSize: '13px', width: '300px' }}>
-            Are you sure you want to delete the organization{' '}
-            <span style={{ fontWeight: 'bold', color: 'dodgerblue' }}>{selectedOrg}</span>?
+            Are you sure you want to delete the organization <span style={{ color: 'white' }}>{selectedOrg}</span>?<br />
+            Please type the organization name <span style={{ color: 'red' }}>{selectedOrg}</span> to confirm.
           </Typography>
-          <Typography color="error" sx={{ marginTop: '10px', marginLeft: '17px', marginTop: '34px', marginLeft: '1px', marginBottom: '34px' }}>
-            This action cannot be undone.
-          </Typography>
-
-          <Typography sx={{ fontSize: '13px' }}>Please type the organization name to confirm:</Typography>
           <TextField
-            sx={{
-              '& .MuiOutlinedInput-root': {
-                '& fieldset': {
-                  borderColor: 'gray',
-                },
-                '&:hover fieldset': {
-                  borderColor: 'lightgray',
-                },
-                '&.Mui-focused fieldset': {
-                  borderColor: 'lightgray',
-                },
-              },
-              '& .MuiOutlinedInput-input': {
-                padding: '10px 14px',
-                fontSize: '16px',
-                height: '22px',
-                color: 'white',
-              },
-              '& .MuiInputLabel-root': {
-                color: 'gray',
-                fontSize: '10px',
-              },
-              '& .MuiInputLabel-root.Mui-focused': {
-                color: 'lightgray',
-              },
-              width: '370px',
-            }}
-            autoFocus
-            margin="dense"
-            label="Enter organization name"
-            type="text"
-            fullWidth
-            value={confirmName}
+            sx={{ marginTop: '20px', width: '350px', color: 'white' }}
+            label="Organization Name"
+            variant="outlined"
             onChange={(e) => setConfirmName(e.target.value)}
           />
         </DialogContent>
-        <DialogActions sx={{ justifyContent: 'flex-end', padding: '16px' }}>
-          <Button
-            onClick={() => setOpen(false)}
-            variant="outlined"
-            sx={{
-              marginTop: '-15px', marginRight: '5px',
-              color: 'white',
-              borderColor: 'white',
-              '&:hover': {
-                backgroundColor: 'rgba(255, 255, 255, 0.1)',
-              },
-            }}
-          >
-            Close
-          </Button>
-          <Button
-            onClick={confirmDelete}
-            variant="contained"
-            sx={{
-              marginTop: '-15px', marginRight: '25px',
-              backgroundColor: 'red',
-              '&:hover': {
-                backgroundColor: 'rgba(255, 0, 0, 0.8)',
-              },
-            }}
-          >
-            Delete
-          </Button>
+        <DialogActions>
+          <Button onClick={() => setOpen(false)} sx={{ color: 'gray' }}>Cancel</Button>
+          <Button onClick={confirmDelete} sx={{ color: 'red' }}>Delete</Button>
         </DialogActions>
       </Dialog>
     </div>

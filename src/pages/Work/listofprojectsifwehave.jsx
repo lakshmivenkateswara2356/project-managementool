@@ -61,7 +61,7 @@ const ListOfProjectsIfWeHave = () => {
   ];
 
   return (
-    <Box sx={{ bgcolor: 'black', color: 'white', height: '20vh', p: 4 }}>
+    <Box sx={{ color: 'white', height: '20vh', p: 4 }}>
       <Box display="flex" justifyContent="space-between" alignItems="center">
       
     

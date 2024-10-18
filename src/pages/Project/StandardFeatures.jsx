@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Box, Typography, IconButton } from '@mui/material';
 import Amco from '../../Assets/amico.png';
 import Hand from '../../Assets/pana.png';
@@ -22,7 +22,6 @@ const templates = [
     image: Amco,
     label: 'Priority Support',
   },
-
   {
     id: 4,
     image: '/path-to-image3.png',
@@ -33,14 +32,25 @@ const templates = [
 const StandardFeatures = () => {
   const [currentTemplate, setCurrentTemplate] = useState(0);
 
-  // Handle left arrow click
+  // Auto-switch templates every 2 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTemplate((prev) =>
+        prev === templates.length - 1 ? 0 : prev + 1
+      );
+    }, 2000); // 2 seconds interval
+
+    // Clear interval on component unmount
+    return () => clearInterval(interval);
+  }, []);
+
+  // Handle manual navigation
   const handlePrevious = () => {
     setCurrentTemplate((prev) =>
       prev === 0 ? templates.length - 1 : prev - 1
     );
   };
 
-  // Handle right arrow click
   const handleNext = () => {
     setCurrentTemplate((prev) =>
       prev === templates.length - 1 ? 0 : prev + 1
@@ -54,26 +64,19 @@ const StandardFeatures = () => {
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-  
         padding: '24px',
         borderRadius: '12px',
-        width: '400px', // Customize width
+        width: '400px',
       }}
     >
-      {/* Heading */}
       <Typography
         variant="h6"
-        sx={{ color: '#fff', marginBottom: '56px', textAlign: 'center',fontSize:'15px',marginTop:'-55px', }}
+        sx={{ color: '#fff', marginBottom: '56px', textAlign: 'center', fontSize: '15px', marginTop: '-55px' }}
       >
         Standard includes advanced features like:
       </Typography>
 
-      {/* Image and arrows */}
       <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        {/* Left arrow */}
-      
-
-        {/* Image */}
         <Box
           component="img"
           src={templates[currentTemplate].image}
@@ -82,36 +85,23 @@ const StandardFeatures = () => {
             width: '250px',
             height: '250px',
             marginX: '16px',
-            marginBottom:'22px'
+            marginBottom: '22px',
           }}
         />
-
-        {/* Right arrow */}
-
-        
       </Box>
 
-      
-
-      {/* Label under image */}
       <Typography sx={{ color: '#fff', marginTop: '16px', textAlign: 'center' }}>
         {templates[currentTemplate].label}
       </Typography>
 
-      {/* Dots for navigation */}
-
-      
       <Box sx={{ display: 'flex', justifyContent: 'center', marginTop: '8px' }}>
-      <IconButton
+        <IconButton
           onClick={handlePrevious}
-          sx={{
-            color: '#fff',marginTop:'-9px',
-          }}
+          sx={{ color: '#fff', marginTop: '-9px' }}
         >
-          <ArrowBackIos  sx={{height:'12px'}}/>
+          <ArrowBackIos sx={{ height: '12px' }} />
         </IconButton>
         {templates.map((_, index) => (
-            
           <Box
             key={index}
             onClick={() => setCurrentTemplate(index)}
@@ -125,15 +115,12 @@ const StandardFeatures = () => {
             }}
           />
         ))}
-<IconButton
+        <IconButton
           onClick={handleNext}
-          sx={{
-            color: '#fff',marginTop:'-10px',
-          }}
+          sx={{ color: '#fff', marginTop: '-10px' }}
         >
-         <ArrowForwardIos sx={{height:'12px'}} />
+          <ArrowForwardIos sx={{ height: '12px' }} />
         </IconButton>
-
       </Box>
     </Box>
   );
