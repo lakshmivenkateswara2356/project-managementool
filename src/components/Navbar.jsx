@@ -234,6 +234,9 @@ const handleOpenset = () => {
 
 
 
+
+
+
   const [opening, setNotification] = useState(false);
   const [tabValue, setTabValue] = useState(0);
 
@@ -405,6 +408,7 @@ const handleOpenset = () => {
       setAnchorEl(null);
     };
 
+    
     const handleViewOrganizations = () => {
         navigate('/organizations'); // Navigate to the OrganizationList
         handleClose(); // Close the menu after clicking
@@ -1036,7 +1040,7 @@ const handleOpenset = () => {
         </Box>
       </DialogContent>
     </Dialog>
-   <Box sx={{marginRight:'-26px',backgroundColor:'background.default'}}>
+   <Box container sx={{marginRight:'-26px',backgroundColor:'background.default'}}>
     <Button  onClick={toggleDialog}>
 
 <Animatedbell/>

@@ -166,7 +166,7 @@ const Projectboard =() => {
             {toDoItems.length}
           </div>
         </div>
-        <Box sx={{borderRadius:'9px',backgroundColor:'#171716',height:'85px',marginTop:'-10px',width:'100%'}}>
+        <Box sx={{borderRadius:'9px',height:'85px',marginTop:'-10px',width:'100%'}}>
         <TextField
           fullWidth
           variant="filled"
@@ -196,7 +196,7 @@ const Projectboard =() => {
             onClick={handleCreateToDo}
             disabled={!toDoInput.trim()}
             sx={{
-              backgroundColor: toDoInput.trim() ? '#4D4DFF' : '#191a19',
+              backgroundColor: toDoInput.trim() ? '#4D4DFF' : '',
               color: '#191a19',
               textTransform: 'none',
               marginRight:'8px',

@@ -185,31 +185,31 @@ const ProjectTable = () => {
       </Typography>
 
       <Table sx={{ minWidth: '100%' }}>
-        <TableHead sx={{ backgroundColor: '#171717' }}>
+        <TableHead sx={{  }}>
           <TableRow>
-            <TableCell sx={{ fontSize: '13px', color: '#FFFFFF' }}>S.No</TableCell>
-            <TableCell sx={{ fontSize: '13px', color: '#FFFFFF' }}>Projects</TableCell>
-            <TableCell sx={{ fontSize: '13px', color: '#FFFFFF' }}>Key</TableCell>
-            <TableCell sx={{ fontSize: '13px', color: '#FFFFFF' }}>Project Lead</TableCell>
-            <TableCell sx={{ fontSize: '13px', color: '#FFFFFF' }}>Team</TableCell>
-            <TableCell sx={{ fontSize: '13px', color: '#FFFFFF' }}>Priority</TableCell>
-            <TableCell sx={{ fontSize: '13px', color: '#FFFFFF' }}>Start Date</TableCell>
-            <TableCell sx={{ fontSize: '13px', color: '#FFFFFF' }}>Deadline</TableCell>
-            <TableCell sx={{ fontSize: '13px', color: '#FFFFFF' }}>Work Progress</TableCell>
-            <TableCell sx={{ fontSize: '13px', color: '#FFFFFF' }}>Action</TableCell>
+            <TableCell sx={{ fontSize: '13px',  }}>S.No</TableCell>
+            <TableCell sx={{ fontSize: '13px',  }}>Projects</TableCell>
+            <TableCell sx={{ fontSize: '13px', }}>Key</TableCell>
+            <TableCell sx={{ fontSize: '13px',  }}>Project Lead</TableCell>
+            <TableCell sx={{ fontSize: '13px',  }}>Team</TableCell>
+            <TableCell sx={{ fontSize: '13px',  }}>Priority</TableCell>
+            <TableCell sx={{ fontSize: '13px', }}>Start Date</TableCell>
+            <TableCell sx={{ fontSize: '13px', }}>Deadline</TableCell>
+            <TableCell sx={{ fontSize: '13px',  }}>Work Progress</TableCell>
+            <TableCell sx={{ fontSize: '13px',  }}>Action</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {projects.map((project, index) => (
             <TableRow key={project.id}>
-              <TableCell sx={{ color: '#FFFFFF' }}>#{index + 1}</TableCell>
-              <TableCell sx={{ display: 'flex', alignItems: 'center', color: '#FFFFFF', height: '2px' }}>
-                <StarBorderIcon sx={{ color: '#FFFFFF', marginRight: '10px' }} />
+              <TableCell sx={{  }}>#{index + 1}</TableCell>
+              <TableCell sx={{ display: 'flex', alignItems: 'center',  height: '2px' }}>
+                <StarBorderIcon sx={{  marginRight: '10px' }} />
              <Typography sx={{fontSize:'13px'}}  onClick={Openspecificproject}>   <img src={project.name.avatar} alt="Project Icon" style={{ width: '22px', height: '22px', marginRight: '10px' }} />
                 {project.name.name}</Typography>
               </TableCell>
-              <TableCell sx={{ fontSize: '11px', color: '#FFFFFF' }}>{project.key}</TableCell>
-              <TableCell sx={{ display: 'flex', alignItems: 'center', color: '#FFFFFF' }}>
+              <TableCell sx={{ fontSize: '11px', }}>{project.key}</TableCell>
+              <TableCell sx={{ display: 'flex', alignItems: 'center' }}>
                 <Avatar src={project.lead.avatar} alt={project.lead.name} sx={{ width: '22px', height: '22px', marginRight: '10px' }} />
                 {project.lead.name}
               </TableCell>
@@ -240,10 +240,10 @@ const ProjectTable = () => {
                   {project.priority}
                 </Button>
               </TableCell>
-              <TableCell sx={{ fontSize: '12px', color: '#FFFFFF' }}>{project.startDate}</TableCell>
-              <TableCell sx={{ fontSize: '12px', color: '#FFFFFF' }}>{project.deadline}</TableCell>
+              <TableCell sx={{ fontSize: '12px',  }}>{project.startDate}</TableCell>
+              <TableCell sx={{ fontSize: '12px',  }}>{project.deadline}</TableCell>
               <TableCell sx={{ color: '#FFFFFF', width: '200px' }}>
-                <Typography variant="body2" sx={{ fontSize: '12px', color: '#FFFFFF' }}>{project.progressLabel}</Typography>
+                <Typography variant="body2" sx={{ fontSize: '12px', }}>{project.progressLabel}</Typography>
                 <LinearProgress
                   variant="determinate"
                   value={project.progress}
@@ -257,7 +257,7 @@ const ProjectTable = () => {
                 />
               </TableCell>
               <TableCell>
-                <IconButton onClick={(e) => handleActionClick(e, project.id)} sx={{ color: '#FFFFFF' }}>
+                <IconButton onClick={(e) => handleActionClick(e, project.id)} sx={{  }}>
                   <MoreVertIcon />
                 </IconButton>
                 <Menu

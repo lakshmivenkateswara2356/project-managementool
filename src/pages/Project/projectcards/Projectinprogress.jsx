@@ -113,7 +113,7 @@ const Projectinprogress = () => {
           height: '145px',
           padding: '16px',
           borderRadius: '8px',
-          backgroundColor: '#1C1C1C',
+         
           position: 'relative',
         }}
         onMouseEnter={() => setIsHovered(true)}
