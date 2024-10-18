@@ -1043,7 +1043,7 @@ const handleOpenset = () => {
    <Box container sx={{marginRight:'-26px',backgroundColor:'background.default'}}>
     <Button  onClick={toggleDialog}>
 
-<Animatedbell/>
+<Animatedbell />
 </Button>
 
 
