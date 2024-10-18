@@ -88,11 +88,11 @@ const Teammembers = () => {
             marginTop: '-22px',
             width: '422px',
             height: '40px',
-            backgroundColor: '#1c1c1c',
+           
             borderRadius: '8px',
             input: { 
               padding: '8px 12px',
-              color: '#fff',
+              
               fontSize: '14px',
               borderStyle: 'none',
               height: '18px'
@@ -110,7 +110,7 @@ const Teammembers = () => {
       </Box>
 
       {/* People You Work With */}
-      <Typography variant="h6" sx={{ mb: 2, fontSize: '13px', marginTop: '-22px' }}>
+      <Typography variant="h6" sx={{ mb: 2, fontSize: '13px', marginTop: '-22px',color:'gray', }}>
         People you work with
       </Typography>
       <Grid container spacing={2} sx={{ mb: 4 }}>
@@ -123,10 +123,10 @@ const Teammembers = () => {
       flexDirection: 'column',
       justifyContent: 'center',
       alignItems: 'center',
-      backgroundColor: '#1c1c1c',
+    
       borderRadius: '10px',
       textAlign: 'center',
-      color: '#fff',
+      
       width: '150px',
       height: '170px',
       padding: '16px',
@@ -201,7 +201,7 @@ const Teammembers = () => {
       </Grid>
 
       {/* Your Teams */}
-      <Typography variant="h6" sx={{ mb: 2, fontSize: '13px' }}>
+      <Typography variant="h6" sx={{ mb: 2, fontSize: '13px',color:'gray' }}>
         Your teams
       </Typography>
 <Box sx={{display:'flex',justifyContent:'flex-start',}}>
@@ -213,10 +213,10 @@ const Teammembers = () => {
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          backgroundColor: '#1c1c1c',
+      
           borderRadius: '10px',
           textAlign: 'center',
-          color: '#fff',
+         
           width: '150px',
           height: '177px',
           padding: '16px',
@@ -364,10 +364,10 @@ const Teammembers = () => {
                 flexDirection: 'column',
                 justifyContent: 'center',
                 alignItems: 'center',
-                backgroundColor: '#1c1c1c',
+                
                 borderRadius: '10px',
                 textAlign: 'center',
-                color: '#fff',
+                
                 width: '150px',
                 height: '170px',
                 padding: '16px',
@@ -388,6 +388,7 @@ const Teammembers = () => {
                       fontWeight: 'bold',
                       fontSize: '13px',
                       marginTop: '8px',
+                      
                       fontFamily: 'sans-serif',
                     }}
                   >
@@ -397,7 +398,7 @@ const Teammembers = () => {
                     <Avatar src={team.leadAvatar} sx={{ width: 40, height: 40 }} alt={team.leadName} />
                     <Typography
                       variant="body2"
-                      sx={{ color: '#bbb', fontSize: '10px', fontFamily: 'sans-serif', marginTop: '5px' }}
+                      sx={{ fontSize: '10px', fontFamily: 'sans-serif', marginTop: '5px' }}
                     >
                       {team.leadName}
                     </Typography>

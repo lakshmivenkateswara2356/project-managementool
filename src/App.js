@@ -30,6 +30,8 @@ const App = () => {
     setOrganizations([...organizations, newOrg]);
   };
 
+  
+
   return (
     <Routes>
          <Route path="/walk-through" element={<SliderComponent />} />

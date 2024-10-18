@@ -1016,7 +1016,7 @@ const handleOpenset = () => {
         </Box>
       </DialogContent>
     </Dialog>
-   <Box sx={{marginRight:'-26px'}}>
+   <Box sx={{marginRight:'-26px',backgroundColor:'background.default'}}>
 
 <Animatedbell/>
 
@@ -1029,91 +1029,197 @@ const handleOpenset = () => {
 
 
                                  {/* Dialog for the settings popup */}
-      <Dialog sx={{marginLeft:'655px',}} open={opensetting} onClose={handleClose} fullWidth maxWidth="sm" PaperProps={{
-        style: {  color: '#fff', borderRadius: '10px',height:'91vh',width:"550px" }
-      }}>
-        <DialogTitle sx={{  color: '#fff',marginTop:'22px', }}>Settings</DialogTitle>
-        <DialogContent>
-          <List>
-            {/* Personal Settings Section */}
-            <ListSubheader sx={{ color: '#ccc', backgroundColor: 'inherit',  fontSize: '18px',fontFamily:'sans-serif', paddingBottom: '10px',marginTop:'-33px' }}>
-              PERSONAL SETTINGS
-            </ListSubheader>
-            <ListItem sx={{  borderRadius: '10px', mb: 2 }}>
-              <ListItemAvatar>
-                <Avatar sx={{ backgroundColor: '#3767B1',borderRadius:'7px', }}>
-                  <Image sx={{height:'22px',}} src={personprogg}/>
-                </Avatar>
-              </ListItemAvatar>
-              <ListItemText
-                primary={<Typography sx={{ color: '#fff',fontFamily:'sans-serif',fontSize:'18px', }}>Personal Projects Settings</Typography>}
-                secondary={<Typography sx={{ color: '#bbb',fontSize:'13px',fontFamily:'sans-serif',width:'500px', }}>Manage your email notifications and other projects settings.</Typography>}
-              />
-            </ListItem>
+                                 <Dialog
+  sx={{ marginLeft: '655px' }}
+  open={opensetting}
+  onClose={handleClose}
+  fullWidth
+  maxWidth="sm"
+  PaperProps={{
+    style: {
+      color: '#fff',
+      borderRadius: '10px',
+      height: '91vh',
+      width: "550px"
+    }
+  }}
+>
+  <DialogTitle sx={{ color: 'gray', marginTop: '22px' }}>Settings</DialogTitle>
+  <DialogContent>
+    <List>
+      {/* Personal Settings Section */}
+      <ListSubheader
+        sx={{
+            color: 'gray',
+          backgroundColor: 'inherit',
+          fontSize: '18px',
+          fontFamily: 'sans-serif',
+          paddingBottom: '10px',
+          marginTop: '-33px'
+        }}
+      >
+        PERSONAL SETTINGS
+      </ListSubheader>
 
-            {/* Projects Settings Section */}
-            <ListSubheader sx={{ color: '#ccc', backgroundColor: 'inherit',  fontSize: '18px', paddingBottom: '10px',marginTop:'-13px',fontFamily:'sans-serif' }}>
-              PROJECTS SETTINGS
-            </ListSubheader>
-            <ListItem sx={{  borderRadius: '10px', mb: 2 }}>
-              <ListItemAvatar>
-                <Avatar sx={{  backgroundColor: '#3767B1',borderRadius:'7px',}}>
-                 <Image sx={{height:'22px',}} src={systemgg}/>
-                </Avatar>
-              </ListItemAvatar>
-              <ListItemText
-                primary={<Typography sx={{ color: '#fff', marginTop:'-12px',fontFamily:'sans-serif',fontSize:'18px', }}>System</Typography>}
-                secondary={<Typography sx={{ color: '#bbb',fontFamily:'sans-serif',fontSize:'13px',width:'600px', }}>Manage your general configuration, global permissions, look, feel and more.</Typography>}
-              />
-            </ListItem>
-            <ListItem sx={{ borderRadius: '10px', mb: 2 }}>
-              <ListItemAvatar>
-                <Avatar sx={{ backgroundColor: '#3767B1',borderRadius:'7px', }}>
-                  <Image sx={{height:'22px',}} src={foldergg}/>
-                </Avatar>
-              </ListItemAvatar>
-              <ListItemText sx={{marginTop:'-12px',}}
-                primary={<Typography sx={{ color: '#fff',fontFamily:'sans-serif',fontSize:'18px',  }}>Projects</Typography>}
-                secondary={<Typography sx={{ color: '#bbb',fontFamily:'sans-serif',fontSize:'13px',width:'600px', }}>Manage your projects settings, categories and more.</Typography>}
-              />
-            </ListItem>
-            <ListItem sx={{  borderRadius: '10px', mb: 2 }}>
-              <ListItemAvatar>
-                <Avatar sx={{ backgroundColor: '#3767B1',borderRadius:'7px', }}>
-                  <Image sx={{height:'22px',}} src={trsckingg}/>
-                </Avatar>
-              </ListItemAvatar>
-              <ListItemText
-                primary={<Typography sx={{ color: '#fff',fontFamily:'sans-serif',fontSize:'18px',  }}>Issues</Typography>}
-                secondary={<Typography sx={{ color: '#bbb',fontFamily:'sans-serif',fontSize:'13px',width:'600px', }}>Configure your issue types, workflows, screens, custom fields and more.</Typography>}
-              />
-            </ListItem>
+      {/* Theme Toggle MenuItem */}
+      <ListItem sx={{ borderRadius: '10px', mb: 2 }} onClick={toggleTheme}>
+        <ListItemAvatar>
+          <Avatar sx={{ backgroundColor: '#3767B1', borderRadius: '7px' }}>
+            {mode === 'dark' ? (
+              <LightModeIcon sx={{ height: '22px' }} />
+            ) : (
+              <DarkModeIcon sx={{ height: '22px' }} />
+            )}
+          </Avatar>
+        </ListItemAvatar>
+        <ListItemText
+          primary={
+            <Typography sx={{  color: 'gray', fontFamily: 'sans-serif', fontSize: '18px' }}>
+              Appearance
+            </Typography>
+          }
+          secondary={
+            <Typography sx={{  color: 'gray', fontSize: '13px', fontFamily: 'sans-serif', width: '500px' }}>
+              Toggle between light and dark themes.
+            </Typography>
+          }
+        />
+      </ListItem>
 
-            {/* Projects Admin Section */}
-            <ListSubheader sx={{ color: '#ccc', backgroundColor: 'inherit', fontSize: '18px', paddingBottom: '10px',marginTop:'-13px',fontFamily:'sans-serif' }}>
-              PROJECTS ADMIN
-            </ListSubheader>
-            <ListItem sx={{ borderRadius: '10px', mb: 2 }}>
-              <ListItemAvatar>
-                <Avatar sx={{ backgroundColor: '#3767B1',borderRadius:'7px',}}>
-                 <Image sx={{height:'22px',}} src={peoplegg}/>
-                </Avatar>
-              </ListItemAvatar>
-              <ListItemText
-              onClick={handleusermanagement}
-                primary={<Typography sx={{ color: '#fff',fontFamily:'sans-serif',fontSize:'18px',  }}>User Management</Typography>}
-                secondary={<Typography sx={{ color: '#bbb' ,fontFamily:'sans-serif',fontSize:'13px',width:'600px',}}>Add users, groups, and manage access requests.</Typography>}
-              />
-            </ListItem>
-          </List>
-        </DialogContent>
-      </Dialog>
+      {/* Other Personal Settings Items */}
+      <ListItem sx={{ borderRadius: '10px', mb: 2 }}>
+        <ListItemAvatar>
+          <Avatar sx={{ backgroundColor: '#3767B1', borderRadius: '7px' }}>
+            <Image sx={{ height: '22px' }} src={personprogg} />
+          </Avatar>
+        </ListItemAvatar>
+        <ListItemText
+          primary={
+            <Typography sx={{  color: 'gray', fontFamily: 'sans-serif', fontSize: '18px' }}>
+              Personal Projects Settings
+            </Typography>
+          }
+          secondary={
+            <Typography sx={{  color: 'gray', fontSize: '13px', fontFamily: 'sans-serif', width: '500px' }}>
+              Manage your email notifications and other projects settings.
+            </Typography>
+          }
+        />
+      </ListItem>
 
+      {/* Projects Settings Section */}
+      <ListSubheader
+        sx={{
+            color: 'gray',
+          backgroundColor: 'inherit',
+          fontSize: '18px',
+          paddingBottom: '10px',
+          marginTop: '-13px',
+          fontFamily: 'sans-serif'
+        }}
+      >
+        PROJECTS SETTINGS
+      </ListSubheader>
+
+      <ListItem sx={{ borderRadius: '10px', mb: 2 }}>
+        <ListItemAvatar>
+          <Avatar sx={{ backgroundColor: '#3767B1', borderRadius: '7px' }}>
+            <Image sx={{ height: '22px' }} src={systemgg} />
+          </Avatar>
+        </ListItemAvatar>
+        <ListItemText
+          primary={
+            <Typography sx={{  color: 'gray', marginTop: '-12px', fontFamily: 'sans-serif', fontSize: '18px' }}>
+              System
+            </Typography>
+          }
+          secondary={
+            <Typography sx={{  color: 'gray', fontFamily: 'sans-serif', fontSize: '13px', width: '600px' }}>
+              Manage your general configuration, global permissions, look, feel, and more.
+            </Typography>
+          }
+        />
+      </ListItem>
+      <ListItem sx={{ borderRadius: '10px', mb: 2 }}>
+        <ListItemAvatar>
+          <Avatar sx={{ backgroundColor: '#3767B1', borderRadius: '7px' }}>
+            <Image sx={{ height: '22px' }} src={foldergg} />
+          </Avatar>
+        </ListItemAvatar>
+        <ListItemText
+          sx={{ marginTop: '-12px' }}
+          primary={
+            <Typography sx={{  color: 'gray', fontFamily: 'sans-serif', fontSize: '18px' }}>
+              Projects
+            </Typography>
+          }
+          secondary={
+            <Typography sx={{  color: 'gray', fontFamily: 'sans-serif', fontSize: '13px', width: '600px' }}>
+              Manage your projects settings, categories, and more.
+            </Typography>
+          }
+        />
+      </ListItem>
+      <ListItem sx={{ borderRadius: '10px', mb: 2 }}>
+        <ListItemAvatar>
+          <Avatar sx={{ backgroundColor: '#3767B1', borderRadius: '7px' }}>
+            <Image sx={{  color: 'gray' }} src={trsckingg} />
+          </Avatar>
+        </ListItemAvatar>
+        <ListItemText
+          primary={
+            <Typography sx={{  color: 'gray', fontFamily: 'sans-serif', fontSize: '18px' }}>
+              Issues
+            </Typography>
+          }
+          secondary={
+            <Typography sx={{ color: 'gray', fontFamily: 'sans-serif', fontSize: '13px', width: '600px' }}>
+              Configure your issue types, workflows, screens, custom fields, and more.
+            </Typography>
+          }
+        />
+      </ListItem>
+
+      {/* Projects Admin Section */}
+      <ListSubheader
+        sx={{
+          color: 'gray',
+          backgroundColor: 'inherit',
+          fontSize: '18px',
+          paddingBottom: '10px',
+          marginTop: '-13px',
+          fontFamily: 'sans-serif'
+        }}
+      >
+        PROJECTS ADMIN
+      </ListSubheader>
+      <ListItem sx={{ borderRadius: '10px', mb: 2 }} onClick={handleusermanagement}>
+        <ListItemAvatar>
+          <Avatar sx={{ backgroundColor: '#3767B1', borderRadius: '7px' }}>
+            <Image sx={{ height: '22px' }} src={peoplegg} />
+          </Avatar>
+        </ListItemAvatar>
+        <ListItemText
+          primary={
+            <Typography sx={{ color: 'gray', fontFamily: 'sans-serif', fontSize: '18px' }}>
+              User Management
+            </Typography>
+          }
+          secondary={
+            <Typography sx={{ color: '#bbb', fontFamily: 'sans-serif', fontSize: '13px', width: '600px' }}>
+              Add users, groups, and manage access requests.
+            </Typography>
+          }
+        />
+      </ListItem>
+    </List>
+  </DialogContent>
+</Dialog>
 
 
                                 <Menu
                                     anchorEl={anchorElSettings}
-                                    open={Boolean(anchorElSettings)}
+                                    open={Boolean(anchorElSettings)}  
                                     onClose={closeSettingsMenu}>
                                     <MenuItem onClick={toggleTheme}>
                                         <ListItemIcon>

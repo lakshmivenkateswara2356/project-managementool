@@ -33,7 +33,7 @@ const OrganizationUsers = () => {
   };
 
   return (
-    <Box sx={{ padding: '20px', backgroundColor: '#000', borderRadius: '8px', color: '#fff' }}>
+    <Box container sx={{ padding: '20px', borderRadius: '8px', color: '#fff' }}>
       {/* Header */}
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
 
