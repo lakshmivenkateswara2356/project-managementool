@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTheme } from '@mui/material/styles';
 import Header from '../components/Header';
 import Dashboard from '../pages/Dashboard';
 import InfoIcon from '@mui/icons-material/InfoOutlined';
+import { useLocation, useNavigate } from "react-router-dom";
+
 import Image from '../components/Image';
 import AddIcon from '@mui/icons-material/Add';
 
@@ -13,6 +15,9 @@ import {
 
 
 const Home = () => {
+
+    const location = useLocation();
+    const navigate = useNavigate();
     const [dataAvailable, setDataAvailable] = useState(true); // Simulate whether data exists or not
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
@@ -21,6 +26,17 @@ const Home = () => {
         setDataAvailable(!dataAvailable); // Toggle data availability for testing
     };
 
+
+
+    useEffect(() => {
+        const selectedOrg = location.state?.organization;
+        if (!selectedOrg) {
+          // If no organization is found, redirect back to the organization list
+          navigate("/listorganisation");
+        }
+      }, [location, navigate]);
+    
+      const organization = location.state?.organization;
     return (
         <Header>
             <Box container p={2} marginTop="-8px">

@@ -4,6 +4,8 @@ import { Box, Typography, Button, Dialog, TextField, IconButton } from '@mui/mat
 import Image from '../../components/Image';
 import neworganisationImage from '../../Assets/organisation.png'; // Use your correct image path
 import CloseIcon from '@mui/icons-material/Close';
+import AddIcon from '@mui/icons-material/Add';
+
 
 const Neworganisation = ({ addOrganization }) => {
   const navigate = useNavigate();
@@ -157,73 +159,179 @@ const Neworganisation = ({ addOrganization }) => {
           </Button>
         </Box>
 
-        {/* Popup Dialog */}
-        <Dialog open={isPopupOpen} onClose={() => setIsPopupOpen(false)}>
-          <Box sx={{ padding: '20px', backgroundColor: '#1c1c1c', minWidth: '400px' }}>
-            <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-              <Typography sx={{ color: 'white', fontSize: '20px' }}>Enter Organization Details</Typography>
-              <IconButton onClick={() => setIsPopupOpen(false)}>
-                <CloseIcon sx={{ color: 'white' }} />
-              </IconButton>
-            </Box>
+       {/* Popup Dialog */}
+<Dialog 
+  open={isPopupOpen} 
+  onClose={() => setIsPopupOpen(false)} 
+  PaperProps={{
+    style: {
+      backgroundColor: '#2a2a2a',
+      height:'620px',
+      width:'620px',
+      borderRadius: '10px',
+      padding: '30px',
+      minWidth: '450px',
+      color: 'white',
+    },
+  }}
+>
+  <Box sx={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center', mb: 3 }}>
+    <IconButton onClick={() => setIsPopupOpen(false)}>
+      <CloseIcon sx={{ color: '#b0b0b0' }} />
+    </IconButton>
+  </Box>
 
-            <TextField
-              fullWidth
-              margin="normal"
-              label="Organization Email"
-              variant="outlined"
-              InputLabelProps={{ style: { color: 'gray' } }}
-              inputProps={{ style: { color: 'white' } }}
-              value={organizationEmail}
-              onChange={handleEmailChange}
-              error={!!errors.email}
-              helperText={errors.email}
-            />
 
-            <TextField
-              fullWidth
-              margin="normal"
-              label="Organization Website URL"
-              variant="outlined"
-              InputLabelProps={{ style: { color: 'gray' } }}
-              inputProps={{ style: { color: 'white' } }}
-              value={websiteURL}
-              onChange={handleURLChange}
-              error={!!errors.url}
-              helperText={errors.url}
-            />
+  <Typography sx={{ fontSize: '18px', fontWeight: 500,marginTop:'22px',fontFamily:'sans-serif',fontSize:'20px' }}>Organization Email</Typography>
 
-            <Box sx={{ textAlign: 'center', marginTop: '10px' }}>
-              <Button variant="contained" component="label">
-                Upload Logo
-                <input type="file" hidden onChange={handleFileChange} />
-              </Button>
-            </Box>
 
-            {avatarPreview && (
-              <Box sx={{ textAlign: 'center', marginTop: '10px' }}>
-                <img
-                  src={avatarPreview}
-                  alt="Uploaded Logo"
-                  style={{ width: '100px', height: '100px', borderRadius: '50%' }}
-                />
-              </Box>
-            )}
+  <TextField
+  fullWidth
+  margin="dense"
+  placeholder="Enter Email"
+  variant="outlined"
+  InputLabelProps={{ style: { color: 'gray' } }}
+  inputProps={{
+    style: {
+      color: 'white',
+      height: '40px', // Adjust height here
+      padding: '0 10px', // Adjust padding for better input spacing
+    },
+  }}
+  InputProps={{
+    style: {
+      borderRadius: '5px',
+      borderColor: 'gray', // Custom border color
+    },
+    sx: {
+      '& fieldset': {
+        borderColor: 'gray', // Ensures border color is applied properly
+      },
+      '&:hover fieldset': {
+        borderColor: 'lightgray', // Lighter border on hover
+      },
+      '&.Mui-focused fieldset': {
+        borderColor: 'lightgray', // Custom color when focused
+      },
+    },
+  }}
+  sx={{
+    width: '100%', // Adjust width here
+    maxWidth: '600px', // Optional: Limit max width
+    marginBottom: '10px', // Optional: Add spacing between inputs
+  }}
+  value={organizationEmail}
+  onChange={handleEmailChange}
+  error={!!errors.email}
+  helperText={errors.email}
+/>
 
-            <Button
-              fullWidth
-              onClick={handleCreateOrganisation}
-              sx={{
-                marginTop: '20px',
-                backgroundColor: organizationName && organizationEmail && websiteURL ? '#3767B1' : 'gray',
-                color: 'white',
-              }}
-              disabled={!organizationName || !organizationEmail || !websiteURL}
-            >
-              Create
-            </Button>
-          </Box>
-        </Dialog>
+
+ 
+  <Typography sx={{ fontSize: '18px', fontWeight: 500, mt: 2 ,marginTop:'40px'}}>
+  Organization Website URL
+</Typography>
+<TextField
+  fullWidth
+  margin="dense"
+  placeholder="Enter website url"
+  variant="outlined"
+  InputLabelProps={{ style: { color: 'gray' } }}
+  inputProps={{
+    style: {
+      color: 'white',
+     // Dark background for input
+      height: '40px', // Adjust height here
+      padding: '0 10px', // Adjust padding for better spacing
+      borderRadius: '5px', // Rounded corners
+    },
+  }}
+  InputProps={{
+    sx: {
+      '& fieldset': {
+        borderColor: 'gray', // Default border color
+      },
+      '&:hover fieldset': {
+        borderColor: 'lightgray', // Border color on hover
+      },
+      '&.Mui-focused fieldset': {
+        borderColor: 'lightgray', // Border color on focus
+      },
+    },
+  }}
+  sx={{
+    width: '100%', // Full width
+    maxWidth: '600px', // Optional: Control max width
+    marginBottom: '10px', // Add spacing between inputs
+  }}
+  value={websiteURL}
+  onChange={handleURLChange}
+  error={!!errors.url}
+  helperText={errors.url}
+/>
+
+
+  <Typography sx={{ fontSize: '18px', fontWeight: 500, mt: 2,marginTop:'42px' }}>
+    Organization Logo
+  </Typography>
+  <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mt: 1 }}>
+  <Button
+  variant="outlined"
+  component="label"
+  sx={{
+    marginTop:"22px",
+    width: '45px',  // Reduced width
+    height: '45px',  // Reduced height
+    borderRadius: '50%',
+    borderColor: '#b0b0b0',
+    color: '#b0b0b0',
+    borderWidth: '2px',
+    padding: '0',  // Ensure no extra padding
+    minWidth: '0',  // Override any default minWidth
+    minHeight: '0',  // Override any default minHeight
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    '& .MuiSvgIcon-root': {
+      fontSize: '25px',  // Adjust icon size to fit smaller button
+    },
+  }}
+>
+  <AddIcon sx={{height:"40px"}}/>
+  <input type="file" hidden onChange={handleFileChange} />
+</Button>
+
+
+    {avatarPreview && (
+      <img
+        src={avatarPreview}
+        alt="Uploaded Logo"
+        style={{ width: '50px', height: '50px', borderRadius: '50%' }}
+      />
+    )}
+  </Box>
+<Box sx={{display:'flex',flexDirection:"row",justifyContent:"flex-end"}}>
+  <Button
+    fullWidth
+    onClick={handleCreateOrganisation}
+    sx={{
+      mt: 3,
+      height: '45px',
+      width:'120px',
+      backgroundColor: organizationEmail && websiteURL ? '#3767B1' : '#555555',
+      color: 'white',
+      borderRadius: '8px',
+      textTransform: 'none',
+      
+      fontSize: '16px',
+    }}
+    disabled={!organizationEmail || !websiteURL}
+  >
+    Create
+  </Button>
+  </Box>
+</Dialog>
+
       </Box>
     </Box>
   );

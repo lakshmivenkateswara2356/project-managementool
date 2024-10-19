@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState,lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Neworganisation from './pages/Neworganisation/Neworganisation';
-import Home from './pages/Home';
 import Header from './components/Header';
 import Activity from './pages/IssuesSection/ActiveIssues';
 import SliderComponent from './pages/SliderComponent';
@@ -20,6 +19,14 @@ import Projects from './pages/Projects';
 import Usermanagment from './pages/Usermanagment/OrganizationUsers';
 import Subscription from './pages/Subscriptionpage/Subscription';
 import OrganizationList from './pages/Neworganisation/OrganizationList';
+
+
+const Home = lazy(() => import("./pages/Home"));
+
+
+
+
+
 
 const App = () => {
   // State to store the list of organizations

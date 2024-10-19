@@ -130,7 +130,17 @@ const Subscription= () => {
       }}
     >
       {/* Left Section */}
-      <Box sx={{ width: '60%', color: '#fff',height:'100vh',overflow:'scroll', }}>
+      <Box  sx={{
+    width: '60%',
+    color: '#fff',
+    height: '100vh',
+    overflow: 'scroll',
+    '&::-webkit-scrollbar': {
+      display: 'none', // Hides scrollbar for Webkit browsers (Chrome, Safari)
+    },
+    '-ms-overflow-style': 'none', // Hides scrollbar for Internet Explorer and Edge
+    'scrollbar-width': 'none', // Hides scrollbar for Firefox
+  }}>
   {/* Secure Checkout Title */}
   <Typography variant="h5" gutterBottom sx={{  mb: 2,fontSize:'16px',fontFamily:'sans-serif',color:'gray', }}>
      Secure Checkout
@@ -275,6 +285,7 @@ const Subscription= () => {
   label=""
   variant="outlined"
   sx={{
+    width:'100px',
      // Add a visible background color
     borderRadius: '8px', // Optional: Adds some rounding to match design aesthetics
     '& .MuiInputBase-input': { 

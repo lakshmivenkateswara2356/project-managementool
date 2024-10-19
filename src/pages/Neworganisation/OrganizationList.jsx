@@ -1,7 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, startTransition } from 'react';
 import { useNavigate } from 'react-router-dom';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { Dialog, DialogTitle, DialogContent, DialogActions, Button, TextField, Typography } from '@mui/material';
+import { 
+  Dialog, DialogTitle, DialogContent, DialogActions, 
+  Button, TextField, Typography, Table, TableBody, 
+  TableCell, TableContainer, TableHead, TableRow, Paper 
+} from '@mui/material';
 
 const OrganizationList = ({ organizations }) => {
   const [open, setOpen] = useState(false);
@@ -15,17 +19,18 @@ const OrganizationList = ({ organizations }) => {
   };
 
   const confirmDelete = async () => {
+    
+
     if (confirmName === selectedOrg) {
-      console.log('Deleting organization:', selectedOrg);
       try {
         const response = await fetch(`/api/organizations/${selectedOrg}`, {
           method: 'DELETE',
         });
-        
+
         if (response.ok) {
           console.log('Organization deleted successfully');
           setOpen(false);
-          navigate('/walk-through');
+          startTransition(() => navigate('/walk-through'));
         } else {
           alert('Failed to delete the organization. Please try again.');
         }
@@ -38,9 +43,13 @@ const OrganizationList = ({ organizations }) => {
     }
   };
 
-  const handleOrgClick = (organizationName) => {
-    console.log('Organization selected:', organizationName);
-    navigate('/'); // Navigate to the home page
+
+  const [page, setPage] = useState(0);
+
+
+  const handleOrganizationClick = (organization) => {
+    localStorage.setItem("org", JSON.stringify(organization));
+    startTransition(() => navigate("/", { state: { organization } }));
   };
 
   useEffect(() => {
@@ -51,95 +60,68 @@ const OrganizationList = ({ organizations }) => {
 
   return (
     <div style={{
-      textAlign: 'center',
-      color: '#fff',
-      padding: '50px',
-      backgroundColor: 'black',
-      height: '100vh',
-      textAlign: 'left',
-      marginLeft: '-12px',
+      textAlign: 'left', color: '#fff', padding: '50px', backgroundColor: 'black',
+      height: '100vh', marginLeft: '-12px',
     }}>
       <h1 style={{ fontWeight: 'lighter', fontFamily: 'sans-serif', marginBottom: '22px', marginTop: '75px' }}>
         Organization<span style={{ color: 'gray' }}> List</span>
       </h1>
-      
-      <Typography
-        sx={{
-          width: '850px',
-          color: 'gray',
-          fontFamily: 'sans-serif',
-          fontSize: '18px',
-          '@media(max-width:600px)': { width: '350px', fontSize: '18px' },
-        }}
-      >
+
+      <Typography sx={{ 
+        width: '850px', color: 'gray', fontFamily: 'sans-serif', fontSize: '18px',
+        '@media(max-width:600px)': { width: '350px', fontSize: '18px' },
+      }}>
         Project organization refers to the style of coordination, communication, and management a team uses throughout a project’s lifecycle.
       </Typography>
 
-      <h2 style={{ marginTop: '43px', fontSize: '18px', color: 'gray', fontFamily: 'sans-serif', marginBottom: '33px', fontWeight: 'lighter' }}>
+      <h2 style={{ marginTop: '43px', fontSize: '18px', color: 'gray', marginBottom: '33px', fontWeight: 'lighter' }}>
         Total Organization
       </h2>
 
-      <h1 style={{ fontSize: '46px', fontWeight: 'lighter', color: 'gray', fontFamily: 'sans-serif' }}>
+      <h1 style={{ fontSize: '46px', fontWeight: 'lighter', color: 'gray' }}>
         {organizations.length}
       </h1>
 
-      <div style={{ overflowX: 'auto', width: '100%', margin: '20px auto' }}>
-        <table style={{ width: '100%', color: '#fff', borderCollapse: 'collapse' }}>
-          <thead>
-            <tr style={{ borderBottom: '1px solid #ccc' }}>
-              <th style={{ padding: '10px', fontFamily: 'sans-serif' }}>Organizations</th>
-              <th style={{ padding: '10px', fontFamily: 'sans-serif' }}>Status</th>
-              <th style={{ padding: '10px', fontFamily: 'sans-serif' }}>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {organizations.map((org, index) => (
-              <tr key={index} style={{ borderBottom: '1px solid black', fontFamily: 'sans-serif' }}>
-                <td
-                  style={{
-                    padding: '10px',
-                    textAlign: 'left',
-                    cursor: 'pointer',
-                    whiteSpace: 'nowrap',
-                    overflow: 'hidden',
-                    textOverflow: 'ellipsis',
-                    maxWidth: '150px',
-                  }}
-                  onClick={() => handleOrgClick(org.name)}
-                >
-                  <img
-                    src={org.imageUrl}
-                    alt={`${org.name} logo`}
-                    style={{
-                      width: '30px',
-                      height: '30px',
-                      marginBottom: '-11px',
-                      marginRight: '10px',
-                      backgroundColor: 'white',
-                      borderRadius: '22px',
-                      paddingTop: '1px',
-                    }}
-                  />
-                  <span>{org.name}</span>
-                </td>
-
-                <td style={{ padding: '10px' }}>
-                  <button
+      <TableContainer component={Paper} sx={{ marginTop: '20px', maxWidth: '100%' ,backgroundColor:'black'}}>
+        <Table>
+          <TableHead>
+            <TableRow>
+              <TableCell sx={{ color: 'white', fontWeight: 'bold' }}>Organization</TableCell>
+              <TableCell sx={{ color: 'white', fontWeight: 'bold' }}>Status</TableCell>
+              <TableCell sx={{ color: 'white', fontWeight: 'bold' }}>Action</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {organizations.map((org) => (
+              <TableRow key={org._id} onClick={() => handleOrganizationClick(org)} sx={{ cursor: 'pointer' }}>
+                <TableCell>
+                  <div style={{ display: 'flex', alignItems: 'center' }}>
+                    <img 
+                      src={org.imageUrl}
+                      alt={org.name} 
+                      style={{ width: '50px', height: '50px', borderRadius: '50%', marginRight: '15px' }} 
+                    />
+                    <Typography sx={{ color: 'white' }}>{org.name}</Typography>
+                  </div>
+                </TableCell>
+                <TableCell>
+                  <span 
                     style={{
                       backgroundColor: org.status === 'Active' ? 'rgba(0, 100, 0, 0.2)' : 'rgba(139, 0, 0, 0.2)',
                       color: org.status === 'Active' ? 'green' : 'red',
-                      border: 'none',
                       padding: '5px 10px',
                       borderRadius: '5px',
                     }}
                   >
                     {org.status}
-                  </button>
-                </td>
-
-                <td style={{ padding: '10px' }}>
+                  </span>
+                </TableCell>
+                <TableCell>
                   <button
-                    onClick={() => handleDelete(org.name)}
+                    onClick={(e) => {
+                      e.stopPropagation(); // Prevent table row click
+                      handleDelete(org.name);
+                    }}
                     style={{
                       backgroundColor: 'transparent',
                       border: 'none',
@@ -149,48 +131,133 @@ const OrganizationList = ({ organizations }) => {
                   >
                     <DeleteIcon sx={{ color: 'red' }} />
                   </button>
-                </td>
-              </tr>
+                </TableCell>
+              </TableRow>
             ))}
-          </tbody>
-        </table>
-      </div>
+          </TableBody>
+        </Table>
+      </TableContainer>
 
-      {/* Delete Confirmation Dialog */}
+
+
+      
       <Dialog
-        open={open}
-        onClose={() => setOpen(false)}
-        sx={{
-          '& .MuiDialog-paper': {
-            backgroundColor: '#171717',
-            borderRadius: '5px',
-            width: '520px',
-            height: '400px',
-            maxWidth: '80%',
-            maxHeight: '90vh',
+  open={open}
+  onClose={() => setOpen(false)}
+  sx={{
+    '& .MuiDialog-paper': {
+      backgroundColor: '#171717',
+      borderRadius: '8px',
+      width: '400px',
+      padding: '24px',
+      maxWidth: '90%',
+      maxHeight: '85vh',
+    },
+  }}
+>
+  <Typography
+    sx={{
+      color: 'white',
+      fontSize: '20px',
+      fontWeight: 600,
+      marginBottom: '16px',
+    }}
+  >
+    Delete <span style={{ color: '#42a5f5' }}>{selectedOrg}</span>
+  </Typography>
+
+  <DialogContent sx={{ padding: '0px' }}>
+    <Typography
+      sx={{
+        color: 'gray',
+        fontSize: '14px',
+        marginBottom: '8px',
+      }}
+    >
+      Are you sure you want to delete the organization{' '}
+      <span style={{ color: '#42a5f5' }}>{selectedOrg}</span>?
+    </Typography>
+
+    <Typography
+      sx={{
+        color: 'red',
+        fontSize: '13px',
+        marginBottom: '16px',
+        fontWeight: 500,
+      }}
+    >
+      This action cannot be undone.
+    </Typography>
+
+    <Typography sx={{ fontSize: '14px', marginBottom: '8px', color: 'gray' }}>
+      Please type the organization name to confirm:
+    </Typography>
+
+    <TextField
+      fullWidth
+      variant="outlined"
+      placeholder="Enter organization name"
+      onChange={(e) => setConfirmName(e.target.value)}
+      sx={{
+        marginBottom: '24px',
+        backgroundColor: '#1c1c1c',
+        borderRadius: '4px',
+        '& .MuiOutlinedInput-root': {
+          '& fieldset': {
+            borderColor: 'gray',
           },
-        }}
-      >
-        <Typography sx={{ color: 'white', marginTop: '33px', marginLeft: '37px', fontSize: '22px' }}>
-          Delete {selectedOrg}
-        </Typography>
-        <DialogContent sx={{ color: 'gray', marginLeft: '17px' }}>
-          <Typography sx={{ fontSize: '13px', width: '300px' }}>
-            Are you sure you want to delete the organization <span style={{ color: 'white' }}>{selectedOrg}</span>?<br />
-            Please type the organization name <span style={{ color: 'red' }}>{selectedOrg}</span> to confirm.
-          </Typography>
-          <TextField
-            sx={{ marginTop: '20px', width: '350px', color: 'white' }}
-            label="Organization Name"
-            variant="outlined"
-            onChange={(e) => setConfirmName(e.target.value)}
-          />
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={() => setOpen(false)} sx={{ color: 'gray' }}>Cancel</Button>
-          <Button onClick={confirmDelete} sx={{ color: 'red' }}>Delete</Button>
-        </DialogActions>
-      </Dialog>
+          '&:hover fieldset': {
+            borderColor: 'white',
+          },
+          '&.Mui-focused fieldset': {
+            borderColor: '#42a5f5',
+          },
+        },
+        input: { color: 'white' },
+      }}
+    />
+  </DialogContent>
+
+  <DialogActions
+    sx={{
+      justifyContent: 'flex-end',
+      padding: '0px 8px',
+    }}
+  >
+    <Button
+      onClick={() => setOpen(false)}
+      sx={{
+        color: 'white',
+        borderStyle:'solid',
+        borderWidth:'1px',
+        borderColor:'gray',
+        textTransform: 'none',
+        fontWeight: 500,
+
+      }}
+    >
+      Close
+    </Button>
+
+    <Button
+      onClick={confirmDelete}
+      sx={{
+        color: 'white',
+        backgroundColor: '#42a5f5',
+        textTransform: 'none',
+        fontWeight: 500,
+        '&:hover': {
+          backgroundColor: '#d32f2f',
+        },
+      }}
+    >
+      Delete
+    </Button>
+  </DialogActions>
+</Dialog>
+
+
+      
     </div>
   );
 };
