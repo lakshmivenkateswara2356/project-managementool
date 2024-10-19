@@ -32,7 +32,7 @@ const AnimatedBell = () => {
         onClick={handleClick}
         sx={{
           animation: animate ? `${swing} 1s ease-in-out` : 'none',
-          color: 'white',
+          
           fontSize: '25px',
         }}
       >

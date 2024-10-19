@@ -221,7 +221,6 @@ export default function Navbar(props) {
     const [opene, setOpen] = useState(false); // 
     const [opensetting, setOpene] = useState(false); 
 
-const handleOpen = () => setOpen(true);
 
 const handleOpenset = () => {
     setOpene(true);
@@ -365,6 +364,17 @@ const handleOpenset = () => {
         }
     };
 
+
+  
+    useEffect(() => {
+      const selectedOrg = location.state?.organization;
+      if (!selectedOrg) {
+        // If no organization is found, redirect back to the organization list
+        navigate("/listorganisation");
+      }
+    }, [location, navigate]);
+  
+    const organization = location.state?.organization;
     
 
     const signOut = () => {
@@ -434,6 +444,29 @@ const handleOpenset = () => {
      const [selectedOrganization, setSelectedOrganization] = useState(organizations[0].name);
      const [selectedOrgLogo, setSelectedOrgLogo] = useState(organizations[0].logo);
     
+
+     const [userCount, setUserCount] = React.useState(0); // Track the user count
+const [openFirstDialog, setOpenFirstDialog] = React.useState(false); // First dialog state
+const [openSecondDialog, setOpenSecondDialog] = React.useState(false); // Second dialog state
+
+const handleOpen = () => {
+  if (userCount < 10) {
+    setOpenFirstDialog(true); // Open the first dialog if users < 10
+  } else {
+    setOpenSecondDialog(true); // Open the second dialog if users >= 10
+  }
+};
+
+const handleCloseFirstDialog = () => {
+  setOpenFirstDialog(false);
+};
+
+const handleCloseSecondDialog = () => {
+  setOpenSecondDialog(false);
+};
+
+
+
     
 
      
@@ -510,14 +543,19 @@ const handleOpenset = () => {
             {/* Avatar */}
             <Avatar 
                 alt={selectedOrganization} 
-                src={selectedOrgLogo} // Dynamically set the logo based on selected organization
+                src={organization.imageUrl}  // Dynamically set the logo based on selected organization
                 sx={{ backgroundColor: 'white', height: '32px', width: '32px', marginRight: '12px', marginLeft: '14px' }} 
             />
 
             {/* Company Name */}
             <Typography sx={{ fontSize: '14px', fontWeight: 500 }}>
-                {selectedOrganization} {/* Display the selected organization here */}
+            {organization?.name} {/* Display the selected organization here */}
             </Typography>
+            <div>
+      <h1></h1>
+      <p>{organization?._id}</p>
+      {/* Render additional organization-specific content here */}
+    </div>
 
             {/* Dropdown Icon */}
             <IconButton
@@ -548,6 +586,7 @@ const handleOpenset = () => {
                         sx={{ fontSize: '14px', padding: '10px' }}
                     >
                         {org.name}
+                       
                     </MenuItem>
                 ))}
 
@@ -849,25 +888,29 @@ const handleOpenset = () => {
                                 alignItems='center'
                                 justifyContent='flex-end'
                                 spacing={0}>
-  {/* Upgrade Button */}
-<Button sx={{marginRight:'-27px'}} onClick={handleOpen}>
-      <UpgradeButton />
-      </Button>
+ {/* Upgrade Button */}
+<Button 
+  sx={{ marginRight: '-27px' }} 
+  onClick={handleOpen}
+>
+  {userCount < 10 ? <UpgradeButton/> : 'Limited Users Reached'}
+</Button>
 
-      <Dialog
-        open={opene}
-        onClose={handleClose}
-        maxWidth="lg"
-        PaperProps={{
-          sx: {
-            width: '1050px',   // Custom width for popup box
-            height: '600px',  // Custom height for popup box
-            borderRadius: '12px', // Rounded corners
-            backgroundColor:'background.default',
-          },
-        }}
-      >
-        <DialogContent
+{/* First Dialog (For Users < 10) */}
+<Dialog
+  open={openFirstDialog}
+  onClose={handleCloseFirstDialog}
+  maxWidth="lg"
+  PaperProps={{
+    sx: {
+      width: '1050px',
+      height: '600px',
+      borderRadius: '12px',
+      backgroundColor: 'background.default',
+    },
+  }}
+>
+<DialogContent
           sx={{
             display: 'flex',
             flexDirection: 'row',
@@ -919,23 +962,26 @@ const handleOpenset = () => {
        <StandardFeatures/>
           </Box>
         </DialogContent>
-      </Dialog>
-      {/* Popup Dialog */}
-      <Dialog  sx={{
-        marginRight:'-555px',
-    '& .MuiDialog-paper': {
-      width: '420px',  // Custom width
-      maxWidth: '90%',  // Responsive behavior for smaller screens
-      height: '540px',  // Custom height
-      maxHeight: '90vh', // Ensures it doesn't overflow the screen
-        // Add padding for internal spacing
-      borderRadius: '3px', // Optional: Rounded corners
-     
 
+</Dialog>
+
+{/* Second Dialog (For Users >= 10) */}
+<Dialog
+  open={openSecondDialog}
+  onClose={handleCloseSecondDialog}
+  maxWidth="sm"
+  fullWidth
+  sx={{
+    '& .MuiDialog-paper': {
+      width: '420px',
+      maxWidth: '90%',
+      height: '540px',
+      maxHeight: '90vh',
+      borderRadius: '3px',
     },
-  }}open={open} onClose={handleClose} maxWidth="sm" fullWidth>
-      {/* Header: Days Left */}
-      <DialogTitle sx={{ p: 0 }}>
+  }}
+>
+<DialogTitle sx={{ p: 0 }}>
         <Box
           sx={{
             display: 'flex',
@@ -1039,8 +1085,10 @@ const handleOpenset = () => {
 
         </Box>
       </DialogContent>
-    </Dialog>
-   <Box container sx={{marginRight:'-26px',backgroundColor:'background.default'}}>
+
+</Dialog>
+
+   <Box container sx={{marginRight:'-26px'}}>
     <Button  onClick={toggleDialog}>
 
 <Animatedbell />

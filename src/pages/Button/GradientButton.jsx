@@ -5,7 +5,7 @@ import './button.css'; // Import the updated CSS
 const GradientButton = ({ handleOpen }) => {
   return (
     <div className="button-container">
-      <Button
+      <Button container
         onClick={handleOpen}
         variant="outlined"
         sx={{
