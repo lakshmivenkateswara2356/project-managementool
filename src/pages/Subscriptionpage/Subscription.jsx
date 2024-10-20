@@ -17,7 +17,7 @@ import Billingadress from '../../pages/Subscriptionpage/BillingAddress';
 import creditthree from '../../Assets/american-express.png';
 import Yogesh from '../../Assets/YOGESH SINGH.jpg';
 import democreditcard from '../../Assets/fxemoji_creditcard.png';
-import brandicon from '../../Assets/Group 604.png';
+import brandicon from '../../Assets/clikkleproj.png';
 import AddIcon from '@mui/icons-material/Add';
 
 
@@ -64,8 +64,8 @@ const Subscription= () => {
         minHeight: '100vh',
         display: 'flex',
         flexDirection: 'column',
-        bgcolor: '#121212',
-        color: '#fff',
+        
+      
       }}
     >
       {/* Header Section */}
@@ -97,7 +97,7 @@ const Subscription= () => {
           Clikkle Technologies
         </Typography>
       </Box>
-      <Box sx={{ display: 'flex', alignItems: 'center' }}>
+      <Box sx={{ display: 'flex', alignItems: 'center',color:'white' }}>
         <Typography variant="body1" sx={{ mr: 1 }}>
           Need help?
         </Typography>
@@ -125,14 +125,14 @@ const Subscription= () => {
         justifyContent: 'space-between',
         p: 4,
         minHeight: '100vh',
-        bgcolor: '#000', // Set background color to black to match design
-        color: '#fff', // White text for contrast
+         // Set background color to black to match design
+         // White text for contrast
       }}
     >
       {/* Left Section */}
-      <Box  sx={{
+      <Box container  sx={{
     width: '60%',
-    color: '#fff',
+  
     height: '100vh',
     overflow: 'scroll',
     '&::-webkit-scrollbar': {
@@ -196,11 +196,11 @@ const Subscription= () => {
     marginRight: '12px',
     mb: 2,
     color: 'gray',
-    '& .MuiInputBase-input': { color: '#fff' }, // Input text color
+    '& .MuiInputBase-input': {  }, // Input text color
     '& .MuiOutlinedInput-notchedOutline': {
-      borderColor: 'rgba(255, 255, 255, 0.6)', // Border color
+      borderColor: 'gray', // Border color
     },
-    '& .MuiInputLabel-root': { color: 'rgba(255, 255, 255, 0.8)' }, // Label color
+    '& .MuiInputLabel-root': { color: 'gray' }, // Label color
     '& .MuiInputLabel-root.Mui-focused': { color: '#fff' }, // Label color when focused
   }}
   inputProps={{ maxLength: 19 }}
@@ -229,9 +229,9 @@ const Subscription= () => {
       sx={{
         width: '200px',
        
-        '& .MuiInputBase-input': { color: '#fff' },
+        '& .MuiInputBase-input': { color: 'gray' },
         '& .MuiOutlinedInput-notchedOutline': {
-          borderColor: 'rgba(255, 255, 255, 0.6)',
+          borderColor: 'gray',
         },
       }}
       inputProps={{ maxLength: 5 }}
@@ -256,9 +256,9 @@ const Subscription= () => {
       sx={{
         width: '200px',
        
-        '& .MuiInputBase-input': { color: '#fff' },
+        '& .MuiInputBase-input': { color: 'gray' },
         '& .MuiOutlinedInput-notchedOutline': {
-          borderColor: 'rgba(255, 255, 255, 0.6)',
+          borderColor: 'gray',
         },
       }}
       inputProps={{ maxLength: 3 }}
@@ -285,28 +285,28 @@ const Subscription= () => {
   label=""
   variant="outlined"
   sx={{
-    width:'100px',
+    width:'97%',
      // Add a visible background color
     borderRadius: '8px', // Optional: Adds some rounding to match design aesthetics
     '& .MuiInputBase-input': { 
-      color: '#fff', 
+      color: 'gray', 
       padding: '12px', // Optional: Adjusts padding for a cleaner look
     },
     '& .MuiOutlinedInput-notchedOutline': {
-      borderColor: 'rgba(255, 255, 255, 0.6)',
+      borderColor: 'gray',
     },
     '&:hover .MuiOutlinedInput-notchedOutline': {
-      borderColor: '#fff', // Optional: Highlight border on hover
+      borderColor: 'gray', // Optional: Highlight border on hover
     },
     '& .MuiInputLabel-root': {
-      color: 'rgba(255, 255, 255, 0.7)', // Label color
+      color: 'gray', // Label color
     },
   }}
 />
 
   </Box>
 
-  <Box sx={{ maxWidth: '600px', marginLeft: '-30px', padding: 4, color: '#fff' }}>
+  <Box sx={{ maxWidth: '600px', marginLeft: '-30px', padding: 4 }}>
       <Typography variant="h5" sx={{ mb: 2, fontWeight: 'bold' ,textAlign:'left',}}>
         Billing Address
       </Typography>
@@ -327,24 +327,24 @@ const Subscription= () => {
     marginLeft:'10px',
     mb: 2,
     '& .MuiInputBase-root': { 
-      color: '#fff', // Input text color
+      color: 'gray', // Input text color
     },
     '& .MuiOutlinedInput-root': {
       '& fieldset': {
-        borderColor: 'rgba(255, 255, 255, 0.6)', // Default border color
+        borderColor: 'gray', // Default border color
       },
       '&:hover fieldset': {
-        borderColor: 'rgba(255, 255, 255, 0.9)', // Border color on hover
+        borderColor: 'gray', // Border color on hover
       },
       '&.Mui-focused fieldset': {
-        borderColor: 'linear-gradient(90deg, #3767B1, #6A0B61)', // Gradient on focus
+        borderColor: 'gray', // Gradient on focus
       },
     },
     '& .MuiInputLabel-root': {
-      color: 'rgba(255, 255, 255, 0.7)', // Default label color
+      color: 'gray', // Default label color
     },
     '& .MuiInputLabel-root.Mui-focused': {
-      color: '#fff', // Label color on focus
+      color: 'gray', // Label color on focus
     },
   }}
 />
@@ -360,20 +360,20 @@ const Subscription= () => {
     marginLeft:'10px',
     mb: 2, 
     '& .MuiInputLabel-root': {
-      color: 'rgba(255, 255, 255, 0.7)', // Label color (default)
+      color: 'gray', // Label color (default)
     },
     '& .MuiInputLabel-root.Mui-focused': {
-      color: '#fff', // Label color on focus
+      color: 'gray', // Label color on focus
     },
     '& .MuiOutlinedInput-root': {
       '& fieldset': {
-        borderColor: 'rgba(255, 255, 255, 0.6)', // Default border color
+        borderColor: 'gray', // Default border color
       },
       '&:hover fieldset': {
-        borderColor: 'rgba(255, 255, 255, 0.9)', // Hover border color
+        borderColor: 'gray', // Hover border color
       },
       '&.Mui-focused fieldset': {
-        borderImageSource: 'linear-gradient(90deg, #3767B1, #6A0B61)', // Gradient on focus
+        borderImageSource: 'gray', // Gradient on focus
         borderImageSlice: 1,
       },
     },
@@ -385,7 +385,7 @@ const Subscription= () => {
     value={formData.country}
     onChange={handleChange}
     sx={{ 
-      color: '#fff', // Selected value color
+      color: 'gray', // Selected value color
     }}
   >
     <MenuItem value="India">India</MenuItem>
@@ -411,21 +411,21 @@ const Subscription= () => {
       color: 'rgba(255, 255, 255, 0.7)', // Default label color
     },
     '& .MuiInputLabel-root.Mui-focused': {
-      color: '#fff', // Focused label color
+      color: 'gray', // Focused label color
     },
     '& .MuiOutlinedInput-root': {
       '& fieldset': {
-        borderColor: 'rgba(255, 255, 255, 0.6)', // Default border color
+        borderColor: 'gray', // Default border color
       },
       '&:hover fieldset': {
-        borderColor: 'rgba(255, 255, 255, 0.9)', // Border on hover
+        borderColor: 'gray', // Border on hover
       },
       '&.Mui-focused fieldset': {
-        borderColor: '#fff', // Border on focus
+        borderColor: 'gray', // Border on focus
       },
     },
     '& .MuiInputBase-input': {
-      color: '#fff', // Input text color
+      color: 'gray', // Input text color
     },
   }}
   onChange={handleChange}
@@ -443,20 +443,20 @@ const Subscription= () => {
     marginLeft:'10px',
     mb: 2,
     '& .MuiInputLabel-root': {
-      color: 'rgba(255, 255, 255, 0.7)', // Label color
+      color: 'gray', // Label color
     },
     '& .MuiInputLabel-root.Mui-focused': {
-      color: '#fff', // Focused label color
+      color: 'gray', // Focused label color
     },
     '& .MuiOutlinedInput-root': {
       '& fieldset': {
-        borderColor: 'rgba(255, 255, 255, 0.6)', // Default border color
+        borderColor: 'gray', // Default border color
       },
       '&:hover fieldset': {
-        borderColor: 'rgba(255, 255, 255, 0.9)', // Hover border color
+        borderColor: 'gray', // Hover border color
       },
       '&.Mui-focused fieldset': {
-        borderColor: '#fff', // Focused border color
+        borderColor: 'gray', // Focused border color
       },
     },
   }}
@@ -476,21 +476,21 @@ const Subscription= () => {
     marginLeft:'10px',
     mb: 2, // Adds margin at the bottom
     '& .MuiInputLabel-root': { 
-      color: 'rgba(255, 255, 255, 0.8)', // Slightly brighter label for better visibility
+      color: 'rgray', // Slightly brighter label for better visibility
     },
     '& .MuiOutlinedInput-root': {
       '& fieldset': {
-        borderColor: 'rgba(255, 255, 255, 0.6)', // Default border color
+        borderColor: 'gray', // Default border color
       },
       '&:hover fieldset': {
-        borderColor: '#fff', // Brighter border on hover
+        borderColor: 'gray', // Brighter border on hover
       },
       '&.Mui-focused fieldset': {
-        borderColor: '#fff', // Solid white on focus
+        borderColor: 'gray', // Solid white on focus
       },
     },
     '& .MuiInputBase-input': {
-      color: '#fff', // Input text color for good visibility
+      color: 'gray', // Input text color for good visibility
     },
   }}
   onChange={handleChange}
@@ -511,21 +511,21 @@ const Subscription= () => {
     marginLeft:'7px',
     width:'380px',
     '& .MuiInputLabel-root': { 
-      color: 'rgba(255, 255, 255, 0.7)',  // Label color
+      color: 'gray',  // Label color
     },
     '& .MuiOutlinedInput-root': {
       '& fieldset': {
-        borderColor: 'rgba(255, 255, 255, 0.6)', // Default border color
+        borderColor: 'gray', // Default border color
       },
       '&:hover fieldset': {
-        borderColor: 'rgba(255, 255, 255, 0.9)', // Hover border color
+        borderColor: 'gray', // Hover border color
       },
       '&.Mui-focused fieldset': {
-        borderColor: 'rgba(255, 255, 255, 1)', // Focused border color
+        borderColor: 'gray', // Focused border color
       },
     },
     '& .MuiInputBase-input': {
-      color: '#fff', // Text input color
+      color: 'gray', // Text input color
     },
   }}
 />
@@ -542,15 +542,15 @@ const Subscription= () => {
       onChange={handleChange}
       sx={{
         width:'420px',
-        color: '#fff', // Selected text color
+        color: 'gray', // Selected text color
         '& .MuiOutlinedInput-notchedOutline': {
-          borderColor: 'rgba(255, 255, 255, 0.6)',
+          borderColor: 'gray',
         },
         '&:hover .MuiOutlinedInput-notchedOutline': {
-          borderColor: 'rgba(255, 255, 255, 0.9)',
+          borderColor: 'gray',
         },
         '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-          borderColor: '#fff',
+          borderColor: 'gray',
         },
       }}
     >
@@ -564,9 +564,9 @@ const Subscription= () => {
 <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 2 }}>
       {/* Plus icon to toggle field visibility */}
       <IconButton onClick={toggleTaxID}>
-        <AddIcon sx={{ color: '#fff' }} />
+        <AddIcon sx={{ color: 'gray' }} />
       </IconButton>
-      <Typography sx={{ color: '#fff' }}>
+      <Typography sx={{ color: 'gray' }}>
         {showTaxID ? 'Hide Optional Tax ID' : 'Add Optional Tax ID'}
       </Typography>
 
@@ -581,14 +581,14 @@ const Subscription= () => {
             width: '150%',
             marginLeft: '10px',
             mb: 2,
-            '& .MuiInputLabel-root': { color: 'rgba(255, 255, 255, 0.7)' },
-            '& .MuiInputLabel-root.Mui-focused': { color: '#fff' },
+            '& .MuiInputLabel-root': { color: 'gray' },
+            '& .MuiInputLabel-root.Mui-focused': { color: 'gray' },
             '& .MuiOutlinedInput-root': {
-              '& fieldset': { borderColor: 'rgba(255, 255, 255, 0.6)' },
-              '&:hover fieldset': { borderColor: 'rgba(255, 255, 255, 0.9)' },
-              '&.Mui-focused fieldset': { borderColor: '#fff' },
+              '& fieldset': { borderColor: 'gray' },
+              '&:hover fieldset': { borderColor: 'gray' },
+              '&.Mui-focused fieldset': { borderColor: 'gray' },
             },
-            '& .MuiInputBase-input': { color: '#fff' },
+            '& .MuiInputBase-input': { color: 'gray' },
           }}
           onChange={handleChange}
         />
@@ -601,11 +601,11 @@ const Subscription= () => {
       name="isSameAsBilling"
       checked={formData.isSameAsBilling}
       onChange={handleChange}
-      sx={{ color: '#fff' }}
+      sx={{ color: 'gray' }}
     />
   }
   label="Sold-to address (used for tax) is same as billing address"
-  sx={{ color: '#fff' }} // Label color
+  sx={{ color: 'gray' }} // Label color
 />
 
       {/* Tooltip and Next Button */}
@@ -616,7 +616,7 @@ const Subscription= () => {
     sx={{
       
       backgroundColor: isFormValid ? '#1a73e8' : '#555', // Blue when valid, gray when not
-      color: isFormValid ? '#fff' : '#ccc', // Adjust text color accordingly
+      color: isFormValid ? 'gray' : '#ccc', // Adjust text color accordingly
       '&:hover': {
         backgroundColor: isFormValid ? '#1558b3' : '#555', // Darker blue on hover if valid
       },
@@ -642,7 +642,7 @@ const Subscription= () => {
       <Box
   sx={{
     width: '35%',
-    bgcolor: '#1f1f1f',
+   
     p: 4,
     height:'100%',
     borderRadius:'8px',
@@ -651,13 +651,12 @@ const Subscription= () => {
     display: 'flex',
     borderStyle:'solid',
     borderWidth:'2px',
-    backgroundColor:'black',
     flexDirection: 'column',
     gap: 2, // Add space between elements
     boxShadow: '0 8px 24px rgba(0, 0, 0, 0.3)', // Subtle shadow for better visual depth
   }}
 >
-  <Typography variant="h6" gutterBottom sx={{ fontFamily:'sans-serif',fontSize:'27px',marginTop:'-8px' }}>
+  <Typography variant="h6" gutterBottom sx={{ fontFamily:'sans-serif',fontSize:'27px',marginTop:'-8px',color:'gray' }}>
     Subscription Summary
   </Typography>
 <Box  sx={{borderTop: '1px solid rgba(255, 255, 255, 0.2)',}}></Box>
@@ -690,10 +689,10 @@ const Subscription= () => {
     <Avatar
             src={brandicon}
             alt="Profile"
-            sx={{ width: 25, height: 25 ,marginRight:'-202px'}}
+            sx={{ width: 25, height: 25 ,marginRight:'-232px'}}
           />
-      <Typography sx={{ color: '#fff', opacity: 0.8,fontFamily:'sans-serif', }}>Clikkle Standard</Typography>
-      <Typography sx={{ fontWeight: 'bold', color: '#fff',fontFamily:'sans-serif', }}>USD 40.00</Typography>
+      <Typography sx={{ color: 'gray', opacity: 0.8,fontFamily:'sans-serif',color:'gray' }}>Standard</Typography>
+      <Typography sx={{ fontWeight: 'bold', color: 'gray',fontFamily:'sans-serif', }}>USD 40.00</Typography>
     </Box>
 
     <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
@@ -707,12 +706,12 @@ const Subscription= () => {
       <Typography sx={{ color: '#fff', opacity: 0.8,color: 'gray',fontFamily:'sans-serif',fontSize:'12px' , }}>
         User Seats (USD 8 each)
       </Typography>
-      <Typography sx={{ fontWeight: 'bold', color: '#fff',color: 'gray',fontFamily:'sans-serif',fontSize:'12px' , }}>5</Typography>
+      <Typography sx={{ fontWeight: 'bold',color: 'gray',fontFamily:'sans-serif',fontSize:'12px' , }}>5</Typography>
     </Box>
 
     <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
       <Typography sx={{ color: '#fff', opacity: 0.8,color: 'gray',fontFamily:'sans-serif',fontSize:'12px' , }}>Billing Cycle</Typography>
-      <Typography sx={{ fontWeight: 'bold', color: '#fff',color: 'gray',fontFamily:'sans-serif',fontSize:'12px' , }}>
+      <Typography sx={{ fontWeight: 'bold',color: 'gray',fontFamily:'sans-serif',fontSize:'12px' , }}>
         Monthly (auto-renew)
       </Typography>
     </Box>
@@ -736,24 +735,24 @@ const Subscription= () => {
       mt: 2,
     }}
   >
-    <Typography variant="h6" sx={{ color: '#fff', fontFamily:'sans-serif',fontSize:'25px' }}>
+    <Typography variant="h6" sx={{ color: 'gray', fontFamily:'sans-serif',fontSize:'25px' }}>
       Monthly Total
     </Typography>
-    <Typography variant="h6" sx={{ color: '#fff', fontFamily:'sans-serif',fontSize:'25px'  }}>
+    <Typography variant="h6" sx={{ color: 'gray', fontFamily:'sans-serif',fontSize:'25px'  }}>
       USD 40.00
     </Typography>
   </Box>
 
   <Typography
     variant="body2"
-    sx={{ color: 'rgba(255, 255, 255, 0.6)', mt: 1,textAlign:'right',marginTop:'-26px' }}
+    sx={{ color: 'gray', mt: 1,textAlign:'right',marginTop:'-26px' }}
   >
     (excluding tax)
   </Typography>
 
   <Typography
     variant="body2"
-    sx={{ color: 'rgba(255, 255, 255, 0.6)', mt: 1 ,textAlign:'center',marginTop:'45px',fontFamily:'sans-serif',marginBottom:'14px'}}
+    sx={{ color: 'gray', mt: 1 ,textAlign:'center',marginTop:'45px',fontFamily:'sans-serif',marginBottom:'14px'}}
   >
     You won’t be charged until Oct 22, 2024.
   </Typography>

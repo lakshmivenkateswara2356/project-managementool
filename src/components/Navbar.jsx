@@ -366,13 +366,7 @@ const handleOpenset = () => {
 
 
   
-    useEffect(() => {
-      const selectedOrg = location.state?.organization;
-      if (!selectedOrg) {
-        // If no organization is found, redirect back to the organization list
-        navigate("/listorganisation");
-      }
-    }, [location, navigate]);
+
   
     const organization = location.state?.organization;
     
@@ -541,11 +535,14 @@ const handleCloseSecondDialog = () => {
             }}
         >
             {/* Avatar */}
-            <Avatar 
-                alt={selectedOrganization} 
-                src={organization.imageUrl}  // Dynamically set the logo based on selected organization
-                sx={{ backgroundColor: 'white', height: '32px', width: '32px', marginRight: '12px', marginLeft: '14px' }} 
-            />
+            {organization && organization.imageUrl && (
+  <Avatar 
+    alt={selectedOrganization || 'Organization Logo'} 
+    src={organization.imageUrl} 
+    sx={{ backgroundColor: 'white', height: '32px', width: '32px', marginRight: '12px', marginLeft: '14px' }} 
+  />
+)}
+
 
             {/* Company Name */}
             <Typography sx={{ fontSize: '14px', fontWeight: 500 }}>
@@ -915,7 +912,7 @@ const handleCloseSecondDialog = () => {
             display: 'flex',
             flexDirection: 'row',
             p: 0, 
-            backgroundColor: '#1e1e1e',
+           
           }}
         >
           {/* Left section */}
@@ -929,7 +926,7 @@ const handleCloseSecondDialog = () => {
             </Typography>
 
             {/* Users invited section */}
-            <Typography sx={{ mb: 1,fontFamily:'sans-serif',fontSize:'20px'}}>0 of 10 invited</Typography>
+            <Typography sx={{ mb: 1,fontFamily:'sans-serif',fontSize:'20px',color:'gray'}}>0 of 10 invited</Typography>
             <Typography sx={{fontFamily:'sans-serif',fontSize:'15px',color:'gray'}}>Upgrade for unlimited users</Typography>
             <AvatarGroup max={10} sx={{ mb: 2 ,marginRight:'115px',marginTop:'12px', }}>
               {[...Array(10)].map((_, index) => (
@@ -938,7 +935,7 @@ const handleCloseSecondDialog = () => {
             </AvatarGroup>
 
             {/* Storage usage section */}
-            <Typography sx={{ mb: 1 }}>0 GB of 2 GB</Typography>
+            <Typography sx={{ mb: 1,fontFamily:'sans-serif',color:'gray' }}>0 GB of 2 GB</Typography>
             <Typography sx={{fontFamily:'sans-serif',color:'gray',fontSize:'15px',marginBottom:'12px'}}>Upgrade for 250 GB storage</Typography>
             <LinearProgress
               variant="determinate"
