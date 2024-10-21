@@ -19,6 +19,7 @@ import Yogesh from '../../Assets/YOGESH SINGH.jpg';
 import democreditcard from '../../Assets/fxemoji_creditcard.png';
 import brandicon from '../../Assets/clikkleproj.png';
 import AddIcon from '@mui/icons-material/Add';
+import Themeentire from '../../style/theme'
 
 
 import InfoIcon from '@mui/icons-material/Info';
@@ -59,6 +60,7 @@ const Subscription= () => {
       };
     
   return (
+    <Themeentire>
     <Box
       sx={{
         minHeight: '100vh',
@@ -119,8 +121,9 @@ const Subscription= () => {
     </Box>
 
       {/* Main Content */}
-      <Box
+      <Box  container
       sx={{
+       
         display: 'flex',
         justifyContent: 'space-between',
         p: 4,
@@ -760,6 +763,7 @@ const Subscription= () => {
 
     </Box>
     </Box>
+    </Themeentire>
   );
 };
 

@@ -235,7 +235,7 @@ const ProjectTable = () => {
                     borderRadius: '8px',
                     textTransform: 'none',
                     height: '29px',
-                  }}
+                    width:"100px",                  }}
                 >
                   {project.priority}
                 </Button>

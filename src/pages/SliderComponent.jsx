@@ -8,6 +8,7 @@ import Navbar from '../components/Navbar';
 import slidetwo from '../Assets/slidetwo.png';
 import slidethree from '../Assets/slidethree.png';
 import slidefour from '../Assets/slidefour.png';
+import Themeentire from '../style/theme';
 
 const SliderComponent = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -67,7 +68,8 @@ const SliderComponent = () => {
   };
 
   return (
-<>
+
+<Themeentire>
 
     <Box
       sx={{
@@ -78,8 +80,8 @@ const SliderComponent = () => {
         justifyContent: "center",
         alignItems: "center",
         position: "relative",
-        color:'white',
-        backgroundColor: "black",
+      
+        
         '@media(max-width:600px)':{
           
           height:'100vh',
@@ -477,8 +479,8 @@ const SliderComponent = () => {
 </Box>
     </Box>
 
-
-    </>
+    </Themeentire>
+   
   );
 };
 

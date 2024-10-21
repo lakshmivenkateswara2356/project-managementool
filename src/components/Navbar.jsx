@@ -49,7 +49,7 @@ import CloudOutlinedIcon from '@mui/icons-material/CloudOutlined';
 import clikklepro from '../Assets/clikkleproj.png';
 import { fileManager, sharedFile } from '../services/sidebarLinks';
 
-import Notificationbell from '../components/NotificationBell';
+import Notificationbell from '../pages/Notificationbell/NotificationDialog';
 
 //react component
 import Image from '../components/Image';
@@ -79,6 +79,8 @@ import FolderIcon from '@mui/icons-material/Folder';
 import BugReportIcon from '@mui/icons-material/BugReport';
 import GroupIcon from '@mui/icons-material/Group';
 import NotificationsIcon from '@mui/icons-material/Notifications';
+
+import NotificatioItems from '../pages/Notificationbell/NotificationDialog';
 
 
 import personprogg from '../Assets/gg_profile.png';
@@ -916,7 +918,7 @@ const handleCloseSecondDialog = () => {
           }}
         >
           {/* Left section */}
-          <Box sx={{ width: '50%', padding: '24px', color: '#fff' }}>
+          <Box sx={{ width: '50%', padding: '24px', }}>
             <Image src={Clikklebrand} sx={{height:'38px',marginBottom:'22px',marginTop:'22px'}}/>
             <Typography variant="h6" sx={{fontFamily:'sans-serif', mb: 2,fontSize:'22px' }}>
               Upgrade for unlimited users

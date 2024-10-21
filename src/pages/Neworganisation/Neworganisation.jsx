@@ -5,6 +5,7 @@ import Image from '../../components/Image';
 import neworganisationImage from '../../Assets/organisation.png'; // Use your correct image path
 import CloseIcon from '@mui/icons-material/Close';
 import AddIcon from '@mui/icons-material/Add';
+import Themeentire from '../../style/theme';
 
 
 const Neworganisation = ({ addOrganization }) => {
@@ -71,13 +72,15 @@ const Neworganisation = ({ addOrganization }) => {
   };
 
   return (
-    <Box sx={{ backgroundColor: 'black' }}>
+
+    <Themeentire>
+    <Box sx={{ }}>
       <Box
         sx={{
           display: 'flex',
           flexDirection: 'column',
           paddingTop: '90px',
-          backgroundColor: 'black',
+        
           height: '100vh',
         }}
       >
@@ -85,7 +88,7 @@ const Neworganisation = ({ addOrganization }) => {
           sx={{
             fontSize: '30px',
             marginLeft: '33px',
-            color: 'white',
+         
             '@media(max-width:600px)': {
               width: '370px',
               fontSize: '26px',
@@ -99,7 +102,7 @@ const Neworganisation = ({ addOrganization }) => {
         </Typography>
         <Typography
           sx={{
-            color: 'gray',
+            
             width: '858px',
             marginLeft: '33px',
             '@media(max-width:600px)': { width: '322px', fontSize: '12px', textAlign: 'center' },
@@ -124,14 +127,14 @@ const Neworganisation = ({ addOrganization }) => {
         </Box>
 
         <Box sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
-          <input
+          <TextField
             placeholder="Create organization"
             style={{
               width: '91vw',
               height: '40px',
               borderRadius: '9px',
-              color: 'white',
-              backgroundColor: '#141414',
+             
+            backgroundColor:'background.default',
               borderWidth: '0px',
               paddingLeft: '35px',
               marginBottom: '12px',
@@ -165,13 +168,13 @@ const Neworganisation = ({ addOrganization }) => {
   onClose={() => setIsPopupOpen(false)} 
   PaperProps={{
     style: {
-      backgroundColor: '#2a2a2a',
+      
       height:'620px',
       width:'620px',
       borderRadius: '10px',
       padding: '30px',
       minWidth: '450px',
-      color: 'white',
+    
     },
   }}
 >
@@ -334,6 +337,7 @@ const Neworganisation = ({ addOrganization }) => {
 
       </Box>
     </Box>
+    </Themeentire>
   );
 };
 

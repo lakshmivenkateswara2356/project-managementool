@@ -1,7 +1,9 @@
 import React, { useState, useEffect, startTransition } from 'react';
 import { useNavigate } from 'react-router-dom';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { 
+
+import Thementire from '../../style/theme';
+import { Box,
   Dialog, DialogTitle, DialogContent, DialogActions, 
   Button, TextField, Typography, Table, TableBody, 
   TableCell, TableContainer, TableHead, TableRow, Paper 
@@ -59,8 +61,10 @@ const OrganizationList = ({ organizations }) => {
   }, [organizations.length, navigate]);
 
   return (
-    <div style={{
-      textAlign: 'left', color: '#fff', padding: '50px', backgroundColor: 'black',
+
+    <Thementire>
+    <Box style={{
+      textAlign: 'left',  padding: '50px', 
       height: '100vh', marginLeft: '-12px',
     }}>
       <h1 style={{ fontWeight: 'lighter', fontFamily: 'sans-serif', marginBottom: '22px', marginTop: '75px' }}>
@@ -82,13 +86,13 @@ const OrganizationList = ({ organizations }) => {
         {organizations.length}
       </h1>
 
-      <TableContainer component={Paper} sx={{ marginTop: '20px', maxWidth: '100%' ,backgroundColor:'black'}}>
+      <Box container component={Paper} sx={{ marginTop: '20px', maxWidth: '100%',backgroundColor:'background.default'}}>
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell sx={{ color: 'white', fontWeight: 'bold' }}>Organization</TableCell>
-              <TableCell sx={{ color: 'white', fontWeight: 'bold' }}>Status</TableCell>
-              <TableCell sx={{ color: 'white', fontWeight: 'bold' }}>Action</TableCell>
+              <TableCell sx={{  fontWeight: 'bold' }}>Organization</TableCell>
+              <TableCell sx={{  fontWeight: 'bold' }}>Status</TableCell>
+              <TableCell sx={{ fontWeight: 'bold' }}>Action</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -101,14 +105,14 @@ const OrganizationList = ({ organizations }) => {
                       alt={org.name} 
                       style={{ width: '50px', height: '50px', borderRadius: '50%', marginRight: '15px' }} 
                     />
-                    <Typography sx={{ color: 'white' }}>{org.name}</Typography>
+                    <Typography sx={{  }}>{org.name}</Typography>
                   </div>
                 </TableCell>
                 <TableCell>
                   <span 
                     style={{
                       backgroundColor: org.status === 'Active' ? 'rgba(0, 100, 0, 0.2)' : 'rgba(139, 0, 0, 0.2)',
-                      color: org.status === 'Active' ? 'green' : 'red',
+                      color: org.status === 'Active' ? 'green' : 'green',
                       padding: '5px 10px',
                       borderRadius: '5px',
                     }}
@@ -136,7 +140,7 @@ const OrganizationList = ({ organizations }) => {
             ))}
           </TableBody>
         </Table>
-      </TableContainer>
+      </Box>
 
 
 
@@ -258,7 +262,9 @@ const OrganizationList = ({ organizations }) => {
 
 
       
-    </div>
+    </Box>
+
+    </Thementire>
   );
 };
 

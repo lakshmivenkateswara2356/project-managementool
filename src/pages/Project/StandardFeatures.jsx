@@ -71,7 +71,7 @@ const StandardFeatures = () => {
     >
       <Typography
         variant="h6"
-        sx={{ color: '#fff', marginBottom: '56px', textAlign: 'center', fontSize: '15px', marginTop: '-55px' }}
+        sx={{  marginBottom: '56px', textAlign: 'center', fontSize: '15px', marginTop: '-55px' }}
       >
         Standard includes advanced features like:
       </Typography>
@@ -90,7 +90,7 @@ const StandardFeatures = () => {
         />
       </Box>
 
-      <Typography sx={{ color: '#fff', marginTop: '16px', textAlign: 'center' }}>
+      <Typography sx={{  marginTop: '16px', textAlign: 'center' }}>
         {templates[currentTemplate].label}
       </Typography>
 
@@ -117,7 +117,7 @@ const StandardFeatures = () => {
         ))}
         <IconButton
           onClick={handleNext}
-          sx={{ color: '#fff', marginTop: '-10px' }}
+          sx={{  marginTop: '-10px' }}
         >
           <ArrowForwardIos sx={{ height: '12px' }} />
         </IconButton>
