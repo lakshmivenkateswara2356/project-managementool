@@ -19,7 +19,7 @@ const ProfileImageSection = () => {
   };
 
   return (
-    <div style={{ position: 'relative', width: '100%', maxWidth: '800px', height: '300px', margin: '16px auto', backgroundColor: '#1C1C1C', borderRadius: '8px', overflow: 'hidden',marginLeft:'-1px',borderRadius:'2px', }}>
+    <div style={{ position: 'relative', width: '100%', maxWidth: '800px', height: '300px', margin: '16px auto', backgroundColor: '#1C1C1C', overflow: 'hidden',marginLeft:'-1px',borderRadius:'2px', }}>
       
       {/* Header Section */}
       <div style={{ width: '100%', height: '50%', backgroundColor: '#44688E', position: 'relative', }}>
@@ -35,7 +35,7 @@ const ProfileImageSection = () => {
             }}
           />
         ) : (
-          <div style={{ color: '#666', textAlign: 'center', paddingTop: '30px' }}>
+          <div style={{  textAlign: 'center', paddingTop: '30px' }}>
             <i className="fa fa-camera" style={{ fontSize: '24px', color: '#ccc' }}></i>
           </div>
         )}
@@ -95,9 +95,9 @@ const ProfileImageSection = () => {
       </div>
 
       {/* Profile Visibility Text */}
-      <div style={{ marginTop: '40px', textAlign: 'center', color: '#b3b3b3',marginRight:'-195px',color:'gray',fontFamily:'sans-serif',fontSize:'15px' }}>
+      <div style={{ marginTop: '40px', textAlign: 'center', marginRight:'-195px',color:'gray',fontFamily:'sans-serif',fontSize:'15px' }}>
         <p style={{marginRight:'-195px'}}>Who can see your profile photo?</p>
-        <p style={{  color: '#fff',fontFamily:'sans-serif',marginRight:'-45px',color:'gray',marginTop:'15px',fontSize:"18px" }}>Anyone</p>
+        <p style={{  fontFamily:'sans-serif',marginRight:'-45px',color:'gray',marginTop:'15px',fontSize:"18px" }}>Anyone</p>
       </div>
     </div>
   );

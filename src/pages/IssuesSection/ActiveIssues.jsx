@@ -118,11 +118,11 @@ const ActiveIssus = () => {
             borderRadius:'8px',
             width:'40vw',
             borderWidth:'1px',
-            borderStyle:'solid',
+           
             color:'gray',
            
             padding: '5px 10px',
-            borderRadius: '5px',
+           
             fontSize: '16px',
           }}
         >

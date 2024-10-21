@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { useTheme } from '@mui/material/styles';
 import Header from '../components/Header';
 import Dashboard from '../pages/Dashboard';
 import InfoIcon from '@mui/icons-material/InfoOutlined';
 import { useLocation, useNavigate } from "react-router-dom";
 
-import Image from '../components/Image';
 import AddIcon from '@mui/icons-material/Add';
 
 import { 
-  Box, Typography, Grid, Paper, Button, Divider, Tabs, Tab, Avatar , List, ListItem, Dialog,useMediaQuery, ListItemText ,IconButton, DialogContent, DialogContentText, DialogTitle,
+  Box, Typography, Grid,IconButton, 
 } from '@mui/material';
 
 
@@ -18,14 +16,9 @@ const Home = () => {
 
     const location = useLocation();
     const navigate = useNavigate();
-    const [dataAvailable, setDataAvailable] = useState(true); // Simulate whether data exists or not
-    const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+    const [dataAvailable, ] = useState(true); // Simulate whether data exists or not
 
-    const handleToggleData = () => {
-        setDataAvailable(!dataAvailable); // Toggle data availability for testing
-    };
-
+    
 
 
     useEffect(() => {
@@ -36,7 +29,6 @@ const Home = () => {
         }
       }, [location, navigate]);
     
-      const organization = location.state?.organization;
     return (
         <Header>
             <Box container p={2} marginTop="-8px">

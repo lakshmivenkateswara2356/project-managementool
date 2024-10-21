@@ -1,47 +1,25 @@
 import React, { useState } from "react";
 import Projectheader from './ProjectHeader';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { orange } from '@mui/material/colors';
-import VisibilityIcon from '@mui/icons-material/Visibility';
-import SendIcon from '@mui/icons-material/Send';
-import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
-import { EmojiEmotions, AttachFile, Link, MoreVert, FilterList, Create } from '@mui/icons-material';
+
 import Dotele from '../../Assets/dot.png';
 import Tick from '../../Assets/tick.png';
 import Image from '../../components/Image';
-import ShareIcon from '@mui/icons-material/Share';
-import FilterListIcon from '@mui/icons-material/FilterList';
 
-import SettingsIcon from '@mui/icons-material/Settings';
-import { Box, Typography, Table, TableBody, IconButton, Menu, Tabs,
-  Tab,
-  Select,
-  FormControl,
-  InputLabel, Checkbox, Avatar, Dialog,  InputAdornment, DialogActions, DialogContent, DialogTitle, TableCell, TextField, MenuItem, TableHead, TableRow, Button, Grid, Card, CardContent } from '@mui/material';
+
+import { Box, Typography, Table, TableBody,
+  Avatar, Dialog,   TableCell,  TableHead, TableRow, Button,  } from '@mui/material';
 
 const ProjectList = () => {
 
-  const [tab, setTab] = useState(0);
-  const [comment, setComment] = useState('');
+
   const [open, setOpen] = useState(false);
-  const [selectedData, setSelectedData] = useState(null);
-
-  const handleCommentChange = (e) => setComment(e.target.value);
-  const handleTabChange = (event, newValue) => {
-    setTab(newValue);
-  };
+  const [ setSelectedData] = useState(null);
 
 
-  const [anchorElActions, setAnchorElActions] = useState(null);
-  const openActions = Boolean(anchorElActions);
 
-  const handleActionsClick = (event) => {
-    setAnchorElActions(event.currentTarget);
-  };
 
-  const handleActionsClose = () => {
-    setAnchorElActions(null);
-  };
+
 
 
   const getStatusStyles = (status) => {
@@ -156,22 +134,9 @@ const ProjectList = () => {
   };
 
 
-  const [filter, setFilter] = useState('Newest first');
+ 
 
-  const handleChange = (event) => {
-    setFilter(event.target.value);
-  };
-
-  const [anchorEl, setAnchorEl] = useState(null);
-  const openMenu = Boolean(anchorEl);
-
-  const handleMenuClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleMenuClose = () => {
-    setAnchorEl(null);
-  };
+ 
 
   const handleClose = () => {
     setOpen(false);
@@ -186,7 +151,7 @@ const ProjectList = () => {
       <Box>
         {/* List View */}
         <Table sx={{width:'105%',marginLeft:'-33px' }} aria-label="simple table">
-          <TableHead sx={{backgroundColor:'background.default',height: '50px',width:'200px',fontSize:'12px', width: '100%', '& th': { // Adjust individual table header cells
+          <TableHead sx={{backgroundColor:'background.default',height: '50px',fontSize:'12px', width: '100%', '& th': { // Adjust individual table header cells
       fontSize: '14px', 
       padding: '8px', 
       width: '200px', // Adjust width of each <th>

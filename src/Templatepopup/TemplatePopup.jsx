@@ -14,21 +14,7 @@ import './TemplatePopup.css';
 const TemplatePopup = ({ onClose }) => {
 
 
-  const simplifiedConfig = [
-    'Anyone on your team can set up and maintain',
-    'Settings do not impact other projects',
-    'Easy setup for issue types and custom fields',
-    'Simple configuration for multiple workflows',
-    'Access level permissions'
-  ];
 
-  const expertConfig = [
-    'Set up and maintained by your clikkle projects admins',
-    'Standardized configuration shared across projects',
-    'Complete control over issue types and custom fields',
-    'Customizable workflows, statuses and issue transitions',
-    'Detailed permission schemes'
-  ];
 
 
   return (
@@ -111,7 +97,7 @@ const TemplatePopup = ({ onClose }) => {
         <Box>
           <Box sx={{display:'flex',}}>
           <div>
-          <img src={Kanban} className='kanbanimage'/>
+          <img src={Kanban} className='kanbanimage' alt="kanban"/>
           </div>
           <div className='Kanbanminicard'>
           <Typography variant="h6" sx={{ color: '#fff', marginBottom: '8px' }}>
@@ -215,7 +201,7 @@ const TemplatePopup = ({ onClose }) => {
 <Typography sx={{textAlign:'center',fontSize:'22px',paddingTop:'42px'}}>Simplified configuration</Typography>
 
 <Box sx={{height:'200px',alignItems:'center',}}>
-<img src={Team} className='immages' />
+<img src={Team} className='immages' alt="team" />
 
 </Box>
 <p className='mimnipara'>Get up and running quickly, with simplified configuration.</p>
@@ -254,7 +240,7 @@ const TemplatePopup = ({ onClose }) => {
 <Typography sx={{textAlign:'center',fontSize:'22px',paddingTop:'42px'}}>Expert configuration</Typography>
 
 <Box sx={{height:'200px',alignItems:'center',}}>
-<img src={Company} className='immages' />
+<img src={Company} className='immages' alt="company" />
 
 </Box>
 <p className='mimnipara'>Benefit from complete control with expert configuration, customization and flexibility.</p>
@@ -284,7 +270,7 @@ const TemplatePopup = ({ onClose }) => {
 
 <div className='smallAboutTeam'>
 <h1 className='simpleconfigu'>Essential features</h1>
-<img src={Teamplan} className='TeamFe'/>
+<img src={Teamplan} className='TeamFe' alt="Teamplan"/>
 <p className='modernclassClikk'>A modern Clikkle Projects experience for teams who don’t need advanced features.</p>
 
 <div className='AccessPermission'>
@@ -296,7 +282,7 @@ const TemplatePopup = ({ onClose }) => {
 
 <div className='smallAboutComp'>
 <h1 className='simpleconfigu'>Advanced features</h1>
-<img src={Companypl} className='TeamFe'/>
+<img src={Companypl} className='TeamFe' alt="company" />
 <p className='modernclassClikk'>All the power and features that Clikkle Projects is known for.</p>
 
 <div className='AccessPermission'>
@@ -313,7 +299,7 @@ const TemplatePopup = ({ onClose }) => {
 <div className='linesepetgerKan'></div>
 
 <div className='buttondisplay'>
-<button  onClick={onClose} className='Buttomele'>Select a team-managed project</button>
+<button  onClick={onClose} className='Buttomele'  >Select a team-managed project</button>
 <button className='Buttomeleee'>Select a company-managed project</button>
 </div>
 </div>

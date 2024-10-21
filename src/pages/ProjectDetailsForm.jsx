@@ -7,14 +7,11 @@ import { useNavigate } from 'react-router-dom';
 
 
 import Image from '../components/Image';
-import { Navigate } from 'react-router-dom';
 
 const ProjectDetailsForm = () => {
   const navigate = useNavigate();
 
-  const handleActiveissues=() => {
-    navigate('active-issues')
-  }
+
   const gotoNxtstep =()=>{
     navigate('/Projects')
   }

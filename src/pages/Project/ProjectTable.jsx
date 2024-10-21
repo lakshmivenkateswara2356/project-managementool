@@ -24,10 +24,7 @@ import Listimagethree from '../../Assets/listimagethree.png';
 import Listimagefour from '../../Assets/listimagefour.png';
 import Listimagefive from '../../Assets/listimagefive.png';
 import Listimagesix from '../../Assets/listimagesix.png';
-import Listimageseven from '../../Assets/listimageseven.png';
-import Listimageeight from '../../Assets/listimageeight.png';
-import Listimagenine from '../../Assets/listimagenine.png';
-import Projecttable from '../../pages/Project/ProjectTable';
+
 
 import Yogeshsingh from '../../Assets/YOGESH SINGH.jpg';
 

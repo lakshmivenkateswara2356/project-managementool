@@ -4,7 +4,6 @@ import { Box, Typography, Button } from "@mui/material";
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import slideone from '../Assets/slideeon.svg';
-import Navbar from '../components/Navbar';
 import slidetwo from '../Assets/slidetwo.png';
 import slidethree from '../Assets/slidethree.png';
 import slidefour from '../Assets/slidefour.png';
@@ -402,7 +401,6 @@ const SliderComponent = () => {
       display: "flex",
       justifyContent: "flex-start",
       marginTop: '30px', // Center buttons on mobile
-      marginTop: '50px',
       
       marginRight: '-289px',
     },

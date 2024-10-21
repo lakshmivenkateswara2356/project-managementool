@@ -1,11 +1,9 @@
 import React, { createContext, useCallback, useContext } from 'react';
 import { CssBaseline } from '@mui/material';
 import useSnack from '../hooks/useSnack';
-import { Outlet } from 'react-router-dom';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
 
 import ThemeContextProvider from './../style/theme';
-import Issuesupdate from '../pages/IssuesSection/IssueUpdate'
 import AuthorizationProvider from '../hooks/Authorize';
 import Navbar from './Navbar';
 

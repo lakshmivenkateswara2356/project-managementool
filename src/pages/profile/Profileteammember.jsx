@@ -1,6 +1,5 @@
 import React from 'react';
-import { Box, Typography, Button, Avatar, Divider, Link } from '@mui/material';
-import Profile from '../../Assets/team1.png';
+import { Box, Typography, Button, Avatar,  Link } from '@mui/material';
 import Clikklebrand from '../../Assets/clikkleprobrand.png';
 import tickicon from '../../Assets/tick.png';
 import bader from '../../Assets/profileimages/Group 1032.png';
@@ -8,19 +7,14 @@ import Image from '../../components/Image';
 import accountone from '../../Assets/profileimages/Group (5).png';
 import accounttwo from '../../Assets/profileimages/Group (6).png';
 import accountthr from '../../Assets/profileimages/Group (7).png';
-import accountfou from '../../Assets/profileimages/Vector (13).png';
 import Rashid from '../../Assets/RASHID AHMED.jpg';
 import duckemoj from '../../Assets/profileimages/Group 761 (1).png';
 import Robo from '../../Assets/profileimages/Group 760 (1).png';
-import accountsix from '../../Assets/profileimages/Vector (14).png';
-import accountsev from '../../Assets/profileimages/Vector (15).png';
+
 import Groupimage from '../../Assets/profileimages/Group 764 (1).png';
-import { CheckBox, CheckBoxOutlineBlank, Email, LocationOn, Business } from '@mui/icons-material';
 import Yogesh from '../../Assets/YOGESH SINGH.jpg';
 import Amena  from '../../Assets/Ellipse 68.png';
-import Dwyane from '../../Assets/DANIEL THOMPSON.jpg';
-import Isbella from '../../Assets/Ellipse 48.png';
-import Amanda from '../../Assets/Ellipse 47.png';
+
 
 const Profileteammember = () => {
 

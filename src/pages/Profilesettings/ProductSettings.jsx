@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Typography, TextField, Link } from '@mui/material';
+import { Box, Typography, Link } from '@mui/material';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 
 const ProductSettings = () => {

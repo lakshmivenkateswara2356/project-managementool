@@ -1,6 +1,5 @@
 import React from 'react';
 import { Box, Typography, Checkbox, Grid, Button } from '@mui/material';
-import { CheckCircle, RadioButtonUnchecked } from '@mui/icons-material';
 import twemoji from '../../Assets/tick.png';
 import dotimf from '../../Assets/dot.png';
 import Image from '../../components/Image';

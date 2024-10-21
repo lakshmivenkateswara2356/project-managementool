@@ -185,7 +185,7 @@ const Neworganisation = ({ addOrganization }) => {
   </Box>
 
 
-  <Typography sx={{ fontSize: '18px', fontWeight: 500,marginTop:'22px',fontFamily:'sans-serif',fontSize:'20px' }}>Organization Email</Typography>
+  <Typography sx={{  fontWeight: 500,marginTop:'22px',fontFamily:'sans-serif',fontSize:'20px' }}>Organization Email</Typography>
 
 
   <TextField

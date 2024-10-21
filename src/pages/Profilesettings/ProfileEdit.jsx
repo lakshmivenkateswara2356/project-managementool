@@ -7,30 +7,19 @@ import Accountpreference from '../../pages/Profilesettings/AccountPreferences';
 import Changepassword from '../../pages/Profilesettings/ChangePassword';
 import Linkpreference from '../../pages/Profilesettings/LinkPreferences';
 import Productsettings from '../../pages/Profilesettings/ProductSettings';
-import { Button, Tabs, Tab, Box, Typography } from '@mui/material';
+import {  Tabs, Tab, Box, Typography } from '@mui/material';
 
 const ProfileEdit = () => {
   const [selectedTab, setSelectedTab] = useState(0);
-  const [profileImage, setProfileImage] = useState(null);
-  const [headerImage, setHeaderImage] = useState(null);
+ 
 
   const handleTabChange = (event, newValue) => {
     setSelectedTab(newValue);
   };
 
-  const handleProfileImageChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      setProfileImage(URL.createObjectURL(file)); // Preview uploaded profile image
-    }
-  };
+ 
 
-  const handleHeaderImageChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      setHeaderImage(URL.createObjectURL(file)); // Preview uploaded header image
-    }
-  };
+
 
   return (
 

@@ -1,8 +1,7 @@
 import React from 'react';
-import { Box, IconButton, Typography, Stack, Avatar, Dialog, DialogActions,useMediaQuery, Grid,  Divider, Alert, DialogContent, DialogContentText, DialogTitle, TextField, Button, MenuItem, List, ListItem, ListItemText } from '@mui/material';
+import { Box, IconButton, Typography, Grid,  Button, } from '@mui/material';
 import InfoIcon from '@mui/icons-material/InfoOutlined';
 import Teammembers from '../Teams/Teammembers';
-import Bottommenu from '../../pages/BottomMenu/Bottommenu';
 import Header from '../../components/Header';
 
 

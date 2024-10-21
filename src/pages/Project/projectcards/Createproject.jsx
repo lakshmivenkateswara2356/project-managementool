@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import {
-  Box, Typography, Card, TextField, Button, IconButton, ListItemText,
+  Box, Typography, Card, TextField, Button, IconButton, 
 } from '@mui/material';
-import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import PersonIcon from '@mui/icons-material/Person';
 import { HiOutlinePlus } from 'react-icons/hi'; // Import the Plus icon

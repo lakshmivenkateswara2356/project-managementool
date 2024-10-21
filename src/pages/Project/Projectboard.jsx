@@ -1,107 +1,46 @@
 import React, { useState } from "react";
 import Board from './ProjectHeader';
-import { HiOutlinePlus } from "react-icons/hi";
 import Projectcard from '../../pages/Project/projectcards/Projectinprogress';
 import Createproject from '../Project/projectcards/Createproject';
-import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
-import { Box, Typography, Table, TableBody,IconButton, Menu, Checkbox,   Dialog, DialogActions, DialogContent, DialogTitle,TableCell,TextField,MenuItem, TableHead, TableRow, Button, Grid, Card, CardContent } from '@mui/material';
+import { Box, Typography, Checkbox,  TextField, Button, Card,  } from '@mui/material';
 
 
 const Projectboard =() => {
-    const [openDialog, setOpenDialog] = useState(false);
-    const [anchorEl, setAnchorEl] = useState(null);
-    const [checked, setChecked] = useState(false);
+   
   
   
     const [toDoInput, setToDoInput] = useState('');
     const [toDoItems, setToDoItems] = useState([]);
-    const [inProgressItems, setInProgressItems] = useState([]);
-    const [reviewItems, setReviewItems] = useState([]); // State for Review section
-    const [backlogItems, setBacklogItems] = useState([]); // State for Backlogs section
+    const [inProgressItems] = useState([]);
+  
   
   
   
     
     // Open/close dropdown
-    const handleClick = (event) => {
-      setAnchorEl(event.currentTarget);
-    };
-    
+   
   
     
-    // Toggle checkbox
-    const handleCheck = (event) => {
-      setChecked(event.target.checked);
-    };
-    const handleClickOpen = () => {
-      setOpenDialog(true);
-    };
 
-
-    const handleCreateReview = () => {
-      const reviewInput = prompt("Enter review item:");
-      if (reviewInput) {
-          setReviewItems([...reviewItems, reviewInput]);
-      }
-  };
+  
 
   // Function to create a new Backlog item
-  const handleCreateBacklog = () => {
-      const backlogInput = prompt("Enter backlog item:");
-      if (backlogInput) {
-          setBacklogItems([...backlogItems, backlogInput]);
-      }
-  };
+
+
   
-  
-    const activeCellStyles = {
-     
-      color: '#fff',
-      textAlign: 'center',
-      
-      borderRadius: '50%',
-    };
     
-    const inactiveCellStyles = {
-      color: '#757575',
-      textAlign: 'center',
-      padding: '15px',
-    };
   
-    const assignees = ['John Doe', 'Jane Smith', 'Create Assignee'];
-    const issueTypes = ['Bug', 'Feature', 'Task', 'Create Issue'];
   
-    const [selectedOption, setSelectedOption] = useState('Board');
+ 
   
-    // Function to handle click
-    const handleOptionClick = (option) => {
-      setSelectedOption(option);
-    };
   
-    const handleClose = () => {
-      setOpenDialog(false);
-    };
+   
   
-    const [issueCount, setIssueCount] = useState(0);
-    const status = 'To Do'; // Change this to dynamically change status ('To Do', 'In Progress', etc.)
-  
-    const handleCreateIssue = () => {
-      setIssueCount(issueCount + 1);
-    };
-  
-    const [assigneeDialogOpen, setAssigneeDialogOpen] = useState(false);
-    const [issueTypeDialogOpen, setIssueTypeDialogOpen] = useState(false);
-    const [selectedAssignee, setSelectedAssignee] = useState('');
-    const [selectedPriority, setSelectedPriority] = useState('');
-    const [selectedIssueType, setSelectedIssueType] = useState('');
-    const [showReview, setShowReview] = useState(false); // State for showing the Review section
-    const [showBacklog, setShowBacklog] = useState(false); // State for showing the Backlog section
+   
+    const [showReview] = useState(false); // State for showing the Review section
+    const [showBacklog] = useState(false); // State for showing the Backlog section
 
 
-    const handleAddClick = () => {
-      setShowReview(true); // Show Review section
-      setShowBacklog(true); // Show Backlog section
-  };
 
   
     const handleCreateToDo = () => {
@@ -252,7 +191,6 @@ const Projectboard =() => {
               alignItems: 'center',
               justifyContent: 'center',
           
-              fontSize: '13px',
             }}
           >
             {inProgressItems.length}

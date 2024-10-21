@@ -18,7 +18,6 @@ import {
     CardContent,
 } from '@mui/material';
 
-import Header from '../../components/Header';
 import HtmlIcon from '../../Assets/Kanbanto.png';
 import FigmaIcon from '@mui/icons-material/Palette'; 
 import SearchIcon from '@mui/icons-material/Search'; // Import the search icon
@@ -43,7 +42,6 @@ const getStatusStyles = (status) => {
                 padding: '5px 15px',
                 fontWeight: 'bold',
                 fontSize: '13px',
-                fontSize: '10px',
                 width:'11px',
             };
         case 'Review':
@@ -65,7 +63,6 @@ const getStatusStyles = (status) => {
                 borderRadius: '10px',
                 padding: '5px 15px',
                 fontWeight: 'bold',
-                fontSize: '1px',
                 fontSize: '10px',
                 width:'25px',
             };

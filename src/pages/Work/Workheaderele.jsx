@@ -1,10 +1,7 @@
 import React from 'react';
-import { Box, Typography, Table, TableBody,IconButton, Menu, Checkbox,   Dialog, DialogActions, DialogContent, DialogTitle,TableCell,TextField,MenuItem, TableHead, TableRow, Button, Grid, Card, CardContent, Avatar } from '@mui/material';
-import AddIcon from "@mui/icons-material/Add";
+import { Box, Typography, IconButton, Grid, } from '@mui/material';
 import InfoIcon from '@mui/icons-material/InfoOutlined';
 import Partyillu from '../../Assets/Illustrtion.png';
-import { GoTypography } from 'react-icons/go';
-import Image from '../../components/Image';
 import Listofprojects from '../../pages/Work/listofprojectsifwehave';
 import Bottommenu from '../../pages/BottomMenu/Bottommenu'
 import Detailsoftheproject from '../../pages/Work/Detailofworkproject';

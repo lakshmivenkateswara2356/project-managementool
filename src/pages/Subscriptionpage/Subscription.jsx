@@ -16,14 +16,12 @@ import creditcardtwo from '../../Assets/visa.png';
 import Billingadress from '../../pages/Subscriptionpage/BillingAddress';
 import creditthree from '../../Assets/american-express.png';
 import Yogesh from '../../Assets/YOGESH SINGH.jpg';
-import democreditcard from '../../Assets/fxemoji_creditcard.png';
 import brandicon from '../../Assets/clikkleproj.png';
 import AddIcon from '@mui/icons-material/Add';
 import Themeentire from '../../style/theme'
 
 
 import InfoIcon from '@mui/icons-material/Info';
-import { GoTypography } from 'react-icons/go';
 
 const Subscription= () => {
   // State to manage the visibility of the optional field
@@ -671,7 +669,6 @@ const Subscription= () => {
 
       color: '#407BFF',
       height:'27px',
-      textAlign:'center',
       
       borderRadius: 1,
       textAlign: 'left',
@@ -694,7 +691,7 @@ const Subscription= () => {
             alt="Profile"
             sx={{ width: 25, height: 25 ,marginRight:'-232px'}}
           />
-      <Typography sx={{ color: 'gray', opacity: 0.8,fontFamily:'sans-serif',color:'gray' }}>Standard</Typography>
+      <Typography sx={{ color: 'gray', opacity: 0.8,fontFamily:'sans-serif' }}>Standard</Typography>
       <Typography sx={{ fontWeight: 'bold', color: 'gray',fontFamily:'sans-serif', }}>USD 40.00</Typography>
     </Box>
 
@@ -706,14 +703,14 @@ const Subscription= () => {
     </Box>
 
     <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-      <Typography sx={{ color: '#fff', opacity: 0.8,color: 'gray',fontFamily:'sans-serif',fontSize:'12px' , }}>
+      <Typography sx={{  opacity: 0.8,color: 'gray',fontFamily:'sans-serif',fontSize:'12px' , }}>
         User Seats (USD 8 each)
       </Typography>
       <Typography sx={{ fontWeight: 'bold',color: 'gray',fontFamily:'sans-serif',fontSize:'12px' , }}>5</Typography>
     </Box>
 
     <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-      <Typography sx={{ color: '#fff', opacity: 0.8,color: 'gray',fontFamily:'sans-serif',fontSize:'12px' , }}>Billing Cycle</Typography>
+      <Typography sx={{  opacity: 0.8,color: 'gray',fontFamily:'sans-serif',fontSize:'12px' , }}>Billing Cycle</Typography>
       <Typography sx={{ fontWeight: 'bold',color: 'gray',fontFamily:'sans-serif',fontSize:'12px' , }}>
         Monthly (auto-renew)
       </Typography>

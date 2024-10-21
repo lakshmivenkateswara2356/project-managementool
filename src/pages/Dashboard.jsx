@@ -1,27 +1,22 @@
 import React, { useState } from 'react';
 import { 
-  Box, Typography, Grid, Paper, Button, Divider, Tabs, Tab, Avatar , List, ListItem, Dialog,useMediaQuery, ListItemText ,IconButton, DialogContent, DialogContentText, DialogTitle,
+  Box, Typography, Grid, Paper, Button, Divider, Tabs, Tab, Avatar , List, ListItem, Dialog,useMediaQuery, ListItemText ,IconButton, DialogContent, DialogTitle,
 } from '@mui/material';
 
 import { useNavigate } from 'react-router-dom';
-import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
-import GradeOutlinedIcon from '@mui/icons-material/GradeOutlined';
+
 import Vector from '../Assets/Vector (2).png';
-import ELips from '../Assets/Ellipse 46.png';
 import Image from '../components/Image';
-import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
-import FolderOutlinedIcon from '@mui/icons-material/FolderOutlined';
+
 import Bottommenu from '../pages/BottomMenu/Bottommenu';
 import Groupicon from '../Assets/Group 1745 (1).png';
 import Groupicon2 from '../Assets/Group 174 (1).png';
 
 import Groupicon3 from '../Assets/Group 179.png';
 import Groupicon4 from '../Assets/Group 1744.png';
-import Footer from '../pages/BottomMenu/Footer';
-import Icon from '../components/Icon';
-import Actionicon from '../components/ActionIcon';
+
 import profileclikk from '../Assets/profileclikk.jpeg'; // Update the path accordingly
-import ActionIcon from '../components/ActionIcon';
+
 
 
 
@@ -39,48 +34,23 @@ import ActionIcon from '../components/ActionIcon';
 
 
 import InfoIcon from '@mui/icons-material/InfoOutlined';
-import HomeIcon from '@mui/icons-material/Home';
 
-import AssignmentIcon from '@mui/icons-material/Assignment';
-import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
-import GroupIcon from '@mui/icons-material/Group';
 import AddIcon from '@mui/icons-material/Add';
 import SoftwareDevelopment from './SoftwareDevelopment';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
-import Navbar from '../components/Navbar'
-import Teamplan from '../Assets/teampla.png';
-import Companypl from '../Assets/compaPl.png';
-import Header from '../components/Header';
-import Kanbanim from '../Assets/Kanban.png'; 
 
-import Footerbottom from '../pages/BottomMenu/Footer';
 
-import Kanbathree from '../Assets/Kanbathree.png'
-import ProjectDetailsForm from './ProjectDetailsForm';
-import Team from '../Assets/team.png';
-import Company from '../Assets/company.png'
-import Kanbanto from '../Assets/Kanbanto.png'
-import clikklereport from '../Assets/clikklerepair.png'
-import Card from '@mui/material/Card';
-import Scrum from '../Assets/scrum.png'
-import CardContent from '@mui/material/CardContent';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos'; // For navigation arrow
+
+
 import { useTheme } from '@mui/material/styles';
 
-import image from './dahboardimg.png';
 import CloseIcon from '@mui/icons-material/Close';
 
 
 
-import BoltIcon from '@mui/icons-material/Bolt';
-import BookmarkIcon from '@mui/icons-material/Bookmark';
-import CircleIcon from '@mui/icons-material/Circle';
-import CheckIcon from '@mui/icons-material/Check';
-import ChatBubbleIcon from '@mui/icons-material/ChatBubble';
+
 
 import './Home.css'
-import { Feedback } from '@mui/icons-material';
-import { GoTypography } from 'react-icons/go';
+
 
 
 
@@ -129,7 +99,6 @@ const Dashboard = () => {
 
   const [openDialog, setOpenDialog] = React.useState(false);
 
-    const [newItem, setNewItem] = useState('');
 
     
 
@@ -137,48 +106,21 @@ const Dashboard = () => {
 
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-    const [isExpanded, setIsExpanded] = useState(false);
-    const [openTemplateDialog, setOpenTemplateDialog] = useState(false); // State to control dialog visibility
+  
 
 
-    const handleExpand = () => {
-      setIsExpanded(true);
-    };
+   
   
-    const handleCollapse = () => {
-      setIsExpanded(false);
-    };
+    
 
-    const handleUseTemplate = () => {
-      setOpenTemplateDialog(true); // Open the dialog on click
-    };
+ 
   
-    const handleCloseDialog = () => {
-      setOpenTemplateDialog(false); // Close the dialog when needed
-    };
-  
-    const handleTodo = () => {
-      console.log("Todo Button Clicked");
-    };
-  
-    const handleInProgress = () => {
-      console.log("In Progress Button Clicked");
-    };
-  
-    const handleDone = () => {
-      console.log("Done Button Clicked");
-    };
+
      
-    const [selectedSection, setSelectedSection] = useState('Dashboard');
-    const handleSectionClick = (section) => {
-        setSelectedSection(section);
-    };
+  
 
-    const [activeButton, setActiveButton] = useState('Dashboard'); // Set 'Dashboard' as the default active button
 
-    const handleButtonClick = (button) => {
-        setActiveButton(button); // Update the active button when a button is clicked
-    };
+ 
 
     const [selectedTemplate, setSelectedTemplate] = useState(null);
 
@@ -186,16 +128,12 @@ const handleTemplateSelect = (template) => {
   setSelectedTemplate(template.title);
   setTemplateInfo(template.description); // Update the template info dynamically
 };
-const [templateInfo, setTemplateInfo] = useState('');
+const [ setTemplateInfo] = useState('');
     const handleClose = () => {
         setOpenDialog(false);
     };
 
-    const handleSave = () => {
-        console.log('New item added:', newItem);
-        setOpenDialog(false);
-        setNewItem('');
-    };
+  
 
 
 
@@ -215,7 +153,6 @@ const [templateInfo, setTemplateInfo] = useState('');
   const Issuesow  =()=>{
     navigate ('/issues-show')
   }
-  const [activeSection, setActiveSection] = useState('dashboard');
   const [activeTab, setActiveTab] = useState(3); // Controls the selected tab in 'Issues' section
 
   // Function to handle tab change
@@ -223,35 +160,7 @@ const [templateInfo, setTemplateInfo] = useState('');
     setActiveTab(newValue);
   };
 
-  const activityData = [
-    {
-      label: 'Today Issues',
-      activities: [
-        'No current issues'
-      ],
-    },
-    {
-      label: 'Pending Issues',
-      activities: [
-        'Pending review for issue #5678: File upload error',
-        'Need clarification for requirement change in task #1011',
-      ],
-    },
-    {
-      label: 'Review Issues',
-      activities: [
-        'Code review for PR #1122: Refactoring API service',
-        'Review pending for issue #2233: Performance optimization',
-      ],
-    },
-    {
-      label: 'Completed Issues',
-      activities: [
-        'Completed task #3344: Add new user role management',
-        'Finished testing #4455: Integration tests for checkout flow',
-      ],
-    },
-  ];
+ 
 
   
 
@@ -413,7 +322,7 @@ const [templateInfo, setTemplateInfo] = useState('');
    <Typography variant="h6">To Do</Typography>
    <Typography variant="h4" sx={{ color: '#FF6347' }}>0</Typography>
  </Box>
- <img style={{height:'56px',}} src={Groupicon2}/>
+ <img style={{height:'56px',}} src={Groupicon2} alt="group"/>
  
 </Paper>
 </Grid>
@@ -425,7 +334,7 @@ const [templateInfo, setTemplateInfo] = useState('');
    <Typography variant="h6">In Progress</Typography>
    <Typography variant="h4" sx={{ color: '#1E90FF' }}>0</Typography>
  </Box>
- <img style={{height:'56px',}} src={Groupicon3}/>
+ <img style={{height:'56px',}} src={Groupicon3} alt="grop3" />
 </Paper>
 </Grid>
 
@@ -436,7 +345,7 @@ const [templateInfo, setTemplateInfo] = useState('');
    <Typography variant="h6">Review</Typography>
    <Typography variant="h4" sx={{ color: '#FFD700' }}>0</Typography>
  </Box>
- <img style={{height:'56px',}} src={Groupicon4}/>
+ <img style={{height:'56px',}} src={Groupicon4} alt="group4" />
 </Paper>
 </Grid>
 
@@ -447,7 +356,7 @@ const [templateInfo, setTemplateInfo] = useState('');
    <Typography variant="h6">Done</Typography>
    <Typography variant="h4" sx={{ color: '#32CD32' }}>2</Typography>
  </Box>
- <img style={{height:'56px',}}  src={Groupicon}/>
+ <img style={{height:'56px',}}  src={Groupicon} alt="grp5" />
 </Paper>
 </Grid>
 </Grid>
@@ -519,7 +428,7 @@ View All
 <Box key={index} sx={styles.issueItem}>
  <Box sx={{}} />
  
- <Image src={Vector} sx={{ width: '28px', height: '28px', marginRight: '10px',backgroundColor:'#3767B1',padding:'7px' ,borderRadius:'7px'}} />
+ <Image src={Vector} alt="vector" sx={{ width: '28px', height: '28px', marginRight: '10px',backgroundColor:'#3767B1',padding:'7px' ,borderRadius:'7px'}} />
 
 
  <Box sx={{ flexGrow: 1 }}>
@@ -560,7 +469,6 @@ const styles = {
     mb:3,
     display: 'flex',
     alignItems: 'center',
-    justifyContent:'space-evenly',
     
    
     justifyContent: 'space-between',

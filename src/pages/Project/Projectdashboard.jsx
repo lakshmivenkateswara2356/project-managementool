@@ -1,8 +1,7 @@
 import React , { useState } from 'react';
-import { Box, Typography, Table, TableBody,IconButton, Menu, Checkbox,   Dialog, DialogActions, DialogContent, DialogTitle,TableCell,TextField,MenuItem, TableHead, TableRow, Button, Grid, Card, CardContent, Avatar } from '@mui/material';
+import { Box, Typography, IconButton,   Grid, Avatar } from '@mui/material';
 import InfoIcon from '@mui/icons-material/InfoOutlined';
 import AddIcon from '@mui/icons-material/Add';
-import Image from '../../components/Image';
 import Listimageone from '../../Assets/listimgone.png';
 import Listimagetwo from '../../Assets/listimagetwo.png';
 import Listimagethree from '../../Assets/listimagethree.png';
@@ -16,7 +15,6 @@ import Projecttable from '../../pages/Project/ProjectTable';
 import Bottommenu from '../../pages/BottomMenu/Bottommenu';
 import { IoGrid } from "react-icons/io5";
 import { MdList } from "react-icons/md";
-import Menuitem from '../../Assets/Vector (10).png';
 
 const Projectdashboard =()=>{
 
@@ -104,7 +102,7 @@ Projects                    </Typography>
               
                 
                   <Avatar sx={{backgroundColor:'red',height:'86px',width:'88px',borderRadius:'7px',marginRight:'34px'}} src={project.image} alt={project.name} />
-                  <Typography sx={{fontSize:'13px',marginLeft:"-33px",fontFamily:'sans-serif',fontSize:'13px'}} variant="h6">{project.name}</Typography>
+                  <Typography sx={{fontSize:'13px',marginLeft:"-33px",fontFamily:'sans-serif'}} variant="h6">{project.name}</Typography>
                 
               
             </Grid>

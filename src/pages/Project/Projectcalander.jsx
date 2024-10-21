@@ -21,7 +21,7 @@ const Projectcalander = () => {
 
 
 
-  const [taskItems, setTaskItems] = useState([
+  const [taskItems] = useState([
     { label: 'Testing', completed: true, priority: 'low' },
     { label: 'Feedbacks + Design inconsistencies', completed: false, priority: 'high' },
     { label: 'Filter documents in table', completed: true, priority: 'low' },

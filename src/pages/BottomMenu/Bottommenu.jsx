@@ -30,9 +30,7 @@ const Bottommenu = () => {
     }
 
 
-    const handleProjectd =()=>{
-        navigate('/Projects')
-    }
+   
 
     const handleWork =()=>{
         navigate ('/yourwork')
@@ -53,7 +51,6 @@ const Bottommenu = () => {
             paddingLeft: '12px',
             paddingRight: '12px',
             backgroundColor: '#1f1e1e',
-            backgroundColor:'#161717',
             paddingTop: '22px',
             bottom: 0,
             zIndex: 1000,

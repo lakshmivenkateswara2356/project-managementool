@@ -1,23 +1,15 @@
 
 
 import React, { useState } from "react";
-import { Box, Typography, Table, TableBody,IconButton, Menu, Checkbox,   Dialog, DialogActions, DialogContent, DialogTitle,TableCell,TextField,MenuItem, TableHead, TableRow, Button, Grid, Card, CardContent,LinearProgress, AvatarGroup, Avatar } from '@mui/material';
+import { Box,IconButton,  Dialog, DialogActions, DialogContent, DialogTitle,TextField, Button, } from '@mui/material';
 
-import AddIcon from "@mui/icons-material/Add";
-import Streamlineimg from "../../Assets/streamline-emojis_bird-1 (2).png";
 import Image from "../../components/Image";
-import InputAdornment from '@mui/material/InputAdornment';
 import Rashid from '../../Assets/Ellipse 68.png';
 import Yogesh from '../../Assets/Ellipse 47.png';
 import Smily from '../../Assets/Ellipse 48.png';
 import Thompson from '../../Assets/Ellipse 54.png';
 import lastimage from '../../Assets/Ellipse 61.png';
-import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
-import SearchIcon from '@mui/icons-material/Search';
-import StandardFeatures from '../../pages/Project/StandardFeatures';
-import PersonAddIcon from '@mui/icons-material/PersonAdd';
-import Clikklebrand from '../../Assets/clikkleprobrand.png'
+
 
 import Addpersons from '../../Assets/addperson.png';
 
@@ -25,19 +17,15 @@ import Addpersons from '../../Assets/addperson.png';
 
 const ProjectHeader =()=> {
 
-  const [open, setOpen] = useState(false);
+  const [ setOpen] = useState(false);
 
   const handleClickOpen = () => {
     setOpen(true);
   };
 
-  const handleClose = () => {
-    setOpen(false);
-  };
-    const handleOpenAssigneeDialog = () => setAssigneeDialogOpen(true);
+
     const handleCloseAssigneeDialog = () => setAssigneeDialogOpen(false);
     const [assigneeDialogOpen, setAssigneeDialogOpen] = useState(false);
-    const handleOpenIssueTypeDialog = () => setIssueTypeDialogOpen(true);
     const handleCloseIssueTypeDialog = () => setIssueTypeDialogOpen(false);
     const [issueTypeDialogOpen, setIssueTypeDialogOpen] = useState(false);
 
@@ -115,7 +103,6 @@ onClick={handleClickOpen}
     <select
           style={{
              backgroundColor: 'transparent',  
-            borderStyle:'solid',
             height:'32px',
             borderRadius:'18px',
             width:'6vw',
@@ -124,7 +111,6 @@ onClick={handleClickOpen}
            color:'gray',
            marginLeft:'200px',
             padding: '5px 10px',
-            borderRadius: '5px',
             fontSize: '13px',
           }}
         >
@@ -135,7 +121,6 @@ onClick={handleClickOpen}
     <select
           style={{
              backgroundColor: 'transparent',  
-            borderStyle:'solid',
             height:'31px',
             borderRadius:'18px',
             width:'6vw',
@@ -144,7 +129,6 @@ onClick={handleClickOpen}
             color:'gray',
             marginLeft:'-45px',
             padding: '5px 10px',
-            borderRadius: '5px',
             fontSize: '13px',
           }}
         >
@@ -155,7 +139,6 @@ onClick={handleClickOpen}
     <select
           style={{
              backgroundColor: 'transparent',  
-            borderStyle:'solid',
             height:'31px',
             borderRadius:'18px',
             width:'7vw',
@@ -165,7 +148,6 @@ onClick={handleClickOpen}
           
            marginLeft:'-45px',
             padding: '5px 10px',
-            borderRadius: '5px',
             fontSize: '13px',
           }}
         >

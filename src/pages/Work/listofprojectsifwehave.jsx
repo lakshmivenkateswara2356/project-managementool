@@ -1,7 +1,6 @@
 // listofprojectsifwehave.jsx
 
 import React from 'react';
-import Image from '../../components/Image';
 import Streamline from '../../Assets/streamline-emojis_bird-1 (2).png';
 import Robo from '../../Assets/Robo.png';
 import { Box, Typography, Card, CardContent, Grid, Avatar } from '@mui/material';

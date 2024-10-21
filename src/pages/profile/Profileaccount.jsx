@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Typography, Button, Avatar, Divider, Link } from '@mui/material';
+import { Box, Typography, Button, Avatar,  Link } from '@mui/material';
 import Profile from '../../Assets/team1.png';
 import Clikklebrand from '../../Assets/clikkleprobrand.png';
 import tickicon from '../../Assets/tick.png';
@@ -22,7 +22,6 @@ import Dwyane from '../../Assets/DANIEL THOMPSON.jpg';
 import Isbella from '../../Assets/Ellipse 48.png';
 import Amanda from '../../Assets/Ellipse 47.png';
 
-import { CheckBox, CheckBoxOutlineBlank, Email, LocationOn, Business } from '@mui/icons-material';
 
 const Profileaccount = () => {
   const navigate = useNavigate();

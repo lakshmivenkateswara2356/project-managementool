@@ -2,13 +2,9 @@ import React, { useCallback, useEffect, useState } from 'react';
 
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import DiamondIcon from "@mui/icons-material/Diamond"; 
-import { IoDiamondOutline } from "react-icons/io5";
 import Animatedbell from '../components/AnimatedBell';
 
-import NotificationIcon from './NotificationIcon';
 
-import SparklesIcon from '@mui/icons-material/AutoAwesome';
 //mui component
 import {
     AppBar,
@@ -38,7 +34,6 @@ import {
     useMediaQuery,
 } from '@mui/material';
 
-import { Storage, Security } from '@mui/icons-material';
 //mui icons
 import AppsIcon from '@mui/icons-material/Apps';
 import SettingsIcon from '@mui/icons-material/SettingsOutlined';
@@ -46,10 +41,8 @@ import MenuIcon from '@mui/icons-material/Menu';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import CloudOutlinedIcon from '@mui/icons-material/CloudOutlined';
-import clikklepro from '../Assets/clikkleproj.png';
 import { fileManager, sharedFile } from '../services/sidebarLinks';
 
-import Notificationbell from '../pages/Notificationbell/NotificationDialog';
 
 //react component
 import Image from '../components/Image';
@@ -73,14 +66,7 @@ import MicrophoneIcon from './MicrophoneIcon';
 import Clikklebrand from '../Assets/clikkleprobrand.png'
 
 
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import StorageIcon from '@mui/icons-material/Storage';
-import FolderIcon from '@mui/icons-material/Folder';
-import BugReportIcon from '@mui/icons-material/BugReport';
-import GroupIcon from '@mui/icons-material/Group';
-import NotificationsIcon from '@mui/icons-material/Notifications';
 
-import NotificatioItems from '../pages/Notificationbell/NotificationDialog';
 
 
 import personprogg from '../Assets/gg_profile.png';
@@ -100,37 +86,16 @@ import StandardFeatures from '../pages/Project/StandardFeatures';
 import CloseIcon from '@mui/icons-material/Close';
 
 
-import { Dialog, DialogContent, DialogTitle, Tabs, Tab, Card, CardContent,ListItemAvatar, AvatarGroup, DialogActions,
+import { Dialog, DialogContent, DialogTitle, Tabs, Tab, Card, ListItemAvatar, AvatarGroup, DialogActions,
    ListSubheader, } from '@mui/material';
 
-import { Person } from '@mui/icons-material';
 
-import { Margin } from '@mui/icons-material';
-
-import { useSignOut } from '../hooks/Authorize';
 
 const drawerWidth = 260;
 const appsWidth = 54;
 const miniDrawerWidth = 72;
 
-const StyledButton = styled(Button)({
-    border: '2px solid #3767B1', // Match the border color
-    borderRadius: '8px', // Rounded corners
-    color: '#3767B1', // Text and icon color
-    padding: '8px 16px', // Adjust padding for a good fit
-    fontSize: '13px', // Adjust font size
-    textTransform: 'none', // Remove uppercase transformation
-    display: 'flex',
-    alignItems: 'center',
-    gap: '8px', // Space between icon and text
-    transition: 'all 0.3s ease', // Smooth transition for hover effect
-    '&:hover': {
-      backgroundColor: '#3767B1', // Keep background transparent on hover
-      borderColor: '#2962FF', // Ensure border color stays on hover
-      boxShadow: '0 0 10px rgba(41, 98, 255, 0.5)', // Glow effect
-      color: '#ffff', // Change text color on hover if desired
-    },
-  });
+
   
 
 const openedMixin = theme => ({
@@ -220,7 +185,7 @@ export default function Navbar(props) {
 
 //opensetting
 
-    const [opene, setOpen] = useState(false); // 
+    const [ setOpen] = useState(false); // 
     const [opensetting, setOpene] = useState(false); 
 
 
@@ -228,11 +193,7 @@ const handleOpenset = () => {
     setOpene(true);
   };
 
-  const handleCloseset = () => {
-    setOpene(false);
-  };
-
-
+  
 
 
 
@@ -256,7 +217,7 @@ const handleOpenset = () => {
         closeMenu: closeProfileMenu,
     } = useMenu();
 
-    const { anchorEl: anchorElApps, openMenu: openAppsMenu, closeMenu: closeAppsMenu } = useMenu();
+    const { anchorEl: anchorElApps,  closeMenu: closeAppsMenu } = useMenu();
 
     const {
         anchorEl: anchorElSettings,
@@ -406,19 +367,11 @@ const handleOpenset = () => {
 
    
   
-    const handleMenuOpen = (event) => {
-      setAnchorEl(event.currentTarget);
-    };
+   
   
-    const handleMenuClose = () => {
-      setAnchorEl(null);
-    };
+   
 
-    
-    const handleViewOrganizations = () => {
-        navigate('/organizations'); // Navigate to the OrganizationList
-        handleClose(); // Close the menu after clicking
-    };  
+   
     const handleClose = () => {
         setOpen(false); // This will close the menu
       };
@@ -438,10 +391,10 @@ const handleOpenset = () => {
       
      // For navigation
      const [selectedOrganization, setSelectedOrganization] = useState(organizations[0].name);
-     const [selectedOrgLogo, setSelectedOrgLogo] = useState(organizations[0].logo);
+     const [ setSelectedOrgLogo] = useState(organizations[0].logo);
     
 
-     const [userCount, setUserCount] = React.useState(0); // Track the user count
+     const [userCount] = React.useState(0); // Track the user count
 const [openFirstDialog, setOpenFirstDialog] = React.useState(false); // First dialog state
 const [openSecondDialog, setOpenSecondDialog] = React.useState(false); // Second dialog state
 
@@ -472,27 +425,6 @@ const handleCloseSecondDialog = () => {
         handleClose();
       };
     
-
-    const checking =()=>{
-        console.log("Sign out function called");
-        clearCookie('accessToken');
-        clearCookie('role');
-        clearCookie('setupCompleted');
-        
-        console.log('User signed out. Redirecting to login...');
-        
-        const isDevelopment = process.env.NODE_ENV === 'development'; // Check if in development mode
-        const clientUrl = isDevelopment ? process.env.REACT_APP_DEVELOPMENT_AUTHENTICATION_CLIENT : process.env.REACT_APP_PRODUCTION_AUTHENTICATION_CLIENT;
-        const domainUrl = isDevelopment ? process.env.REACT_APP_DEVELOPMENT_DOMAIN : process.env.REACT_APP_PRODUCTION_DOMAIN;
-        console.log('Client URL:', clientUrl);
-        console.log('Domain URL:', domainUrl);
-        const redirectTo =
-            `${clientUrl}/login?redirectto=${encodeURIComponent(domainUrl)}`;
-        
-        console.log('Redirect URL:', redirectTo);
-        window.location.href = redirectTo;
-
-    }
 
     useEffect(() => {
         setMobileOpen(false);
@@ -551,7 +483,7 @@ const handleCloseSecondDialog = () => {
             {organization?.name} {/* Display the selected organization here */}
             </Typography>
             <div>
-      <h1></h1>
+      
       <p>{organization?._id}</p>
       {/* Render additional organization-specific content here */}
     </div>
@@ -1052,7 +984,7 @@ const handleCloseSecondDialog = () => {
                 <Typography variant="subtitle1" sx={{ fontSize: '17px',fontFamily:'sans-serif', }}>
                   {feature.title}
                 </Typography>
-                <Typography variant="body2" sx={{ fontSize: '12px', color: 'gray',fontSize:'14px', }}>
+                <Typography variant="body2" sx={{ color: 'gray',fontSize:'14px', }}>
                   {feature.description}
                 </Typography>
               </Box>

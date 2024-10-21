@@ -1,8 +1,6 @@
 import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
 import GradeOutlinedIcon from '@mui/icons-material/GradeOutlined';
-import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 import PeopleIcon from '@mui/icons-material/People';
-import PersonIcon from '@mui/icons-material/Person';
 import FolderOutlinedIcon from '@mui/icons-material/FolderOutlined';
 
 

@@ -9,10 +9,8 @@ import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import Bottommenu from '../BottomMenu/Bottommenu';
 import { Dialog, DialogActions, DialogContent, DialogTitle,  Checkbox, FormControlLabel } from '@mui/material';
 import Teamcreatimage from '../../Assets/Personsimages/pana.png';
-import Image from '../../components/Image';
 
 import Rashid from '../../Assets/RASHID AHMED (1).jpg';
-import Teamfiv from '../../Assets/team.png';
 import { 
   Box, Typography, Grid, TextField, Card, CardContent, 
   Avatar, IconButton, Button 

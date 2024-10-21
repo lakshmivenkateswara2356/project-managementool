@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import {
   Box, Typography, Card, TextField, Button,Checkbox, Tabs,FormControl, Avatar,  Select, InputAdornment,
-  Tab, IconButton, Menu, MenuItem, ListItemText, Dialog, DialogTitle, DialogContent, DialogActions
+  Tab, IconButton, Menu, MenuItem, ListItemText, Dialog, DialogTitle, DialogContent, 
 } from '@mui/material';
-import { EmojiEmotions, AttachFile, Link, MoreVert, FilterList, Create } from '@mui/icons-material';
+import { EmojiEmotions, AttachFile, Link, MoreVert,  } from '@mui/icons-material';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
@@ -13,7 +13,6 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import SettingsIcon from '@mui/icons-material/Settings';
 
 
-import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import PersonIcon from '@mui/icons-material/Person';
 
@@ -30,7 +29,7 @@ const Projectinprogress = () => {
   const [inProgressItems, setInProgressItems] = useState([]); // Initialize with zero issues
   const [anchorEl, setAnchorEl] = useState(null);
   const [dialogOpen, setDialogOpen] = useState(false);
-  const [selectedIssue, setSelectedIssue] = useState(null);
+  const [ setSelectedIssue] = useState(null);
 
   const [filter, setFilter] = useState('Newest first');
 
@@ -63,7 +62,6 @@ const Projectinprogress = () => {
   };
 
 
-  const handleMenuOpen = (event) => setAnchorEl(event.currentTarget);
   const handleMenuClose = () => setAnchorEl(null);
 
   const handleCreateClick = () => setShowTextArea(true);
@@ -80,20 +78,10 @@ const Projectinprogress = () => {
   const openMenu = Boolean(anchorEl);
 
 
-  const [open, setOpen] = useState(false);
 
 
-  const [selectedData, setSelectedData] = useState(null);
-  const handleClickOpen = (data) => {
-    setSelectedData(data);
-    setOpen(true);
-  };
-
-
-  const handleClose = () => {
-    setOpen(false);
-    setSelectedData(null);
-  };
+  const [selectedData] = useState(null);
+ 
 
   const handleOpenDialog = (issue) => {
     setSelectedIssue(issue);
@@ -450,7 +438,7 @@ const Projectinprogress = () => {
             Daniel Thompson <span style={{ color: '#888888' }}>3 minutes ago</span>
           </Typography>
         </Box>
-        <Typography sx={{ marginLeft: '34px', color: '#ffffff', fontSize: '14px',color:'gray', }}>
+        <Typography sx={{ marginLeft: '34px', fontSize: '14px',color:'gray', }}>
           Icon updated to match the design for E-sign.
         </Typography>
         <Box sx={{ display: 'flex', gap: 2, marginLeft: '34px', marginTop: '4px' }}>

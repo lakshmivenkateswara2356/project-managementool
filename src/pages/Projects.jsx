@@ -1,78 +1,39 @@
 import React, { useState } from "react";
-import { Box, Typography, Table, TableBody,IconButton, Menu, Checkbox,   Dialog, DialogActions, DialogContent, DialogTitle,TableCell,TextField,MenuItem, TableHead, TableRow, Button, Grid, Card, CardContent } from '@mui/material';
+import { Box, Typography, IconButton, Button, Grid, } from '@mui/material';
 
 import AddIcon from "@mui/icons-material/Add";
 import Streamlineimg from "../Assets/streamline-emojis_bird-1 (2).png";
 import Image from "../components/Image";
-import InputAdornment from '@mui/material/InputAdornment';
-import Rashid from '../Assets/RASHID AHMED.jpg';
-import Yogesh from '../Assets/YOGESH SINGH.jpg';
-import Smily from '../Assets/young-pretty-model-is-smiling.jpg';
+
 import Projectform from '../pages/Project/ProjectForm';
 import Projectlist from '../pages/Project/ProjectList';
-import Thompson from '../Assets/DANIEL THOMPSON.jpg';
 
 import Projectboard from '../pages/Project/Projectboard';
 import Projectcalander from '../pages/Project/Projectcalander';
-import Header from '../components/Header';
-import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
-import { useParams } from 'react-router-dom';
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
-import SearchIcon from '@mui/icons-material/Search';
+
+
 
 
 const Projects = ({ todoDescription }) => {
 
-  const { id } = useParams();
-  const [openDialog, setOpenDialog] = useState(false);
-  const [anchorEl, setAnchorEl] = useState(null);
-  const [checked, setChecked] = useState(false);
+  const [ setOpenDialog] = useState(false);
 
 
-  const [toDoInput, setToDoInput] = useState('');
-  const [toDoItems, setToDoItems] = useState([]);
-  const [inProgressItems, setInProgressItems] = useState([]);
 
-  const handleCreateToDo = () => {
-    if (toDoInput.trim() !== '') {
-      setToDoItems([...toDoItems, toDoInput]);
-      setToDoInput(''); // Clear input after adding
-    }
-  };
 
   
   // Open/close dropdown
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
   
 
   
   // Toggle checkbox
-  const handleCheck = (event) => {
-    setChecked(event.target.checked);
-  };
+ 
   const handleClickOpen = () => {
     setOpenDialog(true);
   };
 
 
-  const activeCellStyles = {
-   
-    color: '#fff',
-    textAlign: 'center',
-    
-    borderRadius: '50%',
-  };
-  
-  const inactiveCellStyles = {
-    color: '#757575',
-    textAlign: 'center',
-    padding: '15px',
-  };
 
-  const assignees = ['John Doe', 'Jane Smith', 'Create Assignee'];
-  const issueTypes = ['Bug', 'Feature', 'Task', 'Create Issue'];
 
   const [selectedOption, setSelectedOption] = useState('Board');
 
@@ -81,28 +42,15 @@ const Projects = ({ todoDescription }) => {
     setSelectedOption(option);
   };
 
-  const handleClose = () => {
-    setOpenDialog(false);
-  };
+ 
 
-  const [issueCount, setIssueCount] = useState(0);
-  const status = 'To Do'; // Change this to dynamically change status ('To Do', 'In Progress', etc.)
 
-  const handleCreateIssue = () => {
-    setIssueCount(issueCount + 1);
-  };
+ 
 
-  const [assigneeDialogOpen, setAssigneeDialogOpen] = useState(false);
-  const [issueTypeDialogOpen, setIssueTypeDialogOpen] = useState(false);
-  const [selectedAssignee, setSelectedAssignee] = useState('');
-  const [selectedPriority, setSelectedPriority] = useState('');
-  const [selectedIssueType, setSelectedIssueType] = useState('');
+
   
   // Handle Dialogs
-  const handleOpenAssigneeDialog = () => setAssigneeDialogOpen(true);
-  const handleCloseAssigneeDialog = () => setAssigneeDialogOpen(false);
-  const handleOpenIssueTypeDialog = () => setIssueTypeDialogOpen(true);
-  const handleCloseIssueTypeDialog = () => setIssueTypeDialogOpen(false);
+ 
 
   return (
 

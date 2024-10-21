@@ -1,12 +1,7 @@
 import React, { useState } from "react";
-import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
-import TaskOutlinedIcon from "@mui/icons-material/TaskOutlined";
-import VideoChatOutlinedIcon from "@mui/icons-material/VideoChatOutlined";
-import GroupOutlinedIcon from "@mui/icons-material/GroupOutlined";
-import ChatOutlinedIcon from "@mui/icons-material/ChatOutlined";
+
 import { NavLink, useLocation } from "react-router-dom";
-import AppsOutlinedIcon from "@mui/icons-material/AppsOutlined";
-import ContactMailOutlinedIcon from "@mui/icons-material/ContactMailOutlined";
+
 import AtsIcon from "../../services/icons/menu/ats.svg";
 import ActiveAtsIcon from "../../services/icons/active-menu/ats.svg";
 import ProjectIcon from "../../services/icons/menu/project.svg";
@@ -19,9 +14,8 @@ import ActiveHomeIcon from "../../services/icons/active-menu/ic_outline-home.svg
 
 import AppsIcon from "../../services/icons/menu/apps.svg";
 import ActiveAppsIcon from "../../services/icons/active-menu/apps.svg";
-import { Box, ListItemIcon, SvgIcon } from "@mui/material";
-import { grey } from "@mui/material/colors";
-import GroupsIcon from "@mui/icons-material/Groups";
+import { Box } from "@mui/material";
+
 
 const ATS = ({ active }) => (
   <img

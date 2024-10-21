@@ -4,9 +4,9 @@ import DeleteIcon from '@mui/icons-material/Delete';
 
 import Thementire from '../../style/theme';
 import { Box,
-  Dialog, DialogTitle, DialogContent, DialogActions, 
+  Dialog, DialogContent, DialogActions, 
   Button, TextField, Typography, Table, TableBody, 
-  TableCell, TableContainer, TableHead, TableRow, Paper 
+  TableCell,  TableHead, TableRow, Paper 
 } from '@mui/material';
 
 const OrganizationList = ({ organizations }) => {
@@ -46,7 +46,6 @@ const OrganizationList = ({ organizations }) => {
   };
 
 
-  const [page, setPage] = useState(0);
 
 
   const handleOrganizationClick = (organization) => {
