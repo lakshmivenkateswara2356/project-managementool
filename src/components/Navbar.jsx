@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect,  useRef,useState } from 'react';
 
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
@@ -178,6 +178,7 @@ export default function Navbar(props) {
 
     const { toggleTheme, mode } = useTheme();
     const theme = useMuiTheme();
+    const popupRef = useRef(null);
 
     // useMenu
 
@@ -193,9 +194,13 @@ const handleOpenset = () => {
     setOpene(true);
   };
 
-  
+  const handleClose = () => {
+    setOpen(false); // Close the popup
+  };
 
 
+
+ 
 
 
 
@@ -372,9 +377,7 @@ const handleOpenset = () => {
    
 
    
-    const handleClose = () => {
-        setOpen(false); // This will close the menu
-      };
+   
 
 
       const handleUpgrade = ()=>{
@@ -383,9 +386,9 @@ const handleOpenset = () => {
 
      
       const organizations = [
-        { id: 1, name: 'Clikkle Technologies', logo: 'https://cdn.clikkle.com/images/clikkle/logo/2023/clikkle.svg' },
-        { id: 2, name: 'Tech Corp', logo: 'https://example.com/images/techcorp/logo.png' },
-        { id: 3, name: 'InnovateX', logo: 'https://example.com/images/innovatex/logo.png' },
+        { id: 1, name: '', logo: '' },
+        { id: 2, name: '', logo: '' },
+        { id: 3, name: '', logo: '' },
     ]; // Example organizations, fetch dynamically from backend if needed
       // Default organization
       
@@ -405,6 +408,9 @@ const handleOpen = () => {
     setOpenSecondDialog(true); // Open the second dialog if users >= 10
   }
 };
+
+
+
 
 const handleCloseFirstDialog = () => {
   setOpenFirstDialog(false);
@@ -448,12 +454,12 @@ const handleCloseSecondDialog = () => {
                 component={Link}
                 to='/'
                 sx={{ textDecoration: 'none', color: 'text.primary', py: 1 }}>
-                <Image cdn='projects/logo/2023/projects-text.png' sx={{ height: '50px' }} />
+                <Image cdn='projects/logo/2023/projects-text.png' sx={{ height: '32px',marginLeft:'-83px',marginBottom:'4px' }} />
                 <Typography
                     color='text.secondary'
                     variant='body2'
                     fontWeight='bold'
-                    sx={{ position: 'absolute', bottom: 2, left: '27%' }}>
+                    sx={{ position: 'absolute', bottom: 2, left: '20%'}}>
                     Beta
                 </Typography>
             </Box>
@@ -465,7 +471,8 @@ const handleCloseSecondDialog = () => {
                 alignItems: 'center',
                 padding: '10px',
                 borderRadius: '8px',
-                color: '#B0B0B0', // Gray text color
+                color: '#B0B0B0', 
+                // Gray text color
             }}
         >
             {/* Avatar */}
@@ -473,13 +480,13 @@ const handleCloseSecondDialog = () => {
   <Avatar 
     alt={selectedOrganization || 'Organization Logo'} 
     src={organization.imageUrl} 
-    sx={{ backgroundColor: 'white', height: '32px', width: '32px', marginRight: '12px', marginLeft: '14px' }} 
+    sx={{ backgroundColor: 'white', height: '28px', width: '28px', marginRight: '12px', marginLeft: '14px' }} 
   />
 )}
 
 
             {/* Company Name */}
-            <Typography sx={{ fontSize: '14px', fontWeight: 500 }}>
+            <Typography sx={{ fontSize: '16px', fontWeight: 500 ,fontFamily:'sans-serif',color:'gray',}}>
             {organization?.name} {/* Display the selected organization here */}
             </Typography>
             <div>
@@ -504,8 +511,8 @@ const handleCloseSecondDialog = () => {
                 onClose={handleClose}
                 PaperProps={{
                     style: {
-                        backgroundColor: '#1c1c1c', // Same dark background as the header
-                        color: '#B0B0B0', // Gray text color for the dropdown items
+                         // Same dark background as the header
+                       // Gray text color for the dropdown items
                     },
                 }}
             >
@@ -527,13 +534,13 @@ const handleCloseSecondDialog = () => {
                         handleOrganisation(); // Redirect to create organization page
                         handleClose(); // Close the menu after clicking
                     }}
-                    sx={{ fontSize: '14px', padding: '10px', fontWeight: 'bold' }}
+                    sx={{ fontSize: '14px', padding: '10px', fontWeight: 'bold', }}
                 >
                     Create Organization
                 </MenuItem>
 
                 {/* New "View Organizations" option */}
-                <Button sx={{ color: 'white' }} href="/listorganisation">
+                <Button sx={{  }} href="/listorganisation">
           Organizations
         </Button>
             </Menu>
@@ -879,7 +886,7 @@ const handleCloseSecondDialog = () => {
 
             {/* Actions */}
             <DialogActions sx={{  mt: 2,marginTop:'72px' }}>
-              <Button onClick={handleClose} sx={{ color: '#888', backgroundColor: '#45413C', textTransform: 'none', p: '8px 24px' }}>
+              <Button onClick={handleCloseFirstDialog} sx={{ color: '#888', backgroundColor: '#45413C', textTransform: 'none', p: '8px 24px' }}>
                 Maybe later
               </Button>
               <Button onClick={handleUpgrade} sx={{ backgroundColor: '#3767B1', color: 'black', textTransform: 'none', p: '8px 24px' }}>
@@ -1116,6 +1123,7 @@ const handleCloseSecondDialog = () => {
 
                                  {/* Dialog for the settings popup */}
                                  <Dialog
+                                 ref={popupRef}
   sx={{ marginLeft: '655px' }}
   open={opensetting}
   onClose={handleClose}

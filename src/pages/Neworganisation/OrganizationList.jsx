@@ -129,6 +129,7 @@ const OrganizationList = ({ organizations }) => {
                       backgroundColor: 'transparent',
                       border: 'none',
                       color: 'white',
+                      width:"13px",
                       cursor: 'pointer',
                     }}
                   >
@@ -163,6 +164,7 @@ const OrganizationList = ({ organizations }) => {
       color: 'white',
       fontSize: '20px',
       fontWeight: 600,
+      
       marginBottom: '16px',
     }}
   >

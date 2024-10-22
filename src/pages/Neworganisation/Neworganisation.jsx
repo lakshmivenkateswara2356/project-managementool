@@ -127,7 +127,8 @@ const Neworganisation = ({ addOrganization }) => {
             <TextField
               placeholder="Create Organization"
               style={{
-                width: '91vw',
+                width: '95vw',
+                marginLeft:'-37px',
                 height: '40px',
                 borderRadius: '9px',
                 backgroundColor: 'background.default',
@@ -141,20 +142,25 @@ const Neworganisation = ({ addOrganization }) => {
           </Box>
 
           <Box sx={{ display: 'flex', justifyContent: 'flex-end', marginTop: '25px' }}>
-            <Button
-              onClick={() => setIsPopupOpen(true)}
-              sx={{
-                marginRight: '82px',
-                backgroundColor: '#3767B1',
-                color: 'white',
-                width: '120px',
-                marginBottom: '12px',
-                '@media(max-width:600px)': { marginRight: '22px' },
-              }}
-            >
-              Next
-            </Button>
-          </Box>
+  <Button
+    onClick={() => setIsPopupOpen(true)}
+    sx={{
+      marginRight: '82px',
+      backgroundColor: '#3767B1',
+      color: 'white',
+      width: '120px',
+      marginBottom: '12px',
+      '@media(max-width:600px)': { marginRight: '22px' },
+      '&:hover': {
+        backgroundColor: '#3767B1', // Maintain the same background color on hover
+        opacity: 1, // Ensure the opacity remains unchanged
+      },
+    }}
+  >
+    Next
+  </Button>
+</Box>
+
 
           {/* Popup Dialog */}
           <Dialog

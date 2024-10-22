@@ -181,7 +181,7 @@ const [ setTemplateInfo] = useState('');
   }}
 >
 
-<Grid sx={{marginTop:'-33px'}} container alignItems='center'  >
+<Grid sx={{marginTop:'-23px'}} container alignItems='center'  >
                 <Grid item xs>
                     <Typography variant='h5' color='text.primary'>
                         Dashboard
@@ -191,7 +191,7 @@ const [ setTemplateInfo] = useState('');
                     <IconButton sx={{ display: { sm: 'block' } }}>
                     <IconButton onClick={handleClickOpen} >
                         
-                        <AddIcon className='iconsize'/>
+                        <AddIcon sx={{marginTop:'-12px'}} className='iconsize'/>
                         </IconButton>
                     </IconButton>
                 </Grid>
@@ -421,7 +421,7 @@ View All
 </Box>
 
 <Tabs value={activeTab} onChange={handleTabChange} textColor="inherit" indicatorColor="primary" sx={{ marginBottom: 1 }}>
-<Tab label="Today Issues" sx={styles.tabStyle} />
+<Tab label="Assigned to me" sx={styles.tabStyle} />
 <Tab label="Pending Issues" sx={styles.tabStyle} />
 <Tab label="Review Issues" sx={styles.tabStyle} />
 <Tab label="Completed Issues" sx={styles.tabStyle} />
