@@ -105,7 +105,7 @@ const Neworganisation = ({ addOrganization }) => {
               },
             }}
           >
-            Project organization refers to the style of coordination, communication, and management a
+            Project organization refer to the style of coordination, communication, and management a
             team uses throughout a project’s lifecycle.
           </Typography>
 
@@ -125,7 +125,7 @@ const Neworganisation = ({ addOrganization }) => {
 
           <Box sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
             <TextField
-              placeholder="Create organization"
+              placeholder="Create Organization"
               style={{
                 width: '91vw',
                 height: '40px',
@@ -209,9 +209,9 @@ const Neworganisation = ({ addOrganization }) => {
             <Typography sx={{ fontWeight: 500, marginTop: '42px', fontSize: '18px' }}>
               Organization Logo
             </Typography>
-            <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mt: 1 }}>
-              <Button variant="outlined" component="label" sx={{ borderRadius: '50%',height:'60px',borderColor:'white',borderWidth:'2px' }}>
-                <AddIcon sx={{color:'white'}} />
+            <Box container sx={{ display: 'flex', alignItems: 'center', gap: 2, mt: 1, }}>
+              <Button variant="outlined" component="label" sx={{ borderRadius: '50%',height:'60px',borderWidth:'2px' }}>
+                <AddIcon sx={{}} />
                 <input type="file" hidden onChange={handleFileChange} />
               </Button>
 
