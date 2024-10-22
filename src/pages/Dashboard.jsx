@@ -169,8 +169,16 @@ const [ setTemplateInfo] = useState('');
 
   return (
     <div>
-   <Box sx={{ flexGrow: 1, padding: '20px',overflow:'scroll',height:{xs: '85vh',  // for small screens
-      lg: '84vh' } }}
+  <Box
+  sx={{
+    flexGrow: 1,
+    padding: '20px',
+    overflow: 'scroll',
+    height: { xs: '85vh', lg: '84vh' },
+    '&::-webkit-scrollbar': { display: 'none' }, // Hides scrollbar in Chrome, Safari
+    '-ms-overflow-style': 'none', // Hides scrollbar in Internet Explorer and Edge
+    'scrollbar-width': 'none', // Hides scrollbar in Firefox
+  }}
 >
 
 <Grid sx={{marginTop:'-33px'}} container alignItems='center'  >
@@ -506,6 +514,11 @@ borderRadius:'17px',
     overflow: 'scroll',
     ml:-4,
     height: '42vh',
+
+    '&::-webkit-scrollbar': { display: 'none' }, // Chrome, Safari
+    '-ms-overflow-style': 'none', // IE, Edge
+    'scrollbar-width': 'none', // Firefox
+  
 
     '@media (max-width:600px)':{
 
