@@ -210,8 +210,8 @@ const Neworganisation = ({ addOrganization }) => {
               Organization Logo
             </Typography>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mt: 1 }}>
-              <Button variant="outlined" component="label" sx={{ borderRadius: '50%' }}>
-                <AddIcon />
+              <Button variant="outlined" component="label" sx={{ borderRadius: '50%',height:'60px',borderColor:'white',borderWidth:'2px' }}>
+                <AddIcon sx={{color:'white'}} />
                 <input type="file" hidden onChange={handleFileChange} />
               </Button>
 
