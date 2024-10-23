@@ -64,7 +64,8 @@ import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
 import Feedback from './Feedback';
 import MicrophoneIcon from './MicrophoneIcon';
 import Clikklebrand from '../Assets/clikkleprobrand.png'
-
+import Projectsetting from '../pages/Personalprojectsettings';
+import CloseIcon from '@mui/icons-material/Close';
 
 
 
@@ -83,7 +84,6 @@ import upgradeIssue from '../Assets/Group 1019.png';
 import UpgradeButton from '../pages/Button/GradientButton'
 
 import StandardFeatures from '../pages/Project/StandardFeatures';
-import CloseIcon from '@mui/icons-material/Close';
 
 
 import { Dialog, DialogContent, DialogTitle, Tabs, Tab, Card, ListItemAvatar, AvatarGroup, DialogActions,
@@ -108,6 +108,8 @@ const openedMixin = theme => ({
     backgroundColor: theme.palette.background.default,
     borderRight: 'none',
 });
+
+
 
 
 
@@ -196,7 +198,25 @@ const handleClose = () => {
   setOpene(false); // Close the popup
 };
 
+ // State to manage the first dialog (Personal Projects Settings)
+ const [openSettingsDialog, setOpenSettingsDialog] = useState(false);
+ // State for another dialog (if you have one)
+ const [openOtherDialog, setOpenOtherDialog] = useState(false);
 
+ // Function to open the Personal Projects Settings dialog
+ const handleOpenSettingsDialog = () => {
+   setOpenSettingsDialog(true);
+ };
+
+ // Function to close the Personal Projects Settings dialog
+ const handleCloseSettingsDialog = () => {
+   setOpenSettingsDialog(false);
+ };
+
+ // Function to close the other dialog
+ const handleCloseOtherDialog = () => {
+   setOpenOtherDialog(false);
+ };
 
  
 
@@ -520,16 +540,7 @@ const handleCloseSecondDialog = () => {
                 }}
             >
                 {/* Loop through organizations */}
-                {organizations.map((org) => (
-                    <MenuItem
-                        key={org.id}
-                        onClick={() => handleSelectOrganization(org.name, org.logo)} // Set the selected organization
-                        sx={{ fontSize: '14px', padding: '10px' }}
-                    >
-                        {org.name}
-                       
-                    </MenuItem>
-                ))}
+             
 
                 {/* Divider and "Create Organization" option */}
                 <MenuItem
@@ -1195,8 +1206,9 @@ const handleCloseSecondDialog = () => {
         sx={{
           borderRadius: '10px',
           mb: 2,
-          '&:hover': {backgroundColor: '#2e2e2d' }  // Add hover effect
+          '&:hover': { backgroundColor: '#2e2e2d' }, // Add hover effect
         }}
+        onClick={handleOpenSettingsDialog} // Open settings dialog on click
       >
         <ListItemAvatar>
           <Avatar sx={{ backgroundColor: '#3767B1', borderRadius: '7px' }}>
@@ -1216,6 +1228,46 @@ const handleCloseSecondDialog = () => {
           }
         />
       </ListItem>
+
+      {/* Dialog Component for Personal Projects Settings */}
+      <Dialog
+      
+  open={openSettingsDialog}
+  onClose={handleCloseSettingsDialog}
+  fullWidth
+  maxWidth="lg"
+>
+  {/* Close Icon in the top-left corner */}
+  <DialogTitle sx={{  backgroundColor: 'background.default' }}>
+   
+   <Box sx={{display:'flex',}}>
+    <IconButton onClick={handleCloseSettingsDialog} sx={{ color: 'text.primary', backgroundColor: 'background.default' }}>
+      <CloseIcon />
+    </IconButton>
+    
+    </Box>
+    
+  </DialogTitle>
+
+  <DialogContent sx={{  backgroundColor: 'background.default',marginTop:'-37px', }}>
+    <Projectsetting />
+  </DialogContent>
+  
+</Dialog>
+
+
+      {/* Additional Dialog Component (if you have another dialog) */}
+      
+      <Dialog open={openOtherDialog} onClose={handleCloseOtherDialog}>
+        <DialogTitle>Other Dialog</DialogTitle>
+        <DialogContent>
+          <Typography>Content for the other dialog</Typography>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleCloseOtherDialog}>Close</Button>
+        </DialogActions>
+      </Dialog>
+      
 
       {/* Projects Settings Section */}
       <ListSubheader
