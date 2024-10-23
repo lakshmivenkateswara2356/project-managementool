@@ -113,7 +113,7 @@ const Neworganisation = ({ addOrganization }) => {
           </Typography>
 
           <Box sx={{ textAlign: 'center' }}>
-            <Image sx={{ height: '305px' }} src={neworganisationImage} />
+            <Image sx={{ height: '355px' }} src={neworganisationImage} />
           </Box>
 
          
@@ -143,7 +143,8 @@ const Neworganisation = ({ addOrganization }) => {
                 marginRight: '82px',
                 backgroundColor: isNextButtonEnabled ? '#3767B1' : '#555555',
                 color: 'white',
-                width: '120px',
+                width: '110px',
+                height:'41px',
                 marginBottom: '12px',
                 '@media(max-width:600px)': { marginRight: '22px' },
                 '&:hover': {
