@@ -85,16 +85,17 @@ const OrganizationList = ({ organizations }) => {
         {organizations.length}
       </h1>
 
-      <Box container component={Paper} sx={{ marginTop: '20px', maxWidth: '100%',backgroundColor:'background.default'}}>
+      <Box container component={Paper} sx={{ marginTop: '20px', maxWidth: '100%',backgroundColor:'#141414'}}>
         <Table>
-          <TableHead>
+          <TableHead sx={{backgroundColor:'background.default'}}>
             <TableRow>
               <TableCell sx={{  fontWeight: 'bold' }}>Organization</TableCell>
               <TableCell sx={{  fontWeight: 'bold' }}>Status</TableCell>
               <TableCell sx={{ fontWeight: 'bold' }}>Action</TableCell>
             </TableRow>
           </TableHead>
-          <TableBody>
+          <Box sx={{backgroundColor:'#202020',width:'100%',height:'1px'}}></Box>
+          <TableBody sx={{backgroundColor:'background.default'}}>
             {organizations.map((org) => (
               <TableRow key={org._id} onClick={() => handleOrganizationClick(org)} sx={{ cursor: 'pointer' }}>
                 <TableCell>

@@ -16,6 +16,9 @@ const Neworganisation = ({ addOrganization }) => {
   const [websiteURL, setWebsiteURL] = useState('');
   const [errors, setErrors] = useState({ email: '', url: '' });
 
+  // Helper to check if the required fields are filled
+  const isNextButtonEnabled = organizationName.trim() !== '';
+
   // Validate email format (must end with @gmail.com)
   const handleEmailChange = (e) => {
     const value = e.target.value;
@@ -105,31 +108,23 @@ const Neworganisation = ({ addOrganization }) => {
               },
             }}
           >
-            Project organization refer to the style of coordination, communication, and management a
-            team uses throughout a project’s lifecycle.
+            Project organization refers to the style of coordination, communication, and management
+            a team uses throughout a project’s lifecycle.
           </Typography>
 
           <Box sx={{ textAlign: 'center' }}>
             <Image sx={{ height: '305px' }} src={neworganisationImage} />
           </Box>
 
-          <Box sx={{ textAlign: 'center', marginTop: '5px' }}>
-            {avatarPreview && (
-              <img
-                src={avatarPreview}
-                alt="Organization Avatar"
-                style={{ width: '40px', height: '40px', borderRadius: '50%', marginBottom: '20px' }}
-              />
-            )}
-          </Box>
+         
 
           <Box sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
             <TextField
               placeholder="Create Organization"
               style={{
                 width: '95vw',
-                marginLeft:'-37px',
-                height: '40px',
+                marginLeft: '-78px',
+                height: '30px',
                 borderRadius: '9px',
                 backgroundColor: 'background.default',
                 paddingLeft: '35px',
@@ -142,25 +137,24 @@ const Neworganisation = ({ addOrganization }) => {
           </Box>
 
           <Box sx={{ display: 'flex', justifyContent: 'flex-end', marginTop: '25px' }}>
-  <Button
-    onClick={() => setIsPopupOpen(true)}
-    sx={{
-      marginRight: '82px',
-      backgroundColor: '#3767B1',
-      color: 'white',
-      width: '120px',
-      marginBottom: '12px',
-      '@media(max-width:600px)': { marginRight: '22px' },
-      '&:hover': {
-        backgroundColor: '#3767B1', // Maintain the same background color on hover
-        opacity: 1, // Ensure the opacity remains unchanged
-      },
-    }}
-  >
-    Next
-  </Button>
-</Box>
-
+            <Button
+              onClick={() => setIsPopupOpen(true)}
+              sx={{
+                marginRight: '82px',
+                backgroundColor: isNextButtonEnabled ? '#3767B1' : '#555555',
+                color: 'white',
+                width: '120px',
+                marginBottom: '12px',
+                '@media(max-width:600px)': { marginRight: '22px' },
+                '&:hover': {
+                  backgroundColor: isNextButtonEnabled ? '#3767B1' : '#555555',
+                },
+              }}
+              disabled={!isNextButtonEnabled} // Disable button if input is empty
+            >
+              Next
+            </Button>
+          </Box>
 
           {/* Popup Dialog */}
           <Dialog
@@ -215,19 +209,44 @@ const Neworganisation = ({ addOrganization }) => {
             <Typography sx={{ fontWeight: 500, marginTop: '42px', fontSize: '18px' }}>
               Organization Logo
             </Typography>
-            <Box container sx={{ display: 'flex', alignItems: 'center', gap: 2, mt: 1, }}>
-              <Button variant="outlined" component="label" sx={{ borderRadius: '50%',height:'60px',borderWidth:'2px' }}>
-                <AddIcon sx={{}} />
-                <input type="file" hidden onChange={handleFileChange} />
-              </Button>
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mt: 1 }}>
+            <Button
+  variant="outlined"
+  component="label"
+  sx={{
+    borderRadius: '50%',
+    height: '48px', // Set below 20px
+    width: '48px',  // Set below 20px
+    minHeight: '18px', // Ensure no default size override
+    minWidth: '18px',  // Ensure no default size override
+    borderWidth: '3px',
+    padding: 0, // Remove padding
+    margin: 0,  // Remove margin
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    overflow: 'hidden',
+    color: 'gray',
+    borderColor: 'gray',
+  }}
+>
+  {avatarPreview ? (
+    <img
+      src={avatarPreview}
+      alt="Uploaded Logo"
+      style={{
+        width: '100%',
+        height: '100%',
+        objectFit: 'cover',
+        borderRadius: '50%',
+      }}
+    />
+  ) : (
+    <AddIcon sx={{ fontSize: '20px' }} /> // Smaller icon size for smaller button
+  )}
+  <input type="file" hidden onChange={handleFileChange} />
+</Button>
 
-              {avatarPreview && (
-                <img
-                  src={avatarPreview}
-                  alt="Uploaded Logo"
-                  style={{ width: '50px', height: '50px', borderRadius: '50%' }}
-                />
-              )}
             </Box>
 
             <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>

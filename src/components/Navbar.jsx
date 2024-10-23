@@ -164,7 +164,7 @@ export default function Navbar(props) {
     const [isOrderChanged, setIsOrderChanged] = useState(false);
     const [editable, setEditable] = useState(false);
     const [user, setUser] = useState(null);
-    const [collapseDrawer, setCollapseDrawer] = useState(true);
+    const [collapseDrawer, setCollapseDrawer] = useState(false);
     const [drawerHover, setDrawerHover] = useState(false);
     const {
         modalState: feedbackState,
@@ -186,17 +186,15 @@ export default function Navbar(props) {
 
 //opensetting
 
-    const [ setOpen] = useState(false); // 
-    const [opensetting, setOpene] = useState(false); 
-
+const [opensetting, setOpene] = useState(false);
 
 const handleOpenset = () => {
-    setOpene(true);
-  };
+  setOpene(true);
+};
 
-  const handleClose = () => {
-    setOpen(false); // Close the popup
-  };
+const handleClose = () => {
+  setOpene(false); // Close the popup
+};
 
 
 
@@ -356,6 +354,11 @@ const handleOpenset = () => {
     const handleClick = (event) => {
       setAnchorEl(event.currentTarget);  // Open the dropdown
     };
+
+    const handleDropdownClose = () => {
+      setAnchorEl(null); // Close the dropdown
+  };
+
   
     const handleOrganisation = () => {
         navigate('Neworganisation')  // Close the dropdown
@@ -508,7 +511,7 @@ const handleCloseSecondDialog = () => {
             <Menu
                 anchorEl={anchorEl}
                 open={open}
-                onClose={handleClose}
+                onClose={handleDropdownClose}
                 PaperProps={{
                     style: {
                          // Same dark background as the header
