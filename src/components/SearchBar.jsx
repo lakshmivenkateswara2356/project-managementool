@@ -14,6 +14,10 @@ import React from 'react';
 import TuneIcon from '@mui/icons-material/Tune';
 import { useMenu } from './../hooks/useMenu';
 import { styled } from '@mui/material/styles';
+
+import { useMediaQuery } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
+
 import './SearchBar.css';
 
 const SearchWrapper = styled('div')(({ theme }) => ({
@@ -27,6 +31,9 @@ const SearchWrapper = styled('div')(({ theme }) => ({
     border: 'none',
     borderRadius: '20px',
 }));
+
+
+
 
 const IconWrapperLeft = styled('div')(({ theme }) => ({
     padding: theme.spacing(0, 2),
@@ -68,7 +75,9 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 const SearchBar = () => {
     const { anchorEl: anchorElFilter, openMenu: openFilter, closeMenu: closeFilter } = useMenu();
-
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm')); // Adjust the breakpoint as needed
+  
     return (
         <React.Fragment>
             <SearchWrapper>
@@ -76,12 +85,12 @@ const SearchBar = () => {
                     <SearchIcon />
                 </IconWrapperLeft>
                 <FormControl fullWidth>
-                    <StyledInputBase
-                        sx={{
-                            flex: 1,
-                        }}
-                        placeholder='Search in Projects'
-                    />
+                <StyledInputBase
+      sx={{
+        flex: 1,
+      }}
+      placeholder={isMobile ? 'Search...' : 'Search in Projects'} // Conditional placeholder
+    />
                 </FormControl>
                 <IconWrapperRight>
                     <IconButton

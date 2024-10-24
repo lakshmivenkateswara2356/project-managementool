@@ -5,8 +5,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import Thementire from '../../style/theme';
 import { Box,
   Dialog, DialogContent, DialogActions, 
-  Button, TextField, Typography, Table, TableBody, 
-  TableCell,  TableHead, TableRow, Paper 
+  Button, TextField, Typography
 } from '@mui/material';
 
 const OrganizationList = ({ organizations }) => {
@@ -66,83 +65,126 @@ const OrganizationList = ({ organizations }) => {
       textAlign: 'left',  padding: '50px', 
       height: '100vh', marginLeft: '-12px',
     }}>
-      <h1 style={{ fontWeight: 'lighter', fontFamily: 'sans-serif', marginBottom: '22px', marginTop: '75px' }}>
+      <h1 style={{fontSize:'37px', fontWeight: 'lighter', fontFamily: 'sans-serif', marginBottom: '22px', marginTop: '15px' }}>
         Organization<span style={{ color: 'gray' }}> List</span>
       </h1>
 
       <Typography sx={{ 
-        width: '850px', color: 'gray', fontFamily: 'sans-serif', fontSize: '18px',
+         color: 'gray', fontFamily: 'sans-serif', fontSize: '17px',marginTop:'-20px',
         '@media(max-width:600px)': { width: '350px', fontSize: '18px' },
       }}>
         Project organization refers to the style of coordination, communication, and management a team uses throughout a project’s lifecycle.
       </Typography>
 
-      <h2 style={{ marginTop: '43px', fontSize: '18px', color: 'gray', marginBottom: '33px', fontWeight: 'lighter' }}>
+      <h2 style={{ marginTop: '33px', fontSize: '16px', color: 'gray', marginBottom: '33px', fontWeight: '400' }}>
         Total Organization
       </h2>
 
-      <h1 style={{ fontSize: '46px', fontWeight: 'lighter', color: 'gray' }}>
+      <h1 style={{ fontSize: '36px', color: 'gray',marginTop:'-28px',fontWeight:'400' }}>
         {organizations.length}
       </h1>
+<Box sx={{
+  '@media(max-width:600px)':{
+        width:{xs:'100%'},
+        overflow:"scroll",
+      }
+}}>
+  {/* Header Row */}
+  <Box 
+    sx={{ 
+      display: 'flex', 
+      justifyContent: 'space-between', 
+      alignItems: 'center', 
+      backgroundColor: 'background.default', 
+      padding: '8px 0', 
+      fontWeight: 'bold', 
+      marginTop:'45px',
 
-      <Box container component={Paper} sx={{ marginTop: '20px', maxWidth: '100%',backgroundColor:'#141414'}}>
-        <Table>
-          <TableHead sx={{backgroundColor:'background.default'}}>
-            <TableRow>
-              <TableCell sx={{  fontWeight: 'bold' }}>Organization</TableCell>
-              <TableCell sx={{  fontWeight: 'bold' }}>Status</TableCell>
-              <TableCell sx={{ fontWeight: 'bold' }}>Action</TableCell>
-            </TableRow>
-          </TableHead>
-          <Box sx={{backgroundColor:'#202020',width:'100%',height:'1px'}}></Box>
-          <TableBody sx={{backgroundColor:'background.default'}}>
-            {organizations.map((org) => (
-              <TableRow key={org._id} onClick={() => handleOrganizationClick(org)} sx={{ cursor: 'pointer' }}>
-                <TableCell>
-                  <div style={{ display: 'flex', alignItems: 'center' }}>
-                    <img 
-                      src={org.imageUrl}
-                      alt={org.name} 
-                      style={{ width: '50px', height: '50px', borderRadius: '50%', marginRight: '15px' }} 
-                    />
-                    <Typography sx={{  }}>{org.name}</Typography>
-                  </div>
-                </TableCell>
-                <TableCell>
-                  <span 
-                    style={{
-                      backgroundColor: org.status === 'Active' ? 'rgba(0, 100, 0, 0.2)' : 'rgba(139, 0, 0, 0.2)',
-                      color: org.status === 'Active' ? 'green' : 'green',
-                      padding: '5px 10px',
-                      borderRadius: '5px',
-                    }}
-                  >
-                    {org.status}
-                  </span>
-                </TableCell>
-                <TableCell>
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation(); // Prevent table row click
-                      handleDelete(org.name);
-                    }}
-                    style={{
-                      backgroundColor: 'transparent',
-                      border: 'none',
-                      color: 'white',
-                      width:"13px",
-                      cursor: 'pointer',
-                    }}
-                  >
-                    <DeleteIcon sx={{ color: 'red' }} />
-                  </button>
-                </TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
+      
+    }}
+  >
+    <Typography>Organization</Typography>
+    <Typography sx={{marginLeft:{lg:'600px', xs:'100px'}}}>Status</Typography>
+    <Typography sx={{marginRight:'233px',marginLeft:{xs:'100px'}}}>Action</Typography>
+  </Box>
+
+  {/* Divider */}
+  <Box sx={{ backgroundColor: 'gray', width: {lg:'100%',xs:'150%'}, height: '1px', marginY: '8px' }} />
+
+  {/* List of Organizations */}
+  <Box sx={{ backgroundColor: 'background.default' }}>
+    {organizations.map((org) => (
+      <Box 
+        key={org._id} 
+        onClick={() => handleOrganizationClick(org)} 
+        sx={{ 
+          display: 'flex', 
+          justifyContent: 'space-between', 
+          alignItems: 'center', 
+          padding: '12px 0', 
+          cursor: 'pointer', 
+          
+        }}
+      >
+        {/* Organization Info */}
+        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+          <img 
+            src={org.imageUrl} 
+            alt={org.name} 
+            style={{ 
+              width: '31px', 
+              height: '31px', 
+              borderRadius: '50%', 
+              marginRight: '15px' 
+            }} 
+          />
+          <Typography>{org.name}</Typography>
+        </Box>
+
+        {/* Status */}
+        <Box
+        sx={{
+          marginLeft: { xs: '-497px', lg: '20px' }, // Responsive margin
+        }}>
+          <span
+            style={{
+              backgroundColor: org.status === 'Active' 
+                ? 'rgba(0, 100, 0, 0.2)' 
+                : 'rgba(139, 0, 0, 0.2)',
+              color: org.status === 'Active' ? 'green' : 'darkred',
+              padding: '5px 10px',
+              borderRadius: '5px',
+              marginLeft:'600px'
+            }}
+          >
+            {org.status}
+          </span>
+        </Box>
+
+        {/* Action Button */}
+        <Box
+        sx={{marginLeft:{xs:'100px'}}}>
+          <button
+            onClick={(e) => {
+              e.stopPropagation(); // Prevent row click
+              handleDelete(org.name);
+            }}
+            style={{
+              backgroundColor: 'transparent',
+              border: 'none',
+              color: 'white',
+              cursor: 'pointer',
+              marginRight:'243px'
+            }}
+          >
+            <DeleteIcon sx={{ color: 'red', width: '20px', height: '20px' }} />
+          </button>
+        </Box>
       </Box>
+    ))}
+  </Box>
 
+  </Box>
 
 
       

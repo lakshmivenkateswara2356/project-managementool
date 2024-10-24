@@ -44,6 +44,8 @@ import CloudOutlinedIcon from '@mui/icons-material/CloudOutlined';
 import { fileManager, sharedFile } from '../services/sidebarLinks';
 
 
+
+
 //react component
 import Image from '../components/Image';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
@@ -416,8 +418,8 @@ const handleClose = () => {
       // Default organization
       
      // For navigation
-     const [selectedOrganization, setSelectedOrganization] = useState(organizations[0].name);
-     const [ setSelectedOrgLogo] = useState(organizations[0].logo);
+     const [selectedOrganization] = useState(organizations[0].name);
+     
     
 
      const [userCount] = React.useState(0); // Track the user count
@@ -448,12 +450,7 @@ const handleCloseSecondDialog = () => {
     
 
      
-     const handleSelectOrganization = (name, logo) => {
-        setSelectedOrganization(name);
-        setSelectedOrgLogo(logo);
-        handleClose();
-      };
-    
+ 
 
     useEffect(() => {
         setMobileOpen(false);
@@ -477,14 +474,8 @@ const handleCloseSecondDialog = () => {
                 component={Link}
                 to='/'
                 sx={{ textDecoration: 'none', color: 'text.primary', py: 1 }}>
-                <Image cdn='projects/logo/2023/projects-text.png' sx={{ height: '32px',marginLeft:'-83px',marginBottom:'4px' }} />
-                <Typography
-                    color='text.secondary'
-                    variant='body2'
-                    fontWeight='bold'
-                    sx={{ position: 'absolute', bottom: 2, left: '20%'}}>
-                    Beta
-                </Typography>
+                <Image cdn='projects/logo/2023/projects-text.png' sx={{ height: '48px',marginLeft:'-23px',marginBottom:'4px' }} />
+               
             </Box>
 
             <Box sx={{ overflowY: 'auto', height: 'calc(100dvh - 90px)', flexGrow: 1 }}>

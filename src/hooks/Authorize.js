@@ -2,93 +2,75 @@ import React, { createContext, useContext, useEffect, useState } from 'react';
 import Loading from '../components/Loading';
 import { env } from '../utilities/function';
 
-//import { useMessage } from '../components/Header';
-
 const authorizeContext = createContext();
 
 const AuthorizationProvider = ({ children }) => {
-    const [content, setContent] = useState(<Loading message='Please wait, logging you in...' />);
-    const [user, setUser] = useState({});
-   // const { showError } = useMessage();
+    const [content, setContent] = useState(
+        <Loading message="Please wait, logging you in..." />
+    );
+    const [user, setUser] = useState(null); // Initialize user as null
+
+    const redirectToLogin = () => {
+        const loginUrl = `${env('AUTHENTICATION_CLIENT')}/login?redirectto=${encodeURIComponent(
+            window.location.href
+        )}`;
+        window.location.replace(loginUrl); // Immediately redirect to login
+    };
 
     const authorize = async (loggedIn, cb) => {
         if (loggedIn) {
-            setContent(children);
+            setContent(children); // Render the children if logged in
         } else {
-            const redirectTo =
-                env('AUTHENTICATION_CLIENT') +
-                '/login?redirectto=' +
-                encodeURIComponent(window.location.href);
-            setContent(
-                <Loading
-                    message='Please wait, redirecting you to Clikkle Accounts'
-                    redirectTo={redirectTo}
-                />
-            );
+            redirectToLogin(); // Redirect to login if not logged in
         }
         if (typeof cb === 'function') cb(setUser);
     };
 
     useEffect(() => {
-        (async () => {
-            // try {
-            //     // Simulate fetching user data from server
-            //     const dummyUser = { id: 123, name: 'Test', email: 'test@test.com', role: 'user' };
-            //     setUser(dummyUser);
-            //     authorize(true, setUser => setUser(dummyUser));
-            // } catch (err) {
-            //     console.log(err);
-            //     handleAxiosError(err, showError);
-            //     authorize(false);
-            // }
+        const fetchUserProfile = async (userId) => {
+            const formData = new FormData();
+            formData.append('id', userId);
+
             try {
-                    //  const loggedInUserEmail = getCookie('loggedInUserEmail');
-                    const queryParameters = new URLSearchParams(window.location.search)
-                    const userId = queryParameters.get("userId")
-                    console.log(userId);
-
-                    if (userId) {
-
-                        var formData = new FormData();
-                        formData.append("id", userId);
-
-                        const response = await fetch(
-                            "https://accounts.clikkle.com:5000/api/auth/get_user_profile",
-                             //"https://api.campaigns.clikkle.com/get_user_profile",
-                            //"http://localhost:8000/get_user_profile",
-                            {
-                                method: "POST",
-                                body: formData
-                            },
-
-                        );
-
-                        if (response.ok) {
-                            console.log('user found ...')
-
-                            const responseData = await response.json();
-                            const { user } = responseData;
-                            console.log(user)
-                            localStorage.setItem("user", JSON.stringify(user));
-                            authorize(true, (setUser) => setUser(user));
-
-                        } else {
-                            console.log('user not found')
-                        }
-
-
-                    }else if(localStorage.getItem("user")){
-                        let user = JSON.parse(localStorage.getItem("user"));
-                        authorize(true, (setUser) => setUser(user)); 
-                    } else {
-                        authorize(false);
+                const response = await fetch(
+                    'https://accounts.clikkle.com:5000/api/auth/get_user_profile',
+                    {
+                        method: 'POST',
+                        body: formData,
                     }
+                );
 
-                } catch (err) {
-                    console.log(err);
-                    // handleAxiosError(err, showError);
-                    authorize(false);
+                if (response.ok) {
+                    console.log('User found...');
+                    const { user } = await response.json();
+                    console.log(user);
+                    localStorage.setItem('user', JSON.stringify(user));
+                    authorize(true, (setUser) => setUser(user));
+                } else {
+                    console.warn('User not found, redirecting to login...');
+                    redirectToLogin();
                 }
+            } catch (err) {
+                console.error('Error fetching user profile:', err);
+                redirectToLogin();
+            }
+        };
+
+        (async () => {
+            const queryParameters = new URLSearchParams(window.location.search);
+            const userId = queryParameters.get('userId');
+
+            if (userId) {
+                console.log('User ID found in query:', userId);
+                await fetchUserProfile(userId);
+            } else if (localStorage.getItem('user')) {
+                const storedUser = JSON.parse(localStorage.getItem('user'));
+                console.log('User found in localStorage:', storedUser);
+                authorize(true, (setUser) => setUser(storedUser));
+            } else {
+                console.log('No userId or stored user, redirecting to login...');
+                redirectToLogin();
+            }
         })();
     }, []); // eslint-disable-line react-hooks/exhaustive-deps
 

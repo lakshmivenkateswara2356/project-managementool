@@ -24,7 +24,7 @@ const Neworganisation = ({ addOrganization }) => {
     const value = e.target.value;
     setOrganizationEmail(value);
     if (!value.endsWith('@gmail.com')) {
-      setErrors((prev) => ({ ...prev, email: 'Email must end with @gmail.com' }));
+      setErrors((prev) => ({ ...prev, email: '' }));
     } else {
       setErrors((prev) => ({ ...prev, email: '' }));
     }
@@ -35,7 +35,7 @@ const Neworganisation = ({ addOrganization }) => {
     const value = e.target.value;
     setWebsiteURL(value);
     if (!value.endsWith('.com')) {
-      setErrors((prev) => ({ ...prev, url: 'Website URL must end with .com' }));
+      setErrors((prev) => ({ ...prev, url: '' }));
     } else {
       setErrors((prev) => ({ ...prev, url: '' }));
     }
@@ -76,6 +76,7 @@ const Neworganisation = ({ addOrganization }) => {
       <Box sx={{}}>
         <Box
           sx={{
+            backgroundColor:'background.main',
             display: 'flex',
             flexDirection: 'column',
             paddingTop: '90px',
@@ -84,13 +85,15 @@ const Neworganisation = ({ addOrganization }) => {
         >
           <Typography
             sx={{
-              fontSize: '30px',
-              marginLeft: '33px',
+              fontSize: '34px',
+              fontFamily:'sans-serif',
+              marginLeft: '78px',
+              marginTop:"-22px",
               '@media(max-width:600px)': {
-                width: '370px',
+                width: '330px',
                 fontSize: '26px',
                 textAlign: 'center',
-                marginLeft: '16px',
+                marginLeft:"22px",
                 marginBottom: '22px',
               },
             }}
@@ -99,12 +102,17 @@ const Neworganisation = ({ addOrganization }) => {
           </Typography>
           <Typography
             sx={{
-              width: '858px',
-              marginLeft: '33px',
+              
+              color:'gray',
+              marginTop:'12px',
+              marginLeft: '78px',
+              fontFamily:'sans-serif',
               '@media(max-width:600px)': {
                 width: '322px',
                 fontSize: '12px',
                 textAlign: 'center',
+                marginLeft:"37px",
+                marginTop:'-13px',
               },
             }}
           >
@@ -112,36 +120,58 @@ const Neworganisation = ({ addOrganization }) => {
             a team uses throughout a project’s lifecycle.
           </Typography>
 
-          <Box sx={{ textAlign: 'center' }}>
-            <Image sx={{ height: '355px' }} src={neworganisationImage} />
-          </Box>
+          <Box sx={{ textAlign: 'center', marginTop: '42px' }}>
+  <Image 
+    sx={{ 
+      height: '370px', // Reduce the height
+      width: 'auto',    // Maintain aspect ratio
+      maxWidth: '100%', // Ensure it doesn’t overflow the parent box
+  '@media(max-width:600px)':{
+    height:'220px',
+  }
+  
+  
+    }} 
+    src={neworganisationImage} 
+  />
+</Box>
 
          
 
           <Box sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
-            <TextField
-              placeholder="Create Organization"
-              style={{
-                width: '95vw',
-                marginLeft: '-78px',
-                height: '30px',
-                borderRadius: '9px',
-                backgroundColor: 'background.default',
-                paddingLeft: '35px',
-                marginBottom: '12px',
-              }}
-              type="text"
-              value={organizationName}
-              onChange={(e) => setOrganizationName(e.target.value)}
-            />
+          <TextField
+  placeholder="Organization Name"
+  value={organizationName}
+  onChange={(e) => setOrganizationName(e.target.value)}
+  type="text"
+  style={{
+    width: '90vw',
+    marginLeft: '-12px',
+    marginBottom: '10px',
+    borderRadius: '6px',
+    marginTop:'12px',
+    backgroundColor: 'background.default',
+  }}
+  InputProps={{
+    style: {
+      height: '41px', // Custom height for the input
+      padding: '0 10px', // Control inner padding
+      fontSize: '14px', // Adjust text size
+      lineHeight: '1.2',
+      borderRadius: '6px',
+    },
+  }}
+/>
+
+
           </Box>
 
-          <Box sx={{ display: 'flex', justifyContent: 'flex-end', marginTop: '25px' }}>
+          <Box sx={{ display: 'flex', justifyContent: 'flex-end', marginTop: '7px' }}>
             <Button
               onClick={() => setIsPopupOpen(true)}
               sx={{
                 marginRight: '82px',
-                backgroundColor: isNextButtonEnabled ? '#3767B1' : '#555555',
+                backgroundColor: isNextButtonEnabled ? '#3767B1' : '#1f1e1e',
                 color: 'white',
                 width: '110px',
                 height:'41px',
@@ -163,51 +193,68 @@ const Neworganisation = ({ addOrganization }) => {
             onClose={() => setIsPopupOpen(false)}
             PaperProps={{
               style: {
-                height: '620px',
+                height: '570px',
                 width: '620px',
-                borderRadius: '10px',
+                borderRadius: '1px',
                 padding: '30px',
                 minWidth: '450px',
               },
             }}
           >
             <Box sx={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center', mb: 3 }}>
-              <IconButton onClick={() => setIsPopupOpen(false)}>
+              <IconButton sx={{marginTop:'-22px',marginRight:'-12px'}} onClick={() => setIsPopupOpen(false)}>
                 <CloseIcon sx={{ color: '#b0b0b0' }} />
               </IconButton>
             </Box>
 
-            <Typography sx={{ fontWeight: 500, marginTop: '22px', fontSize: '20px' }}>
+            <Typography sx={{ fontWeight: 500, marginTop: '22px', fontSize: '19px',fontFamily:'sans-serif',}}>
               Organization Email
             </Typography>
             <TextField
-              fullWidth
-              margin="dense"
-              placeholder="Enter Email"
-              variant="outlined"
-              value={organizationEmail}
-              onChange={handleEmailChange}
-              error={!!errors.email}
-              helperText={errors.email}
-              sx={{ marginBottom: '10px' }}
-            />
+  fullWidth
+  margin="dense"
+  placeholder="Enter Email"
+  variant="outlined"
+  value={organizationEmail}
+  onChange={handleEmailChange}
+  error={!!errors.email}
+  helperText={errors.email}
+  sx={{ marginBottom: '10px',marginTop:'12px' }} // Optional external margin styling
+  InputProps={{
+    style: {
+      height: '40px',  // Set your desired height
+      padding: '0 12px',  // Adjust inner padding
+      fontSize: '14px',  // Adjust font size
+    },
+  }}
+/>
 
-            <Typography sx={{ fontWeight: 500, marginTop: '40px', fontSize: '18px' }}>
-              Organization Website URL
+
+            <Typography sx={{ fontWeight: 500, marginTop: '40px', fontSize: '19px',fontFamily:'sans-serif', }}>
+              Organization Website url
             </Typography>
             <TextField
-              fullWidth
-              margin="dense"
-              placeholder="Enter website URL"
-              variant="outlined"
-              value={websiteURL}
-              onChange={handleURLChange}
-              error={!!errors.url}
-              helperText={errors.url}
-              sx={{ marginBottom: '10px' }}
-            />
+  fullWidth
+  margin="dense"
+  placeholder=""
+  variant="outlined"
+  value={websiteURL}
+  onChange={handleURLChange}
+  error={!!errors.url}
+  helperText={errors.url}
+  sx={{ marginBottom: '10px',marginTop:'12px' }}
+  InputProps={{
+    style: {
+      height: '40px',  // Custom height
+      padding: '8px 12px',  // Adjust inner padding
+      fontSize: '14px',  // Font size adjustment
+     
+    },
+  }}
+/>
 
-            <Typography sx={{ fontWeight: 500, marginTop: '42px', fontSize: '18px' }}>
+
+            <Typography sx={{ fontWeight: 500, marginTop: '42px', fontSize: '18px',fontFamily:'sans-serif' }}>
               Organization Logo
             </Typography>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mt: 1 }}>

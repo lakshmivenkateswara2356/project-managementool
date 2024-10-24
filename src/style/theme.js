@@ -74,7 +74,7 @@ const ThemeContextProvider = props => {
             divider: '#424242',
             custom: {
                 search: {
-                    main: '#1A1A1A',
+                    main: 'black',
                     focus: '#2F2F2F',
                 },
                 border: '#616161',

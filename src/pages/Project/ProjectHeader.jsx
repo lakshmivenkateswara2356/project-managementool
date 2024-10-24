@@ -34,6 +34,11 @@ const ProjectHeader =()=> {
 <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '8px 16px', borderRadius: '8px',marginTop:'-35px', }}>
     
     {/* Search Field */}
+    
+    {/* Avatars Section */}
+    <Box sx={{ display: 'flex', gap: 'px', alignItems: 'left', marginTop:'8px',justifyContent:'flex-start', }}>
+    
+
     <Box sx={{ flexGrow: 1, maxWidth: '450px' }}>
       <TextField
         variant="outlined"
@@ -43,7 +48,7 @@ const ProjectHeader =()=> {
           style: {
             borderRadius: '4px',
             
-            
+            width:"300px",
             height:'38px',
             marginRight:'18px',
           },
@@ -69,8 +74,9 @@ const ProjectHeader =()=> {
       />
     </Box>
 
-    {/* Avatars Section */}
-    <Box sx={{ display: 'flex', gap: 'px', alignItems: 'center', marginLeft: '-209px',marginTop:'-18px', }}>
+    
+    
+    
       {/* Assuming you map avatar images here */}
       {[Rashid, Yogesh, Smily, Thompson, lastimage].map((avatar, index) => (
         <img key={index} src={avatar} alt={`Avatar ${index}`} style={{ width: '39px', height: '35px', borderRadius: '50%', border: '2px solid white' }} />
@@ -98,18 +104,18 @@ onClick={handleClickOpen}
       <Image src={Addpersons}/>
     </IconButton>
     </Box>
-
+<Box>
     {/* Assignee Dropdown */}
     <select
           style={{
              backgroundColor: 'transparent',  
             height:'32px',
-            borderRadius:'18px',
+            borderRadius:'7px',
             width:'6vw',
             borderWidth:'1px',
             borderStyle:'solid',
            color:'gray',
-           marginLeft:'200px',
+           
             padding: '5px 10px',
             fontSize: '13px',
           }}
@@ -122,12 +128,12 @@ onClick={handleClickOpen}
           style={{
              backgroundColor: 'transparent',  
             height:'31px',
-            borderRadius:'18px',
+            borderRadius:'7px',
             width:'6vw',
             borderWidth:'1px',
             borderStyle:'solid',
             color:'gray',
-            marginLeft:'-45px',
+           
             padding: '5px 10px',
             fontSize: '13px',
           }}
@@ -140,19 +146,21 @@ onClick={handleClickOpen}
           style={{
              backgroundColor: 'transparent',  
             height:'31px',
-            borderRadius:'18px',
+            borderRadius:'7px',
             width:'7vw',
             borderWidth:'1px',
             color:'gray',
             borderStyle:'solid',
           
-           marginLeft:'-45px',
+           
             padding: '5px 10px',
             fontSize: '13px',
           }}
         >
           <option>Issue Type</option>
         </select>
+
+        </Box>
 
     {/* Assignee Dialog */}
     <Dialog open={assigneeDialogOpen} onClose={handleCloseAssigneeDialog}>

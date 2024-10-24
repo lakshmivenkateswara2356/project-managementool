@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { 
-  Box, Typography, Grid, Paper, Button, Divider, Tabs, Tab, Avatar , List, ListItem, Dialog,useMediaQuery, ListItemText ,IconButton, DialogContent, DialogTitle,
+  Box, Typography, Grid, Paper, Button, Divider, Tabs, Tab, Avatar , List, ListItem, Dialog,useMediaQuery, ListItemText ,IconButton, DialogContent, DialogTitle,Chip,
 } from '@mui/material';
 
 import { useNavigate } from 'react-router-dom';
@@ -183,7 +183,7 @@ const [ setTemplateInfo] = useState('');
 
 <Grid sx={{marginTop:'-23px'}} container alignItems='center'  >
                 <Grid item xs>
-                    <Typography variant='h5' color='text.primary'>
+                    <Typography variant='h5' color='gray'>
                         Dashboard
                     </Typography>
                 </Grid>
@@ -240,47 +240,56 @@ const [ setTemplateInfo] = useState('');
       <DialogContent sx={{ display: 'flex', flexDirection: isMobile ? 'column' : 'row', padding: '20px', backgroundColor: 'background.default' }}>
         {/* Left side: List of templates */}
         {!isMobile || !selectedTemplate ? (
-          <Box
-            sx={{
-              
-              width: isMobile ? '100%' : '20%',
-              borderRight: isMobile ? 'none' : '1px solid #ccc',
-              paddingRight: isMobile ? '0px' : '16px',
-              marginBottom: isMobile ? '16px' : '0',
-              backgroundColor:'background.default' , // Same background as the screenshot
           
+<Box
+  sx={{
+    width: isMobile ? '100%' : '20%',
+    borderRight: isMobile ? 'none' : '1px solid #ccc',
+    paddingRight: isMobile ? '0px' : '16px',
+    marginBottom: isMobile ? '16px' : '0',
+    backgroundColor: 'background.default', // Same background as the screenshot
+  }}
+>
+  <Typography variant="h6" sx={{ marginBottom: '16px', fontWeight: 'bold' }}>
+    Project templates
+  </Typography>
+  <List>
+    {projectTemplates.map((template) => (
+      <ListItem
+        button
+        key={template.title}
+        onClick={() => handleTemplateSelect(template)}
+        sx={{
+          padding: '10px',
+          borderRadius: '8px',
+          height: '39px',
+          marginTop: '-6px',
+          backgroundColor: selectedTemplate === template.title ? '#3767b1' : 'transparent',
+          transition: 'background-color 0.2s ease-in-out',
+          color: selectedTemplate === template.title ? '#ffffff' : '', // White text for selected item
+        }}
+      >
+        <ListItemText primary={template.title} />
+        {/* Add Beta tag except for Software Development */}
+        {template.title !== 'Software Development' && (
+          <Chip
+            label="Beta"
+            sx={{
+              backgroundColor: '#d494e4', // Use the purple color from the design
+              color: '#000000',
+              fontSize: '10px',
+              borderRadius: '12px',
+              width:'46px',
+              fontWeight:'bold',
+              height: '20px',
+              marginLeft: '8px',
             }}
-          >
-            <Typography variant="h6" sx={{ marginBottom: '16px', fontWeight: 'bold',}}>
-              Project templates
-            </Typography>
-            <List>
-              {projectTemplates.map((template) => (
-                <ListItem
-                
-                  button
-                  key={template.title}
-                  onClick={() => handleTemplateSelect(template)}
-                  sx={{
-                    padding: '10px',
-                    borderRadius: '8px',
-                    height:'39px',
-                    
-                   
-                    marginTop:'-6px',
-                    backgroundColor: selectedTemplate === template.title ? '#3767b1' : 'transparent',
-                    transition: 'background-color 0.2s ease-in-out',
-                    color: selectedTemplate === template.title ? '#ffffff' : '', // White text for selected item
-                    '&:hover': {
-                      
-                    },
-                  }}
-                >
-                  <ListItemText primary={template.title} />
-                </ListItem>
-              ))}
-            </List>
-          </Box>
+          />
+        )}
+      </ListItem>
+    ))}
+  </List>
+</Box>
         ) : null}
 
         {/* Right side: Display information */}
@@ -327,7 +336,7 @@ const [ setTemplateInfo] = useState('');
 <Grid item xs={12} sm={6} md={3}>
 <Paper sx={styles.paperContainer}>
  <Box>
-   <Typography variant="h6">To Do</Typography>
+   <Typography sx={{fontSize:'18px'}} variant="h6">To Do</Typography>
    <Typography variant="h4" sx={{ color: '#FF6347' }}>0</Typography>
  </Box>
  <img style={{height:'56px',}} src={Groupicon2} alt="group"/>
@@ -339,7 +348,7 @@ const [ setTemplateInfo] = useState('');
 <Grid item xs={12} sm={6} md={3}>
 <Paper sx={styles.paperContainer}>
  <Box>
-   <Typography variant="h6">In Progress</Typography>
+   <Typography sx={{fontSize:'18px'}} variant="h6">In Progress</Typography>
    <Typography variant="h4" sx={{ color: '#1E90FF' }}>0</Typography>
  </Box>
  <img style={{height:'56px',}} src={Groupicon3} alt="grop3" />
@@ -350,7 +359,7 @@ const [ setTemplateInfo] = useState('');
 <Grid item xs={12} sm={6} md={3}>
 <Paper sx={styles.paperContainer}>
  <Box>
-   <Typography variant="h6">Review</Typography>
+   <Typography sx={{fontSize:'18px'}} variant="h6">Review</Typography>
    <Typography variant="h4" sx={{ color: '#FFD700' }}>0</Typography>
  </Box>
  <img style={{height:'56px',}} src={Groupicon4} alt="group4" />
@@ -361,7 +370,7 @@ const [ setTemplateInfo] = useState('');
 <Grid item xs={12} sm={6} md={3}>
 <Paper sx={styles.paperContainer}>
  <Box>
-   <Typography variant="h6">Done</Typography>
+   <Typography sx={{fontSize:'18px'}} variant="h6">Done</Typography>
    <Typography variant="h4" sx={{ color: '#32CD32' }}>2</Typography>
  </Box>
  <img style={{height:'56px',}}  src={Groupicon} alt="grp5" />

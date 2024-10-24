@@ -46,7 +46,7 @@ const Projectdashboard =()=>{
     <Box sx={{overflow:'scroll',height:'90vh',}}>
          <Grid sx={{padding:'22px' }} container alignItems='center'  >
                 <Grid item xs>
-                    <Typography variant='h5' color='text.primary'>
+                    <Typography variant='h5' color='gray'>
 Projects                    </Typography>
                 </Grid>
 
