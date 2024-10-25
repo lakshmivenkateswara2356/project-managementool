@@ -1129,22 +1129,23 @@ const handleCloseSecondDialog = () => {
                                  {/* Dialog for the settings popup */}
                                  <Dialog
                                  ref={popupRef}
-  sx={{ marginLeft: '655px' }}
+  sx={{ marginLeft: '880px', color: '#fff',
+    borderRadius: '10px',
+    height: '98vh',
+    marginRight:'-95px',
+    width: "590px" }}
   open={opensetting}
   onClose={handleClose}
   fullWidth
-  maxWidth="sm"
+  maxWidth="lg"
   PaperProps={{
     style: {
-      color: '#fff',
-      borderRadius: '10px',
-      height: '91vh',
-      width: "550px"
+     
     }
   }}
 >
   <DialogTitle sx={{ color: 'gray', marginTop: '22px' }}>Settings</DialogTitle>
-  <DialogContent>
+  <DialogContent >
     <List>
       {/* Personal Settings Section */}
       <ListSubheader
@@ -1172,9 +1173,9 @@ const handleCloseSecondDialog = () => {
         <ListItemAvatar>
           <Avatar sx={{ backgroundColor: '#3767B1', borderRadius: '7px' }}>
             {mode === 'dark' ? (
-              <LightModeIcon sx={{ height: '22px' }} />
+              <LightModeIcon sx={{ height: '22px',color:'white' }} />
             ) : (
-              <DarkModeIcon sx={{ height: '22px' }} />
+              <DarkModeIcon sx={{ height: '22px', }} />
             )}
           </Avatar>
         </ListItemAvatar>
@@ -1185,7 +1186,7 @@ const handleCloseSecondDialog = () => {
             </Typography>
           }
           secondary={
-            <Typography sx={{ color: 'gray', fontSize: '13px', fontFamily: 'sans-serif', width: '500px' }}>
+            <Typography sx={{ color: 'gray', fontSize: '13px', fontFamily: 'sans-serif', width: '300px' }}>
               Toggle between light and dark themes.
             </Typography>
           }
@@ -1293,7 +1294,7 @@ const handleCloseSecondDialog = () => {
             </Typography>
           }
           secondary={
-            <Typography sx={{ color: 'gray', fontFamily: 'sans-serif', fontSize: '13px', width: '600px' }}>
+            <Typography sx={{ color: 'gray', fontFamily: 'sans-serif', fontSize: '13px', width: '400px' }}>
               Manage your general configuration, global permissions, look, feel, and more.
             </Typography>
           }
@@ -1320,7 +1321,7 @@ const handleCloseSecondDialog = () => {
             </Typography>
           }
           secondary={
-            <Typography sx={{ color: 'gray', fontFamily: 'sans-serif', fontSize: '13px', width: '600px' }}>
+            <Typography sx={{ color: 'gray', fontFamily: 'sans-serif', fontSize: '13px', width: '300px' }}>
               Manage your projects settings, categories, and more.
             </Typography>
           }
@@ -1346,7 +1347,7 @@ const handleCloseSecondDialog = () => {
             </Typography>
           }
           secondary={
-            <Typography sx={{ color: 'gray', fontFamily: 'sans-serif', fontSize: '13px', width: '600px' }}>
+            <Typography sx={{ color: 'gray', fontFamily: 'sans-serif', fontSize: '13px', width: '300px' }}>
               Configure your issue types, workflows, screens, custom fields, and more.
             </Typography>
           }
@@ -1387,7 +1388,7 @@ const handleCloseSecondDialog = () => {
             </Typography>
           }
           secondary={
-            <Typography sx={{ color: '#bbb', fontFamily: 'sans-serif', fontSize: '13px', width: '600px' }}>
+            <Typography sx={{ color: '#bbb', fontFamily: 'sans-serif', fontSize: '13px', width: '300px' }}>
               Add users, groups, and manage access requests.
             </Typography>
           }

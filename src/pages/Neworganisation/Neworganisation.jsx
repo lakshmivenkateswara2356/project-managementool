@@ -194,10 +194,10 @@ const Neworganisation = ({ addOrganization }) => {
             PaperProps={{
               style: {
                 height: '570px',
-                width: '620px',
+                width: "600px",
                 borderRadius: '1px',
                 padding: '30px',
-                minWidth: '450px',
+                minWidth:{ xs:'90%',lg:'100%'},
               },
             }}
           >

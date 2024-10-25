@@ -173,7 +173,11 @@ const ProjectTable = () => {
       <Table sx={{ minWidth: '100%' }}>
         <TableHead>
           <TableRow>
+
+            {!isMobile &&(
             <TableCell sx={{ fontSize: '13px' }}>S.No</TableCell>
+
+          )}
             <TableCell sx={{ fontSize: '13px' }}>Projects</TableCell>
             {!isMobile && (
               <>
@@ -192,19 +196,22 @@ const ProjectTable = () => {
         <TableBody>
           {projects.map((project, index) => (
             <TableRow key={project.id}>
+              {!isMobile &&(
               <TableCell sx={{}}>{isMobile ? `#${index + 1}` : `#${index + 1}`}</TableCell>
+
+            )}
               <TableCell sx={{ display: 'flex', alignItems: 'center', height: '2px' }}>
-                {isMobile && <StarBorderIcon sx={{ marginRight: '10px' }} />}
+                {isMobile && <StarBorderIcon sx={{ marginRight: '10px',marginTop:'22px' }} />}
                 {!isMobile ? (
                   <>
                     <StarBorderIcon sx={{ marginRight: '10px' }} />
-                    <Typography sx={{ fontSize: '13px' }} onClick={Openspecificproject}>
+                    <Typography sx={{ fontSize: '13px',marginTop:{xs:"22px",lg:"0px"} }} onClick={Openspecificproject}>
                       <img src={project.name.avatar} alt="Project Icon" style={{ width: '22px', height: '22px', marginRight: '10px' }} />
                       {project.name.name}
                     </Typography>
                   </>
                 ) : (
-                  <Typography sx={{ fontSize: '13px' }} onClick={Openspecificproject}>
+                  <Typography sx={{ fontSize: '13px',marginTop:'22px' }} onClick={Openspecificproject}>
                     <img src={project.name.avatar} alt="Project Icon" style={{ width: '22px', height: '22px', marginRight: '10px' }} />
                     {project.name.name}
                   </Typography>
@@ -263,8 +270,8 @@ const ProjectTable = () => {
                   </TableCell>
                 </>
               )}
-              <TableCell>
-                <IconButton onClick={(e) => handleActionClick(e, project.id)}>
+              <TableCell >
+                <IconButton sx={{marginTop:'-8px'}} onClick={(e) => handleActionClick(e, project.id)}>
                   <MoreVertIcon />
                 </IconButton>
                 <Menu

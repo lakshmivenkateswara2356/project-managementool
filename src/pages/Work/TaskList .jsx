@@ -55,14 +55,14 @@ const TaskList = () => {
   size="small"
   sx={{
     backgroundColor: status === 'To Do' 
-      ? 'rgba(255, 0, 0, 0.2)' // Deep transparent red background for "To Do"
-      : 'rgba(0, 0, 255, 0.2)', // Deep transparent blue background for "In Progress"
-    color: status === 'To Do' ? 'red' : 'blue', // Red or blue text color
+      ? '#36000080' // Deep transparent red background for "To Do"
+      : '#03275F80', // Deep transparent blue background for "In Progress"
+    color: status === 'To Do' ? '#FF3D3D' : '#3767B1', // Red or blue text color
     textTransform: 'none',
     fontSize: '12px',
     fontWeight: 'bold',
     borderRadius: '8px',
-    border: `2px solid ${status === 'To Do' ? 'red' : 'blue'}`, // Red or blue border
+    border: `2px solid ${status === 'To Do' ? '#FF3D3D' : '#3767B1'}`, // Red or blue border
     marginLeft: '28px',
     marginRight: '-105px',
     '&:hover': {

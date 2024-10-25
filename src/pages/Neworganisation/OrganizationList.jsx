@@ -138,13 +138,13 @@ const OrganizationList = ({ organizations }) => {
               marginRight: '15px' 
             }} 
           />
-          <Typography>{org.name}</Typography>
+          <Typography sx={{width:{xs:"30px",lg:"50px"}}}>{org.name}</Typography>
         </Box>
 
         {/* Status */}
         <Box
         sx={{
-          marginLeft: { xs: '-497px', lg: '20px' }, // Responsive margin
+          marginLeft: { xs: '-497px', lg: '-8px' }, // Responsive margin
         }}>
           <span
             style={{
@@ -193,11 +193,12 @@ const OrganizationList = ({ organizations }) => {
   onClose={() => setOpen(false)}
   sx={{
     '& .MuiDialog-paper': {
-      backgroundColor: '#171717',
-      borderRadius: '8px',
-      width: '400px',
+      
+      borderRadius: '2px',
+      height:"360px",
+      width: '500px',
       padding: '24px',
-      maxWidth: '90%',
+      maxWidth: '100vw',
       maxHeight: '85vh',
     },
   }}
@@ -211,14 +212,14 @@ const OrganizationList = ({ organizations }) => {
       marginBottom: '16px',
     }}
   >
-    Delete <span style={{ color: '#42a5f5' }}>{selectedOrg}</span>
+    Delete <span style={{ }}>{selectedOrg}</span>
   </Typography>
 
   <DialogContent sx={{ padding: '0px' }}>
     <Typography
       sx={{
-        color: 'gray',
-        fontSize: '14px',
+        
+        fontSize: '17px',
         marginBottom: '8px',
       }}
     >
@@ -237,18 +238,18 @@ const OrganizationList = ({ organizations }) => {
       This action cannot be undone.
     </Typography>
 
-    <Typography sx={{ fontSize: '14px', marginBottom: '8px', color: 'gray' }}>
+    <Typography sx={{ fontSize: '14px', marginBottom: '8px', }}>
       Please type the organization name to confirm:
     </Typography>
 
     <TextField
       fullWidth
       variant="outlined"
-      placeholder="Enter organization name"
+     
       onChange={(e) => setConfirmName(e.target.value)}
       sx={{
         marginBottom: '24px',
-        backgroundColor: '#1c1c1c',
+       
         borderRadius: '4px',
         '& .MuiOutlinedInput-root': {
           '& fieldset': {
@@ -275,10 +276,10 @@ const OrganizationList = ({ organizations }) => {
     <Button
       onClick={() => setOpen(false)}
       sx={{
-        color: 'white',
+        color: '#42a5f5',
         borderStyle:'solid',
         borderWidth:'1px',
-        borderColor:'gray',
+        borderColor:'#42a5f5',
         textTransform: 'none',
         fontWeight: 500,
 
@@ -295,7 +296,7 @@ const OrganizationList = ({ organizations }) => {
         textTransform: 'none',
         fontWeight: 500,
         '&:hover': {
-          backgroundColor: '#d32f2f',
+          backgroundColor: '',
         },
       }}
     >

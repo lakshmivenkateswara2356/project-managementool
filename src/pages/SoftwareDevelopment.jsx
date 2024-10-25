@@ -165,12 +165,22 @@ const SoftwareDevelopment = () => {
               />
 
               <CardContent sx={{ flexGrow: 1, padding: '0' }}>
-                <Typography variant="h6" sx={{ fontWeight: 'bold', marginBottom: '4px' }}>
-                  {card.title}
-                  {card.isBeta && (
-                    <Chip label="Beta" color="secondary" size="small" sx={{ marginLeft: '8px' }} />
-                  )}
-                </Typography>
+              <Typography variant="h6" sx={{ fontWeight: 'bold', marginBottom: '4px' }}>
+  {card.title}
+  {card.isBeta && (
+    <Chip 
+      label="Beta" 
+      size="small" 
+      sx={{ 
+        marginLeft: '8px', 
+        backgroundColor: '#fecc62', 
+        color: '#000', // Optional: Makes the text black for better contrast
+        fontWeight: 'bold',
+      }} 
+    />
+  )}
+</Typography>
+
                 
                 <Typography variant="body2" sx={{ marginBottom: '8px' }}>
                   {card.projectType}

@@ -50,7 +50,7 @@ const Bottommenu = () => {
             position: 'fixed',
             paddingLeft: '12px',
             paddingRight: '12px',
-            backgroundColor: '#1f1e1e',
+            backgroundColor: 'background.default',
             paddingTop: '22px',
             bottom: 0,
             zIndex: 1000,

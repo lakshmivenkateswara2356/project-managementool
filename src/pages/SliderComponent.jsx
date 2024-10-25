@@ -195,7 +195,7 @@ const SliderComponent = () => {
               )}
 
               <Typography
-                sx={{width:'550px', fontFamily:'sans-serif', fontWeight:'800px', fontSize:'45px', marginLeft:'-80px',"@media(max-width:600px)":{display:'none'} }}
+                sx={{width:'550px',marginTop:'180px', fontFamily:'sans-serif', fontWeight:'800px', fontSize:'45px', marginLeft:'-80px',"@media(max-width:600px)":{display:'none'} }}
                 variant="h4"
                 gutterBottom
               >
@@ -246,7 +246,7 @@ const SliderComponent = () => {
 
 
 
-
+<Box sx={{display:'flex'}}>
 
 
 <Box
@@ -335,27 +335,17 @@ const SliderComponent = () => {
 
             </Box>
 
-            <Box sx={{marginRight:'-110px', height: { lg: '480px', xs: '300px' }, marginTop: { xs: '20px', lg: '0' },display:{xs:'none',lg:'block'} }}>
-              {slide.image && (
-                <img
-                  src={slide.image}
-                  alt={slide.title}
-                  style={{ width: "95%", height: "100%", objectFit: 'contain',}}
-                />
-              )}
-            </Box>
+<Box sx={{display:{xs:'none',lg:'block'}}}>
 
-          </Box>
-        </Box>
-      ))}
-
-      {/* Skip and Dots */}
-      <Box sx={{
-        position: "absolute",
+  {/* Skip and Dots */}
+  <Box sx={{
+        position: "relative",
         bottom: "30px",
         width: "100%",
+        marginTop:{xs:'238px',lg:'130px'},
+        marginLeft:{lg:'-150px'},
         display: 'flex',
-        justifyContent: 'space-between',
+        justifyContent:'flex-start',
         padding: "0 30px",
         '@media (max-width: 600px)': {
           padding: '0 20px',marginBottom:'26px',marginLeft:"-3px"
@@ -367,6 +357,7 @@ const SliderComponent = () => {
           justifyContent: "center",
           padding: '12px',
           marginLeft:'33px',
+          
           '@media (max-width: 600px)': {
             marginLeft: '0',
           }
@@ -391,7 +382,75 @@ const SliderComponent = () => {
 
        
       </Box>
-      
+
+      </Box>
+
+      </Box>
+
+
+
+
+
+
+
+
+            <Box sx={{marginRight:'-110px', height: { lg: '480px', xs: '300px' }, marginTop: { xs: '20px', lg: '-10px' },display:{xs:'none',lg:'block'} }}>
+              {slide.image && (
+                <img
+                  src={slide.image}
+                  alt={slide.title}
+                  style={{ width: "95%", height: "100%", objectFit: 'contain',}}
+                />
+              )}
+            </Box>
+
+          </Box>
+        </Box>
+      ))}
+
+    
+<Box sx={{display:{lg:'none',xs:'block'}}}>
+
+     {/* Skip and Dots */}
+  <Box sx={{
+       
+        '@media (max-width: 600px)': {
+          padding: '0 20px',marginBottom:'-98px',marginLeft:"-203px",
+          marginTop:"29px",
+        }
+      }}>
+
+        <Box sx={{
+          display: "flex",
+          justifyContent: "center",
+          padding: '12px',
+          marginLeft:'33px',
+          
+          '@media (max-width: 600px)': {
+            marginLeft: '0',
+          }
+        }}>
+          {slides.map((_, index) => (
+            <Box
+              key={index}
+              onClick={() => setCurrentSlide(index)}
+              sx={{
+                borderRadius: currentSlide === index ? '15px' : "50%",
+                height: "10px",
+                width: currentSlide === index ? "36px" : "10px",
+                backgroundColor: currentSlide === index ? "#007bff" : "#ccc",
+                display: "inline-block",
+                margin: "0 5px",
+                cursor: "pointer",
+                transition: "all 0.3s ease",
+              }}
+            ></Box>
+          ))}
+        </Box>
+
+       
+      </Box>
+      </Box>
 
       <Box
   sx={{
@@ -406,6 +465,7 @@ const SliderComponent = () => {
     },
   }}
 >
+  
   <Button
     variant="text"
     disabled={currentSlide === 0}

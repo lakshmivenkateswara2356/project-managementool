@@ -95,19 +95,53 @@ Projects                    </Typography>
           <Projecttable /> {/* List view component */}
         </Box>
       ) : (
-        <Grid  sx={{ padding: '22px',display:'flex',marginRight:'12px'
-         }}>
-          {projects.map((project, index) => (
-            <Grid sx={{textAlign:'center'}} item xs={12} sm={6} md={4} key={index}>
-              
-                
-                  <Avatar sx={{backgroundColor:'red',height:'86px',width:'88px',borderRadius:'7px',marginRight:'34px'}} src={project.image} alt={project.name} />
-                  <Typography sx={{fontSize:'13px',marginLeft:"-33px",fontFamily:'sans-serif'}} variant="h6">{project.name}</Typography>
-                
-              
-            </Grid>
-          ))}
-        </Grid>
+        <Grid 
+        container 
+        sx={{ 
+          padding: '22px', 
+          display: 'flex', 
+          marginRight: '12px', 
+           // Centers content
+        }}
+      >
+        {projects.map((project, index) => (
+          <Grid 
+            item 
+            xs={4} // 4 columns on mobile (12 / 4 = 3 items per row)
+            sm={6} // 2 items per row on small screens
+            md={1} // 3 items per row on medium screens and up
+            key={index}
+            sx={{ 
+              textAlign: 'center', 
+              marginBottom: '16px', // Adds spacing between rows
+            }}
+          >
+            <Avatar 
+              src={project.image} 
+              alt={project.name} 
+              sx={{ 
+                 
+                height: '86px', 
+                width: '88px', 
+                borderRadius: '7px', 
+                marginRight: 'auto', // Centers the avatar
+                marginLeft: 'auto', 
+              }} 
+            />
+            <Typography 
+              variant="h6" 
+              sx={{ 
+                fontSize: '13px', 
+                marginTop: '8px', 
+                fontFamily: 'sans-serif', 
+              }}
+            >
+              {project.name}
+            </Typography>
+          </Grid>
+        ))}
+      </Grid>
+      
       )}
 
 <Box sx={{display:{xs:'block',lg:'none'}}}>

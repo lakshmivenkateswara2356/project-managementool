@@ -33,7 +33,7 @@ const OrganizationUsers = () => {
   };
 
   return (
-    <Box container sx={{ padding: '20px', borderRadius: '8px', color: '#fff' }}>
+    <Box container sx={{ padding: '20px', borderRadius: '8px' }}>
       {/* Header */}
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
 
@@ -98,7 +98,7 @@ const OrganizationUsers = () => {
             <Avatar src={user.avatar} sx={{ marginRight: '10px',height:'31px',width:'31px' }} />
             <Box >
               <Box sx={{display:'flex',marginRight:'12px'}}>
-              <Typography sx={{display:"flex", color: '#fff', fontFamily:'sans-serif',fontSize:"14px",fontWeight:'bold' }}>
+              <Typography sx={{display:"flex",  fontFamily:'sans-serif',fontSize:"14px",fontWeight:'bold' }}>
                 {user.name}
                 
               </Typography>
@@ -135,7 +135,7 @@ const OrganizationUsers = () => {
           <Box sx={{ flex: 1, textAlign: 'center' }}>
             <Typography
               sx={{
-                color: user.status === 'Active' ? 'white' : 'white',marginLeft:'-333px'
+                color: user.status === 'Active' ? 'gray' : 'gray',marginLeft:'-333px'
               }}
             >
               {user.status}

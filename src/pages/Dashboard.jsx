@@ -275,7 +275,7 @@ const [ setTemplateInfo] = useState('');
           <Chip
             label="Beta"
             sx={{
-              backgroundColor: '#d494e4', // Use the purple color from the design
+              backgroundColor: '#fecc62', // Use the purple color from the design
               color: '#000000',
               fontSize: '10px',
               borderRadius: '12px',
