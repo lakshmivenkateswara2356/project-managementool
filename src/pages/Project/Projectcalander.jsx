@@ -8,6 +8,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import Checkbox from '@mui/material/Checkbox';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import Bottommenu from "../../pages/BottomMenu/Bottommenu";
 
 import { grey, blue, red } from '@mui/material/colors';
 
@@ -429,6 +430,10 @@ const Projectcalander = () => {
           </Typography>
         </Box>
       )}
+
+<Box sx={{display:{xs:'block',lg:'none'}}}>
+<Bottommenu/>
+</Box>
     </Box>
   );
 };

@@ -1,115 +1,159 @@
 import React, { useState } from 'react';
 import {
-  Box, Typography, Card, TextField, Button, IconButton, 
+  Box, Typography, Card, TextField, Button, IconButton,
 } from '@mui/material';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import PersonIcon from '@mui/icons-material/Person';
-import { HiOutlinePlus } from 'react-icons/hi'; // Import the Plus icon
+import { HiOutlinePlus } from 'react-icons/hi'; // Import Plus icon
 
 const ProjectInProgress = () => {
-  const [showTextArea, setShowTextArea] = useState(false); // Controls when to show the text area
-  const [newIssue, setNewIssue] = useState('');
-  const [inProgressItems, setInProgressItems] = useState([]); // Initial empty state for issues
+  const [cards, setCards] = useState([]); // Stores multiple cards with issues
 
-  const handlePlusClick = () => setShowTextArea(true);
+  const handleAddCard = () => {
+    const newCard = { issues: [], newIssue: '', showTextArea: false };
+    setCards([...cards, newCard]); // Add a new card to the list
+  };
 
-  const handleSaveIssue = () => {
+  const handleIssueChange = (index, value) => {
+    const updatedCards = [...cards];
+    updatedCards[index].newIssue = value; // Update the new issue input for the specific card
+    setCards(updatedCards);
+  };
+
+  const handleSaveIssue = (index) => {
+    const updatedCards = [...cards];
+    const { newIssue, issues } = updatedCards[index];
+
     if (newIssue.trim()) {
-      setInProgressItems([...inProgressItems, newIssue]); // Save the entered text as new issue
-      setNewIssue(''); // Reset the input field
-      setShowTextArea(false); // Hide the text area after creation
+      updatedCards[index].issues = [...issues, newIssue]; // Save the issue in the specific card
+      updatedCards[index].newIssue = ''; // Reset the input field
+      updatedCards[index].showTextArea = false; // Hide the text area
+      setCards(updatedCards);
     }
   };
 
+  const toggleTextArea = (index) => {
+    const updatedCards = [...cards];
+    updatedCards[index].showTextArea = true; // Show text area for the specific card
+    setCards(updatedCards);
+  };
+
   return (
-    <Box>
-      <Card
+    <Box sx={{ padding: '20px', display: 'flex', alignItems: 'flex-start' }}>
+      {/* Render All Cards Dynamically */}
+      <Box
         sx={{
-          width: '270px',
-          padding: '16px',
-         
-          borderRadius: '8px',
-           // Adjust background color to match design
-          position: 'relative',
+          display: 'flex',
+          flexDirection: 'row', // Ensure row layout
+          flexWrap: 'nowrap', // Prevent wrapping
+          gap: '16px', // Space between cards
+          overflowX: 'auto', // Enable horizontal scrolling
+          paddingBottom: '10px', // Add padding for better scroll appearance
         }}
       >
-        {/* Header Section */}
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          
-        </div>
-
-        {/* Plus Icon to Create Issue */}
-        {!showTextArea && (
-          <IconButton
+        {cards.map((card, cardIndex) => (
+          <Card
+            key={cardIndex}
             sx={{
-              backgroundColor: 'background.default',
-              borderRadius: '5px',
-              height: '30px',
-              width: '30px',
-              marginTop: '12px',
+              width: '270px',
+              padding: '16px',
+              borderRadius: '8px',
+              backgroundColor: '#1e1e1e', // Dark background for better contrast
+              color: 'white',
+              position: 'relative',
             }}
-            onClick={handlePlusClick} // Show text area on click
           >
-            <HiOutlinePlus style={{ height: '20px', width: '20px', color: 'white' }} />
-          </IconButton>
-        )}
+            <Typography variant="h6" sx={{ marginBottom: '12px' }}>
+              Card {cardIndex + 1}
+            </Typography>
 
-        {/* Text Area for Creating New Issue */}
-        {showTextArea && (
-          <>
-            <TextField
-              fullWidth
-              multiline
-              rows={2}
-              placeholder="Enter issue heading"
-              value={newIssue}
-              onChange={(e) => setNewIssue(e.target.value)}
-              sx={{ marginTop: '8px' }}
-            />
-            <Button
-              sx={{
-                marginTop: '8px',
-                backgroundColor: '#1976d2',
-                color: 'white',
-                textTransform: 'none',
-                '&:hover': { backgroundColor: '#1565c0' },
-              }}
-              onClick={handleSaveIssue}
-            >
-              Create
-            </Button>
-          </>
-        )}
-
-        {/* Display Created Issues */}
-        {!showTextArea && inProgressItems.map((item, index) => (
-          <div key={index} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '12px' }}>
-            <div style={{ display: 'flex', alignItems: 'center' }}>
-              <CheckCircleIcon
+            {/* Plus Icon to Show Text Area */}
+            {!card.showTextArea && (
+              <IconButton
                 sx={{
-                  fontSize: '24px',
-                  color: '#4FC3F7',
-                  marginRight: '8px',
+                  backgroundColor: 'background.default',
+                  borderRadius: '5px',
+                  height: '30px',
+                  width: '30px',
+                  marginBottom: '12px',
                 }}
-              />
-              <Typography
+                onClick={() => toggleTextArea(cardIndex)} // Show text area for this card
+              >
+                <HiOutlinePlus style={{ height: '20px', width: '20px', color: 'white' }} />
+              </IconButton>
+            )}
+
+            {/* Text Area to Add New Issue */}
+            {card.showTextArea && (
+              <>
+                <TextField
+                  fullWidth
+                  multiline
+                  rows={2}
+                  placeholder="Enter issue heading"
+                  value={card.newIssue}
+                  onChange={(e) => handleIssueChange(cardIndex, e.target.value)}
+                  sx={{ marginTop: '8px', backgroundColor: 'white', color: 'black' }}
+                />
+                <Button
+                  sx={{
+                    marginTop: '8px',
+                    backgroundColor: '#1976d2',
+                    color: 'white',
+                    textTransform: 'none',
+                    '&:hover': { backgroundColor: '#1565c0' },
+                  }}
+                  onClick={() => handleSaveIssue(cardIndex)} // Save issue for this card
+                >
+                  Create
+                </Button>
+              </>
+            )}
+
+            {/* Display Created Issues for This Card */}
+            {card.issues.map((issue, issueIndex) => (
+              <Box
+                key={issueIndex}
                 sx={{
-                  fontSize: '14px',
-                  color: 'white',
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                  marginTop: '12px',
                 }}
               >
-                {item} {/* Display entered text as the issue heading */}
-              </Typography>
-            </div>
-            <PersonIcon
-              sx={{
-                fontSize: '28px',
-                color: '#666',
-              }}
-            />
-          </div>
+                <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                  <CheckCircleIcon
+                    sx={{
+                      fontSize: '24px',
+                      color: '#4FC3F7',
+                      marginRight: '8px',
+                    }}
+                  />
+                  <Typography sx={{ fontSize: '14px', color: 'white' }}>
+                    {issue}
+                  </Typography>
+                </Box>
+                <PersonIcon sx={{ fontSize: '28px', color: '#666' }} />
+              </Box>
+            ))}
+          </Card>
         ))}
-      </Card>
+      </Box>
+
+      {/* Render Plus Icon to Add New Cards */}
+      <IconButton
+        sx={{
+          backgroundColor: 'background.default',
+          borderRadius: '5px',
+          height: '32px',
+          width: '32px',
+          marginLeft: '0px', // Add some space between cards and the plus icon
+          color: 'white',
+        }}
+        onClick={handleAddCard} // Create a new card on click
+      >
+        <HiOutlinePlus style={{ height: '24px', width: '24px' }} />
+      </IconButton>
     </Box>
   );
 };

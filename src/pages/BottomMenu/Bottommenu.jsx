@@ -3,6 +3,8 @@ import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import AssignmentOutlinedIcon from '@mui/icons-material/AssignmentOutlined';
 import WorkOutlineIcon from '@mui/icons-material/WorkOutline';
 import PeopleIcon from '@mui/icons-material/People';
+import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone'; // Import Outlined Notifications icon
+
 import AppsIcon from '@mui/icons-material/Apps';
 import { useNavigate } from 'react-router-dom';
 
@@ -37,7 +39,7 @@ const Bottommenu = () => {
     }
 
     const handleTeams =()=>{
-        navigate('/shared-with-me')
+        navigate('/issues-show')
     }
 
     return (
@@ -183,9 +185,9 @@ const Bottommenu = () => {
                         justifyContent: 'center',
                     }}
                 >
-                    <PeopleIcon
+                    <NotificationsNoneIcon
                         sx={{
-                            fontSize: '20px',
+                            fontSize: '26px',
                             color: activeTab === 'teams' ? 'primary.main' : 'text.secondary', // Color changes based on activeTab
                         }}
                     />
