@@ -6,7 +6,7 @@ import Robo from '../../Assets/Robo.png';
 import { Box, Typography, Card, CardContent, Grid, Avatar } from '@mui/material';
 
 const ProjectCard = ({ project }) => (
-  <Card sx={{ color: 'white', display: 'flex', p: 2, minWidth: 200,height:'120px' }}>
+  <Card sx={{ color: 'white', display: 'flex', p: 2, minWidth: 200,height:'120px'}}>
     <Box
       sx={{
         width: '30px',
@@ -60,13 +60,13 @@ const ListOfProjectsIfWeHave = () => {
   ];
 
   return (
-    <Box sx={{ color: 'white', height: '20vh', p: 4 }}>
-      <Box display="flex" justifyContent="space-between" alignItems="center">
+    <Box sx={{ color: 'white', height: '20vh', p: 4}}>
+      <Box  display="flex" justifyContent="space-between" alignItems="center"  >
       
     
       </Box>
       
-      <Grid container spacing={2}>
+      <Grid sx={{display:"flex",flexDirection:"row", }} container spacing={1}>
         {projects.map((project, index) => (
           <Grid item key={index}>
             <ProjectCard project={project} />

@@ -57,7 +57,7 @@ const Workheaderele =()=>{
 
       {projects.length === 0 ? (
         // If there are no projects, show this content.
-        <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '20vh'}}>
+        <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '20vh',}}>
           <Box>
             <Box>
               <img
