@@ -150,7 +150,7 @@ const ProjectList = () => {
       <Projectheader />
       <Box>
         {/* List View */}
-        <Table sx={{width:'105%',marginLeft:'-33px' }} aria-label="simple table">
+        <Table sx={{width:'105%',marginLeft:'-33px',overflow:"scroll" }} aria-label="simple table">
           <TableHead sx={{backgroundColor:'background.default',height: '50px',fontSize:'12px', width: '100%', '& th': { // Adjust individual table header cells
       fontSize: '14px', 
       padding: '8px', 

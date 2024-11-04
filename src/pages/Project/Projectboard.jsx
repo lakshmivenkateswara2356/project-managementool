@@ -26,11 +26,12 @@ const Projectboard = () => {
   const isMobile = useMediaQuery((theme) => theme.breakpoints.down('sm'));
 
   return (
-    <Box>
+    <Box >
       <Board />
       {/* Board View */}
       <Box
         sx={{
+         
           display: 'flex',
           flexDirection: isMobile ? 'row' : 'row', // Align in row for both but enable scroll for mobile
           gap: '20px',

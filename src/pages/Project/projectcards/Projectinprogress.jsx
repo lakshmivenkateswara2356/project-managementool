@@ -1,48 +1,28 @@
 import React, { useState } from 'react';
+import { orange } from '@mui/material/colors';
+import Tickicon from "../../../Assets/Personsimages/twemoji_check-mark-button.png";
+import Image from "../../../components/Image";
+import { FaEquals } from "react-icons/fa6";
 import {
-  Box, Typography, Card, TextField, Button, Checkbox, Tabs, FormControl, Avatar, Select, InputAdornment,
-  Tab, IconButton, Menu, MenuItem, ListItemText, Dialog, DialogTitle, DialogContent,
+  Box, Typography, Card, TextField, Button,Avatar, Checkbox, Dialog, DialogTitle, DialogContent,
+  InputAdornment, IconButton
 } from '@mui/material';
 import {
-  EmojiEmotions, AttachFile, Link, MoreVert, MoreHoriz as MoreHorizIcon,
-  FilterList as FilterListIcon, Visibility as VisibilityIcon, ThumbUpAlt as ThumbUpAltIcon,
-  Share as ShareIcon, CheckCircle as CheckCircleIcon,
+  AttachFile, Link, MoreVert, EmojiEmotions,
 } from '@mui/icons-material';
 
 const ProjectInProgress = () => {
-  const [tab, setTab] = useState(0);
-  const [anchorElActions, setAnchorElActions] = useState(null);
-  const openActions = Boolean(anchorElActions);
   const [isHovered, setIsHovered] = useState(false);
   const [showTextArea, setShowTextArea] = useState(false);
   const [newIssue, setNewIssue] = useState('');
   const [inProgressItems, setInProgressItems] = useState([]);
-  const [anchorEl, setAnchorEl] = useState(null);
   const [dialogOpen, setDialogOpen] = useState(false);
   const [selectedIssue, setSelectedIssue] = useState(null);
-  const [filter, setFilter] = useState('Newest first');
   const [comment, setComment] = useState('');
-  const openMenu = Boolean(anchorEl);
 
-  const handleTabChange = (event, newValue) => {
-    setTab(newValue);
+  const handleCreateClick = () => {
+    setShowTextArea(true);
   };
-
-  const handleActionsClick = (event) => {
-    setAnchorElActions(event.currentTarget);
-  };
-
-  const handleActionsClose = () => {
-    setAnchorElActions(null);
-  };
-
-  const handleMenuClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleMenuClose = () => setAnchorEl(null);
-
-  const handleCreateClick = () => setShowTextArea(true);
 
   const handleSaveIssue = () => {
     if (newIssue.trim()) {
@@ -63,14 +43,12 @@ const ProjectInProgress = () => {
     setSelectedIssue(null);
   };
 
-  const handleCommentChange = (e) => setComment(e.target.value);
-
   return (
     <Box>
       <Card
         sx={{
           width: '280px',
-          height:"145px",
+          minHeight: inProgressItems.length === 0 ? '160px' : 'auto',
           padding: '16px',
           borderRadius: '8px',
           backgroundColor: 'background.default',
@@ -89,32 +67,62 @@ const ProjectInProgress = () => {
           <Typography sx={{
             fontSize: '15px', fontWeight: '500', color: '#3767B1', border: '1px solid #878ECE',
             backgroundColor: '#02163580', padding: '4px 8px', borderRadius: '4px', width: '34px',
-            height: '28px',textAlign:"center",
+            height: '28px', textAlign: "center",
           }}>
             {inProgressItems.length}
           </Typography>
-          <Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleMenuClose} PaperProps={{ style: { maxHeight: 200, width: '20ch' } }}>
-            <MenuItem onClick={handleMenuClose}>Move to</MenuItem>
-            <MenuItem onClick={handleMenuClose}>Copy issue link</MenuItem>
-            <MenuItem onClick={handleMenuClose}>Copy issue key</MenuItem>
-            <MenuItem onClick={handleMenuClose}>Add flag</MenuItem>
-            <MenuItem onClick={handleMenuClose}>Add label</MenuItem>
-            <MenuItem onClick={handleMenuClose}>Link issue</MenuItem>
-            <MenuItem onClick={handleMenuClose} sx={{ color: 'red' }}>Delete</MenuItem>
-          </Menu>
         </Box>
 
-        {isHovered && !showTextArea && (
-          <Button sx={{
-            textTransform: 'none', width: '100%', height: '35px', padding: '12px', color: 'white',
-            justifyContent: 'flex-start', backgroundColor: '#171716', marginTop: '12px',
-          }} onClick={handleCreateClick}>
+        {/* Render existing issues */}
+        <Box sx={{ marginTop: '12px' }}>
+          {inProgressItems.map((item, index) => (
+            <Card key={index} sx={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              padding: '12px',
+              borderRadius: '8px',
+              marginTop: '12px',
+            }}>
+              <Box>
+                <Typography sx={{ fontSize: '14px', color: 'white' }}>{item.description}</Typography>
+                <Box sx={{ display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
+                  <Box sx={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }} onClick={() => handleOpenDialog(item)}>
+                    <Image sx={{ height: "20px", marginRight: '148px' }} src={Tickicon} alt="Tickicon" />
+                  </Box>
+                  <Box sx={{ display: 'flex', gap: '8px' }}>
+                    <IconButton sx={{ color: orange[500], padding: 0 }}>
+                      <FaEquals />
+                    </IconButton>
+
+                    <Avatar sx={{ width: 24, height: 24 }} />
+                  </Box>
+                </Box>
+              </Box>
+            </Card>
+          ))}
+        </Box>
+
+        {/* Show "Create Issue" button when hovering */}
+        {isHovered && (
+          <Button
+            sx={{
+              textTransform: 'none',
+              width: '100%',
+              height: '35px',
+              color: 'white',
+              backgroundColor: '#171716',
+              marginTop: '12px',
+            }}
+            onClick={handleCreateClick}
+          >
             + Create Issue
           </Button>
         )}
 
+        {/* Show the text area and create button for new issue */}
         {showTextArea && (
-          <>
+          <Box sx={{ display: 'flex', flexDirection: 'column', marginTop: '8px' }}>
             <TextField
               fullWidth
               multiline
@@ -127,24 +135,30 @@ const ProjectInProgress = () => {
                 disableUnderline: true,
                 sx: { padding: '4px 8px', fontSize: '14px', lineHeight: '1.2' },
               }}
-              sx={{ marginTop: '8px', backgroundColor: 'background.default', borderRadius: '4px' }}
+              sx={{ backgroundColor: 'background.default', borderRadius: '4px' }}
             />
-            <Button sx={{
-              marginTop: '8px', backgroundColor: '#3767B1', color: 'white', fontSize: "11px",
-              height: "28px", marginTop: "-28px", textTransform: 'none', '&:hover': { backgroundColor: '#3767B1' },
-            }} onClick={handleSaveIssue}>
+            <Box sx={{display:"flex",flexDirection:"row",justifyContent:"flex-end"}}>
+            <Button
+              sx={{
+                marginTop: '8px',
+                backgroundColor: '#3767B1',
+                textAlign:"right",
+                width:"55px",
+                
+                color: 'white',
+                fontSize: "11px",
+                height: "28px",
+                textTransform: 'none',
+                '&:hover': { backgroundColor: '#3767B1' },
+              }}
+              onClick={handleSaveIssue}
+            >
               Create
             </Button>
-          </>
-        )}
 
-        {!showTextArea && inProgressItems.length === 0 && (
-          <Typography sx={{ marginTop: '16px', color: '#aaa', textAlign: 'center', fontStyle: 'italic' }}>
-           
-          </Typography>
+            </Box>
+          </Box>
         )}
-
-       
 
         <Dialog open={dialogOpen} onClose={handleCloseDialog} fullWidth maxWidth="lg"
           PaperProps={{ sx: { color: '#ffffff', borderRadius: '8px', height: '100vh', backgroundColor: 'background.default' } }}>
@@ -161,7 +175,7 @@ const ProjectInProgress = () => {
               <Box sx={{ display: 'flex', gap: 2, marginBottom: '16px' }}>
                 <Button startIcon={<AttachFile />} sx={{ color: '#ffffff', backgroundColor: '#3e3e3e', padding: '6px 12px' }}>Attach</Button>
                 <Button startIcon={<Link />} sx={{ color: '#ffffff', backgroundColor: '#3e3e3e', padding: '6px 12px' }}>Link Issue</Button>
-                <Button endIcon={<MoreVert />} sx={{ color: '#ffffff', backgroundColor: '#3e3e3e', padding: '6px 12px' }} onClick={handleMenuClick}>Create</Button>
+                <Button endIcon={<MoreVert />} sx={{ color: '#ffffff', backgroundColor: '#3e3e3e', padding: '6px 12px' }} onClick={handleCreateClick}>Create</Button>
               </Box>
               <Typography variant="h6" sx={{ marginBottom: '10px', color: '#ffffff' }}>Description</Typography>
               <TextField
@@ -176,7 +190,7 @@ const ProjectInProgress = () => {
               <TextField
                 placeholder="Write a comment..."
                 value={comment}
-                onChange={handleCommentChange}
+                onChange={(e) => setComment(e.target.value)}
                 multiline
                 rows={2}
                 fullWidth
@@ -187,31 +201,9 @@ const ProjectInProgress = () => {
                 }}
               />
             </Box>
-            <Box sx={{ flex: 1 }}>
-              <Typography sx={{ marginBottom: '16px', color: '#ffffff' }}>Details</Typography>
-              {/* Additional details can be added here */}
-            </Box>
           </DialogContent>
         </Dialog>
       </Card>
-<Box sx={{backgroundColor:"background.default"}}>
-      {!showTextArea && inProgressItems.map((item, index) => (
-          <Card key={index} sx={{
-            display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-            backgroundColor: '#1e1e1e', padding: '12px', borderRadius: '8px', marginTop: '12px',
-          }}>
-            <Box sx={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }} onClick={() => handleOpenDialog(item)}>
-              <CheckCircleIcon sx={{ fontSize: '24px', color: '#4FC3F7', marginRight: '8px' }} />
-              <Typography sx={{ fontSize: '14px', color: 'white' }}>{item.description}</Typography>
-            </Box>
-            <Box sx={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <IconButton sx={{ color: '#FF6F00' }}><MoreHorizIcon /></IconButton>
-              <Avatar sx={{ width: 24, height: 24 }} />
-            </Box>
-          </Card>
-        ))}
-
-</Box>
     </Box>
   );
 };

@@ -9,7 +9,6 @@ import {
   TextField,
   Button,
   useMediaQuery,
-  MenuItem,
 } from "@mui/material";
 import Image from "../../components/Image";
 import Rashid from "../../Assets/Ellipse 68.png";
@@ -23,7 +22,7 @@ const ProjectHeader = () => {
   const [assigneeDialogOpen, setAssigneeDialogOpen] = useState(false);
   const [issueTypeDialogOpen, setIssueTypeDialogOpen] = useState(false);
 
-  const isMobile = useMediaQuery("(max-width: 600px)"); // Detect mobile screens
+  const isMobile = useMediaQuery("(max-width: 600px)");
 
   const handleClickOpen = () => setAssigneeDialogOpen(true);
   const handleCloseAssigneeDialog = () => setAssigneeDialogOpen(false);
@@ -33,22 +32,24 @@ const ProjectHeader = () => {
     <Box
       sx={{
         display: "flex",
-        flexDirection: isMobile ? "column" : "row", // Column for mobile view
+        flexDirection: "row",
         justifyContent: "space-between",
         alignItems: "center",
         padding: "8px 16px",
         borderRadius: "8px",
         marginTop: "-35px",
-        gap: isMobile ? 2 : 0,
+        gap: 1,
+        flexWrap: isMobile ? "wrap" : "nowrap",
       }}
     >
       {/* Left Section: Search and Avatars */}
       <Box
         sx={{
           display: "flex",
-          flexDirection: isMobile ? "column" : "row",
+          flexDirection: "row",
           alignItems: "center",
           gap: 1,
+          flex: 1,
         }}
       >
         {/* Search Field */}
@@ -79,8 +80,14 @@ const ProjectHeader = () => {
           }}
         />
 
-        {/* Avatars */}
-        <Box sx={{ display: "flex", gap: 1, alignItems: "center" }}>
+        {/* Avatars - Hidden in mobile mode */}
+        <Box
+          sx={{
+            display: isMobile ? "none" : "flex",
+            gap: 1,
+            alignItems: "center",
+          }}
+        >
           {[Rashid, Yogesh, Smily, Thompson, lastimage].map((avatar, index) => (
             <img
               key={index}
@@ -131,9 +138,11 @@ const ProjectHeader = () => {
       <Box
         sx={{
           display: "flex",
-          flexDirection: isMobile ? "column" : "row",
-          gap: isMobile ? 2 : 1,
+          flexDirection: "row",
+          gap: 1,
           alignItems: "center",
+          flex: 1,
+          justifyContent: isMobile ? "space-evenly" : "flex-end",
         }}
       >
         {["Assignee", "Priority", "Issue Type"].map((label, index) => (

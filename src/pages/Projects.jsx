@@ -120,7 +120,7 @@ const Projects = ({ todoDescription }) => {
       {/* Divider */}
      
 
-<Box >
+<Box  >
       {/* Options Bar */}
       <Box
         sx={{
@@ -134,6 +134,7 @@ const Projects = ({ todoDescription }) => {
         <Button
           onClick={() => handleOptionClick('Board')}
           sx={{width:'50px',
+            
             color: selectedOption === 'Board' ? '#A9A9A9' : '#A9A9A9',
             borderBottom: selectedOption === 'Board' ? '3px solid #1976d2' : 'none',
             paddingBottom: '10px',
