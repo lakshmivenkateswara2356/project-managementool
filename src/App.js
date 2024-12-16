@@ -12,6 +12,7 @@ import Teams from './pages/Teams/Teams';
 import Teammember from './pages/profile/Profileteammember';
 import Profile from './pages/profile/Profileaccount';
 import Profileediter from './pages/Profilesettings/ProfileEdit';
+import Introstartupscrenn from "./pages/Startupscreens/Introstartupscreen";
 
 import Inprogresscard from './pages/Project/projectcards/Projectinprogress';
 import Projects from './pages/Projects';
@@ -48,7 +49,7 @@ const App = () => {
       {/* OrganizationList component to display the list of organizations */}
      
       <Route path="/listorganisation" element={<OrganizationList organizations={organizations} />} />
-     
+     <Route path="/Introstartupscreen" element={<Header><Introstartupscrenn/></Header> }/>
      
       <Route path="/" element={<Home /> } />  
 <Route path="/Projects" element={

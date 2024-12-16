@@ -399,25 +399,36 @@ View All
 
 <Box sx={{ paddingY: 2 }}>
 {[...Array(5)].map((_, index) => (
-<Box key={index} sx={styles.activityItem}>
- <Avatar src={profileclikk} alt="Daniel Thompson" sx={styles.avatarStyle} />
- <Box sx={{ flex: 1 }}>
-   <Typography variant="body1" sx={styles.activityText(index)}>
-     {index === 2
-       ? 'New Add list permission on the member list issue'
-       : index < 2
-         ? 'Add list permission on the member list issue'
-         : 'Work progress % calculation issue'}
-   </Typography>
-   <Typography variant="body2" sx={{ marginLeft:"1px"}}>
-     Daniel Thompson 
-   </Typography>
- </Box>
- <Button  variant="outlined"  sx={styles.issueButton}>Issue</Button>
- <Typography variant="body2" sx={{  fontSize:'12px',fontWeight:'light',margin:{xs:'1px',sm:"13px" },width:"500px" }}>
-   {index * 2 + 38} minutes ago
- </Typography>
+  <Box sx={{ paddingY: 2 }}>
+  {/* Check if data is available */}
+  {[...Array(5)].length > 0 ? (
+    [...Array(5)].map((_, index) => (
+      <Box key={index} sx={styles.activityItem}>
+        <Avatar src={profileclikk} alt="Daniel Thompson" sx={styles.avatarStyle} />
+        <Box sx={{ flex: 1 }}>
+          <Typography variant="body1" sx={styles.activityText(index)}>
+            {index === 2
+              ? 'New Add list permission on the member list issue'
+              : index < 2
+                ? 'Add list permission on the member list issue'
+                : 'Work progress % calculation issue'}
+          </Typography>
+          <Typography variant="body2" sx={{ marginLeft: "1px" }}>
+            Daniel Thompson
+          </Typography>
+        </Box>
+        <Button variant="outlined" sx={styles.issueButton}>Issue</Button>
+        <Typography variant="body2" sx={{ fontSize: '12px', fontWeight: 'light', margin: { xs: '1px', sm: "13px" }, width: "500px" }}>
+          {index * 2 + 38} minutes ago
+        </Typography>
+      </Box>
+    ))
+  ) : (
+    // Message when no data is available
+    <Typography variant="body2" sx={{ textAlign: 'center', color: 'gray' }}>No current data available</Typography>
+  )}
 </Box>
+
 ))}
 </Box>
 </Paper>
@@ -522,7 +533,7 @@ borderRadius:'17px',
     width: '60%',
     overflow: 'scroll',
     ml:-4,
-    height: '42vh',
+    height: '48vh',
 
     '&::-webkit-scrollbar': { display: 'none' }, // Chrome, Safari
     '-ms-overflow-style': 'none', // IE, Edge
