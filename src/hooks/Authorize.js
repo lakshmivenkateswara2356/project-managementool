@@ -10,18 +10,20 @@ const AuthorizationProvider = ({ children }) => {
     );
     const [user, setUser] = useState(null); // Initialize user as null
 
-    const redirectToLogin = () => {
-        const loginUrl = `${env('AUTHENTICATION_CLIENT')}/login?redirectto=${encodeURIComponent(
-            window.location.href
-        )}`;
-        window.location.replace(loginUrl); // Immediately redirect to login
+    const showNotAuthorized = () => {
+        setContent(
+            <div style={{ textAlign: 'center', marginTop: '20px' }}>
+                <h2>You are not authorized to view this page.</h2>
+                <p>Please log in to continue.</p>
+            </div>
+        );
     };
 
     const authorize = async (loggedIn, cb) => {
         if (loggedIn) {
             setContent(children); // Render the children if logged in
         } else {
-            redirectToLogin(); // Redirect to login if not logged in
+            showNotAuthorized(); // Show "Not Authorized" message if not logged in
         }
         if (typeof cb === 'function') cb(setUser);
     };
@@ -47,12 +49,12 @@ const AuthorizationProvider = ({ children }) => {
                     localStorage.setItem('user', JSON.stringify(user));
                     authorize(true, (setUser) => setUser(user));
                 } else {
-                    console.warn('User not found, redirecting to login...');
-                    redirectToLogin();
+                    console.warn('User not found, showing not authorized message...');
+                    showNotAuthorized();
                 }
             } catch (err) {
                 console.error('Error fetching user profile:', err);
-                redirectToLogin();
+                showNotAuthorized();
             }
         };
 
@@ -68,8 +70,8 @@ const AuthorizationProvider = ({ children }) => {
                 console.log('User found in localStorage:', storedUser);
                 authorize(true, (setUser) => setUser(storedUser));
             } else {
-                console.log('No userId or stored user, redirecting to login...');
-                redirectToLogin();
+                console.log('No userId or stored user, showing not authorized message...');
+                showNotAuthorized();
             }
         })();
     }, []); // eslint-disable-line react-hooks/exhaustive-deps
